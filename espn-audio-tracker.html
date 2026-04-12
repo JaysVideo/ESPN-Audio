@@ -206,23 +206,50 @@ body.light .log-entry{background:#f5f5f5;}
 .log-empty{font-size:12px;color:#555;padding:12px 0;font-family:'IBM Plex Mono',monospace;}
 
 /* ── EVENT INFO MODAL ── */
-#event-modal{display:none;position:fixed;inset:0;background:var(--modal-bg);z-index:500;align-items:center;justify-content:center;padding:20px;}
+#event-modal{display:none;position:fixed;inset:0;background:var(--modal-bg);z-index:500;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
 #event-modal.open{display:flex;}
-#event-card{background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:8px;width:100%;max-width:480px;overflow:hidden;}
+#event-card{background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:8px;width:100%;max-width:520px;overflow:hidden;margin:auto;}
 body.light #event-card{background:#fff;}
 #event-card-header{background:var(--surface);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
-#event-card-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--text);}
-#event-close{font-size:18px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;}
+#event-card-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:3px;color:var(--text);}
+#event-close{font-size:18px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;padding:4px 8px;}
 #event-close:hover{color:var(--red);}
-#event-form{padding:16px;display:flex;flex-direction:column;gap:11px;}
+
+/* game browser */
+#game-browser{padding:12px 16px;border-bottom:2px solid var(--border);background:var(--surface);}
+body.light #game-browser{background:#f5f5f5;}
+#game-browser-title{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;}
+#game-browser-refresh{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);background:none;border:1px solid var(--border);border-radius:3px;padding:3px 8px;cursor:pointer;}
+#game-browser-refresh:hover{color:var(--text);}
+#game-list{display:flex;flex-direction:column;gap:4px;max-height:220px;overflow-y:auto;}
+#game-list-loading{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);padding:10px 0;text-align:center;letter-spacing:1px;}
+#game-list-empty{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#555;padding:10px 0;text-align:center;}
+.game-row{display:flex;align-items:center;gap:10px;padding:7px 10px;background:var(--panel);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:all .15s;}
+body.light .game-row{background:#fff;}
+.game-row:hover{border-color:var(--red);background:#1a0808;}
+body.light .game-row:hover{background:#fff5f5;border-color:var(--red);}
+.game-row:hover .game-matchup{color:#fff;}
+body.light .game-row:hover .game-matchup{color:#0d0d0d;}
+.game-time{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);flex-shrink:0;width:52px;}
+.game-info{flex:1;min-width:0;}
+.game-matchup{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.game-meta{font-size:10px;color:var(--muted);margin-top:1px;}
+.game-network{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;padding:2px 6px;border-radius:2px;background:var(--red);color:#fff;flex-shrink:0;}
+.game-network.espnplus{background:#1a4a8a;}
+.game-network.espnu{background:#2a5a2a;}
+.game-network.espn2{background:#4a2a7a;}
+.game-network.abc{background:#333;}
+.game-status-live{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--red);animation:blink 1.2s ease-in-out infinite;flex-shrink:0;}
+
+#event-form{padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
 .ef-row{display:flex;gap:10px;}
 .ef-row .ef-group{flex:1;}
 .ef-group{display:flex;flex-direction:column;gap:4px;}
 .ef-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
 .ef-input,.ef-select{font-family:'IBM Plex Mono',monospace;font-size:12px;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:3px;outline:none;width:100%;}
-body.light .ef-input,body.light .ef-select{background:#f5f5f5;border-color:#ccc;}
+body.light .ef-input,body.light .ef-select{background:#f5f5f5;border-color:#ccc;color:#0d0d0d;}
 .ef-input:focus,.ef-select:focus{border-color:var(--red);}
-#event-save{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:1px;padding:10px;background:var(--red);color:#fff;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;width:100%;margin-top:4px;}
+#event-save{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:1px;padding:10px;background:var(--red);color:#fff;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;width:100%;margin-top:2px;}
 #event-save:hover{background:var(--dark-red);}
 #event-status{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--green);text-align:center;padding:4px 0;display:none;}
 
@@ -347,6 +374,18 @@ body.light .help-tip{background:#f5f5f5;}
       <div id="event-card-title">Event Information</div>
       <button id="event-close">✕</button>
     </div>
+
+    <!-- GAME BROWSER -->
+    <div id="game-browser">
+      <div id="game-browser-title">
+        <span>📡 TODAY'S ESPN GAMES</span>
+        <button id="game-browser-refresh">↻ Refresh</button>
+      </div>
+      <div id="game-list">
+        <div id="game-list-loading">Loading today's schedule…</div>
+      </div>
+    </div>
+
     <div id="event-form">
       <div class="ef-row">
         <div class="ef-group">
@@ -640,40 +679,227 @@ document.getElementById('event-btn').onclick=openEventModal;
 document.getElementById('event-close').onclick=closeEventModal;
 document.getElementById('event-modal').onclick=e=>{if(e.target.id==='event-modal')closeEventModal();};
 document.getElementById('event-save').onclick=saveEventInfo;
+document.getElementById('game-browser-refresh').onclick=()=>fetchTodaysGames(true);
+
+// ESPN sport endpoints to query — all ESPN+ relevant college sports
+const ESPN_ENDPOINTS = [
+  // Diamond Sports
+  {sport:'Baseball',    gender:'',       url:'https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard'},
+  {sport:'Softball',    gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/baseball/college-softball/scoreboard'},
+  // Football
+  {sport:'Football',    gender:'',       url:'https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard'},
+  // Basketball
+  {sport:'Basketball',  gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard'},
+  {sport:'Basketball',  gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard'},
+  // Olympic Sports
+  {sport:'Soccer',      gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/soccer/mens.college.soccer/scoreboard'},
+  {sport:'Soccer',      gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/soccer/womens.college.soccer/scoreboard'},
+  {sport:'Volleyball',  gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard'},
+  {sport:'Volleyball',  gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/volleyball/mens-college-volleyball/scoreboard'},
+  {sport:'Hockey',      gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/scoreboard'},
+  {sport:'Hockey',      gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/hockey/womens-college-hockey/scoreboard'},
+  {sport:'Lacrosse',    gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/lacrosse/mens-college-lacrosse/scoreboard'},
+  {sport:'Lacrosse',    gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/lacrosse/womens-college-lacrosse/scoreboard'},
+  {sport:'Field Hockey',gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/field-hockey/college-field-hockey/scoreboard'},
+  {sport:'Water Polo',  gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/water-polo/mens-college-water-polo/scoreboard'},
+  {sport:'Water Polo',  gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/water-polo/womens-college-water-polo/scoreboard'},
+  {sport:'Gymnastics',  gender:"Women's",url:'https://site.api.espn.com/apis/site/v2/sports/gymnastics/womens-college-gymnastics/scoreboard'},
+  {sport:'Wrestling',   gender:"Men's",  url:'https://site.api.espn.com/apis/site/v2/sports/wrestling/college-wrestling/scoreboard'},
+  {sport:'Swimming',    gender:'',       url:'https://site.api.espn.com/apis/site/v2/sports/swimming-and-diving/college-swimming-diving/scoreboard'},
+  {sport:'Track & Field',gender:'',      url:'https://site.api.espn.com/apis/site/v2/sports/track-and-field/college-track-and-field/scoreboard'},
+];
+
+// ESPN network name normalization
+const ESPN_NETS = ['ESPN','ESPN2','ESPNU','ESPN+','ESPN3','ESPNEWS','SEC Network','ACC Network','Longhorn Network','Big Ten Network','ABC'];
+function normalizeNetwork(raw) {
+  if(!raw) return null;
+  const r = raw.trim();
+  if(r.match(/ESPN\+|ESPN Plus/i)) return 'ESPN+';
+  if(r.match(/ESPNU/i)) return 'ESPNU';
+  if(r.match(/ESPN2/i)) return 'ESPN2';
+  if(r.match(/ESPN3/i)) return 'ESPN3';
+  if(r.match(/ESPNEWS/i)) return 'ESPNEWS';
+  if(r.match(/^ESPN$/i)) return 'ESPN';
+  if(r.match(/SEC Network/i)) return 'SEC Network';
+  if(r.match(/ACC Network/i)) return 'ACC Network';
+  if(r.match(/Longhorn/i)) return 'Longhorn Network';
+  if(r.match(/Big Ten/i)) return 'Big Ten Network';
+  if(r.match(/^ABC$/i)) return 'ABC';
+  return null; // not an ESPN property
+}
+
+function networkClass(net) {
+  if(!net) return '';
+  if(net==='ESPN+') return 'espnplus';
+  if(net==='ESPNU') return 'espnu';
+  if(net==='ESPN2') return 'espn2';
+  if(net==='ESPN3') return 'espn2';
+  if(net==='ABC')   return 'abc';
+  return '';
+}
+
+let gamesCache = null;
+let gamesCacheDate = null;
+
+async function fetchTodaysGames(force=false) {
+  const today = new Date().toISOString().slice(0,10);
+  if(!force && gamesCache && gamesCacheDate===today) { renderGames(gamesCache); return; }
+
+  document.getElementById('game-list').innerHTML = '<div id="game-list-loading">Loading today\'s schedule…</div>';
+
+  const dateStr = today.replace(/-/g,'');
+  const results = [];
+
+  // Fetch all endpoints in parallel
+  const fetches = ESPN_ENDPOINTS.map(async ep => {
+    try {
+      const r = await fetch(`${ep.url}?dates=${dateStr}&limit=100`);
+      if(!r.ok) return;
+      const d = await r.json();
+      (d.events||[]).forEach(ev => {
+        // Extract broadcast networks
+        const broadcasts = [];
+        (ev.competitions||[]).forEach(c => {
+          (c.broadcasts||[]).forEach(b => {
+            (b.names||[b.name]).filter(Boolean).forEach(n => {
+              const net = normalizeNetwork(n);
+              if(net && !broadcasts.includes(net)) broadcasts.push(net);
+            });
+          });
+        });
+        if(!broadcasts.length) return; // skip non-ESPN games
+
+        // Extract time
+        const gameDate = new Date(ev.date);
+        const timeStr = gameDate.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true,timeZone:'America/New_York'});
+
+        // Extract team names for matchup
+        const comps = ev.competitions||[];
+        let matchup = ev.name || ev.shortName || '';
+        let awayTeam='', homeTeam='';
+        if(comps[0]?.competitors) {
+          const away = comps[0].competitors.find(c=>c.homeAway==='away');
+          const home = comps[0].competitors.find(c=>c.homeAway==='home');
+          awayTeam = away?.team?.displayName || away?.team?.name || '';
+          homeTeam = home?.team?.displayName || home?.team?.name || '';
+          if(awayTeam && homeTeam) matchup = `${awayTeam} at ${homeTeam}`;
+        }
+
+        // Status
+        const statusType = ev.status?.type?.name||'';
+        const isLive = statusType.includes('STATUS_IN_PROGRESS')||statusType.includes('STATUS_HALFTIME');
+        const isFinal = statusType.includes('STATUS_FINAL');
+
+        results.push({
+          matchup,
+          awayTeam, homeTeam,
+          sport: ep.sport,
+          gender: ep.gender,
+          network: broadcasts[0],
+          allNetworks: broadcasts,
+          time: timeStr,
+          rawDate: gameDate,
+          isLive, isFinal,
+          status: ev.status?.type?.shortDetail || ''
+        });
+      });
+    } catch(e) { /* endpoint may not exist for this sport */ }
+  });
+
+  await Promise.all(fetches);
+
+  // Sort: live first, then by time
+  results.sort((a,b) => {
+    if(a.isLive && !b.isLive) return -1;
+    if(!a.isLive && b.isLive) return 1;
+    return a.rawDate - b.rawDate;
+  });
+
+  gamesCache = results;
+  gamesCacheDate = today;
+  renderGames(results);
+}
+
+function renderGames(games) {
+  const list = document.getElementById('game-list');
+  if(!games.length) {
+    list.innerHTML = '<div id="game-list-empty">No ESPN games found for today.</div>';
+    return;
+  }
+  list.innerHTML = games.map((g,i) => `
+    <div class="game-row" data-i="${i}">
+      <span class="game-time">${g.isLive ? '● LIVE' : g.isFinal ? 'FINAL' : g.time}</span>
+      <div class="game-info">
+        <div class="game-matchup">${esc(g.matchup)}</div>
+        <div class="game-meta">${esc(g.sport)}${g.gender?' · '+g.gender:''}</div>
+      </div>
+      <span class="game-network ${networkClass(g.network)}">${esc(g.network||'ESPN')}</span>
+      ${g.isLive?'<span class="game-status-live">●</span>':''}
+    </div>`).join('');
+
+  list.querySelectorAll('.game-row').forEach(row => {
+    row.addEventListener('click', () => {
+      const g = games[parseInt(row.dataset.i)];
+      fillFromGame(g);
+    });
+  });
+}
+
+function fillFromGame(g) {
+  // Fill form fields from selected game
+  document.getElementById('ef-matchup').value = g.matchup;
+  document.getElementById('ef-sport').value   = g.sport;
+  document.getElementById('ef-show').value    = document.getElementById('ef-show').value || `${g.sport} on ${g.network}`;
+  // Set date to today
+  document.getElementById('ef-date').value    = new Date().toISOString().slice(0,10);
+  // Set network
+  const netSel = document.getElementById('ef-network');
+  const netOpt = Array.from(netSel.options).find(o => o.value === g.network || o.text === g.network);
+  if(netOpt) netSel.value = netOpt.value;
+  // Gender
+  const genSel = document.getElementById('ef-gender');
+  if(g.gender) {
+    const gOpt = Array.from(genSel.options).find(o => o.value === g.gender);
+    if(gOpt) genSel.value = gOpt.value;
+  }
+  showToast(`✓ Loaded: ${g.matchup}`);
+}
 
 function openEventModal(){
   // Populate from saved state
-  document.getElementById('ef-show').value=eventInfo.show;
-  document.getElementById('ef-sport').value=eventInfo.sport;
-  document.getElementById('ef-matchup').value=eventInfo.matchup;
-  document.getElementById('ef-date').value=eventInfo.date;
-  document.getElementById('ef-network').value=eventInfo.network;
-  document.getElementById('ef-producer').value=eventInfo.producer;
-  document.getElementById('ef-duration').value=eventInfo.duration;
-  document.getElementById('ef-gender').value=eventInfo.gender;
-  document.getElementById('ef-denoting').value=eventInfo.denoting;
-  document.getElementById('ef-email').value=eventInfo.email;
-  document.getElementById('ef-phone').value=eventInfo.phone;
-  document.getElementById('ef-ad').value=eventInfo.ad;
-  document.getElementById('ef-packager').value=eventInfo.packager;
+  document.getElementById('ef-show').value    = eventInfo.show;
+  document.getElementById('ef-sport').value   = eventInfo.sport;
+  document.getElementById('ef-matchup').value = eventInfo.matchup;
+  document.getElementById('ef-date').value    = eventInfo.date;
+  document.getElementById('ef-network').value = eventInfo.network;
+  document.getElementById('ef-producer').value= eventInfo.producer;
+  document.getElementById('ef-duration').value= eventInfo.duration;
+  document.getElementById('ef-gender').value  = eventInfo.gender;
+  document.getElementById('ef-denoting').value= eventInfo.denoting;
+  document.getElementById('ef-email').value   = eventInfo.email;
+  document.getElementById('ef-phone').value   = eventInfo.phone;
+  document.getElementById('ef-ad').value      = eventInfo.ad;
+  document.getElementById('ef-packager').value= eventInfo.packager;
   document.getElementById('event-status').style.display='none';
   document.getElementById('event-modal').classList.add('open');
+  // Fetch games (uses cache if already loaded today)
+  fetchTodaysGames();
 }
 function closeEventModal(){document.getElementById('event-modal').classList.remove('open');}
 function saveEventInfo(){
   eventInfo={
-    show:document.getElementById('ef-show').value,
-    sport:document.getElementById('ef-sport').value,
-    matchup:document.getElementById('ef-matchup').value,
-    date:document.getElementById('ef-date').value,
-    network:document.getElementById('ef-network').value,
+    show:    document.getElementById('ef-show').value,
+    sport:   document.getElementById('ef-sport').value,
+    matchup: document.getElementById('ef-matchup').value,
+    date:    document.getElementById('ef-date').value,
+    network: document.getElementById('ef-network').value,
     producer:document.getElementById('ef-producer').value,
     duration:document.getElementById('ef-duration').value,
-    gender:document.getElementById('ef-gender').value,
+    gender:  document.getElementById('ef-gender').value,
     denoting:document.getElementById('ef-denoting').value,
-    email:document.getElementById('ef-email').value,
-    phone:document.getElementById('ef-phone').value,
-    ad:document.getElementById('ef-ad').value,
+    email:   document.getElementById('ef-email').value,
+    phone:   document.getElementById('ef-phone').value,
+    ad:      document.getElementById('ef-ad').value,
     packager:document.getElementById('ef-packager').value,
   };
   const hasInfo=eventInfo.show||eventInfo.matchup;
