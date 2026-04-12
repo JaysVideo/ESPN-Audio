@@ -20,8 +20,11 @@
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--black);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;user-select:none;}
 
+  /* STICKY TOP BLOCK */
+  #sticky-top{position:sticky;top:0;z-index:100;}
+
   /* HEADER */
-  #header{background:var(--dark);border-bottom:3px solid var(--red);padding:10px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
+  #header{background:var(--dark);border-bottom:3px solid var(--red);padding:10px 16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
   #espn-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);letter-spacing:2px;}
   #header-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--muted);}
   #header-right{display:flex;gap:8px;align-items:center;margin-left:auto;flex-wrap:wrap;}
@@ -74,19 +77,17 @@
   /* 5-second threshold indicator */
   #np-threshold{position:absolute;bottom:0;left:0;width:0%;height:3px;background:rgba(255,255,255,0.15);pointer-events:none;}
 
-  /* SOURCE BANNER */
-  #source-banner{padding:5px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;align-items:center;gap:8px;}
+  /* SOURCE BANNER + TABS sticky below top block */
+  #source-banner{padding:5px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;align-items:center;gap:8px;position:sticky;z-index:99;}
+  #sport-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--dark);overflow-x:auto;scrollbar-width:none;position:sticky;z-index:99;}
+  #cat-tabs{display:flex;gap:8px;padding:12px 16px 0;background:var(--black);position:sticky;z-index:98;}
   #source-banner.github{background:#0d1a0d;color:#4a9a4a;border-bottom:1px solid #1a3a1a;}
   #source-banner.local{background:#1a1200;color:#cc8800;border-bottom:1px solid #3a2800;}
   #source-banner.none{display:none;}
-
-  /* SPORT / CAT TABS */
-  #sport-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--dark);overflow-x:auto;scrollbar-width:none;}
   #sport-tabs::-webkit-scrollbar{display:none;}
   .sport-tab{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:10px 18px;cursor:pointer;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;-webkit-tap-highlight-color:transparent;}
   .sport-tab:hover{color:var(--text);}
   .sport-tab.active{color:var(--text);border-bottom-color:var(--red);}
-  #cat-tabs{display:flex;gap:8px;padding:12px 16px 0;background:var(--black);}
   .cat-tab{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:1px;padding:5px 14px;border-radius:20px;cursor:pointer;text-transform:uppercase;transition:all .15s;border:1px solid var(--border);background:none;color:var(--muted);-webkit-tap-highlight-color:transparent;}
   .cat-tab.active{background:var(--red);border-color:var(--red);color:#fff;}
 
@@ -166,6 +167,7 @@
 </head>
 <body>
 
+<div id="sticky-top">
 <div id="header">
   <div id="espn-logo">ESPN</div>
   <div id="header-title">Audio Tracker</div>
@@ -199,6 +201,7 @@
     <div id="np-threshold"></div>
     <div id="np-bar"></div>
   </div>
+</div>
 </div>
 
 <div id="source-banner" class="none"></div>
@@ -236,7 +239,11 @@ const TRACKS_JSON = `${GITHUB_RAW}/tracks.json`;
 
 const SPORTS = ['Olympic Sports','Football','Basketball','Diamond Sports'];
 const CATS   = ['Theme','Support'];
+const DIAMOND_CATS = ['Theme','Support-Baseball','Support-Softball'];
 const SPORT_ICONS = {'Olympic Sports':'🏅','Football':'🏈','Basketball':'🏀','Diamond Sports':'⚾'};
+
+// Diamond Sports active sub-tab
+let activeDiamondCat = 'Theme';
 
 // ── NAME MAPS: sequential file number → cue sheet track name ──────────────
 // Used to fix ELIAS008_001 → ":60 Dramatic Tease" etc.
@@ -364,6 +371,12 @@ async function loadFromGitHub() {
       plays: 0, beenPlayed: false,
       buffer: null, element: null, badgeEl: null
     }));
+    // Add Diamond Sports aliases for Olympic theme tracks
+    const olympicTheme = tracks.filter(t => t.sport==='Olympic Sports' && t.category==='Theme');
+    olympicTheme.forEach(t => {
+      tracks.push({...t, sport:'Diamond Sports', category:'Theme',
+        plays:0, beenPlayed:false, buffer:null, element:null, badgeEl:null});
+    });
     initTracks(tracks, 'github');
     showToast(`${tracks.length} tracks loaded from GitHub.`);
   } catch(e) {
@@ -425,14 +438,35 @@ function buildSportTabs(){
   sportTabsEl.querySelectorAll('.sport-tab').forEach(b=>b.addEventListener('pointerdown',()=>{activeSport=b.dataset.sport;buildSportTabs();buildCatTabs();renderTracks();}));
 }
 function buildCatTabs(){
-  catTabsEl.innerHTML=CATS.map(c=>`<button class="cat-tab${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
-  catTabsEl.querySelectorAll('.cat-tab').forEach(b=>b.addEventListener('pointerdown',()=>{activeCat=b.dataset.cat;buildCatTabs();renderTracks();}));
+  const cats = activeSport === 'Diamond Sports' ? DIAMOND_CATS : CATS;
+  // Ensure activeCat is valid for this sport
+  if (!cats.includes(activeCat)) {
+    activeCat = activeSport === 'Diamond Sports' ? activeDiamondCat : CATS[0];
+  }
+  catTabsEl.innerHTML = cats.map(c => {
+    const label = c === 'Support-Baseball' ? '⚾ Baseball' : c === 'Support-Softball' ? '🥎 Softball' : c;
+    return `<button class="cat-tab${c===activeCat?' active':''}" data-cat="${c}">${label}</button>`;
+  }).join('');
+  catTabsEl.querySelectorAll('.cat-tab').forEach(b=>b.addEventListener('pointerdown',()=>{
+    activeCat=b.dataset.cat;
+    if(activeSport==='Diamond Sports') activeDiamondCat=activeCat;
+    buildCatTabs();renderTracks();
+  }));
 }
 
 // ── RENDER TRACKS ─────────────────────────────────────────────────────────
 function renderTracks(){
-  const visible = allTracks.filter(t=>t.sport===activeSport&&t.category===activeCat);
-  document.getElementById('section-label').textContent=`${activeSport} — ${activeCat} (${visible.length})`;
+  // Diamond Sports Theme shows the Olympic Sports theme tracks
+  let visible;
+  if(activeSport==='Diamond Sports' && activeCat==='Theme'){
+    visible = allTracks.filter(t => t.sport==='Olympic Sports' && t.category==='Theme');
+    if(!visible.length) visible = allTracks.filter(t => t.sport==='Diamond Sports' && t.category==='Theme');
+  } else {
+    visible = allTracks.filter(t=>t.sport===activeSport&&t.category===activeCat);
+  }
+
+  const catLabel = activeCat==='Support-Baseball'?'Baseball Support':activeCat==='Support-Softball'?'Softball Support':activeCat;
+  document.getElementById('section-label').textContent=`${activeSport} — ${catLabel} (${visible.length})`;
   trackGrid.innerHTML='';
   if(!visible.length){trackGrid.innerHTML='<div class="no-tracks">No tracks in this category.</div>';return;}
 
