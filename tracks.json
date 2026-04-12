@@ -1,4 +1,11 @@
 {
-  "updated": "",
-  "tracks": []
+  "updated": "2026-01-01",
+  "tracks": [
+    {
+      "name": "Example Theme Track",
+      "path": "diamond-sports/theme/example-theme.mp3",
+      "sport": "Diamond Sports",
+      "category": "Theme"
+    }
+  ]
 }
