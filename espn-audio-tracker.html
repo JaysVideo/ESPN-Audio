@@ -35,14 +35,6 @@ body.light #now-playing #np-title{color:#0d0d0d;}
 body.light #mode-banner.prod{background:#fff0f0;color:#aa2222;border-bottom-color:#ffcccc;}
 body.light #mode-banner.aud{background:#f5f0ff;color:var(--aud);border-bottom-color:#d8c8f8;}
 body.light #theme-btn{border-color:#999;background:#fff;color:#0d0d0d;}
-body.light .track-btn{background:#fff;border-color:#ccc;}
-body.light .track-btn .track-name{color:#111;}
-body.light .track-btn.playing{background:#fff0f0;border-color:var(--red);}
-body.light .track-btn.playing .track-name{color:#0d0d0d !important;}
-body.light .track-btn.playing-aud{background:#f5f0ff;border-color:var(--aud);}
-body.light .track-btn.playing-aud .track-name{color:#0d0d0d !important;}
-body.light .track-btn.fading .track-name{color:#888;}
-body.light .track-btn.been-played{background:var(--played-bg);}
 body.light .log-entry{background:#f0f0f0;}
 body.light #sport-tabs{background:#ddd;}
 body.light .sport-tab{color:#666;}
@@ -161,22 +153,30 @@ body.light #now-playing.aud-mode{background:#f8f0ff;}
   transition:border-color .15s,background .15s;
   position:relative;overflow:hidden;min-height:78px;
   display:flex;flex-direction:column;justify-content:space-between;
-  /* TOUCH FIX: require deliberate tap, not scroll */
   touch-action:pan-y;
   -webkit-tap-highlight-color:transparent;
 }
 .track-btn::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
 .track-btn.playing{border-color:var(--red);background:#1a0808;box-shadow:var(--glow-red);}
-body.light .track-btn.playing{background:#fff5f5;}
+.track-btn.playing .track-name{color:#F0F0F0;}
 .track-btn.playing::before{transform:scaleX(1);}
 .track-btn.playing-aud{border-color:var(--aud);background:var(--aud-dim);box-shadow:var(--glow-aud);}
-body.light .track-btn.playing-aud{background:#f5f0ff;}
+.track-btn.playing-aud .track-name{color:#F0F0F0;}
 .track-btn.playing-aud::before{transform:scaleX(1);background:var(--aud);}
 .track-btn.fading{border-color:#444;opacity:.6;}
 .track-btn.been-played{border-color:var(--played-border);background:var(--played-bg);}
-.track-name{font-size:12px;font-weight:600;line-height:1.3;word-break:break-word;flex:1;padding-right:22px;}
+.track-name{font-size:12px;font-weight:600;line-height:1.3;word-break:break-word;flex:1;padding-right:22px;color:var(--text);}
 .track-btn.fading .track-name{color:var(--muted);}
 .track-btn.been-played .track-name{color:var(--played-text);}
+/* Light mode overrides — scoped to NOT affect dark mode */
+body.light .track-btn{background:#fff;border-color:#ccc;}
+body.light .track-btn .track-name{color:#111;}
+body.light .track-btn.playing{background:#fff0f0;border-color:var(--red);}
+body.light .track-btn.playing .track-name{color:#0d0d0d;}
+body.light .track-btn.playing-aud{background:#f5f0ff;border-color:var(--aud);}
+body.light .track-btn.playing-aud .track-name{color:#0d0d0d;}
+body.light .track-btn.fading .track-name{color:#888;}
+body.light .track-btn.been-played{background:var(--played-bg);}
 .track-footer{display:flex;align-items:center;justify-content:space-between;margin-top:7px;}
 .t-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:.5px;}
 .t-badge.has-plays{color:var(--accent);}
@@ -226,6 +226,47 @@ body.light .ef-input,body.light .ef-select{background:#f5f5f5;border-color:#ccc;
 #event-save:hover{background:var(--dark-red);}
 #event-status{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--green);text-align:center;padding:4px 0;display:none;}
 
+/* ── HELP MODAL ── */
+#help-modal{display:none;position:fixed;inset:0;background:var(--modal-bg);z-index:600;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
+#help-modal.open{display:flex;}
+#help-card{background:var(--panel);border:1px solid var(--border);border-top:4px solid var(--red);border-radius:8px;width:100%;max-width:680px;overflow:hidden;margin:auto;}
+body.light #help-card{background:#fff;}
+#help-card-header{background:var(--surface);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--red);}
+#help-card-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--text);}
+#help-card-sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:1px;margin-top:2px;}
+#help-close{font-size:20px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;padding:4px 8px;}
+#help-close:hover{color:var(--red);}
+#help-body{padding:18px;display:flex;flex-direction:column;gap:18px;}
+.help-section{display:flex;flex-direction:column;gap:8px;}
+.help-section-title{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--red);border-bottom:1px solid var(--border);padding-bottom:4px;}
+.help-steps{display:flex;flex-direction:column;gap:6px;}
+.help-step{display:flex;gap:10px;align-items:flex-start;}
+.help-step-num{font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--red);flex-shrink:0;line-height:1.1;width:20px;}
+.help-step-text{font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--text);line-height:1.6;}
+.help-step-text strong{color:var(--text);font-weight:600;}
+.help-step-text .mono{font-family:'IBM Plex Mono',monospace;font-size:11px;background:var(--surface);padding:1px 5px;border-radius:3px;color:var(--accent);}
+body.light .help-step-text .mono{background:#eee;color:#884400;}
+.help-tip{background:var(--surface);border-left:3px solid var(--accent);padding:8px 12px;border-radius:0 4px 4px 0;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);line-height:1.6;}
+body.light .help-tip{background:#f5f5f5;}
+.help-tip strong{color:var(--text);}
+.help-modes{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.help-mode-card{padding:10px 12px;border-radius:4px;border:1px solid var(--border);}
+.help-mode-card.prod{border-left:3px solid var(--red);}
+.help-mode-card.aud{border-left:3px solid var(--aud);}
+.help-mode-title{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;margin-bottom:4px;}
+.help-mode-card.prod .help-mode-title{color:var(--red);}
+.help-mode-card.aud .help-mode-title{color:var(--aud);}
+.help-mode-text{font-size:11px;color:var(--muted);line-height:1.5;}
+#help-dismiss{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:1px;padding:11px;background:var(--red);color:#fff;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;width:100%;}
+#help-dismiss:hover{background:var(--dark-red);}
+#help-no-show{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:8px;}
+#help-no-show label{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);cursor:pointer;letter-spacing:1px;}
+#help-no-show input{cursor:pointer;accent-color:var(--red);}
+
+/* help icon button */
+#help-btn{font-size:14px;background:none;border:1px solid var(--border);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);transition:all .15s;flex-shrink:0;}
+#help-btn:hover{border-color:var(--red);color:var(--red);}
+
 /* ── TOAST ── */
 #toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text);transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.3);}
 #toast.show{transform:translateX(-50%) translateY(0);}
@@ -245,6 +286,7 @@ body.light .ef-input,body.light .ef-select{background:#f5f5f5;border-color:#ccc;
   <div id="header-title">Audio Tracker</div>
   <div id="header-right">
     <!-- Theme toggle — always visible -->
+    <button id="help-btn" title="How to use this tool">?</button>
     <button id="theme-btn"><span id="theme-icon">☀️</span><span id="theme-label">LIGHT</span></button>
     <div id="mode-wrap">
       <button class="mode-btn active-prod" id="mode-prod">Production</button>
@@ -398,6 +440,78 @@ body.light .ef-input,body.light .ef-select{background:#f5f5f5;border-color:#ccc;
 <input type="file" id="local-input" webkitdirectory multiple accept="audio/*">
 <input type="file" id="template-input" multiple accept=".xlsx">
 
+<!-- HELP MODAL -->
+<div id="help-modal">
+  <div id="help-card">
+    <div id="help-card-header">
+      <div>
+        <div id="help-card-title">ESPN Audio Tracker — How To Use</div>
+        <div id="help-card-sub">Playback tool + automatic music cue sheet completion</div>
+      </div>
+      <button id="help-close">✕</button>
+    </div>
+    <div id="help-body">
+
+      <div class="help-section">
+        <div class="help-section-title">Before the Show</div>
+        <div class="help-steps">
+          <div class="help-step"><div class="help-step-num">1</div><div class="help-step-text"><strong>Enter Event Info</strong> — tap <span class="mono">📋 Event Info</span> and fill in the show name, matchup, air date, network, producer, and all other fields. This information will automatically populate the header of your exported cue sheet — you won't have to type it manually in Excel.</div></div>
+          <div class="help-step"><div class="help-step-num">2</div><div class="help-step-text"><strong>Load Tracks</strong> — tap <span class="mono">▶ Load Tracks</span> to stream the full ESPN music library. The tool will load all sports: Olympic Sports, Football, Basketball, and Diamond Sports, with Theme and Support subcategories.</div></div>
+          <div class="help-step"><div class="help-step-num">3</div><div class="help-step-text"><strong>Load Cue Sheet Templates (optional but recommended)</strong> — tap <span class="mono">📄 Templates</span> and load your ESPN Excel template files (.xlsx). When you export at the end of the show, play counts will be written directly into the <em>Number Of Uses</em> column of the actual ESPN template — ready to submit to <span class="mono">music.cue.sheets@espn.com</span>.</div></div>
+          <div class="help-step"><div class="help-step-num">4</div><div class="help-step-text"><strong>Choose your mode</strong> — use <span class="mono">Production</span> for on-air work where plays are counted, or <span class="mono">Audition</span> to preview tracks off-air without logging them.</div></div>
+        </div>
+      </div>
+
+      <div class="help-section">
+        <div class="help-section-title">Production vs Audition Mode</div>
+        <div class="help-modes">
+          <div class="help-mode-card prod">
+            <div class="help-mode-title">🔴 Production</div>
+            <div class="help-mode-text">Every play that runs for <strong>5 seconds or more</strong> is logged and counted. Track turns green with a ✓ when played. Use this mode whenever you are on air.</div>
+          </div>
+          <div class="help-mode-card aud">
+            <div class="help-mode-title">◎ Audition</div>
+            <div class="help-mode-text">Preview any track freely without logging plays. Use this to pick your next track before a break. Plays are <strong>not counted</strong> toward the cue sheet.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="help-section">
+        <div class="help-section-title">Playing Tracks</div>
+        <div class="help-steps">
+          <div class="help-step"><div class="help-step-num">▶</div><div class="help-step-text"><strong>Tap once</strong> to start playing. The Now Playing bar at the top shows the track name, elapsed time, and total duration.</div></div>
+          <div class="help-step"><div class="help-step-num">■</div><div class="help-step-text"><strong>Tap the same track again</strong> to fade it out smoothly over ~1 second.</div></div>
+          <div class="help-step"><div class="help-step-num">⇄</div><div class="help-step-text"><strong>Tap a different track</strong> while one is playing to crossfade — the current track fades out automatically as the new one fades in.</div></div>
+        </div>
+        <div class="help-tip"><strong>5-second rule:</strong> A play only counts if the track runs for at least 5 seconds. The small white marker on the progress bar shows exactly where that threshold is. Short accidental taps will not be logged — they appear as <strong>SKIP</strong> in the log instead.</div>
+      </div>
+
+      <div class="help-section">
+        <div class="help-section-title">During the Show</div>
+        <div class="help-steps">
+          <div class="help-step"><div class="help-step-num">↺</div><div class="help-step-text"><strong>Reset Played</strong> — clears all green play states and resets counts. Use this between games or shows.</div></div>
+          <div class="help-step"><div class="help-step-num">✓</div><div class="help-step-text"><strong>Green tracks</strong> indicate a track has already aired this show, so you don't accidentally repeat yourself.</div></div>
+        </div>
+      </div>
+
+      <div class="help-section">
+        <div class="help-section-title">End of Show — Submitting the Cue Sheet</div>
+        <div class="help-steps">
+          <div class="help-step"><div class="help-step-num">1</div><div class="help-step-text">Tap <span class="mono">⬇ Export</span>. If you loaded the ESPN template files earlier, the tool will fill in the <em>Number Of Uses</em> column for every track you played, in every sheet (Theme-Promo and Support), and download the completed files.</div></div>
+          <div class="help-step"><div class="help-step-num">2</div><div class="help-step-text">If no templates were loaded, a standalone Play Count Summary and full Playback Log spreadsheet will be exported instead.</div></div>
+          <div class="help-step"><div class="help-step-num">3</div><div class="help-step-text">Email the completed cue sheet to <span class="mono">music.cue.sheets@espn.com</span> — include sport, air date, and matchup in the subject line.</div></div>
+        </div>
+      </div>
+
+      <button id="help-dismiss">Got It — Start Using the Tracker</button>
+      <div id="help-no-show">
+        <input type="checkbox" id="help-no-show-chk">
+        <label for="help-no-show-chk">Don't show this automatically next time</label>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────
@@ -417,8 +531,8 @@ const CBB_THEME_NAMES=["ESPN on ABC ID",":03 - 05 Rejoin/Id",":60 Open Bed",":03
 function resolveProperName(track){
   const path=track.path||'', raw=track.name||'';
 
-  // 1. Sequential ELIAS/YESSIAN style: "Elias007 001" or "ELIAS008 001"
-  const seqM=raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)[\s_](\d{3})$/i);
+  // 1. Sequential ELIAS/YESSIAN style: "Elias007 001" or "ELIAS007 01" (1-3 digit suffix)
+  const seqM=raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)[\s_](\d{1,3})$/i);
   if(seqM){
     const n=parseInt(seqM[2],10)-1;
     if((path.includes('olympic-sports')||path.includes('diamond-sports'))&&path.includes('theme')&&OLYMPIC_THEME_NAMES[n]) return OLYMPIC_THEME_NAMES[n];
@@ -472,6 +586,25 @@ const templateInput=document.getElementById('template-input');
 const resetBtn=document.getElementById('reset-btn');
 const exportBtn=document.getElementById('export-btn');
 const templateBtn=document.getElementById('template-btn');
+
+// ── HELP MODAL ────────────────────────────────────────────────────────────
+const helpModal   = document.getElementById('help-modal');
+const helpBtn     = document.getElementById('help-btn');
+const helpClose   = document.getElementById('help-close');
+const helpDismiss = document.getElementById('help-dismiss');
+const helpNoShow  = document.getElementById('help-no-show-chk');
+
+function openHelp(){ helpModal.classList.add('open'); }
+function closeHelp(){
+  if(helpNoShow.checked) try{localStorage.setItem('espn-help-skip','1');}catch(e){}
+  helpModal.classList.remove('open');
+}
+helpBtn.onclick     = openHelp;
+helpClose.onclick   = closeHelp;
+helpDismiss.onclick = closeHelp;
+helpModal.addEventListener('click', e=>{ if(e.target===helpModal) closeHelp(); });
+// Auto-show unless previously dismissed
+try{ if(!localStorage.getItem('espn-help-skip')) openHelp(); }catch(e){ openHelp(); }
 
 // ── THEME ─────────────────────────────────────────────────────────────────
 const themeBtn=document.getElementById('theme-btn');
