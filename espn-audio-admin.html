@@ -7,19 +7,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
-  :root {
-    --red:#CC0000;--dark-red:#990000;--black:#0A0A0A;--dark:#111;
-    --panel:#1A1A1A;--border:#2A2A2A;--mid:#333;--text:#F0F0F0;--muted:#888;
-    --accent:#FF6B00;--green:#4a9a4a;
-  }
+  :root{--red:#CC0000;--dark-red:#990000;--black:#0A0A0A;--dark:#111;--panel:#1A1A1A;--border:#2A2A2A;--mid:#333;--text:#F0F0F0;--muted:#888;--accent:#FF6B00;--green:#4a9a4a;}
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--black);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;}
-
   #header{background:var(--dark);border-bottom:3px solid var(--red);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-shrink:0;}
   #espn-logo{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--red);letter-spacing:2px;}
   #header-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--muted);flex:1;}
   #admin-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:2px;padding:4px 10px;background:#1a1200;border:1px solid #4a3a00;color:var(--accent);border-radius:2px;text-transform:uppercase;}
-
   #config-panel{background:var(--panel);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;flex-shrink:0;}
   .cfg-group{display:flex;flex-direction:column;gap:4px;}
   .cfg-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
@@ -31,21 +25,28 @@
   #connect-status{font-family:'IBM Plex Mono',monospace;font-size:10px;align-self:flex-end;padding-bottom:2px;}
   #connect-status.ok{color:var(--green);}
   #connect-status.err{color:var(--red);}
-
   #app{display:flex;flex:1;overflow:hidden;}
+  #left-panel{width:460px;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;}
 
-  #left-panel{width:430px;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;}
+  /* TARGET SELECTOR */
+  #target-bar{background:#0d0d0d;border-bottom:1px solid var(--border);padding:12px 14px;display:flex;flex-direction:column;gap:8px;flex-shrink:0;}
+  #target-label{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:2px;color:var(--muted);}
+  #target-selects{display:flex;gap:8px;align-items:center;}
+  .target-select{font-family:'IBM Plex Mono',monospace;font-size:11px;background:#1a1a1a;border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:3px;flex:1;outline:none;cursor:pointer;}
+  .target-select:focus{border-color:var(--red);}
+  #target-hint{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#555;letter-spacing:1px;}
+  #target-path{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);margin-top:2px;}
 
-  #drop-zone{border:2px dashed var(--border);border-radius:6px;margin:14px;padding:22px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--panel);flex-shrink:0;}
+  /* DROP ZONE */
+  #drop-zone{border:2px dashed var(--border);border-radius:6px;margin:12px 14px 0;padding:18px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--panel);flex-shrink:0;}
   #drop-zone:hover,#drop-zone.dragover{border-color:var(--red);background:#1A0808;}
-  .drop-icon{font-size:30px;opacity:.4;margin-bottom:8px;}
-  .drop-text{font-size:12px;color:var(--muted);line-height:1.7;}
+  .drop-icon{font-size:26px;opacity:.4;margin-bottom:6px;}
+  .drop-text{font-size:12px;color:var(--muted);line-height:1.6;}
   .drop-text strong{color:var(--text);display:block;font-size:13px;}
-  .drop-hint{font-size:10px;color:#555;margin-top:5px;font-family:'IBM Plex Mono',monospace;}
+  .drop-hint{font-size:10px;color:#555;margin-top:4px;font-family:'IBM Plex Mono',monospace;}
   #folder-input{display:none;}
-
-  #queue-header{padding:0 14px 8px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-  #queue-label{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--muted);}
+  #queue-header{padding:10px 14px 6px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+  #queue-label{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;color:var(--muted);}
   #queue-meta{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px;}
   #queue-actions{display:flex;gap:6px;}
   .q-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:5px 11px;border:1px solid var(--border);background:none;color:var(--muted);border-radius:3px;cursor:pointer;transition:all .15s;text-transform:uppercase;}
@@ -53,17 +54,14 @@
   .q-btn.primary{background:var(--red);border-color:var(--red);color:#fff;}
   .q-btn.primary:hover{background:var(--dark-red);}
   .q-btn:disabled{opacity:.35;cursor:not-allowed;}
-
-  #progress-wrap{margin:0 14px 10px;display:none;}
+  #progress-wrap{margin:0 14px 8px;display:none;}
   #progress-wrap.vis{display:block;}
   #progress-bar-bg{background:var(--border);border-radius:3px;height:5px;overflow:hidden;}
   #progress-bar-fill{height:100%;background:var(--red);width:0%;transition:width .3s;}
   #progress-label{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-top:4px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-
   #queue-list{flex:1;overflow-y:auto;padding:0 14px 14px;display:flex;flex-direction:column;gap:4px;}
   .queue-empty{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#444;padding:20px 0;text-align:center;}
-
-  .q-item{background:var(--dark);border:1px solid var(--border);border-radius:4px;padding:9px 11px;display:flex;flex-direction:column;gap:6px;}
+  .q-item{background:var(--dark);border:1px solid var(--border);border-radius:4px;padding:9px 11px;display:flex;flex-direction:column;gap:5px;}
   .q-item.done{border-color:#2a4a2a;background:#0a140a;}
   .q-item.error{border-color:#4a1a1a;background:#140808;}
   .q-item.converting,.q-item.uploading{border-color:#3a3000;background:#1a1800;}
@@ -72,29 +70,33 @@
   .q-filename{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .q-trackname{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text);margin-top:2px;}
   .q-cutcode{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent);margin-top:1px;}
+  .q-tag{font-family:'IBM Plex Mono',monospace;font-size:9px;color:#6fbf6f;margin-top:1px;}
   .q-remove{font-size:13px;color:var(--muted);cursor:pointer;flex-shrink:0;line-height:1.2;}
   .q-remove:hover{color:var(--red);}
-  .q-selects{display:flex;gap:5px;}
-  .q-select{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#0d0d0d;border:1px solid var(--border);color:var(--text);padding:4px 7px;border-radius:3px;flex:1;outline:none;cursor:pointer;}
-  .q-select:focus{border-color:var(--red);}
   .q-status{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;}
   .q-status.converting{color:#cc9900;}
   .q-status.uploading{color:var(--accent);}
   .q-status.done{color:var(--green);}
   .q-status.error{color:var(--red);}
 
+  /* RIGHT */
   #right-panel{flex:1;display:flex;flex-direction:column;overflow:hidden;}
   #manifest-header{padding:14px 20px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);flex-shrink:0;}
   #manifest-label{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--muted);}
+  #manifest-actions{display:flex;gap:8px;align-items:center;}
   #manifest-stats{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);}
   .m-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:5px 11px;border:1px solid var(--border);background:none;color:var(--muted);border-radius:3px;cursor:pointer;transition:all .15s;text-transform:uppercase;}
   .m-btn:hover{color:var(--text);}
+  .m-btn.danger{border-color:#4a1a1a;color:#cc6666;}
+  .m-btn.danger:hover{background:#2a0808;color:var(--red);}
   #manifest-filters{padding:10px 20px;display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--border);flex-shrink:0;}
   .mf-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:4px 11px;border-radius:20px;cursor:pointer;text-transform:uppercase;transition:all .15s;border:1px solid var(--border);background:none;color:var(--muted);}
   .mf-btn.active{background:var(--mid);border-color:var(--mid);color:var(--text);}
   #manifest-list{flex:1;overflow-y:auto;padding:10px 20px;}
   .m-group{margin-bottom:14px;}
-  .m-group-label{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:5px;border-bottom:1px solid var(--border);padding-bottom:3px;display:flex;justify-content:space-between;}
+  .m-group-label{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:5px;border-bottom:1px solid var(--border);padding-bottom:3px;display:flex;justify-content:space-between;align-items:center;}
+  .m-group-del{font-size:9px;font-family:'IBM Plex Mono',monospace;color:#4a2a2a;cursor:pointer;padding:2px 6px;border:1px solid #4a2a2a;border-radius:2px;transition:all .1s;}
+  .m-group-del:hover{color:var(--red);border-color:var(--red);background:#1a0808;}
   .m-track{display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:3px;transition:background .1s;}
   .m-track:hover{background:var(--panel);}
   .m-track-name{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text);flex:1;}
@@ -141,13 +143,35 @@
 
 <div id="app">
   <div id="left-panel">
+
+    <!-- TARGET SELECTOR -->
+    <div id="target-bar">
+      <div id="target-label">Upload Destination</div>
+      <div id="target-selects">
+        <select class="target-select" id="target-sport">
+          <option value="Basketball">Basketball</option>
+          <option value="Football">Football</option>
+          <option value="Olympic Sports">Olympic Sports</option>
+          <option value="Diamond Sports">Diamond Sports</option>
+        </select>
+        <select class="target-select" id="target-cat">
+          <option value="Theme">Theme</option>
+          <option value="Support">Support</option>
+          <option value="Support-Baseball">Support — Baseball</option>
+          <option value="Support-Softball">Support — Softball</option>
+        </select>
+      </div>
+      <div id="target-hint">Files will be tagged with this sport/category</div>
+      <div id="target-path"></div>
+    </div>
+
     <div id="drop-zone">
       <div class="drop-icon">📁</div>
       <div class="drop-text">
-        <strong>Select Automation Folder</strong>
-        Click to browse — select the entire Automation folder<br>or any sport subfolder
+        <strong>Drop files or select folder</strong>
+        Drag audio files here or click to browse
       </div>
-      <div class="drop-hint">WAVs auto-converted to MP3 · Auto-sorted by folder name</div>
+      <div class="drop-hint">WAVs auto-converted to MP3 · Destination set above</div>
       <input type="file" id="folder-input" webkitdirectory multiple>
     </div>
 
@@ -168,14 +192,14 @@
     </div>
 
     <div id="queue-list">
-      <div class="queue-empty">Select the Automation folder above to load all tracks.</div>
+      <div class="queue-empty">Set a destination above, then drop files to queue.</div>
     </div>
   </div>
 
   <div id="right-panel">
     <div id="manifest-header">
       <div id="manifest-label">Track Manifest</div>
-      <div style="display:flex;align-items:center;gap:10px;">
+      <div id="manifest-actions">
         <div id="manifest-stats">—</div>
         <button class="m-btn" id="refresh-btn">↻ Refresh</button>
       </div>
@@ -188,49 +212,66 @@
 <div id="toast"></div>
 
 <script>
-// ── FOLDER → SPORT/CATEGORY MAP ───────────────────────────────────────────
-const FOLDER_MAP = {
-  'cbb support music':              {sport:'Basketball',    category:'Support',          ghFolder:'basketball/support'},
-  'cbb theme music':                {sport:'Basketball',    category:'Theme',            ghFolder:'basketball/theme'},
-  'cfb event support':              {sport:'Football',      category:'Support',          ghFolder:'football/support'},
-  'cfb event theme':                {sport:'Football',      category:'Theme',            ghFolder:'football/theme'},
-  'olympic sport support music':    {sport:'Olympic Sports',category:'Support',          ghFolder:'olympic-sports/support'},
-  'olympic sport theme music':      {sport:'Olympic Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
-  // Diamond Sports theme reuses olympic theme folder (same files)
-  'diamond sport theme music':      {sport:'Diamond Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
-  'diamond sport theme':            {sport:'Diamond Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
-  // Diamond Sports split support
-  'baseball':                       {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
-  'softball':                       {sport:'Diamond Sports',category:'Support-Softball', ghFolder:'diamond-sports/support-softball'},
-  'diamond sport support music':    {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
-  'diamond sport support':          {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
+// ── SPORT → GITHUB FOLDER MAP ─────────────────────────────────────────────
+const GH_FOLDERS = {
+  'Basketball|Theme':             'basketball/theme',
+  'Basketball|Support':           'basketball/support',
+  'Football|Theme':               'football/theme',
+  'Football|Support':             'football/support',
+  'Olympic Sports|Theme':         'olympic-sports/theme',
+  'Olympic Sports|Support':       'olympic-sports/support',
+  'Diamond Sports|Theme':         'olympic-sports/theme',  // shares olympic theme
+  'Diamond Sports|Support':       'diamond-sports/support',
+  'Diamond Sports|Support-Baseball': 'diamond-sports/support-baseball',
+  'Diamond Sports|Support-Softball': 'diamond-sports/support-softball',
 };
-const SPORTS = ['Basketball','Football','Olympic Sports','Diamond Sports'];
-const CATS   = ['Theme','Support','Support-Baseball','Support-Softball'];
 
-// ── FILENAME PARSER ───────────────────────────────────────────────────────
-// "01_-_ROCK070_-_Fire_And_Ice.wav" → {name:"Fire And Ice", cutCode:"ROCK070"}
+const SPORTS_LIST = ['Basketball','Football','Olympic Sports','Diamond Sports'];
+const CATS_LIST   = ['Theme','Support','Support-Baseball','Support-Softball'];
+
+// ── IMPROVED FILENAME PARSER ──────────────────────────────────────────────
 function parseFilename(filename) {
   let s = filename.replace(/\.[^.]+$/, '');
   let cutCode = '';
 
-  // Strip leading track number: "01_-_" or "01 - "
-  s = s.replace(/^\d{1,3}[\s_]*[-][\s_]*/, '');
+  // Strip leading track number "01_-_" or "01 - "
+  s = s.replace(/^\d{1,3}[\s_]*[-]+[\s_]*/, '');
 
-  // Extract cut code: uppercase letters + numbers (e.g. ROCK070, HIPHOP038, KTV-072, JP)
+  // Extract cut code: ALL_CAPS+digits token before separator
   const cutMatch = s.match(/^([A-Z][A-Z0-9]{1,}-?[A-Z0-9]*)[\s_]+-[\s_]+(.+)/);
   if (cutMatch) {
     cutCode = cutMatch[1];
     s = cutMatch[2];
   }
 
-  // Convert underscores to spaces, clean up
-  let name = s.replace(/_/g,' ').replace(/\s{2,}/g,' ').trim();
+  // Fix duplicate name: "Throne_Bounce_2_-_Throne_Bounce_2_JP" → take second half
+  const dupMatch = s.match(/^(.+?)[\s_]+-[\s_]+(.+)/);
+  if (dupMatch) {
+    const p1 = dupMatch[1].replace(/_/g,' ').trim().toLowerCase();
+    const p2 = dupMatch[2].replace(/_/g,' ').trim().toLowerCase();
+    if (p2.startsWith(p1.slice(0, Math.min(8, p1.length)))) {
+      s = dupMatch[2];
+    }
+  }
 
-  // Title case each word
-  name = name.replace(/\b\w/g, c => c.toUpperCase());
+  // Restore colon-duration: "60_Dramatic" → ":60 Dramatic"
+  s = s.replace(/^(\d{1,3})_/, ':$1 ');
+  s = s.replace(/^(\d{1,3})\s/, ':$1 ');
 
-  return {name, cutCode};
+  // Underscores to spaces
+  let name = s.replace(/_/g, ' ').replace(/\s{2,}/g, ' ').trim();
+
+  // Title case — preserve leading colon
+  if (name.startsWith(':')) {
+    const parts = name.split(' ');
+    name = parts[0] + ' ' + parts.slice(1).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+  } else {
+    name = name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    // Re-capitalize known acronyms
+    name = name.replace(/\bJp\b/g,'JP').replace(/\bEdm\b/g,'EDM').replace(/\bId\b/g,'ID');
+  }
+
+  return { name: name.trim(), cutCode };
 }
 
 // ── STATE ─────────────────────────────────────────────────────────────────
@@ -250,13 +291,25 @@ const clearBtn      = document.getElementById('clear-btn');
 const progressWrap  = document.getElementById('progress-wrap');
 const progressFill  = document.getElementById('progress-bar-fill');
 const progressLabel = document.getElementById('progress-label');
+const targetSport   = document.getElementById('target-sport');
+const targetCat     = document.getElementById('target-cat');
+const targetPath    = document.getElementById('target-path');
 
 document.getElementById('connect-btn').onclick = connectGitHub;
-document.getElementById('refresh-btn').onclick = loadManifest;
+document.getElementById('refresh-btn').onclick  = loadManifest;
 uploadBtn.onclick = uploadAll;
 clearBtn.onclick  = clearQueue;
 dropZone.addEventListener('click', () => folderInput.click());
 folderInput.addEventListener('change', e => processFiles(Array.from(e.target.files)));
+targetSport.addEventListener('change', updateTargetPath);
+targetCat.addEventListener('change', updateTargetPath);
+updateTargetPath();
+
+function updateTargetPath() {
+  const key = `${targetSport.value}|${targetCat.value}`;
+  const folder = GH_FOLDERS[key] || '?';
+  targetPath.textContent = `→ ${folder}/`;
+}
 
 // ── CONNECT ───────────────────────────────────────────────────────────────
 async function connectGitHub() {
@@ -264,16 +317,16 @@ async function connectGitHub() {
   ghRepo   = document.getElementById('cfg-repo').value.trim();
   ghBranch = document.getElementById('cfg-branch').value.trim()||'main';
   ghToken  = document.getElementById('cfg-token').value.trim();
-  if (!ghUser||!ghRepo||!ghToken){setStatus('Fill in all fields.',false);return;}
+  if(!ghUser||!ghRepo||!ghToken){setStatus('Fill in all fields.',false);return;}
   setStatus('Connecting…',null);
-  try {
-    const r = await ghAPI(`/repos/${ghUser}/${ghRepo}`);
-    if (!r.ok) throw new Error(r.status);
+  try{
+    const r=await ghAPI(`/repos/${ghUser}/${ghRepo}`);
+    if(!r.ok) throw new Error(r.status);
     connected=true;
     setStatus(`✓ Connected to ${ghUser}/${ghRepo}`,true);
-    uploadBtn.disabled = queue.filter(q=>q.status==='pending').length===0;
+    uploadBtn.disabled=queue.filter(q=>q.status==='pending').length===0;
     await loadManifest();
-  } catch(e){connected=false;setStatus(`✗ ${e.message}`,false);}
+  }catch(e){connected=false;setStatus(`✗ ${e.message}`,false);}
 }
 function setStatus(msg,ok){
   const el=document.getElementById('connect-status');
@@ -282,56 +335,43 @@ function setStatus(msg,ok){
 
 // ── PROCESS FILES ─────────────────────────────────────────────────────────
 function processFiles(files) {
-  const audio = files.filter(f => /\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name));
-  if (!audio.length){showToast('No audio files found.');return;}
+  const audio=files.filter(f=>/\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name));
+  if(!audio.length){showToast('No audio files found.');return;}
+
+  const sport    = targetSport.value;
+  const category = targetCat.value;
+  const key      = `${sport}|${category}`;
+  const ghFolder = GH_FOLDERS[key] || `${sport.toLowerCase().replace(/\s+/g,'-')}/${category.toLowerCase()}`;
 
   audio.forEach(f => {
-    const pathParts = (f.webkitRelativePath||f.name).split('/');
-
-    // Find folder mapping by scanning path from deepest to shallowest
-    let mapping = null;
-    for (let i = pathParts.length-2; i >= 0; i--) {
-      const fl = pathParts[i].toLowerCase().trim();
-      if (FOLDER_MAP[fl]){mapping=FOLDER_MAP[fl];break;}
-    }
-    // Fuzzy fallback: look for keywords in folder name
-    if (!mapping) {
-      for (let i = pathParts.length-2; i >= 0; i--) {
-        const fl = pathParts[i].toLowerCase();
-        if      (fl.includes('cbb')&&fl.includes('support'))      mapping=FOLDER_MAP['cbb support music'];
-        else if (fl.includes('cbb')&&fl.includes('theme'))        mapping=FOLDER_MAP['cbb theme music'];
-        else if ((fl.includes('cfb')||fl.includes('football'))&&fl.includes('support')) mapping=FOLDER_MAP['cfb event support'];
-        else if ((fl.includes('cfb')||fl.includes('football'))&&fl.includes('theme'))   mapping=FOLDER_MAP['cfb event theme'];
-        else if (fl.includes('olympic')&&fl.includes('support'))  mapping=FOLDER_MAP['olympic sport support music'];
-        else if (fl.includes('olympic')&&fl.includes('theme'))    mapping=FOLDER_MAP['olympic sport theme music'];
-        if (mapping) break;
-      }
-    }
-    if (!mapping) mapping={sport:'Diamond Sports',category:'Theme',ghFolder:'diamond-sports/theme'};
-
     const {name, cutCode} = parseFilename(f.name);
-    queue.push({id:Date.now()+Math.random(), file:f, name, cutCode, sport:mapping.sport, category:mapping.category, ghFolder:mapping.ghFolder, status:'pending', error:''});
+    queue.push({
+      id: Date.now()+Math.random(),
+      file: f, name, cutCode,
+      sport, category, ghFolder,
+      status: 'pending', error: ''
+    });
   });
 
   folderInput.value='';
   renderQueue();
-  showToast(`${audio.length} track${audio.length!==1?'s':''} queued.`);
-  if (connected) uploadBtn.disabled=false;
+  showToast(`${audio.length} track${audio.length!==1?'s':''} queued → ${ghFolder}/`);
+  if(connected) uploadBtn.disabled=false;
 }
 
 // ── RENDER QUEUE ──────────────────────────────────────────────────────────
-function renderQueue() {
-  const pending = queue.filter(q=>q.status==='pending').length;
-  const done    = queue.filter(q=>q.status==='done').length;
-  queueMeta.textContent = queue.length ? `${queue.length} files · ${done} done · ${pending} pending` : '';
-  uploadBtn.disabled = !connected || pending===0 || uploading;
+function renderQueue(){
+  const pending=queue.filter(q=>q.status==='pending').length;
+  const done=queue.filter(q=>q.status==='done').length;
+  queueMeta.textContent=queue.length?`${queue.length} files · ${done} done · ${pending} pending`:'';
+  uploadBtn.disabled=!connected||pending===0||uploading;
 
-  if (!queue.length){
-    queueList.innerHTML='<div class="queue-empty">Select the Automation folder above to load all tracks.</div>';
+  if(!queue.length){
+    queueList.innerHTML='<div class="queue-empty">Set a destination above, then drop files to queue.</div>';
     return;
   }
   queueList.innerHTML='';
-  queue.forEach(q => {
+  queue.forEach(q=>{
     const d=document.createElement('div');
     d.className=`q-item${q.status==='done'?' done':q.status==='error'?' error':(q.status==='converting'||q.status==='uploading')?' converting':''}`;
     d.id=`qi-${q.id}`;
@@ -342,26 +382,15 @@ function renderQueue() {
           <div class="q-filename">${esc(q.file.name)}</div>
           <div class="q-trackname">${esc(q.name)}</div>
           ${q.cutCode?`<div class="q-cutcode">CUT: ${esc(q.cutCode)}</div>`:''}
+          <div class="q-tag">→ ${esc(q.ghFolder)}/</div>
         </div>
         ${editable?`<span class="q-remove" data-id="${q.id}">✕</span>`:''}
       </div>
-      <div class="q-selects">
-        <select class="q-select" data-id="${q.id}" data-field="sport" ${!editable?'disabled':''}>
-          ${SPORTS.map(s=>`<option value="${esc(s)}"${s===q.sport?' selected':''}>${esc(s)}</option>`).join('')}
-        </select>
-        <select class="q-select" data-id="${q.id}" data-field="category" ${!editable?'disabled':''}>
-          ${CATS.map(c=>`<option value="${c}"${c===q.category?' selected':''}>${c}</option>`).join('')}
-        </select>
-      </div>
       ${q.status!=='pending'?`<div class="q-status ${q.status}">${statusText(q)}</div>`:''}`;
-    d.querySelectorAll('.q-remove').forEach(b=>b.addEventListener('click',()=>{queue=queue.filter(i=>String(i.id)!==b.dataset.id);renderQueue();}));
-    d.querySelectorAll('.q-select').forEach(sel=>sel.addEventListener('change',()=>{
-      const item=queue.find(i=>String(i.id)===sel.dataset.id);
-      if(item){
-        item[sel.dataset.field]=sel.value;
-        item.ghFolder=`${item.sport.toLowerCase().replace(/\s+/g,'-')}/${item.category.toLowerCase()}`;
-      }
-    }));
+    d.querySelector('.q-remove')?.addEventListener('click',()=>{
+      queue=queue.filter(i=>String(i.id)!==d.querySelector('.q-remove').dataset.id);
+      renderQueue();
+    });
     queueList.appendChild(d);
   });
 }
@@ -372,101 +401,69 @@ function statusText(q){
   if(q.status==='done')       return '✓ Uploaded';
   return '✗ '+(q.error||'Error');
 }
-
 function updateQI(q){
-  const el=document.getElementById(`qi-${q.id}`); if(!el)return;
+  const el=document.getElementById(`qi-${q.id}`);if(!el)return;
   el.className=`q-item${q.status==='done'?' done':q.status==='error'?' error':(q.status==='converting'||q.status==='uploading')?' converting':''}`;
   let st=el.querySelector('.q-status');
   if(!st){st=document.createElement('div');el.appendChild(st);}
-  st.className=`q-status ${q.status}`;
-  st.textContent=statusText(q);
-  el.querySelectorAll('.q-select').forEach(s=>s.disabled=q.status!=='pending');
+  st.className=`q-status ${q.status}`;st.textContent=statusText(q);
   const rem=el.querySelector('.q-remove');
-  if(rem&&q.status!=='pending') rem.remove();
+  if(rem&&q.status!=='pending')rem.remove();
 }
-
-function clearQueue(){
-  queue=queue.filter(q=>q.status!=='pending');
-  if(queue.every(q=>q.status==='done')) queue=[];
-  renderQueue();
-}
+function clearQueue(){queue=queue.filter(q=>q.status!=='pending');if(queue.every(q=>q.status==='done'))queue=[];renderQueue();}
 
 // ── WAV → MP3 ─────────────────────────────────────────────────────────────
-const audioCtx = new (window.AudioContext||window.webkitAudioContext)();
-
-async function convertToMp3(file) {
-  const ab = await file.arrayBuffer();
-  const buf = await audioCtx.decodeAudioData(ab);
-  const ch  = Math.min(buf.numberOfChannels, 2);
-  const sr  = buf.sampleRate;
-  const enc = new lamejs.Mp3Encoder(ch, sr, 192);
-  const mp3 = [];
-  const blk = 1152;
-  const L   = buf.getChannelData(0);
-  const R   = ch>1 ? buf.getChannelData(1) : L;
-
+const audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+async function convertToMp3(file){
+  const buf=await audioCtx.decodeAudioData(await file.arrayBuffer());
+  const ch=Math.min(buf.numberOfChannels,2),sr=buf.sampleRate;
+  const enc=new lamejs.Mp3Encoder(ch,sr,192);
+  const mp3=[],blk=1152,L=buf.getChannelData(0),R=ch>1?buf.getChannelData(1):L;
   for(let i=0;i<L.length;i+=blk){
-    const l=f32to16(L.slice(i,i+blk));
-    const r=f32to16(R.slice(i,i+blk));
+    const l=f32to16(L.slice(i,i+blk)),r=f32to16(R.slice(i,i+blk));
     const c=ch>1?enc.encodeBuffer(l,r):enc.encodeBuffer(l);
-    if(c.length>0) mp3.push(c);
+    if(c.length>0)mp3.push(c);
   }
-  const fin=enc.flush();
-  if(fin.length>0) mp3.push(fin);
+  const fin=enc.flush();if(fin.length>0)mp3.push(fin);
   return new Blob(mp3,{type:'audio/mpeg'});
 }
-
-function f32to16(f32){
-  const out=new Int16Array(f32.length);
-  for(let i=0;i<f32.length;i++){
-    const s=Math.max(-1,Math.min(1,f32[i]));
-    out[i]=s<0?s*0x8000:s*0x7FFF;
-  }
-  return out;
-}
+function f32to16(f32){const o=new Int16Array(f32.length);for(let i=0;i<f32.length;i++){const s=Math.max(-1,Math.min(1,f32[i]));o[i]=s<0?s*0x8000:s*0x7FFF;}return o;}
 
 // ── UPLOAD ALL ────────────────────────────────────────────────────────────
-async function uploadAll() {
-  if(!connected){showToast('Connect to GitHub first.');return;}
+async function uploadAll(){
+  if(!connected){showToast('Connect first.');return;}
   const pending=queue.filter(q=>q.status==='pending');
   if(!pending.length){showToast('No files pending.');return;}
-
-  uploading=true; uploadBtn.disabled=true;
-  progressWrap.classList.add('vis');
-  let done=0; const total=pending.length;
+  uploading=true;uploadBtn.disabled=true;progressWrap.classList.add('vis');
+  let done=0;const total=pending.length;
 
   for(const item of pending){
     setProgress(done,total,item.name);
     try{
-      let uploadFile=item.file;
-      let ext=item.file.name.split('.').pop().toLowerCase();
+      let uf=item.file,ext=item.file.name.split('.').pop().toLowerCase();
       if(ext==='wav'){
-        item.status='converting'; updateQI(item);
+        item.status='converting';updateQI(item);
         const blob=await convertToMp3(item.file);
-        uploadFile=new File([blob],item.file.name.replace(/\.wav$/i,'.mp3'),{type:'audio/mpeg'});
+        uf=new File([blob],item.file.name.replace(/\.wav$/i,'.mp3'),{type:'audio/mpeg'});
         ext='mp3';
       }
-      item.status='uploading'; updateQI(item);
-      await pushFile(item,uploadFile,ext);
+      item.status='uploading';updateQI(item);
+      await pushFile(item,uf,ext);
       item.status='done';
-    } catch(e){
-      item.status='error'; item.error=e.message;
-      console.error(e);
-    }
-    updateQI(item); done++;
+    }catch(e){item.status='error';item.error=e.message;console.error(e);}
+    updateQI(item);done++;
     setProgress(done,total,done===total?'Complete!':'');
   }
 
-  try{await saveManifest(); await loadManifest();}
+  try{await saveManifest();await loadManifest();}
   catch(e){showToast('Manifest save failed: '+e.message);}
 
-  uploading=false; renderQueue();
-  const uploaded=queue.filter(q=>q.status==='done').length;
+  uploading=false;renderQueue();
   showToast(`Done! ${done} tracks uploaded.`);
 }
 
-async function pushFile(item, file, ext) {
-  const safeName=item.name.replace(/[^a-zA-Z0-9 ._-]/g,'').replace(/\s+/g,'_')+'.'+ext;
+async function pushFile(item,file,ext){
+  const safeName=item.name.replace(/[^a-zA-Z0-9 .:_-]/g,'').replace(/\s+/g,'_')+'.'+ext;
   const path=`${item.ghFolder}/${safeName}`;
   const b64=await toBase64(file);
   let sha=null;
@@ -477,7 +474,7 @@ async function pushFile(item, file, ext) {
   if(!r.ok){const e=await r.json();throw new Error(e.message||r.status);}
   const entry={name:item.name,cutCode:item.cutCode,path,sport:item.sport,category:item.category};
   const idx=manifest.tracks.findIndex(t=>t.path===path);
-  if(idx>=0) manifest.tracks[idx]=entry; else manifest.tracks.push(entry);
+  if(idx>=0)manifest.tracks[idx]=entry;else manifest.tracks.push(entry);
   manifest.tracks.sort((a,b)=>a.sport.localeCompare(b.sport)||a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
 }
 
@@ -487,7 +484,7 @@ async function saveManifest(){
   let sha=null;
   try{const c=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);if(c.ok){const d=await c.json();sha=d.sha;}}catch(e){}
   const body={message:`Update tracks.json (${manifest.tracks.length} tracks)`,content,branch:ghBranch};
-  if(sha) body.sha=sha;
+  if(sha)body.sha=sha;
   const r=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`,'PUT',body);
   if(!r.ok){const e=await r.json();throw new Error(e.message||r.status);}
 }
@@ -499,7 +496,7 @@ function setProgress(done,total,label){
 
 // ── MANIFEST ──────────────────────────────────────────────────────────────
 async function loadManifest(){
-  if(!connected) return;
+  if(!connected)return;
   try{
     const r=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);
     if(r.status===404){manifest={tracks:[]};renderManifest();return;}
@@ -511,19 +508,25 @@ async function loadManifest(){
 }
 
 function renderManifest(){
-  const filters=['All',...SPORTS];
-  document.getElementById('manifest-filters').innerHTML=filters.map(f=>
+  const allSports=['All',...new Set(manifest.tracks.map(t=>t.sport))];
+  document.getElementById('manifest-filters').innerHTML=allSports.map(f=>
     `<button class="mf-btn${manifestFilter===f?' active':''}" data-f="${esc(f)}">${esc(f)}</button>`
   ).join('');
   document.querySelectorAll('.mf-btn').forEach(b=>b.addEventListener('click',()=>{manifestFilter=b.dataset.f;renderManifest();}));
+
   const visible=manifestFilter==='All'?manifest.tracks:manifest.tracks.filter(t=>t.sport===manifestFilter);
   const el=document.getElementById('manifest-list');
-  if(!visible.length){el.innerHTML='<div class="manifest-empty">No tracks yet.</div>';return;}
+  if(!visible.length){el.innerHTML='<div class="manifest-empty">No tracks.</div>';return;}
+
   const groups={};
   visible.forEach(t=>{const k=`${t.sport} · ${t.category}`;if(!groups[k])groups[k]=[];groups[k].push(t);});
+
   el.innerHTML=Object.entries(groups).map(([key,tracks])=>`
     <div class="m-group">
-      <div class="m-group-label"><span>${esc(key)}</span><span style="color:#555">${tracks.length}</span></div>
+      <div class="m-group-label">
+        <span>${esc(key)} <span style="color:#555">(${tracks.length})</span></span>
+        <span class="m-group-del" data-key="${esc(key)}">Delete Group</span>
+      </div>
       ${tracks.map(t=>`
         <div class="m-track">
           <span class="m-track-name">${esc(t.name)}</span>
@@ -531,15 +534,27 @@ function renderManifest(){
           <span class="m-del" data-path="${esc(t.path)}">✕</span>
         </div>`).join('')}
     </div>`).join('');
+
   el.querySelectorAll('.m-del').forEach(b=>b.addEventListener('click',()=>removeTrack(b.dataset.path)));
+  el.querySelectorAll('.m-group-del').forEach(b=>b.addEventListener('click',()=>deleteGroup(b.dataset.key)));
 }
 
 async function removeTrack(path){
-  if(!confirm(`Remove "${path}" from manifest?`)) return;
+  if(!confirm(`Remove "${path}" from manifest?`))return;
   manifest.tracks=manifest.tracks.filter(t=>t.path!==path);
-  await saveManifest(); renderManifest();
+  await saveManifest();renderManifest();
   document.getElementById('manifest-stats').textContent=`${manifest.tracks.length} tracks`;
   showToast('Removed.');
+}
+
+async function deleteGroup(groupKey){
+  const [sport,cat]=groupKey.split(' · ');
+  const count=manifest.tracks.filter(t=>t.sport===sport&&t.category===cat).length;
+  if(!confirm(`Delete ALL ${count} tracks from "${groupKey}"?\n\nThis removes them from the manifest only — files remain in the repo.`))return;
+  manifest.tracks=manifest.tracks.filter(t=>!(t.sport===sport&&t.category===cat));
+  await saveManifest();renderManifest();
+  document.getElementById('manifest-stats').textContent=`${manifest.tracks.length} tracks`;
+  showToast(`Deleted ${count} tracks from ${groupKey}.`);
 }
 
 // ── GITHUB API ────────────────────────────────────────────────────────────
@@ -550,16 +565,11 @@ function ghAPI(path,method='GET',body=null){
     ...(body?{body:JSON.stringify(body)}:{})
   });
 }
-async function toBase64(blob){
-  return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=()=>rej(new Error('Read failed'));r.readAsDataURL(blob);});
-}
+async function toBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=()=>rej(new Error('Read failed'));r.readAsDataURL(blob);});}
 
 // ── TOAST ─────────────────────────────────────────────────────────────────
 let toastTimer;
-function showToast(msg){
-  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
-  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
-}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000);}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 </script>
 </body>
