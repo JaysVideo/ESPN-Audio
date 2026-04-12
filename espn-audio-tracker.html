@@ -17,6 +17,40 @@
     --glow-red:0 0 20px rgba(204,0,0,0.5),0 0 40px rgba(204,0,0,0.2);
     --glow-purple:0 0 20px rgba(123,94,167,0.5),0 0 40px rgba(123,94,167,0.2);
   }
+
+  /* LIGHT MODE */
+  body.light {
+    --black:#F0F0F0; --dark:#E0E0E0; --panel:#FFFFFF;
+    --border:#CCCCCC; --mid:#BBBBBB; --text:#111111;
+    --muted:#666666; --accent:#CC5500;
+    --green:#1a6a2a; --green-dim:#c8f0d0;
+    --audition:#5a3a87; --audition-dim:#e8d8f8;
+    --played:#c8f0d0; --played-border:#4a9a5a; --played-text:#1a5a2a;
+    --glow-red:0 0 12px rgba(204,0,0,0.25);
+    --glow-purple:0 0 12px rgba(90,58,135,0.25);
+  }
+  body.light #now-playing { background: #fff0f0; }
+  body.light #now-playing.audition-mode { background: #f5f0ff; }
+  body.light #mode-banner.prod { background:#fff0f0; border-bottom-color:#ffcccc; }
+  body.light #mode-banner.aud  { background:#f5f0ff; border-bottom-color:#d8c8f8; }
+  body.light #source-banner.github { background:#e8f5e8; border-bottom-color:#b0d8b0; }
+  body.light #source-banner.local  { background:#fff5e0; border-bottom-color:#f0d090; }
+  body.light .track-btn { box-shadow:none; }
+  body.light .track-btn.playing { background:#fff0f0; box-shadow:0 0 0 2px var(--red); }
+  body.light .track-btn.playing-aud { background:#f8f0ff; box-shadow:0 0 0 2px var(--audition); }
+  body.light .track-btn.been-played { background:#e8f8e8; }
+  body.light .log-entry { background:#f5f5f5; }
+  body.light #sport-tabs { background:#e8e8e8; }
+  body.light #cat-tabs { background:#f0f0f0; }
+  body.light #sticky-top { box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+
+  /* THEME TOGGLE BUTTON */
+  #theme-btn {
+    font-size:16px; background:none; border:1px solid var(--border);
+    border-radius:3px; cursor:pointer; padding:4px 8px; line-height:1;
+    transition:all .15s; -webkit-tap-highlight-color:transparent;
+  }
+  #theme-btn:hover { border-color:var(--muted); }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{background:var(--black);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;user-select:none;}
 
@@ -177,6 +211,7 @@
       <button class="mode-btn" id="mode-aud" title="Audition — play tracks off-air without counting">Audition</button>
     </div>
     <button class="hbtn" id="source-toggle">⇄ Source</button>
+    <button id="theme-btn" title="Toggle light/dark mode">☀️</button>
     <button class="hbtn" id="reset-btn" style="display:none">↺ Reset Played</button>
     <button class="hbtn" id="template-btn">📋 Templates</button>
     <button class="hbtn" id="export-btn" style="display:none">⬇ Export</button>
@@ -781,6 +816,21 @@ function exportSummaryOnly(silent=false){
   XLSX.writeFile(wb,`ESPN_AudioTracker_${new Date().toISOString().slice(0,10)}.xlsx`);
   if(!silent) showToast('Exported!');
 }
+
+// ── THEME TOGGLE ──────────────────────────────────────────────────────────
+const themeBtn = document.getElementById('theme-btn');
+function applyTheme(light) {
+  document.body.classList.toggle('light', light);
+  themeBtn.textContent = light ? '🌙' : '☀️';
+  themeBtn.title = light ? 'Switch to dark mode' : 'Switch to light mode';
+  try { localStorage.setItem('espn-theme', light ? 'light' : 'dark'); } catch(e) {}
+}
+themeBtn.onclick = () => applyTheme(!document.body.classList.contains('light'));
+// Restore saved preference
+try {
+  const saved = localStorage.getItem('espn-theme');
+  if (saved === 'light') applyTheme(true);
+} catch(e) {}
 
 // ── TOAST ─────────────────────────────────────────────────────────────────
 let toastTimer;
