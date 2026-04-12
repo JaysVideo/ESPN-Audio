@@ -20,13 +20,39 @@
 }
 /* ── LIGHT MODE ── */
 body.light {
-  --bg:#EFEFEF; --surface:#E2E2E2; --panel:#FFFFFF;
-  --border:#C8C8C8; --mid:#AAAAAA; --text:#0d0d0d; --muted:#555; --accent:#CC5500;
+  --bg:#F2F2F2; --surface:#E0E0E0; --panel:#FFFFFF;
+  --border:#C0C0C0; --mid:#A0A0A0; --text:#0d0d0d; --muted:#444; --accent:#CC5500;
   --green:#1a6a2a; --played-bg:#d8f5e0; --played-border:#4a9a5a; --played-text:#1a5a2a;
   --aud:#5a3a87; --aud-dim:#f0ebff;
   --glow-red:0 0 0 2px var(--red); --glow-aud:0 0 0 2px var(--aud);
   --modal-bg:rgba(0,0,0,.5);
 }
+
+body.light #sticky-top{box-shadow:0 2px 8px rgba(0,0,0,.15);}
+body.light #now-playing{background:#fff5f5;}
+body.light #now-playing.aud-mode{background:#f5f0ff;}
+body.light #now-playing #np-title{color:#0d0d0d;}
+body.light #mode-banner.prod{background:#fff0f0;color:#aa2222;border-bottom-color:#ffcccc;}
+body.light #mode-banner.aud{background:#f5f0ff;color:var(--aud);border-bottom-color:#d8c8f8;}
+body.light #theme-btn{border-color:#999;background:#fff;color:#0d0d0d;}
+body.light .track-btn{background:#fff;border-color:#ccc;}
+body.light .track-btn .track-name{color:#111;}
+body.light .track-btn.playing{background:#fff0f0;border-color:var(--red);}
+body.light .track-btn.playing .track-name{color:#0d0d0d !important;}
+body.light .track-btn.playing-aud{background:#f5f0ff;border-color:var(--aud);}
+body.light .track-btn.playing-aud .track-name{color:#0d0d0d !important;}
+body.light .track-btn.fading .track-name{color:#888;}
+body.light .track-btn.been-played{background:var(--played-bg);}
+body.light .log-entry{background:#f0f0f0;}
+body.light #sport-tabs{background:#ddd;}
+body.light .sport-tab{color:#666;}
+body.light .sport-tab.active{color:#0d0d0d;}
+body.light #cat-tabs{background:#ebebeb;}
+body.light .cat-tab{background:#fff;border-color:#ccc;color:#444;}
+body.light .cat-tab.active{background:var(--red);border-color:var(--red);color:#fff;}
+body.light .ef-input,body.light .ef-select{background:#fff;border-color:#ccc;color:#0d0d0d;}
+body.light #event-card{background:#fff;}
+body.light #event-card-header{background:#f0f0f0;}
 
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;user-select:none;}
@@ -390,13 +416,27 @@ const CBB_THEME_NAMES=["ESPN on ABC ID",":03 - 05 Rejoin/Id",":60 Open Bed",":03
 
 function resolveProperName(track){
   const path=track.path||'', raw=track.name||'';
-  const m=raw.match(/^([A-Z0-9]+[-]?[A-Z0-9]*)[\s_](\d{3})$/i);
-  if(m){
-    const n=parseInt(m[2],10)-1;
-    if(path.includes('olympic-sports')&&path.includes('theme')&&OLYMPIC_THEME_NAMES[n]) return OLYMPIC_THEME_NAMES[n];
+
+  // 1. Sequential ELIAS/YESSIAN style: "Elias007 001" or "ELIAS008 001"
+  const seqM=raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)[\s_](\d{3})$/i);
+  if(seqM){
+    const n=parseInt(seqM[2],10)-1;
+    if((path.includes('olympic-sports')||path.includes('diamond-sports'))&&path.includes('theme')&&OLYMPIC_THEME_NAMES[n]) return OLYMPIC_THEME_NAMES[n];
     if(path.includes('football')&&path.includes('theme')&&CFB_THEME_NAMES[n]) return CFB_THEME_NAMES[n];
     if(path.includes('basketball')&&path.includes('theme')&&CBB_THEME_NAMES[n]) return CBB_THEME_NAMES[n];
   }
+
+  // 2. UPM library format: "01 UPM KTV72 11 Black Gasoline Instrumental Ayoub Janjou 1380517"
+  const upmM=raw.match(/^\d+\s+UPM\s+\w+\s+\d+\s+(.+)/i);
+  if(upmM){
+    let title=upmM[1];
+    // Remove trailing ISRC number
+    title=title.replace(/\s+\d{6,}\s*$/,'');
+    // Cut at "Instrumental" — everything after is composer names
+    title=title.replace(/\s+instrumental.*$/i,'');
+    return title.trim();
+  }
+
   return raw;
 }
 
@@ -595,7 +635,20 @@ function buildSportTabs(){
 function buildCatTabs(){
   const cats=activeSport==='Diamond Sports'?DIAMOND_CATS:CATS;
   if(!cats.includes(activeCat)) activeCat=activeSport==='Diamond Sports'?activeDiamondCat:cats[0];
-  catTabsEl.innerHTML=cats.map(c=>{
+
+  // Check if we actually have tracks in baseball/softball sub-cats
+  const hasSplit = allTracks.some(t=>t.sport==='Diamond Sports'&&(t.category==='Support-Baseball'||t.category==='Support-Softball'));
+  const hasGenericSupport = allTracks.some(t=>t.sport==='Diamond Sports'&&t.category==='Support');
+  const diamondCats = hasSplit
+    ? DIAMOND_CATS
+    : hasGenericSupport
+      ? ['Theme','Support']
+      : DIAMOND_CATS;
+
+  const displayCats = activeSport==='Diamond Sports' ? diamondCats : CATS;
+  if(!displayCats.includes(activeCat)) activeCat=displayCats[0];
+
+  catTabsEl.innerHTML=displayCats.map(c=>{
     const lbl=c==='Support-Baseball'?'⚾ Baseball':c==='Support-Softball'?'🥎 Softball':c;
     return`<button class="cat-tab${c===activeCat?' active':''}" data-c="${esc(c)}">${lbl}</button>`;
   }).join('');
