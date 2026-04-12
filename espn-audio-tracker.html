@@ -6,204 +6,162 @@
 <title>ESPN Audio Tracker</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
-
   :root {
-    --red: #CC0000; --dark-red: #990000;
-    --black: #0A0A0A; --dark: #111; --panel: #1A1A1A;
-    --border: #2A2A2A; --mid: #333; --text: #F0F0F0;
-    --muted: #888; --accent: #FF6B00;
-    --glow: 0 0 20px rgba(204,0,0,0.5), 0 0 40px rgba(204,0,0,0.2);
+    --red:#CC0000; --dark-red:#990000;
+    --black:#0A0A0A; --dark:#111; --panel:#1A1A1A;
+    --border:#2A2A2A; --mid:#333; --text:#F0F0F0;
+    --muted:#888; --accent:#FF6B00;
+    --green:#4a9a4a; --green-dim:#1a3a1a;
+    --audition:#7B5EA7; --audition-dim:#2a1a3a;
+    --played:#1a4a2a; --played-border:#2a6a3a; --played-text:#6fbf6f;
+    --glow-red:0 0 20px rgba(204,0,0,0.5),0 0 40px rgba(204,0,0,0.2);
+    --glow-purple:0 0 20px rgba(123,94,167,0.5),0 0 40px rgba(123,94,167,0.2);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--black); color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    min-height: 100vh; overflow-x: hidden;
-    -webkit-tap-highlight-color: transparent; user-select: none;
-  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--black);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;overflow-x:hidden;-webkit-tap-highlight-color:transparent;user-select:none;}
 
   /* HEADER */
-  #header {
-    background: var(--dark); border-bottom: 3px solid var(--red);
-    padding: 12px 20px; display: flex; align-items: center; gap: 14px;
-    position: sticky; top: 0; z-index: 100;
-  }
-  #espn-logo { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--red); letter-spacing: 2px; }
-  #header-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--muted); flex: 1; }
-  .hbtn {
-    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
-    letter-spacing: 1px; padding: 7px 14px; border: none; border-radius: 3px;
-    cursor: pointer; text-transform: uppercase; transition: all 0.15s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  #source-toggle { background: var(--mid); color: var(--text); border: 1px solid var(--border); }
-  #source-toggle.github { background: #1a2a1a; border-color: #2a4a2a; color: #6fbf6f; }
-  #source-toggle.local  { background: #2a1a00; border-color: #4a3a00; color: var(--accent); }
-  #export-btn { background: var(--red); color: #fff; display: none; }
-  #export-btn:hover { background: var(--dark-red); }
-  #export-btn.vis { display: block; }
-  #clear-btn { background: transparent; color: var(--muted); border: 1px solid var(--mid); display: none; }
-  #clear-btn.vis { display: block; }
+  #header{background:var(--dark);border-bottom:3px solid var(--red);padding:10px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100;flex-wrap:wrap;}
+  #espn-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--red);letter-spacing:2px;}
+  #header-title{font-family:'Bebas Neue',sans-serif;font-size:16px;letter-spacing:3px;color:var(--muted);}
+  #header-right{display:flex;gap:8px;align-items:center;margin-left:auto;flex-wrap:wrap;}
+  .hbtn{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:1px;padding:6px 12px;border:none;border-radius:3px;cursor:pointer;text-transform:uppercase;transition:all .15s;-webkit-tap-highlight-color:transparent;white-space:nowrap;}
+
+  /* MODE TOGGLE */
+  #mode-wrap{display:flex;background:var(--mid);border-radius:4px;overflow:hidden;border:1px solid var(--border);}
+  .mode-btn{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:1px;padding:6px 14px;background:none;border:none;cursor:pointer;color:var(--muted);text-transform:uppercase;transition:all .15s;}
+  .mode-btn.active-prod{background:var(--red);color:#fff;}
+  .mode-btn.active-aud{background:var(--audition);color:#fff;}
+
+  #source-toggle{background:var(--mid);color:var(--text);border:1px solid var(--border);}
+  #source-toggle.github{background:#1a2a1a;border-color:#2a4a2a;color:#6fbf6f;}
+  #source-toggle.local{background:#2a1a00;border-color:#4a3a00;color:var(--accent);}
+  #reset-btn{background:transparent;color:var(--muted);border:1px solid var(--mid);}
+  #reset-btn:hover{color:var(--text);border-color:#666;}
+  #reset-btn.vis{display:inline-block;}
+  #export-btn{background:var(--red);color:#fff;display:none;}
+  #export-btn:hover{background:var(--dark-red);}
+  #export-btn.vis{display:inline-block;}
+  #template-btn{background:#1a1a2e;color:#7878cc;border:1px solid #333;}
+
+  /* MODE BANNER */
+  #mode-banner{padding:5px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
+  #mode-banner.prod{background:#1a0000;color:var(--red);border-bottom:1px solid #3a0000;}
+  #mode-banner.aud{background:var(--audition-dim);color:var(--audition);border-bottom:1px solid #3a2a4a;}
+  #mode-banner.prod::before{content:'● ON AIR';font-weight:600;}
+  #mode-banner.aud::before{content:'◎ AUDITION';font-weight:600;}
+  #mode-banner-sub{font-size:9px;opacity:.7;}
 
   /* NOW PLAYING */
-  #now-playing {
-    background: linear-gradient(135deg,#1A0000,#120000);
-    border-bottom: 1px solid var(--red); padding: 12px 20px;
-    display: none; align-items: center; gap: 16px; position: relative;
-  }
-  #now-playing.active { display: flex; }
-  #np-dot {
-    width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex-shrink: 0;
-    animation: pdot 1s ease-in-out infinite;
-  }
-  #np-dot.fading { background: var(--muted); animation: none; }
-  @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)} }
-  #np-info { flex: 1; min-width: 0; }
-  #np-title { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  #np-sport { font-size:10px; color: var(--red); text-transform:uppercase; letter-spacing:2px; margin-top:2px; }
-  #np-sport.fading { color: var(--muted); }
-  #np-times { display:flex; flex-direction:column; align-items:flex-end; gap:2px; flex-shrink:0; }
-  #np-elapsed { font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; line-height:1; }
-  #np-duration { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); }
-  #np-bar-wrap { position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--border); }
-  #np-bar { height:100%; background:var(--red); width:0%; transition:width .5s linear; }
+  #now-playing{background:linear-gradient(135deg,#1A0000,#120000);border-bottom:1px solid var(--red);padding:10px 16px;display:none;align-items:center;gap:14px;position:relative;}
+  #now-playing.active{display:flex;}
+  #now-playing.audition-mode{background:linear-gradient(135deg,#1a1028,#120d20);border-bottom-color:var(--audition);}
+  #np-dot{width:10px;height:10px;border-radius:50%;background:var(--red);flex-shrink:0;animation:pdot 1s ease-in-out infinite;}
+  #np-dot.fading{background:var(--muted);animation:none;}
+  #np-dot.aud{background:var(--audition);}
+  @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+  #np-info{flex:1;min-width:0;}
+  #np-title{font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  #np-sub{font-size:10px;color:var(--red);text-transform:uppercase;letter-spacing:2px;margin-top:2px;}
+  #np-sub.fading{color:var(--muted);}
+  #np-sub.aud{color:var(--audition);}
+  #np-times{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0;}
+  #np-elapsed{font-family:'IBM Plex Mono',monospace;font-size:20px;font-weight:600;line-height:1;}
+  #np-duration{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);}
+  #np-bar-wrap{position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--border);}
+  #np-bar{height:100%;background:var(--red);width:0%;transition:width .5s linear;}
+  #np-bar.aud{background:var(--audition);}
+  /* 5-second threshold indicator */
+  #np-threshold{position:absolute;bottom:0;left:0;width:0%;height:3px;background:rgba(255,255,255,0.15);pointer-events:none;}
 
   /* SOURCE BANNER */
-  #source-banner {
-    padding: 6px 20px; font-family:'IBM Plex Mono',monospace; font-size:10px;
-    letter-spacing:1px; display:flex; align-items:center; gap:8px;
-  }
-  #source-banner.github { background:#0d1a0d; color:#4a9a4a; border-bottom:1px solid #1a3a1a; }
-  #source-banner.local  { background:#1a1200; color:#cc8800; border-bottom:1px solid #3a2800; }
-  #source-banner.none   { display:none; }
+  #source-banner{padding:5px 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1px;display:flex;align-items:center;gap:8px;}
+  #source-banner.github{background:#0d1a0d;color:#4a9a4a;border-bottom:1px solid #1a3a1a;}
+  #source-banner.local{background:#1a1200;color:#cc8800;border-bottom:1px solid #3a2800;}
+  #source-banner.none{display:none;}
 
-  /* SPORT TABS */
-  #sport-tabs {
-    display: flex; border-bottom: 1px solid var(--border);
-    background: var(--dark); overflow-x: auto; gap: 0;
-    scrollbar-width: none;
-  }
-  #sport-tabs::-webkit-scrollbar { display: none; }
-  .sport-tab {
-    font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px;
-    padding: 12px 22px; cursor: pointer; color: var(--muted); white-space: nowrap;
-    border-bottom: 3px solid transparent; transition: all 0.15s;
-    background: none; border-top: none; border-left: none; border-right: none;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .sport-tab:hover { color: var(--text); }
-  .sport-tab.active { color: var(--text); border-bottom-color: var(--red); }
+  /* SPORT / CAT TABS */
+  #sport-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--dark);overflow-x:auto;scrollbar-width:none;}
+  #sport-tabs::-webkit-scrollbar{display:none;}
+  .sport-tab{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:2px;padding:10px 18px;cursor:pointer;color:var(--muted);white-space:nowrap;border-bottom:3px solid transparent;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;-webkit-tap-highlight-color:transparent;}
+  .sport-tab:hover{color:var(--text);}
+  .sport-tab.active{color:var(--text);border-bottom-color:var(--red);}
+  #cat-tabs{display:flex;gap:8px;padding:12px 16px 0;background:var(--black);}
+  .cat-tab{font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:1px;padding:5px 14px;border-radius:20px;cursor:pointer;text-transform:uppercase;transition:all .15s;border:1px solid var(--border);background:none;color:var(--muted);-webkit-tap-highlight-color:transparent;}
+  .cat-tab.active{background:var(--red);border-color:var(--red);color:#fff;}
 
-  /* CATEGORY TABS */
-  #cat-tabs {
-    display: flex; gap: 8px; padding: 14px 20px 0;
-    background: var(--black);
-  }
-  .cat-tab {
-    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
-    letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; cursor: pointer;
-    text-transform: uppercase; transition: all 0.15s; border: 1px solid var(--border);
-    background: none; color: var(--muted);
-    -webkit-tap-highlight-color: transparent;
-  }
-  .cat-tab.active { background: var(--red); border-color: var(--red); color: #fff; }
-
-  /* EMPTY / LOADING */
-  #empty-state {
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; height: 55vh; gap: 14px;
-    color: var(--muted); text-align: center; padding: 40px;
-  }
-  .empty-icon { font-size: 52px; opacity: 0.3; }
-  #empty-state h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:3px; color:var(--mid); }
-  #empty-state p { font-size:13px; max-width:340px; line-height:1.7; color:#555; }
-  .empty-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px; }
-  .big-btn {
-    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
-    letter-spacing:1px; padding:13px 28px; border:none; border-radius:4px;
-    cursor:pointer; text-transform:uppercase; transition:background .15s;
-  }
-  .big-btn.primary { background:var(--red); color:#fff; }
-  .big-btn.primary:hover { background:var(--dark-red); }
-  .big-btn.secondary { background:var(--mid); color:var(--text); border:1px solid var(--border); }
-  .big-btn.secondary:hover { background:#444; }
+  /* EMPTY STATE */
+  #empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:55vh;gap:14px;color:var(--muted);text-align:center;padding:40px;}
+  .empty-icon{font-size:52px;opacity:.3;}
+  #empty-state h2{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:3px;color:var(--mid);}
+  #empty-state p{font-size:13px;max-width:340px;line-height:1.7;color:#555;}
+  .empty-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px;}
+  .big-btn{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:1px;padding:12px 24px;border:none;border-radius:4px;cursor:pointer;text-transform:uppercase;transition:background .15s;}
+  .big-btn.primary{background:var(--red);color:#fff;}
+  .big-btn.primary:hover{background:var(--dark-red);}
+  .big-btn.secondary{background:var(--mid);color:var(--text);border:1px solid var(--border);}
+  .big-btn.secondary:hover{background:#444;}
 
   /* MAIN */
-  #main { padding: 16px 20px 100px; display: none; }
-  #main.vis { display: block; }
-  #section-label {
-    font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:3px;
-    color:var(--muted); margin: 14px 0 12px;
-  }
+  #main{padding:14px 16px 100px;display:none;}
+  #main.vis{display:block;}
+  #section-label{font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;color:var(--muted);margin:12px 0 10px;}
 
   /* TRACK GRID */
-  #track-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:10px; }
+  #track-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:9px;}
+  .no-tracks{font-family:'IBM Plex Mono',monospace;font-size:12px;color:#444;padding:20px 0;}
 
-  .track-btn {
-    background: var(--panel); border: 1px solid var(--border); border-radius:6px;
-    padding: 14px 12px 12px; cursor:pointer; text-align:left;
-    transition: border-color .15s, background .15s, transform .08s;
-    position:relative; overflow:hidden; min-height:86px;
-    display:flex; flex-direction:column; justify-content:space-between;
-    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
-  }
-  .track-btn::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:3px;
-    background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .3s;
-  }
-  .track-btn.playing { border-color:var(--red); background:#1A0808; box-shadow:var(--glow); }
-  .track-btn.playing::before { transform:scaleX(1); }
-  .track-btn.fading { border-color:#444; background:var(--panel); opacity:.65; }
-  .track-btn:active { transform:scale(0.97); }
-  .track-name { font-size:12px; font-weight:600; line-height:1.3; word-break:break-word; flex:1; padding-right:26px; }
-  .track-btn.playing .track-name { color:#fff; }
-  .track-btn.fading .track-name { color:var(--muted); }
-  .track-footer { display:flex; align-items:center; justify-content:space-between; margin-top:8px; }
-  .t-badge { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:1px; }
-  .t-badge.has-plays { color:var(--accent); }
-  .t-icon {
-    position:absolute; top:10px; right:10px; width:20px; height:20px;
-    border-radius:50%; background:var(--mid); display:flex; align-items:center;
-    justify-content:center; font-size:7px; color:var(--muted); transition:all .15s;
-  }
-  .track-btn.playing .t-icon { background:var(--red); color:#fff; }
-  .track-btn.fading .t-icon { background:#333; color:#555; }
-
-  /* NO TRACKS IN CATEGORY */
-  .no-tracks { font-family:'IBM Plex Mono',monospace; font-size:12px; color:#444; padding:20px 0; }
+  /* TRACK BUTTON */
+  .track-btn{background:var(--panel);border:1px solid var(--border);border-radius:6px;padding:13px 11px 11px;cursor:pointer;text-align:left;transition:border-color .15s,background .15s,transform .08s;position:relative;overflow:hidden;min-height:82px;display:flex;flex-direction:column;justify-content:space-between;-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
+  .track-btn::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .3s;}
+  .track-btn.playing{border-color:var(--red);background:#1A0808;box-shadow:var(--glow-red);}
+  .track-btn.playing::before{transform:scaleX(1);}
+  .track-btn.playing-aud{border-color:var(--audition);background:#1a1028;box-shadow:var(--glow-purple);}
+  .track-btn.playing-aud::before{transform:scaleX(1);background:var(--audition);}
+  .track-btn.fading{border-color:#444;background:var(--panel);opacity:.65;}
+  .track-btn.been-played{border-color:var(--played-border);background:var(--played);}
+  .track-btn:active{transform:scale(0.97);}
+  .track-name{font-size:12px;font-weight:600;line-height:1.3;word-break:break-word;flex:1;padding-right:24px;color:var(--text);}
+  .track-btn.playing .track-name{color:#fff;}
+  .track-btn.playing-aud .track-name{color:#e0d0ff;}
+  .track-btn.fading .track-name{color:var(--muted);}
+  .track-btn.been-played .track-name{color:var(--played-text);}
+  .track-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
+  .t-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);letter-spacing:1px;}
+  .t-badge.has-plays{color:var(--accent);}
+  .t-badge.been-played-badge{color:var(--played-text);}
+  .t-icon{position:absolute;top:9px;right:9px;width:19px;height:19px;border-radius:50%;background:var(--mid);display:flex;align-items:center;justify-content:center;font-size:7px;color:var(--muted);transition:all .15s;}
+  .track-btn.playing .t-icon{background:var(--red);color:#fff;}
+  .track-btn.playing-aud .t-icon{background:var(--audition);color:#fff;}
+  .track-btn.fading .t-icon{background:#333;color:#555;}
+  .track-btn.been-played .t-icon{background:var(--played-border);color:var(--played-text);}
 
   /* LOG */
-  #log-section { margin-top:28px; border-top:1px solid var(--border); padding-top:20px; }
-  #log-label { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:3px; color:var(--muted); margin-bottom:12px; }
-  #log-list { display:flex; flex-direction:column; gap:2px; max-height:240px; overflow-y:auto; }
-  .log-entry {
-    display:flex; align-items:center; gap:10px; padding:6px 10px;
-    background:var(--panel); border-radius:3px; border-left:3px solid transparent;
-    animation:lslide .25s ease;
-  }
-  @keyframes lslide { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:translateX(0)} }
-  .log-entry.play { border-left-color:var(--red); }
-  .log-entry.fade { border-left-color:#333; opacity:.6; }
-  .log-time { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); flex-shrink:0; width:58px; }
-  .log-act { font-size:8px; letter-spacing:1.5px; font-weight:600; flex-shrink:0; width:40px; color:var(--red); text-transform:uppercase; }
-  .log-entry.fade .log-act { color:#555; }
-  .log-trk { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .log-sport-tag { font-size:8px; color:var(--muted); flex-shrink:0; border:1px solid var(--border); border-radius:2px; padding:1px 5px; letter-spacing:1px; text-transform:uppercase; }
-  .log-empty { font-size:12px; color:#444; padding:14px 10px; font-family:'IBM Plex Mono',monospace; }
+  #log-section{margin-top:24px;border-top:1px solid var(--border);padding-top:18px;}
+  #log-label{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--muted);margin-bottom:10px;}
+  #log-list{display:flex;flex-direction:column;gap:2px;max-height:220px;overflow-y:auto;}
+  .log-entry{display:flex;align-items:center;gap:10px;padding:5px 9px;background:var(--panel);border-radius:3px;border-left:3px solid transparent;animation:lslide .25s ease;}
+  @keyframes lslide{from{opacity:0;transform:translateX(-6px)}to{opacity:1;transform:translateX(0)}}
+  .log-entry.play{border-left-color:var(--red);}
+  .log-entry.aud-play{border-left-color:var(--audition);}
+  .log-entry.fade{border-left-color:#333;opacity:.6;}
+  .log-entry.skip{border-left-color:#555;opacity:.45;}
+  .log-time{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);flex-shrink:0;width:56px;}
+  .log-act{font-size:8px;letter-spacing:1.5px;font-weight:600;flex-shrink:0;width:48px;color:var(--red);text-transform:uppercase;}
+  .log-entry.aud-play .log-act{color:var(--audition);}
+  .log-entry.fade .log-act{color:#555;}
+  .log-entry.skip .log-act{color:#555;}
+  .log-trk{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .log-sport-tag{font-size:8px;color:var(--muted);flex-shrink:0;border:1px solid var(--border);border-radius:2px;padding:1px 4px;letter-spacing:1px;text-transform:uppercase;}
+  .log-empty{font-size:12px;color:#444;padding:14px 10px;font-family:'IBM Plex Mono',monospace;}
 
-  ::-webkit-scrollbar { width:4px; }
-  ::-webkit-scrollbar-track { background:transparent; }
-  ::-webkit-scrollbar-thumb { background:var(--mid); border-radius:2px; }
-
-  #toast {
-    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
-    background:#222; border:1px solid var(--mid); border-radius:6px; padding:9px 18px;
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text);
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1); z-index:999; white-space:nowrap;
-  }
-  #toast.show { transform:translateX(-50%) translateY(0); }
-
-  #local-input { display:none; }
+  ::-webkit-scrollbar{width:4px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--mid);border-radius:2px;}
+  #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#222;border:1px solid var(--mid);border-radius:6px;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text);transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
+  #toast.show{transform:translateX(-50%) translateY(0);}
+  #local-input{display:none;}
+  #template-input{display:none;}
 </style>
 </head>
 <body>
@@ -211,28 +169,39 @@
 <div id="header">
   <div id="espn-logo">ESPN</div>
   <div id="header-title">Audio Tracker</div>
-  <div style="display:flex;gap:8px;align-items:center;">
+  <div id="header-right">
+    <div id="mode-wrap">
+      <button class="mode-btn active-prod" id="mode-prod" title="Production — plays are logged and counted">Production</button>
+      <button class="mode-btn" id="mode-aud" title="Audition — play tracks off-air without counting">Audition</button>
+    </div>
     <button class="hbtn" id="source-toggle">⇄ Source</button>
-    <button class="hbtn" id="clear-btn">Reset</button>
-    <button class="hbtn" id="export-btn">⬇ Export</button>
+    <button class="hbtn" id="reset-btn" style="display:none">↺ Reset Played</button>
+    <button class="hbtn" id="template-btn">📋 Templates</button>
+    <button class="hbtn" id="export-btn" style="display:none">⬇ Export</button>
   </div>
+</div>
+
+<div id="mode-banner" class="prod">
+  <span id="mode-banner-sub">Plays will be logged and counted toward cue sheet</span>
 </div>
 
 <div id="now-playing">
   <div id="np-dot"></div>
   <div id="np-info">
     <div id="np-title">—</div>
-    <div id="np-sport">Now Playing</div>
+    <div id="np-sub">Now Playing</div>
   </div>
   <div id="np-times">
     <div id="np-elapsed">0:00</div>
     <div id="np-duration">/ 0:00</div>
   </div>
-  <div id="np-bar-wrap"><div id="np-bar"></div></div>
+  <div id="np-bar-wrap">
+    <div id="np-threshold"></div>
+    <div id="np-bar"></div>
+  </div>
 </div>
 
 <div id="source-banner" class="none"></div>
-
 <div id="sport-tabs"></div>
 <div id="cat-tabs"></div>
 
@@ -257,22 +226,46 @@
 
 <div id="toast"></div>
 <input type="file" id="local-input" webkitdirectory multiple accept="audio/*">
+<input type="file" id="template-input" multiple accept=".xlsx">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
-// ── CONFIG — update these to match your repo ──────────────────────────────
+// ── CONFIG ────────────────────────────────────────────────────────────────
 const GITHUB_RAW  = 'https://raw.githubusercontent.com/JaysVideo/ESPN-Audio/main';
 const TRACKS_JSON = `${GITHUB_RAW}/tracks.json`;
 
 const SPORTS = ['Olympic Sports','Football','Basketball','Diamond Sports'];
 const CATS   = ['Theme','Support'];
-const SPORT_ICONS = { 'Olympic Sports':'🏅', 'Football':'🏈', 'Basketball':'🏀', 'Diamond Sports':'⚾' };
+const SPORT_ICONS = {'Olympic Sports':'🏅','Football':'🏈','Basketball':'🏀','Diamond Sports':'⚾'};
+
+// ── NAME MAPS: sequential file number → cue sheet track name ──────────────
+// Used to fix ELIAS008_001 → ":60 Dramatic Tease" etc.
+const OLYMPIC_THEME_NAMES = [":60 Dramatic Tease",":07 Short Open",":10 Hallmark Open",":45 Vamp","1:52 Open Sequence",":60 Billboard",":45 Billboard",":35 Rejoin",":60 Bump/Promo",":45 Bump",":30 Bump",":20 Bump",":15 Bump",":10 Bump",":07 Sting",":05 Sting",":60 Close",":30 Close",":60 Bump Alt. 1",":45 Bump Alt. 1",":30 Bump Alt. 1",":20 Bump Alt. 1",":15 Bump Alt. 1",":10 Bump Alt. 1",":07 Sting Alt. 1",":05 Sting Alt. 1",":60 Bump Alt. 2",":45 Bump Alt. 2",":30 Bump Alt. 2",":20 Bump Alt. 2",":15 Bump Alt. 2",":10 Bump Alt. 2",":07 Sting Alt. 2",":05 Sting Alt. 2"];
+const CFB_THEME_NAMES = ["Main Theme Tease","Main Theme underscore Tease","Open","Vamp","Open with Vamp","Open Sequence","Open Underscore Sequence","Rejoin w Vamp","Bump","Sting","Bump Alt 1","Sting Alt 1","Bump Alt 2","Sting Alt 2","Promo","Billboard","Close","Full Length Main Title","Laid Back Southern Hip Hop Bump","Laid Back Southern Hip Hop Sting","Hip Hop Bump","Hip Hop Sting","Rock Bump","Rock Sting","Stomp Clap Bump","Stomp Clap Sting","2020 Hip Hop Bump","2020 Hip Hop Sting","2020 Country Bump","2020 Country Sting","2020 Drumline Bump","2020 Drumline Sting","2020 Dramatic Bump","2020 Dramatic Sting","2020 Rock Bump","2020 Rock Sting"];
+const CBB_THEME_NAMES = ["ESPN on ABC ID",":03 - 05 Rejoin/Id",":60 Open Bed",":03 Open Bed (Front End)",":57 Open Bed (Back End)",":07 - :10  Short Open","Open Bed with Short Open","Vamp :60","Short Open with Vamp","Short Open Sequence",":12 Long Open (or to fit video)","Open Bed with Long Open","Long Open with Vamp","Long Open Sequence","Bump :45","Bump :30","Bump :20","Bump :15","Bump :10","Bump :08","Bump :05","Billboard :30","Promo :30","Promo :15","Close :60","Close :30","Alt. 1 Bump :45 (Hip Hop Rhythm)","Alt. 1 Bump :30","Alt. 1 Bump :20","Alt. 1 Bump :15","Alt. 1 Bump :10","Alt. 1 Bump :08","Alt. 1 Bump :05","Alt. 2 Bump :45 (Pop Orch)","Alt. 2 Bump :30","Alt. 2 Bump :20","Alt. 2 Bump :15","Alt. 2 Bump :10","Alt. 2 Bump :08","Alt. 2 Bump :05","Alt. 3 Bump :45 (Pop Orch Rhythm)","Alt. 3 Bump :30","Alt. 3 Bump :20","Alt. 3 Bump :15","Alt. 3 Bump :10","Alt. 3 Bump :08","Alt. 3 Bump :05","Alt. 4 Bump :45 (Pop)","Alt. 4 Bump :30","Alt. 4 Bump :20","Alt. 4 Bump :15","Alt. 4 Bump :10","Alt. 4 Bump :08","Alt. 4 Bump :05","Alt. 5 Bump :45 (Indie Rock)","Alt. 5 Bump :30","Alt. 5 Bump :20","Alt. 5 Bump :15","Alt. 5 Bump :10","Alt. 5 Bump :08","Alt. 5 Bump :05","Alt. 6 Bump :45 (Indie Rock Rhythm)","Alt. 6 Bump :30","Alt. 6 Bump :20","Alt. 6 Bump :15","Alt. 6 Bump :10","Alt. 6 Bump :08","Alt. 6 Bump :05","Alt. 7 Bump :45 (Electro Dance)","Alt. 7 Bump :30","Alt. 7 Bump :20","Alt. 7 Bump :15","Alt. 7 Bump :10","Alt. 7 Bump :08","Alt. 7 Bump :05","Alt. 8 Bump :45  (Electro Rhythm)","Alt. 8 Bump :30","Alt. 8 Bump :20","Alt. 8 Bump :15","Alt. 8 Bump :10","Alt. 8 Bump :08","Alt. 8 Bump :05","Alt. 9 Bump :45  (Southern Rock)","Alt. 9 Bump :30","Alt. 9 Bump :20","Alt. 9 Bump :15","Alt. 9 Bump :10","Alt. 9 Bump :08","Alt. 9 Bump :05","Alt. 10 Bump :45  (Southern Rhythm)","Alt. 10 Bump :30","Alt. 10 Bump :20","Alt. 10 Bump :15","Alt. 10 Bump :10","Alt. 10 Bump :08","Alt. 10 Bump :05",":60 Open Bed (Pop Orch)",":03 Open Bed (Front End) (Pop Orch)",":57 Open Bed (Back End) (Pop Orch)",":07 - :10  Short Open (Pop Orch)","Open Bed with Short Open (Pop Orch)","Vamp :60 (Pop Orch)","Short Open with Vamp (Pop Orch)","Short Open Sequence (Pop Orch)",":12 Long Open (Pop Orch)","Open Bed with Long Open (Pop Orch)","Long Open with Vamp (Pop Orch)","Long Open Sequence (Pop Orch)","Billboard 30 (Pop Orch)","Promo :30 (Pop Orch)","Promo :15 (Pop Orch)","Close :60 (Pop Orch)","Close :30 (Pop Orch)","Sounder 1","Sounder 2","Sounder 3","Sounder 4","Sounder 5","Sounder 6","Sounder 7","Sounder 8","Sounder 9","Sounder 10",":05 Event Theme Tag",":04 Event Theme Hallmark",":45 Event Theme Vamp",":50 Event Theme Open w/Vamp",":60 Event Theme Donut Bump",":45 Event Theme Donut Bump",":30 Event Theme Donut Bump",":20 Event Theme Donut Bump",":15 Event Theme Donut Bump",":10 Event Theme Donut Bump",":04 Event Theme Sting",":60 Event Theme Donut Bump Alt. 1",":45 Event Theme Donut Bump Alt. 1",":30 Event Theme Donut Bump Alt. 1",":20 Event Theme Donut Bump Alt. 1",":15 Event Theme Donut Bump Alt. 1",":10 Event Theme Donut Bump Alt. 1",":04 Event Theme Sting Alt. 1",":60 Event Theme Donut Bump Alt. 2",":45 Event Theme Donut Bump Alt. 2",":30 Event Theme Donut Bump Alt. 2",":20 Event Theme Donut Bump Alt. 2",":15 Event Theme Donut Bump Alt. 2",":10 Event Theme Donut Bump Alt. 2",":04 Event Theme Sting Alt. 2",":60 Event Theme Close",":30 Event Theme Close",":60 Tease",":60 Rock 2019 Donut Bump",":45 Rock 2019 Bump",":30 Rock 2019 Bump",":20 Rock 2019 Bump",":15 Rock 2019 Bump",":10 Rock 2019 Bump",":05 Rock 2019 Sting",":60 EDM 2019 Donut Bump",":45 EDM 2019 Bump",":30 EDM 2019 Bump",":20 EDM 2019 Bump",":15 EDM 2019 Bump",":10 EDM 2019 Bump",":05 EDM 2019 Sting",":60 Indie Rock 2019 Donut Bump",":45 Indie Rock 2019 Bump",":30 Indie Rock 2019 Bump",":20 Indie Rock 2019 Bump",":15 Indie Rock 2019 Bump",":10 Indie Rock 2019 Bump",":05 Indie Rock 2019 Sting",":60 Hip Hop 2019 Donut Bump",":45 Hip Hop 2019 Bump",":30 Hip Hop 2019 Bump",":20 Hip Hop 2019 Bump",":15 Hip Hop 2019 Bump",":10 Hip Hop 2019 Bump",":05 Hip Hop 2019 Sting",":60 Country 2019 Donut Bump",":45 Country 2019 Bump",":30 Country 2019 Bump",":20 Country 2019 Bump",":15 Country 2019 Bump",":10 Country 2019 Bump",":05 Country 2019 Sting",":60 Rock Bump",":45 Rock Bump",":30 Rock Bump",":20 Rock Bump",":15 Rock Bump",":10 Rock Bump",":60 Groovy Blues Bump",":45 Groovy Blues Bump",":30 Groovy Blues Bump",":20 Groovy Blues Bump",":15 Groovy Blues Bump",":10 Groovy Blues Bump",":10 Groovy Blues Bump Alt",":60 Atmospheric Guitar Bump",":45 Atmospheric Guitar Bump",":30 Atmospheric Guitar Bump",":20 Atmospheric Guitar Bump",":15 Atmospheric Guitar Bump",":10 Atmospheric Guitar Bump",":60 Inspirational Orchestral Bump",":45 Inspirational Orchestral Bump",":30 Inspirational Orchestral Bump",":20 Inspirational Orchestral Bump",":15 Inspirational Orchestral Bump",":10 Inspirational Orchestral Bump",":60 Reflective Bump",":45 Reflective Bump",":30 Reflective Bump",":20 Reflective Bump",":15 Reflective Bump",":10 Reflective Bump",":05 Football / Championships Theme Tag",":15 Football / Championships Theme Hallmark",":45 Football / Championships Theme Vamp",":60 Football / Championships Theme Donut Bump/Promo",":45 Football / Championships Theme Donut Bump",":30 Football / Championships Theme Donut Bump",":20 Football / Championships Theme Bump",":15 Football / Championships Theme Bump",":10 Football / Championships Theme Bump",":45 Football / Championships Theme Billboard",":60 Football / Championships Theme Close",":60 Football / Championships Theme Close Alt",":60 Football / Championships Theme Donut Bump Alt. 1",":45 Football / Championships Theme Donut Bump Alt. 1",":30 Football / Championships Theme Donut Bump Alt. 1",":20 Football / Championships Theme Bump Alt. 1",":15 Football / Championships Theme Bump Alt. 1",":10 Football / Championships Theme Bump Alt. 1",":07 Football / Championships Theme Sting Alt. 1",":60 Dramatic Tease",":60 Rock Bump",":45 Rock Bump",":30 Rock Bump",":20 Rock Bump",":15 Rock Bump",":10 Rock Bump",":05 Rock Sting",":60 EDM Bump",":45 EDM Bump",":30 EDM Bump",":20 EDM Bump",":15 EDM Bump",":10 EDM Bump",":05 EDM Sting",":60 Indie Rock Bump",":45 Indie Rock Bump",":30 Indie Rock Bump",":20 Indie Rock Bump",":15 Indie Rock Bump",":10 Indie Rock Bump",":05 - 07 Indie Rock Sting",":60 Hip Hop/Urban Bump",":45 Hip Hop/Urban Bump",":30 Hip Hop/Urban Bump",":20 Hip Hop/Urban Bump",":15 Hip Hop/Urban Bump",":10 Hip Hop/Urban Bump",":05 Hip Hop/Urban Sting",":05 Hip Hop/Urban Sting Alt.",":60 Nostalgic/Obit Bump",":45 Nostalgic/Obit Bump",":30 Nostalgic/Obit Bump",":20 Nostalgic/Obit Bump",":15 Nostalgic/Obit Bump",":10 Nostalgic/Obit Bump",":07 Nostalgic/Obit Sting",":08 (OR FIT TO VIDEO) Open",":90 Vamp","Open With Vamp",":60 Bump / Promo",":45 Bump",":30 Bump",":20 Bump",":15 Bump",":10 Bump",":05 Sting",":03 Sting","Full Version","CBB Remote Promo","CBB Gameday Promo","ESPNU College Basketball","ACC: Football/Basketball/Championship","SEC Network: SEC Event","Football: College Football Saturday","Football: College Football Studio","Football: College Football Playoff"];
+
+// Resolve proper name from path — detects sequential naming patterns
+function resolveProperName(track) {
+  const path = track.path || '';
+  const rawName = track.name || '';
+
+  // Detect ELIAS008_001 style: cut code + underscore + 3-digit number
+  const seqMatch = rawName.match(/^([A-Z0-9]+[-]?[A-Z0-9]*)[\s_](\d{3})$/i);
+  if (seqMatch) {
+    const num = parseInt(seqMatch[2], 10) - 1; // 0-based
+    if (path.includes('olympic-sports') && path.includes('theme') && OLYMPIC_THEME_NAMES[num]) return OLYMPIC_THEME_NAMES[num];
+    if (path.includes('football') && path.includes('theme') && CFB_THEME_NAMES[num]) return CFB_THEME_NAMES[num];
+    if (path.includes('basketball') && path.includes('theme') && CBB_THEME_NAMES[num]) return CBB_THEME_NAMES[num];
+  }
+  return rawName;
+}
 
 // ── AUDIO CTX ─────────────────────────────────────────────────────────────
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const PLAY_THRESHOLD_SECS = 5; // minimum seconds to count as a real play
 
 // ── STATE ─────────────────────────────────────────────────────────────────
-let allTracks   = [];   // { name, url, sport, category, plays, buffer, element, badgeEl }
+let allTracks   = [];
 let currentIdx  = null;
 let currentSrc  = null;
 let gainNode    = null;
@@ -282,123 +275,126 @@ let isFading    = false;
 let playLog     = [];
 let activeSport = SPORTS[0];
 let activeCat   = CATS[0];
-let sourceMode  = 'none'; // 'github' | 'local' | 'none'
+let sourceMode  = 'none';
+let appMode     = 'prod'; // 'prod' | 'aud'
+let templateFiles = {};
 
 // ── DOM ───────────────────────────────────────────────────────────────────
-const sourceToggle = document.getElementById('source-toggle');
-const exportBtn    = document.getElementById('export-btn');
-const clearBtn     = document.getElementById('clear-btn');
-const emptyState   = document.getElementById('empty-state');
-const mainEl       = document.getElementById('main');
-const trackGrid    = document.getElementById('track-grid');
-const logList      = document.getElementById('log-list');
-const nowPlaying   = document.getElementById('now-playing');
-const npTitle      = document.getElementById('np-title');
-const npSport      = document.getElementById('np-sport');
-const npDot        = document.getElementById('np-dot');
-const npElapsed    = document.getElementById('np-elapsed');
-const npDuration   = document.getElementById('np-duration');
-const npBar        = document.getElementById('np-bar');
-const sourceBanner = document.getElementById('source-banner');
-const sportTabsEl  = document.getElementById('sport-tabs');
-const catTabsEl    = document.getElementById('cat-tabs');
-const localInput   = document.getElementById('local-input');
-const toast        = document.getElementById('toast');
+const sourceToggle  = document.getElementById('source-toggle');
+const exportBtn     = document.getElementById('export-btn');
+const resetBtn      = document.getElementById('reset-btn');
+const templateBtn   = document.getElementById('template-btn');
+const emptyState    = document.getElementById('empty-state');
+const mainEl        = document.getElementById('main');
+const trackGrid     = document.getElementById('track-grid');
+const logList       = document.getElementById('log-list');
+const nowPlaying    = document.getElementById('now-playing');
+const npTitle       = document.getElementById('np-title');
+const npSub         = document.getElementById('np-sub');
+const npDot         = document.getElementById('np-dot');
+const npElapsed     = document.getElementById('np-elapsed');
+const npDuration    = document.getElementById('np-duration');
+const npBar         = document.getElementById('np-bar');
+const npThreshold   = document.getElementById('np-threshold');
+const sourceBanner  = document.getElementById('source-banner');
+const sportTabsEl   = document.getElementById('sport-tabs');
+const catTabsEl     = document.getElementById('cat-tabs');
+const modeBanner    = document.getElementById('mode-banner');
+const modeBannerSub = document.getElementById('mode-banner-sub');
+const localInput    = document.getElementById('local-input');
+const templateInput = document.getElementById('template-input');
+
+// ── MODE ──────────────────────────────────────────────────────────────────
+document.getElementById('mode-prod').onclick = () => setMode('prod');
+document.getElementById('mode-aud').onclick  = () => setMode('aud');
+
+function setMode(m) {
+  appMode = m;
+  document.getElementById('mode-prod').className = 'mode-btn' + (m==='prod'?' active-prod':'');
+  document.getElementById('mode-aud').className  = 'mode-btn' + (m==='aud' ?' active-aud':'');
+  modeBanner.className = `${m}`;
+  modeBannerSub.textContent = m==='prod'
+    ? 'Plays will be logged and counted toward cue sheet'
+    : 'Audition mode — plays not counted, minimum 5s ignored';
+  // Update now-playing bar color
+  npBar.className = m==='aud' ? 'aud' : '';
+  if (m==='aud') {
+    nowPlaying.classList.add('audition-mode');
+    npDot.classList.add('aud');
+    npSub.classList.add('aud');
+  } else {
+    nowPlaying.classList.remove('audition-mode');
+    npDot.classList.remove('aud');
+    npSub.classList.remove('aud');
+  }
+  showToast(m==='prod' ? '🔴 Production Mode' : '◎ Audition Mode — plays not counted');
+}
 
 // ── INIT ──────────────────────────────────────────────────────────────────
+document.getElementById('load-github-btn').onclick = loadFromGitHub;
+document.getElementById('load-local-btn').onclick  = () => localInput.click();
+sourceToggle.onclick  = toggleSource;
+resetBtn.onclick      = resetPlayedState;
+templateBtn.onclick   = () => templateInput.click();
+exportBtn.onclick     = exportXLSX;
+localInput.onchange   = loadLocalFolder;
+templateInput.onchange = loadTemplates;
+
 buildSportTabs();
 buildCatTabs();
 
-document.getElementById('load-github-btn').onclick = loadFromGitHub;
-document.getElementById('load-local-btn').onclick  = () => localInput.click();
-sourceToggle.onclick = toggleSource;
-exportBtn.onclick    = exportXLSX;
-clearBtn.onclick     = resetLog;
-localInput.onchange  = loadLocalFolder;
-
-// ── SOURCE TOGGLE ─────────────────────────────────────────────────────────
+// ── SOURCE ────────────────────────────────────────────────────────────────
 function toggleSource() {
-  if (sourceMode === 'github') {
-    localInput.click();
-  } else if (sourceMode === 'local') {
-    loadFromGitHub();
-  } else {
-    // Show a small prompt
-    showToast('Choose a source below to load tracks.');
-  }
+  if (sourceMode==='github') localInput.click();
+  else if (sourceMode==='local') loadFromGitHub();
+  else showToast('Choose a source to load tracks.');
 }
 
-// ── GITHUB LOAD ───────────────────────────────────────────────────────────
 async function loadFromGitHub() {
-  showToast('Fetching track list from GitHub…');
+  showToast('Fetching track list…');
   try {
     const res = await fetch(TRACKS_JSON + '?t=' + Date.now());
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const manifest = await res.json();
-    initTracks(manifest.tracks.map(t => ({
-      name: t.name,
+    const tracks = manifest.tracks.map(t => ({
+      name: resolveProperName(t),
+      rawName: t.name,
       url: `${GITHUB_RAW}/${t.path}`,
-      sport: t.sport,
-      category: t.category,
-      plays: 0, buffer: null, element: null, badgeEl: null
-    })), 'github');
-    showToast(`${allTracks.length} tracks loaded from GitHub.`);
+      sport: t.sport, category: t.category,
+      plays: 0, beenPlayed: false,
+      buffer: null, element: null, badgeEl: null
+    }));
+    initTracks(tracks, 'github');
+    showToast(`${tracks.length} tracks loaded from GitHub.`);
   } catch(e) {
-    showToast('Could not reach GitHub. Try local folder instead.');
+    showToast('Could not reach GitHub. Try local folder.');
     console.error(e);
   }
 }
 
-// ── LOCAL LOAD ────────────────────────────────────────────────────────────
 function loadLocalFolder(e) {
-  const files = Array.from(e.target.files).filter(f =>
-    /\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name)
-  );
-  if (!files.length) { showToast('No audio files found.'); return; }
-
-  // Parse folder structure: sport/category/trackname.mp3
+  const files = Array.from(e.target.files).filter(f => /\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name));
+  if (!files.length){showToast('No audio files found.');return;}
   const parsed = files.map(f => {
-    const parts = (f.webkitRelativePath || f.name).split('/');
-    let sport = 'Diamond Sports', category = 'Theme';
-    if (parts.length >= 3) {
-      sport    = matchSport(parts[parts.length - 3]);
-      category = matchCat(parts[parts.length - 2]);
-    } else if (parts.length >= 2) {
-      const guess = matchSport(parts[parts.length - 2]);
-      if (guess) sport = guess;
-      else category = matchCat(parts[parts.length - 2]);
+    const parts = (f.webkitRelativePath||f.name).split('/');
+    let sport='Diamond Sports', category='Theme';
+    if (parts.length>=3){
+      sport    = matchSport(parts[parts.length-3]) || matchSport(parts[parts.length-2]) || sport;
+      category = matchCat(parts[parts.length-2]);
     }
-    const name = parts[parts.length - 1].replace(/\.[^.]+$/, '');
-    return { name, url: null, file: f, sport, category, plays: 0, buffer: null, element: null, badgeEl: null };
+    const name = parts[parts.length-1].replace(/\.[^.]+$/,'');
+    return {name, url:null, file:f, sport, category, plays:0, beenPlayed:false, buffer:null, element:null, badgeEl:null};
   });
-
-  initTracks(parsed, 'local');
+  initTracks(parsed,'local');
   showToast(`${allTracks.length} local tracks loaded.`);
-  localInput.value = '';
-
-  // Decode buffers in background
+  localInput.value='';
   for (const t of allTracks) {
-    if (t.file) {
-      t.file.arrayBuffer().then(ab =>
-        audioCtx.decodeAudioData(ab, buf => { t.buffer = buf; })
-      );
-    }
+    if (t.file) t.file.arrayBuffer().then(ab => audioCtx.decodeAudioData(ab, buf => {t.buffer=buf;}));
   }
 }
 
-function matchSport(s) {
-  if (!s) return null;
-  const l = s.toLowerCase();
-  if (l.includes('olympic') || l.includes('olympic')) return 'Olympic Sports';
-  if (l.includes('football') || l.includes('fb'))     return 'Football';
-  if (l.includes('basketball') || l.includes('bball')) return 'Basketball';
-  if (l.includes('diamond') || l.includes('baseball') || l.includes('softball')) return 'Diamond Sports';
-  return null;
-}
-function matchCat(s) {
-  if (!s) return 'Theme';
-  return s.toLowerCase().includes('support') ? 'Support' : 'Theme';
-}
+function matchSport(s){if(!s)return null;const l=s.toLowerCase();if(l.includes('olympic'))return 'Olympic Sports';if(l.includes('football')||l.includes('cfb'))return 'Football';if(l.includes('basketball')||l.includes('cbb'))return 'Basketball';if(l.includes('diamond')||l.includes('baseball')||l.includes('softball'))return 'Diamond Sports';return null;}
+function matchCat(s){if(!s)return 'Theme';return s.toLowerCase().includes('support')?'Support':'Theme';}
 
 // ── INIT TRACKS ───────────────────────────────────────────────────────────
 function initTracks(tracks, mode) {
@@ -407,406 +403,358 @@ function initTracks(tracks, mode) {
   playLog = [];
   sourceMode = mode;
 
-  // Source UI
-  if (mode === 'github') {
-    sourceToggle.className = 'hbtn github';
-    sourceToggle.textContent = '⇄ GitHub';
-    sourceBanner.className = 'github';
-    sourceBanner.innerHTML = '● STREAMING FROM GITHUB — jaysvideo/espn-audio';
+  if (mode==='github'){
+    sourceToggle.className='hbtn github'; sourceToggle.textContent='⇄ GitHub';
+    sourceBanner.className='github'; sourceBanner.innerHTML='● STREAMING — JaysVideo/ESPN-Audio';
   } else {
-    sourceToggle.className = 'hbtn local';
-    sourceToggle.textContent = '⇄ Local';
-    sourceBanner.className = 'local';
-    sourceBanner.innerHTML = '● LOCAL FILES';
+    sourceToggle.className='hbtn local'; sourceToggle.textContent='⇄ Local';
+    sourceBanner.className='local'; sourceBanner.innerHTML='● LOCAL FILES';
   }
 
-  emptyState.style.display = 'none';
+  emptyState.style.display='none';
   mainEl.classList.add('vis');
-  exportBtn.classList.add('vis');
-  clearBtn.classList.add('vis');
+  exportBtn.style.display='inline-block';
 
-  activeSport = SPORTS[0];
-  activeCat = CATS[0];
-  buildSportTabs();
-  buildCatTabs();
-  renderTracks();
-  refreshLog();
+  activeSport=SPORTS[0]; activeCat=CATS[0];
+  buildSportTabs(); buildCatTabs(); renderTracks(); refreshLog();
 }
 
-// ── SPORT / CAT TABS ──────────────────────────────────────────────────────
-function buildSportTabs() {
-  sportTabsEl.innerHTML = SPORTS.map(s => `
-    <button class="sport-tab${s===activeSport?' active':''}" data-sport="${s}">
-      ${SPORT_ICONS[s]||''} ${s}
-    </button>`).join('');
-  sportTabsEl.querySelectorAll('.sport-tab').forEach(btn =>
-    btn.addEventListener('pointerdown', () => {
-      activeSport = btn.dataset.sport;
-      buildSportTabs(); buildCatTabs(); renderTracks();
-    })
-  );
+// ── TABS ──────────────────────────────────────────────────────────────────
+function buildSportTabs(){
+  sportTabsEl.innerHTML=SPORTS.map(s=>`<button class="sport-tab${s===activeSport?' active':''}" data-sport="${s}">${SPORT_ICONS[s]||''} ${s}</button>`).join('');
+  sportTabsEl.querySelectorAll('.sport-tab').forEach(b=>b.addEventListener('pointerdown',()=>{activeSport=b.dataset.sport;buildSportTabs();buildCatTabs();renderTracks();}));
+}
+function buildCatTabs(){
+  catTabsEl.innerHTML=CATS.map(c=>`<button class="cat-tab${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
+  catTabsEl.querySelectorAll('.cat-tab').forEach(b=>b.addEventListener('pointerdown',()=>{activeCat=b.dataset.cat;buildCatTabs();renderTracks();}));
 }
 
-function buildCatTabs() {
-  catTabsEl.innerHTML = CATS.map(c => `
-    <button class="cat-tab${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
-  catTabsEl.querySelectorAll('.cat-tab').forEach(btn =>
-    btn.addEventListener('pointerdown', () => {
-      activeCat = btn.dataset.cat;
-      buildCatTabs(); renderTracks();
-    })
-  );
-}
+// ── RENDER TRACKS ─────────────────────────────────────────────────────────
+function renderTracks(){
+  const visible = allTracks.filter(t=>t.sport===activeSport&&t.category===activeCat);
+  document.getElementById('section-label').textContent=`${activeSport} — ${activeCat} (${visible.length})`;
+  trackGrid.innerHTML='';
+  if(!visible.length){trackGrid.innerHTML='<div class="no-tracks">No tracks in this category.</div>';return;}
 
-// ── RENDER ────────────────────────────────────────────────────────────────
-function renderTracks() {
-  const visible = allTracks.filter(t => t.sport === activeSport && t.category === activeCat);
-  document.getElementById('section-label').textContent =
-    `${activeSport} — ${activeCat} (${visible.length})`;
-  trackGrid.innerHTML = '';
-  if (!visible.length) {
-    trackGrid.innerHTML = '<div class="no-tracks">No tracks in this category.</div>';
-    return;
-  }
-  visible.forEach(t => {
-    const idx = allTracks.indexOf(t);
-    const btn = document.createElement('button');
-    btn.className = 'track-btn';
-    const isPlaying = currentIdx === idx;
-    if (isPlaying) btn.classList.add('playing');
-    btn.innerHTML = `
-      <div class="t-icon">${isPlaying ? '■' : '▶'}</div>
+  visible.forEach(t=>{
+    const idx=allTracks.indexOf(t);
+    const isPlaying=currentIdx===idx;
+    const btn=document.createElement('button');
+    btn.className='track-btn'+(isPlaying?(appMode==='aud'?' playing-aud':' playing'):t.beenPlayed?' been-played':'');
+    const ico=isPlaying?'■':t.beenPlayed?'✓':'▶';
+    btn.innerHTML=`
+      <div class="t-icon">${ico}</div>
       <div class="track-name">${esc(t.name)}</div>
       <div class="track-footer">
-        <span class="t-badge${t.plays > 0 ? ' has-plays' : ''}" id="badge-${idx}">
-          ${t.plays} play${t.plays !== 1 ? 's' : ''}
+        <span class="t-badge${t.plays>0?' has-plays':t.beenPlayed?' been-played-badge':''}" id="badge-${idx}">
+          ${t.plays>0?`${t.plays} play${t.plays!==1?'s':''}`:t.beenPlayed?'auditioned':'—'}
         </span>
       </div>`;
-    btn.addEventListener('pointerdown', () => handlePress(idx));
-    t.element = btn;
-    t.badgeEl = btn.querySelector(`#badge-${idx}`);
+    btn.addEventListener('pointerdown',()=>handlePress(idx));
+    t.element=btn; t.badgeEl=btn.querySelector(`#badge-${idx}`);
     trackGrid.appendChild(btn);
   });
 }
 
 // ── PLAYBACK ──────────────────────────────────────────────────────────────
-function handlePress(idx) {
-  if (audioCtx.state === 'suspended') audioCtx.resume();
-  if (currentIdx === idx) { fadeOut(true); }
-  else { if (currentIdx !== null) fadeOut(false); playTrack(idx); }
+function handlePress(idx){
+  if(audioCtx.state==='suspended') audioCtx.resume();
+  if(currentIdx===idx) fadeOut(true);
+  else{if(currentIdx!==null) fadeOut(false); playTrack(idx);}
 }
 
-async function playTrack(idx) {
-  const t = allTracks[idx];
-
-  // Fetch + decode if needed (GitHub streaming)
-  if (!t.buffer) {
-    if (t.url) {
+async function playTrack(idx){
+  const t=allTracks[idx];
+  if(!t.buffer){
+    if(t.url){
       showToast(`Loading "${t.name}"…`);
-      try {
-        const res = await fetch(t.url);
-        const ab = await res.arrayBuffer();
-        t.buffer = await audioCtx.decodeAudioData(ab);
-      } catch(e) {
-        showToast('Could not load track. Check connection.'); return;
-      }
-    } else {
-      showToast('Track still decoding, try again.'); return;
-    }
+      try{
+        const res=await fetch(t.url);
+        const ab=await res.arrayBuffer();
+        t.buffer=await audioCtx.decodeAudioData(ab);
+      }catch(e){showToast('Could not load track.');return;}
+    } else {showToast('Track still decoding…');return;}
   }
 
-  currentIdx = idx; isFading = false; playStart = audioCtx.currentTime;
+  currentIdx=idx; isFading=false; playStart=audioCtx.currentTime;
 
-  gainNode = audioCtx.createGain();
-  gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
-  gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.4);
+  gainNode=audioCtx.createGain();
+  gainNode.gain.setValueAtTime(0,audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(1,audioCtx.currentTime+0.4);
   gainNode.connect(audioCtx.destination);
 
-  currentSrc = audioCtx.createBufferSource();
-  currentSrc.buffer = t.buffer;
+  currentSrc=audioCtx.createBufferSource();
+  currentSrc.buffer=t.buffer;
   currentSrc.connect(gainNode);
   currentSrc.start(0);
-  currentSrc.onended = () => { if (currentIdx === idx && !isFading) trackEnded(idx); };
+  currentSrc.onended=()=>{if(currentIdx===idx&&!isFading) trackEnded(idx);};
 
-  setTrackUI(idx, 'playing');
+  setTrackUI(idx, appMode==='aud'?'playing-aud':'playing');
   showNP(t);
   startTimer(idx);
 
-  t.plays++;
-  updateBadge(idx);
-  logAction('PLAY', t);
+  // Set threshold marker on progress bar
+  const dur=t.buffer.duration;
+  npThreshold.style.width=dur?`${Math.min(100,(PLAY_THRESHOLD_SECS/dur)*100)}%`:'0%';
 }
 
-function fadeOut(clearCurrent) {
-  if (!gainNode || currentIdx === null) return;
-  isFading = true;
-  const fadeSecs = 0.8;
-  gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
-  gainNode.gain.setValueAtTime(gainNode.gain.value, audioCtx.currentTime);
-  gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + fadeSecs);
-
-  const src = currentSrc, fi = currentIdx;
-  setTimeout(() => { try { src.stop(); } catch(e){} }, fadeSecs * 1000 + 100);
-
-  setTrackUI(fi, 'fading');
-  npSport.textContent = 'Fading Out'; npSport.className = 'fading'; npDot.className = 'fading';
-  logAction('FADE', allTracks[fi]);
-
-  const cleanup = () => { setTrackUI(fi, 'idle'); isFading = false; };
-  if (clearCurrent) {
-    setTimeout(() => { cleanup(); hideNP(); stopTimer(); currentIdx = null; }, fadeSecs * 1000 + 200);
-    currentIdx = null; currentSrc = null; gainNode = null;
+function commitPlay(idx){
+  // Called when a track exceeds the 5-second threshold in production mode
+  const t=allTracks[idx];
+  if(appMode==='prod'){
+    t.plays++;
+    updateBadge(idx);
+    logAction('PLAY',t);
   } else {
-    setTimeout(cleanup, fadeSecs * 1000 + 200);
+    // In audition mode, just mark as been-played (no count)
+    if(!t.beenPlayed){
+      t.beenPlayed=true;
+      updateBadge(idx);
+      logAction('AUD',t);
+    }
+  }
+  // Show reset button if any tracks have been played/auditioned
+  const anyPlayed=allTracks.some(t=>t.plays>0||t.beenPlayed);
+  resetBtn.style.display=anyPlayed?'inline-block':'none';
+}
+
+let thresholdCommitted=false;
+
+function startTimer(idx){
+  stopTimer();
+  thresholdCommitted=false;
+  timerInt=setInterval(()=>{
+    if(currentIdx!==idx){stopTimer();return;}
+    const e=audioCtx.currentTime-playStart;
+    const d=allTracks[idx]?.buffer?.duration||0;
+    npElapsed.textContent=fmt(e);
+    npBar.style.width=d?`${Math.min(100,(e/d)*100)}%`:'0%';
+    // Commit play after threshold
+    if(!thresholdCommitted&&e>=PLAY_THRESHOLD_SECS){
+      thresholdCommitted=true;
+      commitPlay(idx);
+    }
+  },250);
+}
+function stopTimer(){clearInterval(timerInt);timerInt=null;}
+
+function fadeOut(clearCurrent){
+  if(!gainNode||currentIdx===null) return;
+  isFading=true;
+  const fs=0.8;
+  gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
+  gainNode.gain.setValueAtTime(gainNode.gain.value,audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(0,audioCtx.currentTime+fs);
+  const src=currentSrc, fi=currentIdx;
+  setTimeout(()=>{try{src.stop();}catch(e){}},fs*1000+100);
+
+  // Check if under threshold — log as skip
+  const elapsed=audioCtx.currentTime-playStart;
+  if(!thresholdCommitted&&elapsed<PLAY_THRESHOLD_SECS){
+    logAction('SKIP',allTracks[fi]);
+  }
+
+  setTrackUI(fi,'fading');
+  npSub.textContent='Fading Out'; npSub.className='fading'; npDot.className='fading';
+  logAction('FADE',allTracks[fi]);
+
+  const cleanup=()=>{setTrackUI(fi,'idle');isFading=false;};
+  if(clearCurrent){
+    setTimeout(()=>{cleanup();hideNP();stopTimer();currentIdx=null;},fs*1000+200);
+    currentIdx=null;currentSrc=null;gainNode=null;
+  } else {
+    setTimeout(cleanup,fs*1000+200);
   }
 }
 
-function trackEnded(idx) {
-  setTrackUI(idx, 'idle'); hideNP(); stopTimer();
-  currentIdx = null; currentSrc = null; gainNode = null;
+function trackEnded(idx){
+  setTrackUI(idx,'idle');hideNP();stopTimer();
+  currentIdx=null;currentSrc=null;gainNode=null;
 }
 
-function stopAll(log) {
-  if (currentSrc) { try { currentSrc.stop(); } catch(e){} }
-  if (log && currentIdx !== null) logAction('FADE', allTracks[currentIdx]);
-  currentSrc = null; gainNode = null;
-  const prev = currentIdx; currentIdx = null;
-  stopTimer(); hideNP();
-  if (prev !== null) setTrackUI(prev, 'idle');
+function stopAll(log){
+  if(currentSrc){try{currentSrc.stop();}catch(e){}}
+  currentSrc=null;gainNode=null;
+  const prev=currentIdx;currentIdx=null;
+  stopTimer();hideNP();
+  if(prev!==null) setTrackUI(prev,'idle');
 }
 
 // ── UI HELPERS ────────────────────────────────────────────────────────────
-function setTrackUI(idx, state) {
-  const t = allTracks[idx]; if (!t?.element) return;
-  t.element.classList.remove('playing','fading');
-  const ico = t.element.querySelector('.t-icon');
-  if (state === 'playing') { t.element.classList.add('playing'); if(ico) ico.textContent='■'; }
-  else if (state === 'fading') { t.element.classList.add('fading'); if(ico) ico.textContent='↓'; }
-  else { if(ico) ico.textContent='▶'; }
+function setTrackUI(idx,state){
+  const t=allTracks[idx];if(!t?.element)return;
+  t.element.classList.remove('playing','playing-aud','fading');
+  const ico=t.element.querySelector('.t-icon');
+  if(state==='playing'){t.element.classList.add('playing');if(ico)ico.textContent='■';}
+  else if(state==='playing-aud'){t.element.classList.add('playing-aud');if(ico)ico.textContent='■';}
+  else if(state==='fading'){t.element.classList.add('fading');if(ico)ico.textContent='↓';}
+  else{
+    // idle — restore been-played state
+    if(t.beenPlayed||t.plays>0) t.element.classList.add('been-played');
+    if(ico) ico.textContent=t.plays>0||t.beenPlayed?'✓':'▶';
+  }
 }
 
-function updateBadge(idx) {
-  const t = allTracks[idx]; if (!t.badgeEl) return;
-  const n = t.plays;
-  t.badgeEl.textContent = `${n} play${n!==1?'s':''}`;
-  t.badgeEl.className = `t-badge${n>0?' has-plays':''}`;
+function updateBadge(idx){
+  const t=allTracks[idx];if(!t.badgeEl)return;
+  const n=t.plays;
+  if(n>0){
+    t.badgeEl.textContent=`${n} play${n!==1?'s':''}`;
+    t.badgeEl.className='t-badge has-plays';
+  } else if(t.beenPlayed){
+    t.badgeEl.textContent='auditioned';
+    t.badgeEl.className='t-badge been-played-badge';
+  } else {
+    t.badgeEl.textContent='—';
+    t.badgeEl.className='t-badge';
+  }
+  // Update element class
+  if(t.element&&currentIdx!==idx){
+    if(t.beenPlayed||t.plays>0) t.element.classList.add('been-played');
+    const ico=t.element.querySelector('.t-icon');
+    if(ico) ico.textContent=t.plays>0||t.beenPlayed?'✓':'▶';
+  }
 }
 
-function showNP(t) {
+function showNP(t){
   nowPlaying.classList.add('active');
-  npTitle.textContent = t.name;
-  npSport.textContent = `${t.sport} · ${t.category}`;
-  npSport.className = ''; npDot.className = '';
-  npDuration.textContent = t.buffer ? `/ ${fmt(t.buffer.duration)}` : '/ —';
+  npTitle.textContent=t.name;
+  npSub.textContent=`${t.sport} · ${t.category}`;
+  npSub.className=appMode==='aud'?'aud':'';
+  npDot.className=appMode==='aud'?'aud':'';
+  npDuration.textContent=t.buffer?`/ ${fmt(t.buffer.duration)}`:'/ —';
 }
-function hideNP() { nowPlaying.classList.remove('active'); npElapsed.textContent='0:00'; npBar.style.width='0%'; }
+function hideNP(){nowPlaying.classList.remove('active');npElapsed.textContent='0:00';npBar.style.width='0%';npThreshold.style.width='0%';}
 
-function startTimer(idx) {
-  stopTimer();
-  timerInt = setInterval(() => {
-    if (currentIdx !== idx) { stopTimer(); return; }
-    const e = audioCtx.currentTime - playStart;
-    const d = allTracks[idx]?.buffer?.duration || 0;
-    npElapsed.textContent = fmt(e);
-    npBar.style.width = d ? `${Math.min(100,(e/d)*100)}%` : '0%';
-  }, 500);
-}
-function stopTimer() { clearInterval(timerInt); timerInt = null; }
-function fmt(s) {
-  if (!isFinite(s)||isNaN(s)) return '0:00';
-  return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+function fmt(s){if(!isFinite(s)||isNaN(s))return'0:00';return`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;}
+
+// ── RESET PLAYED STATE ────────────────────────────────────────────────────
+function resetPlayedState(){
+  if(!confirm('Clear all played/auditioned states and reset play counts?')) return;
+  stopAll(false);
+  playLog=[];
+  allTracks.forEach((_,i)=>{allTracks[i].plays=0;allTracks[i].beenPlayed=false;updateBadge(i);});
+  refreshLog();
+  resetBtn.style.display='none';
+  renderTracks();
+  showToast('All play states reset.');
 }
 
 // ── LOG ───────────────────────────────────────────────────────────────────
-function logAction(action, t) {
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
-  playLog.push({ time, action, track: t.name, sport: t.sport, category: t.category, raw: now });
+function logAction(action,t){
+  const now=new Date();
+  const time=now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+  playLog.push({time,action,track:t.name,sport:t.sport,category:t.category,raw:now});
   refreshLog();
 }
 
-function refreshLog() {
-  if (!playLog.length) { logList.innerHTML='<div class="log-empty">No plays logged yet.</div>'; return; }
-  logList.innerHTML = [...playLog].reverse().map(e => `
-    <div class="log-entry ${e.action==='PLAY'?'play':'fade'}">
+function refreshLog(){
+  if(!playLog.length){logList.innerHTML='<div class="log-empty">No plays logged yet.</div>';return;}
+  logList.innerHTML=[...playLog].reverse().map(e=>{
+    const cls=e.action==='PLAY'?'play':e.action==='AUD'?'aud-play':e.action==='SKIP'?'skip':'fade';
+    const label=e.action==='AUD'?'AUDN':e.action==='SKIP'?'SKIP':e.action;
+    return`<div class="log-entry ${cls}">
       <span class="log-time">${e.time}</span>
-      <span class="log-act">${e.action}</span>
+      <span class="log-act">${label}</span>
       <span class="log-trk">${esc(e.track)}</span>
       <span class="log-sport-tag">${esc(e.sport.split(' ')[0])}</span>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 
-// ── TEMPLATE UPLOAD ───────────────────────────────────────────────────────
-// Map sport → which template file to use
-const TEMPLATE_MAP = {
-  'Football':       'football',
-  'Basketball':     'cbb',
-  'Olympic Sports': 'olympic',
-  'Diamond Sports': 'cbb',   // fallback — diamond sports use CBB-style template
-};
-let templateFiles = {}; // { 'football': File, 'cbb': File, 'olympic': File }
-
-// Inject template upload UI after export btn
-(function injectTemplateUI() {
-  const actions = document.querySelector('#header > div:last-child');
-  const inp = document.createElement('input');
-  inp.type = 'file'; inp.multiple = true; inp.accept = '.xlsx';
-  inp.style.display = 'none'; inp.id = 'template-input';
-  document.body.appendChild(inp);
-
-  const btn = document.createElement('button');
-  btn.className = 'hbtn'; btn.id = 'template-btn';
-  btn.style.cssText = 'background:#1a1a2e;color:#7878cc;border:1px solid #333;';
-  btn.textContent = '📋 Load Templates';
-  btn.onclick = () => inp.click();
-  actions.insertBefore(btn, document.getElementById('export-btn'));
-
-  inp.onchange = (e) => {
-    const files = Array.from(e.target.files).filter(f => f.name.endsWith('.xlsx'));
-    files.forEach(f => {
-      const nl = f.name.toLowerCase();
-      if (nl.includes('football'))   templateFiles['football'] = f;
-      if (nl.includes('cbb') || nl.includes('basketball')) templateFiles['cbb'] = f;
-      if (nl.includes('olympic'))    templateFiles['olympic']  = f;
-    });
-    const loaded = Object.keys(templateFiles).length;
-    btn.textContent = `📋 Templates (${loaded})`;
-    btn.style.color = loaded > 0 ? '#6fbf6f' : '#7878cc';
-    showToast(`${loaded} cue sheet template${loaded!==1?'s':''} loaded.`);
-    inp.value = '';
-  };
-})();
+// ── TEMPLATES ─────────────────────────────────────────────────────────────
+function loadTemplates(e){
+  const files=Array.from(e.target.files).filter(f=>f.name.endsWith('.xlsx'));
+  files.forEach(f=>{
+    const nl=f.name.toLowerCase();
+    if(nl.includes('football')) templateFiles['football']=f;
+    if(nl.includes('cbb')||nl.includes('basketball')) templateFiles['cbb']=f;
+    if(nl.includes('olympic')) templateFiles['olympic']=f;
+  });
+  const n=Object.keys(templateFiles).length;
+  templateBtn.textContent=`📋 Templates (${n})`;
+  templateBtn.style.color=n>0?'#6fbf6f':'#7878cc';
+  showToast(`${n} cue sheet template${n!==1?'s':''} loaded.`);
+  templateInput.value='';
+}
 
 // ── EXPORT ────────────────────────────────────────────────────────────────
-async function exportXLSX() {
-  if (!allTracks.length) return;
-  const hasPlays = allTracks.some(t => t.plays > 0);
-  if (!hasPlays) { showToast('No plays recorded yet.'); return; }
+async function exportXLSX(){
+  if(!allTracks.length) return;
+  const hasPlays=allTracks.some(t=>t.plays>0);
+  if(!hasPlays){showToast('No production plays recorded yet.');return;}
 
-  const templatesLoaded = Object.keys(templateFiles).length;
-
-  if (templatesLoaded > 0) {
-    await exportIntoTemplates();
-  } else {
-    exportSummaryOnly();
-  }
+  const templatesLoaded=Object.keys(templateFiles).length;
+  if(templatesLoaded>0) await exportIntoTemplates();
+  else exportSummaryOnly();
 }
 
-// Export into actual ESPN cue sheet templates
-async function exportIntoTemplates() {
+async function exportIntoTemplates(){
   showToast('Building cue sheets…');
+  const playCounts={};
+  allTracks.forEach(t=>{if(t.plays>0) playCounts[t.name.trim().toLowerCase()]=t.plays;});
 
-  // Build play count lookup: name (lowercase) → count
-  const playCounts = {};
-  allTracks.forEach(t => {
-    if (t.plays > 0) playCounts[t.name.trim().toLowerCase()] = t.plays;
-  });
-
-  // Process each loaded template
-  for (const [templateKey, file] of Object.entries(templateFiles)) {
-    try {
-      const ab = await file.arrayBuffer();
-      const wb = XLSX.read(ab, { type: 'array', cellStyles: true });
-
-      // Fill "Number Of Uses" (col C = index 2) in Theme-Promo and Support sheets
-      for (const shname of ['ESPN Theme-Promo', 'Support']) {
-        if (!wb.SheetNames.includes(shname)) continue;
-        const ws = wb.Sheets[shname];
-        const range = XLSX.utils.decode_range(ws['!ref'] || 'A1:F1000');
-
-        for (let r = range.s.r; r <= range.e.r; r++) {
-          const cellA = ws[XLSX.utils.encode_cell({r, c:0})]; // Composition Title
-          const cellB = ws[XLSX.utils.encode_cell({r, c:1})]; // TH/BKG
-          if (!cellA || !cellB) continue;
-
-          const name  = String(cellA.v || '').trim();
-          const thbkg = String(cellB.v || '').trim();
-          if (!name || !['TH','BKG','BKG '].includes(thbkg)) continue;
-
-          const count = playCounts[name.toLowerCase()];
-          if (count !== undefined) {
-            const cellRef = XLSX.utils.encode_cell({r, c:2});
-            ws[cellRef] = { t:'n', v: count };
-          }
+  for(const[key,file] of Object.entries(templateFiles)){
+    try{
+      const ab=await file.arrayBuffer();
+      const wb=XLSX.read(ab,{type:'array',cellStyles:true});
+      for(const shname of['ESPN Theme-Promo','Support']){
+        if(!wb.SheetNames.includes(shname)) continue;
+        const ws=wb.Sheets[shname];
+        const range=XLSX.utils.decode_range(ws['!ref']||'A1:F1000');
+        for(let r=range.s.r;r<=range.e.r;r++){
+          const cA=ws[XLSX.utils.encode_cell({r,c:0})];
+          const cB=ws[XLSX.utils.encode_cell({r,c:1})];
+          if(!cA||!cB) continue;
+          const name=String(cA.v||'').trim();
+          const thbkg=String(cB.v||'').trim();
+          if(!name||!['TH','BKG','BKG '].includes(thbkg)) continue;
+          const count=playCounts[name.toLowerCase()];
+          if(count!==undefined) ws[XLSX.utils.encode_cell({r,c:2})]={t:'n',v:count};
         }
       }
-
-      // Write file
-      const dateStr = new Date().toISOString().slice(0,10);
-      const outName = `ESPN_CueSheet_${templateKey}_${dateStr}.xlsx`;
-      XLSX.writeFile(wb, outName);
-      await new Promise(r => setTimeout(r, 400)); // stagger downloads
-    } catch(e) {
-      showToast(`Error processing ${templateKey}: ${e.message}`);
-      console.error(e);
-    }
+      const dateStr=new Date().toISOString().slice(0,10);
+      XLSX.writeFile(wb,`ESPN_CueSheet_${key}_${dateStr}.xlsx`);
+      await new Promise(r=>setTimeout(r,400));
+    }catch(e){showToast(`Error: ${e.message}`);}
   }
-
-  // Always also export the full summary + log
   exportSummaryOnly(true);
   showToast('All cue sheets exported!');
 }
 
-// Fallback: export a standalone summary workbook
-function exportSummaryOnly(silent = false) {
-  const wb = XLSX.utils.book_new();
-
-  // Summary by sport/category
-  const summary = [
+function exportSummaryOnly(silent=false){
+  const wb=XLSX.utils.book_new();
+  const summary=[
     ['ESPN Audio Tracker — Play Count Summary'],
-    [`Exported: ${new Date().toLocaleString()}`],
-    [],
+    [`Exported: ${new Date().toLocaleString()}`],[],
     ['Sport','Category','Composition Title','Number Of Uses']
   ];
-  SPORTS.forEach(sport => {
-    CATS.forEach(cat => {
-      const group = allTracks.filter(t => t.sport===sport && t.category===cat && t.plays>0);
-      group.forEach(t => summary.push([sport, cat, t.name, t.plays]));
-    });
-  });
-  summary.push([]);
-  summary.push(['','','TOTAL PLAYS', allTracks.reduce((s,t)=>s+t.plays,0)]);
-  const ws1 = XLSX.utils.aoa_to_sheet(summary);
-  ws1['!cols'] = [{wch:18},{wch:10},{wch:48},{wch:16}];
-  XLSX.utils.book_append_sheet(wb, ws1, 'Play Count Summary');
+  SPORTS.forEach(sport=>CATS.forEach(cat=>{
+    allTracks.filter(t=>t.sport===sport&&t.category===cat&&t.plays>0)
+      .forEach(t=>summary.push([sport,cat,t.name,t.plays]));
+  }));
+  summary.push([],['','','TOTAL PLAYS',allTracks.reduce((s,t)=>s+t.plays,0)]);
+  const ws1=XLSX.utils.aoa_to_sheet(summary);
+  ws1['!cols']=[{wch:18},{wch:10},{wch:48},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,ws1,'Play Count Summary');
 
-  // Full playback log
-  const log = [
-    ['ESPN Audio Tracker — Playback Log'],
-    [`Exported: ${new Date().toLocaleString()}`],
-    [],
-    ['Timestamp','Action','Composition Title','Sport','Category']
-  ];
-  playLog.forEach(e => log.push([e.time, e.action, e.track, e.sport, e.category]));
-  const ws2 = XLSX.utils.aoa_to_sheet(log);
-  ws2['!cols'] = [{wch:14},{wch:8},{wch:48},{wch:18},{wch:10}];
-  XLSX.utils.book_append_sheet(wb, ws2, 'Playback Log');
+  const log=[['ESPN Audio Tracker — Playback Log'],[`Exported: ${new Date().toLocaleString()}`],[],['Timestamp','Action','Composition Title','Sport','Category']];
+  playLog.forEach(e=>log.push([e.time,e.action,e.track,e.sport,e.category]));
+  const ws2=XLSX.utils.aoa_to_sheet(log);
+  ws2['!cols']=[{wch:14},{wch:8},{wch:48},{wch:18},{wch:10}];
+  XLSX.utils.book_append_sheet(wb,ws2,'Playback Log');
 
-  const dateStr = new Date().toISOString().slice(0,10);
-  XLSX.writeFile(wb, `ESPN_AudioTracker_${dateStr}.xlsx`);
-  if (!silent) showToast('Exported summary spreadsheet.');
-}
-
-// ── RESET ─────────────────────────────────────────────────────────────────
-function resetLog() {
-  if (!confirm('Reset all play counts and clear the log?')) return;
-  stopAll(false);
-  playLog = [];
-  allTracks.forEach((_,i) => { allTracks[i].plays = 0; updateBadge(i); });
-  refreshLog();
-  showToast('Log cleared.');
+  XLSX.writeFile(wb,`ESPN_AudioTracker_${new Date().toISOString().slice(0,10)}.xlsx`);
+  if(!silent) showToast('Exported!');
 }
 
 // ── TOAST ─────────────────────────────────────────────────────────────────
 let toastTimer;
-function showToast(msg) {
-  toast.textContent = msg; toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800);
 }
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 </script>
 </body>
 </html>
