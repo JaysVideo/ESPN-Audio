@@ -190,17 +190,23 @@
 <script>
 // ── FOLDER → SPORT/CATEGORY MAP ───────────────────────────────────────────
 const FOLDER_MAP = {
-  'cbb support music':           {sport:'Basketball',    category:'Support', ghFolder:'basketball/support'},
-  'cbb theme music':             {sport:'Basketball',    category:'Theme',   ghFolder:'basketball/theme'},
-  'cfb event support':           {sport:'Football',      category:'Support', ghFolder:'football/support'},
-  'cfb event theme':             {sport:'Football',      category:'Theme',   ghFolder:'football/theme'},
-  'olympic sport support music': {sport:'Olympic Sports',category:'Support', ghFolder:'olympic-sports/support'},
-  'olympic sport theme music':   {sport:'Olympic Sports',category:'Theme',   ghFolder:'olympic-sports/theme'},
-  'diamond sport support':       {sport:'Diamond Sports',category:'Support', ghFolder:'diamond-sports/support'},
-  'diamond sport theme':         {sport:'Diamond Sports',category:'Theme',   ghFolder:'diamond-sports/theme'},
+  'cbb support music':              {sport:'Basketball',    category:'Support',          ghFolder:'basketball/support'},
+  'cbb theme music':                {sport:'Basketball',    category:'Theme',            ghFolder:'basketball/theme'},
+  'cfb event support':              {sport:'Football',      category:'Support',          ghFolder:'football/support'},
+  'cfb event theme':                {sport:'Football',      category:'Theme',            ghFolder:'football/theme'},
+  'olympic sport support music':    {sport:'Olympic Sports',category:'Support',          ghFolder:'olympic-sports/support'},
+  'olympic sport theme music':      {sport:'Olympic Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
+  // Diamond Sports theme reuses olympic theme folder (same files)
+  'diamond sport theme music':      {sport:'Diamond Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
+  'diamond sport theme':            {sport:'Diamond Sports',category:'Theme',            ghFolder:'olympic-sports/theme'},
+  // Diamond Sports split support
+  'baseball':                       {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
+  'softball':                       {sport:'Diamond Sports',category:'Support-Softball', ghFolder:'diamond-sports/support-softball'},
+  'diamond sport support music':    {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
+  'diamond sport support':          {sport:'Diamond Sports',category:'Support-Baseball', ghFolder:'diamond-sports/support-baseball'},
 };
 const SPORTS = ['Basketball','Football','Olympic Sports','Diamond Sports'];
-const CATS   = ['Theme','Support'];
+const CATS   = ['Theme','Support','Support-Baseball','Support-Softball'];
 
 // ── FILENAME PARSER ───────────────────────────────────────────────────────
 // "01_-_ROCK070_-_Fire_And_Ice.wav" → {name:"Fire And Ice", cutCode:"ROCK070"}
