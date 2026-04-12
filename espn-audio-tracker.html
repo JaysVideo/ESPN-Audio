@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>ESPN Audio Tracker</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --red: #CC0000; --dark-red: #990000;
+    --black: #0A0A0A; --dark: #111; --panel: #1A1A1A;
+    --border: #2A2A2A; --mid: #333; --text: #F0F0F0;
+    --muted: #888; --accent: #FF6B00;
+    --glow: 0 0 20px rgba(204,0,0,0.5), 0 0 40px rgba(204,0,0,0.2);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--black); color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh; overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent; user-select: none;
+  }
+
+  /* HEADER */
+  #header {
+    background: var(--dark); border-bottom: 3px solid var(--red);
+    padding: 12px 20px; display: flex; align-items: center; gap: 14px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  #espn-logo { font-family: 'Bebas Neue', sans-serif; font-size: 30px; color: var(--red); letter-spacing: 2px; }
+  #header-title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px; color: var(--muted); flex: 1; }
+  .hbtn {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 1px; padding: 7px 14px; border: none; border-radius: 3px;
+    cursor: pointer; text-transform: uppercase; transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #source-toggle { background: var(--mid); color: var(--text); border: 1px solid var(--border); }
+  #source-toggle.github { background: #1a2a1a; border-color: #2a4a2a; color: #6fbf6f; }
+  #source-toggle.local  { background: #2a1a00; border-color: #4a3a00; color: var(--accent); }
+  #export-btn { background: var(--red); color: #fff; display: none; }
+  #export-btn:hover { background: var(--dark-red); }
+  #export-btn.vis { display: block; }
+  #clear-btn { background: transparent; color: var(--muted); border: 1px solid var(--mid); display: none; }
+  #clear-btn.vis { display: block; }
+
+  /* NOW PLAYING */
+  #now-playing {
+    background: linear-gradient(135deg,#1A0000,#120000);
+    border-bottom: 1px solid var(--red); padding: 12px 20px;
+    display: none; align-items: center; gap: 16px; position: relative;
+  }
+  #now-playing.active { display: flex; }
+  #np-dot {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--red); flex-shrink: 0;
+    animation: pdot 1s ease-in-out infinite;
+  }
+  #np-dot.fading { background: var(--muted); animation: none; }
+  @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)} }
+  #np-info { flex: 1; min-width: 0; }
+  #np-title { font-family:'IBM Plex Mono',monospace; font-size:13px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  #np-sport { font-size:10px; color: var(--red); text-transform:uppercase; letter-spacing:2px; margin-top:2px; }
+  #np-sport.fading { color: var(--muted); }
+  #np-times { display:flex; flex-direction:column; align-items:flex-end; gap:2px; flex-shrink:0; }
+  #np-elapsed { font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:600; line-height:1; }
+  #np-duration { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--muted); }
+  #np-bar-wrap { position:absolute; bottom:0; left:0; right:0; height:3px; background:var(--border); }
+  #np-bar { height:100%; background:var(--red); width:0%; transition:width .5s linear; }
+
+  /* SOURCE BANNER */
+  #source-banner {
+    padding: 6px 20px; font-family:'IBM Plex Mono',monospace; font-size:10px;
+    letter-spacing:1px; display:flex; align-items:center; gap:8px;
+  }
+  #source-banner.github { background:#0d1a0d; color:#4a9a4a; border-bottom:1px solid #1a3a1a; }
+  #source-banner.local  { background:#1a1200; color:#cc8800; border-bottom:1px solid #3a2800; }
+  #source-banner.none   { display:none; }
+
+  /* SPORT TABS */
+  #sport-tabs {
+    display: flex; border-bottom: 1px solid var(--border);
+    background: var(--dark); overflow-x: auto; gap: 0;
+    scrollbar-width: none;
+  }
+  #sport-tabs::-webkit-scrollbar { display: none; }
+  .sport-tab {
+    font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px;
+    padding: 12px 22px; cursor: pointer; color: var(--muted); white-space: nowrap;
+    border-bottom: 3px solid transparent; transition: all 0.15s;
+    background: none; border-top: none; border-left: none; border-right: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sport-tab:hover { color: var(--text); }
+  .sport-tab.active { color: var(--text); border-bottom-color: var(--red); }
+
+  /* CATEGORY TABS */
+  #cat-tabs {
+    display: flex; gap: 8px; padding: 14px 20px 0;
+    background: var(--black);
+  }
+  .cat-tab {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600;
+    letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; cursor: pointer;
+    text-transform: uppercase; transition: all 0.15s; border: 1px solid var(--border);
+    background: none; color: var(--muted);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cat-tab.active { background: var(--red); border-color: var(--red); color: #fff; }
+
+  /* EMPTY / LOADING */
+  #empty-state {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; height: 55vh; gap: 14px;
+    color: var(--muted); text-align: center; padding: 40px;
+  }
+  .empty-icon { font-size: 52px; opacity: 0.3; }
+  #empty-state h2 { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:3px; color:var(--mid); }
+  #empty-state p { font-size:13px; max-width:340px; line-height:1.7; color:#555; }
+  .empty-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px; }
+  .big-btn {
+    font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:600;
+    letter-spacing:1px; padding:13px 28px; border:none; border-radius:4px;
+    cursor:pointer; text-transform:uppercase; transition:background .15s;
+  }
+  .big-btn.primary { background:var(--red); color:#fff; }
+  .big-btn.primary:hover { background:var(--dark-red); }
+  .big-btn.secondary { background:var(--mid); color:var(--text); border:1px solid var(--border); }
+  .big-btn.secondary:hover { background:#444; }
+
+  /* MAIN */
+  #main { padding: 16px 20px 100px; display: none; }
+  #main.vis { display: block; }
+  #section-label {
+    font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:3px;
+    color:var(--muted); margin: 14px 0 12px;
+  }
+
+  /* TRACK GRID */
+  #track-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:10px; }
+
+  .track-btn {
+    background: var(--panel); border: 1px solid var(--border); border-radius:6px;
+    padding: 14px 12px 12px; cursor:pointer; text-align:left;
+    transition: border-color .15s, background .15s, transform .08s;
+    position:relative; overflow:hidden; min-height:86px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    -webkit-tap-highlight-color:transparent; touch-action:manipulation;
+  }
+  .track-btn::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:var(--red); transform:scaleX(0); transform-origin:left; transition:transform .3s;
+  }
+  .track-btn.playing { border-color:var(--red); background:#1A0808; box-shadow:var(--glow); }
+  .track-btn.playing::before { transform:scaleX(1); }
+  .track-btn.fading { border-color:#444; background:var(--panel); opacity:.65; }
+  .track-btn:active { transform:scale(0.97); }
+  .track-name { font-size:12px; font-weight:600; line-height:1.3; word-break:break-word; flex:1; padding-right:26px; }
+  .track-btn.playing .track-name { color:#fff; }
+  .track-btn.fading .track-name { color:var(--muted); }
+  .track-footer { display:flex; align-items:center; justify-content:space-between; margin-top:8px; }
+  .t-badge { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); letter-spacing:1px; }
+  .t-badge.has-plays { color:var(--accent); }
+  .t-icon {
+    position:absolute; top:10px; right:10px; width:20px; height:20px;
+    border-radius:50%; background:var(--mid); display:flex; align-items:center;
+    justify-content:center; font-size:7px; color:var(--muted); transition:all .15s;
+  }
+  .track-btn.playing .t-icon { background:var(--red); color:#fff; }
+  .track-btn.fading .t-icon { background:#333; color:#555; }
+
+  /* NO TRACKS IN CATEGORY */
+  .no-tracks { font-family:'IBM Plex Mono',monospace; font-size:12px; color:#444; padding:20px 0; }
+
+  /* LOG */
+  #log-section { margin-top:28px; border-top:1px solid var(--border); padding-top:20px; }
+  #log-label { font-family:'Bebas Neue',sans-serif; font-size:14px; letter-spacing:3px; color:var(--muted); margin-bottom:12px; }
+  #log-list { display:flex; flex-direction:column; gap:2px; max-height:240px; overflow-y:auto; }
+  .log-entry {
+    display:flex; align-items:center; gap:10px; padding:6px 10px;
+    background:var(--panel); border-radius:3px; border-left:3px solid transparent;
+    animation:lslide .25s ease;
+  }
+  @keyframes lslide { from{opacity:0;transform:translateX(-6px)} to{opacity:1;transform:translateX(0)} }
+  .log-entry.play { border-left-color:var(--red); }
+  .log-entry.fade { border-left-color:#333; opacity:.6; }
+  .log-time { font-family:'IBM Plex Mono',monospace; font-size:9px; color:var(--muted); flex-shrink:0; width:58px; }
+  .log-act { font-size:8px; letter-spacing:1.5px; font-weight:600; flex-shrink:0; width:40px; color:var(--red); text-transform:uppercase; }
+  .log-entry.fade .log-act { color:#555; }
+  .log-trk { font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .log-sport-tag { font-size:8px; color:var(--muted); flex-shrink:0; border:1px solid var(--border); border-radius:2px; padding:1px 5px; letter-spacing:1px; text-transform:uppercase; }
+  .log-empty { font-size:12px; color:#444; padding:14px 10px; font-family:'IBM Plex Mono',monospace; }
+
+  ::-webkit-scrollbar { width:4px; }
+  ::-webkit-scrollbar-track { background:transparent; }
+  ::-webkit-scrollbar-thumb { background:var(--mid); border-radius:2px; }
+
+  #toast {
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
+    background:#222; border:1px solid var(--mid); border-radius:6px; padding:9px 18px;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text);
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1); z-index:999; white-space:nowrap;
+  }
+  #toast.show { transform:translateX(-50%) translateY(0); }
+
+  #local-input { display:none; }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div id="espn-logo">ESPN</div>
+  <div id="header-title">Audio Tracker</div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <button class="hbtn" id="source-toggle">⇄ Source</button>
+    <button class="hbtn" id="clear-btn">Reset</button>
+    <button class="hbtn" id="export-btn">⬇ Export</button>
+  </div>
+</div>
+
+<div id="now-playing">
+  <div id="np-dot"></div>
+  <div id="np-info">
+    <div id="np-title">—</div>
+    <div id="np-sport">Now Playing</div>
+  </div>
+  <div id="np-times">
+    <div id="np-elapsed">0:00</div>
+    <div id="np-duration">/ 0:00</div>
+  </div>
+  <div id="np-bar-wrap"><div id="np-bar"></div></div>
+</div>
+
+<div id="source-banner" class="none"></div>
+
+<div id="sport-tabs"></div>
+<div id="cat-tabs"></div>
+
+<div id="empty-state">
+  <div class="empty-icon">🎵</div>
+  <h2>No Tracks Loaded</h2>
+  <p>Stream from the hosted GitHub library, or load a local folder of audio files.</p>
+  <div class="empty-actions">
+    <button class="big-btn primary" id="load-github-btn">Load from GitHub</button>
+    <button class="big-btn secondary" id="load-local-btn">Load Local Folder</button>
+  </div>
+</div>
+
+<div id="main">
+  <div id="section-label">Tracks</div>
+  <div id="track-grid"></div>
+  <div id="log-section">
+    <div id="log-label">Playback Log</div>
+    <div id="log-list"><div class="log-empty">No plays logged yet.</div></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<input type="file" id="local-input" webkitdirectory multiple accept="audio/*">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+// ── CONFIG — update these to match your repo ──────────────────────────────
+const GITHUB_RAW  = 'https://raw.githubusercontent.com/jaysvideo/espn-audio/main';
+const TRACKS_JSON = `${GITHUB_RAW}/tracks.json`;
+
+const SPORTS = ['Olympic Sports','Football','Basketball','Diamond Sports'];
+const CATS   = ['Theme','Support'];
+const SPORT_ICONS = { 'Olympic Sports':'🏅', 'Football':'🏈', 'Basketball':'🏀', 'Diamond Sports':'⚾' };
+
+// ── AUDIO CTX ─────────────────────────────────────────────────────────────
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let allTracks   = [];   // { name, url, sport, category, plays, buffer, element, badgeEl }
+let currentIdx  = null;
+let currentSrc  = null;
+let gainNode    = null;
+let playStart   = null;
+let timerInt    = null;
+let isFading    = false;
+let playLog     = [];
+let activeSport = SPORTS[0];
+let activeCat   = CATS[0];
+let sourceMode  = 'none'; // 'github' | 'local' | 'none'
+
+// ── DOM ───────────────────────────────────────────────────────────────────
+const sourceToggle = document.getElementById('source-toggle');
+const exportBtn    = document.getElementById('export-btn');
+const clearBtn     = document.getElementById('clear-btn');
+const emptyState   = document.getElementById('empty-state');
+const mainEl       = document.getElementById('main');
+const trackGrid    = document.getElementById('track-grid');
+const logList      = document.getElementById('log-list');
+const nowPlaying   = document.getElementById('now-playing');
+const npTitle      = document.getElementById('np-title');
+const npSport      = document.getElementById('np-sport');
+const npDot        = document.getElementById('np-dot');
+const npElapsed    = document.getElementById('np-elapsed');
+const npDuration   = document.getElementById('np-duration');
+const npBar        = document.getElementById('np-bar');
+const sourceBanner = document.getElementById('source-banner');
+const sportTabsEl  = document.getElementById('sport-tabs');
+const catTabsEl    = document.getElementById('cat-tabs');
+const localInput   = document.getElementById('local-input');
+const toast        = document.getElementById('toast');
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+buildSportTabs();
+buildCatTabs();
+
+document.getElementById('load-github-btn').onclick = loadFromGitHub;
+document.getElementById('load-local-btn').onclick  = () => localInput.click();
+sourceToggle.onclick = toggleSource;
+exportBtn.onclick    = exportXLSX;
+clearBtn.onclick     = resetLog;
+localInput.onchange  = loadLocalFolder;
+
+// ── SOURCE TOGGLE ─────────────────────────────────────────────────────────
+function toggleSource() {
+  if (sourceMode === 'github') {
+    localInput.click();
+  } else if (sourceMode === 'local') {
+    loadFromGitHub();
+  } else {
+    // Show a small prompt
+    showToast('Choose a source below to load tracks.');
+  }
+}
+
+// ── GITHUB LOAD ───────────────────────────────────────────────────────────
+async function loadFromGitHub() {
+  showToast('Fetching track list from GitHub…');
+  try {
+    const res = await fetch(TRACKS_JSON + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const manifest = await res.json();
+    initTracks(manifest.tracks.map(t => ({
+      name: t.name,
+      url: `${GITHUB_RAW}/${t.path}`,
+      sport: t.sport,
+      category: t.category,
+      plays: 0, buffer: null, element: null, badgeEl: null
+    })), 'github');
+    showToast(`${allTracks.length} tracks loaded from GitHub.`);
+  } catch(e) {
+    showToast('Could not reach GitHub. Try local folder instead.');
+    console.error(e);
+  }
+}
+
+// ── LOCAL LOAD ────────────────────────────────────────────────────────────
+function loadLocalFolder(e) {
+  const files = Array.from(e.target.files).filter(f =>
+    /\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name)
+  );
+  if (!files.length) { showToast('No audio files found.'); return; }
+
+  // Parse folder structure: sport/category/trackname.mp3
+  const parsed = files.map(f => {
+    const parts = (f.webkitRelativePath || f.name).split('/');
+    let sport = 'Diamond Sports', category = 'Theme';
+    if (parts.length >= 3) {
+      sport    = matchSport(parts[parts.length - 3]);
+      category = matchCat(parts[parts.length - 2]);
+    } else if (parts.length >= 2) {
+      const guess = matchSport(parts[parts.length - 2]);
+      if (guess) sport = guess;
+      else category = matchCat(parts[parts.length - 2]);
+    }
+    const name = parts[parts.length - 1].replace(/\.[^.]+$/, '');
+    return { name, url: null, file: f, sport, category, plays: 0, buffer: null, element: null, badgeEl: null };
+  });
+
+  initTracks(parsed, 'local');
+  showToast(`${allTracks.length} local tracks loaded.`);
+  localInput.value = '';
+
+  // Decode buffers in background
+  for (const t of allTracks) {
+    if (t.file) {
+      t.file.arrayBuffer().then(ab =>
+        audioCtx.decodeAudioData(ab, buf => { t.buffer = buf; })
+      );
+    }
+  }
+}
+
+function matchSport(s) {
+  if (!s) return null;
+  const l = s.toLowerCase();
+  if (l.includes('olympic') || l.includes('olympic')) return 'Olympic Sports';
+  if (l.includes('football') || l.includes('fb'))     return 'Football';
+  if (l.includes('basketball') || l.includes('bball')) return 'Basketball';
+  if (l.includes('diamond') || l.includes('baseball') || l.includes('softball')) return 'Diamond Sports';
+  return null;
+}
+function matchCat(s) {
+  if (!s) return 'Theme';
+  return s.toLowerCase().includes('support') ? 'Support' : 'Theme';
+}
+
+// ── INIT TRACKS ───────────────────────────────────────────────────────────
+function initTracks(tracks, mode) {
+  stopAll(false);
+  allTracks = tracks;
+  playLog = [];
+  sourceMode = mode;
+
+  // Source UI
+  if (mode === 'github') {
+    sourceToggle.className = 'hbtn github';
+    sourceToggle.textContent = '⇄ GitHub';
+    sourceBanner.className = 'github';
+    sourceBanner.innerHTML = '● STREAMING FROM GITHUB — jaysvideo/espn-audio';
+  } else {
+    sourceToggle.className = 'hbtn local';
+    sourceToggle.textContent = '⇄ Local';
+    sourceBanner.className = 'local';
+    sourceBanner.innerHTML = '● LOCAL FILES';
+  }
+
+  emptyState.style.display = 'none';
+  mainEl.classList.add('vis');
+  exportBtn.classList.add('vis');
+  clearBtn.classList.add('vis');
+
+  activeSport = SPORTS[0];
+  activeCat = CATS[0];
+  buildSportTabs();
+  buildCatTabs();
+  renderTracks();
+  refreshLog();
+}
+
+// ── SPORT / CAT TABS ──────────────────────────────────────────────────────
+function buildSportTabs() {
+  sportTabsEl.innerHTML = SPORTS.map(s => `
+    <button class="sport-tab${s===activeSport?' active':''}" data-sport="${s}">
+      ${SPORT_ICONS[s]||''} ${s}
+    </button>`).join('');
+  sportTabsEl.querySelectorAll('.sport-tab').forEach(btn =>
+    btn.addEventListener('pointerdown', () => {
+      activeSport = btn.dataset.sport;
+      buildSportTabs(); buildCatTabs(); renderTracks();
+    })
+  );
+}
+
+function buildCatTabs() {
+  catTabsEl.innerHTML = CATS.map(c => `
+    <button class="cat-tab${c===activeCat?' active':''}" data-cat="${c}">${c}</button>`).join('');
+  catTabsEl.querySelectorAll('.cat-tab').forEach(btn =>
+    btn.addEventListener('pointerdown', () => {
+      activeCat = btn.dataset.cat;
+      buildCatTabs(); renderTracks();
+    })
+  );
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function renderTracks() {
+  const visible = allTracks.filter(t => t.sport === activeSport && t.category === activeCat);
+  document.getElementById('section-label').textContent =
+    `${activeSport} — ${activeCat} (${visible.length})`;
+  trackGrid.innerHTML = '';
+  if (!visible.length) {
+    trackGrid.innerHTML = '<div class="no-tracks">No tracks in this category.</div>';
+    return;
+  }
+  visible.forEach(t => {
+    const idx = allTracks.indexOf(t);
+    const btn = document.createElement('button');
+    btn.className = 'track-btn';
+    const isPlaying = currentIdx === idx;
+    if (isPlaying) btn.classList.add('playing');
+    btn.innerHTML = `
+      <div class="t-icon">${isPlaying ? '■' : '▶'}</div>
+      <div class="track-name">${esc(t.name)}</div>
+      <div class="track-footer">
+        <span class="t-badge${t.plays > 0 ? ' has-plays' : ''}" id="badge-${idx}">
+          ${t.plays} play${t.plays !== 1 ? 's' : ''}
+        </span>
+      </div>`;
+    btn.addEventListener('pointerdown', () => handlePress(idx));
+    t.element = btn;
+    t.badgeEl = btn.querySelector(`#badge-${idx}`);
+    trackGrid.appendChild(btn);
+  });
+}
+
+// ── PLAYBACK ──────────────────────────────────────────────────────────────
+function handlePress(idx) {
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  if (currentIdx === idx) { fadeOut(true); }
+  else { if (currentIdx !== null) fadeOut(false); playTrack(idx); }
+}
+
+async function playTrack(idx) {
+  const t = allTracks[idx];
+
+  // Fetch + decode if needed (GitHub streaming)
+  if (!t.buffer) {
+    if (t.url) {
+      showToast(`Loading "${t.name}"…`);
+      try {
+        const res = await fetch(t.url);
+        const ab = await res.arrayBuffer();
+        t.buffer = await audioCtx.decodeAudioData(ab);
+      } catch(e) {
+        showToast('Could not load track. Check connection.'); return;
+      }
+    } else {
+      showToast('Track still decoding, try again.'); return;
+    }
+  }
+
+  currentIdx = idx; isFading = false; playStart = audioCtx.currentTime;
+
+  gainNode = audioCtx.createGain();
+  gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(1, audioCtx.currentTime + 0.4);
+  gainNode.connect(audioCtx.destination);
+
+  currentSrc = audioCtx.createBufferSource();
+  currentSrc.buffer = t.buffer;
+  currentSrc.connect(gainNode);
+  currentSrc.start(0);
+  currentSrc.onended = () => { if (currentIdx === idx && !isFading) trackEnded(idx); };
+
+  setTrackUI(idx, 'playing');
+  showNP(t);
+  startTimer(idx);
+
+  t.plays++;
+  updateBadge(idx);
+  logAction('PLAY', t);
+}
+
+function fadeOut(clearCurrent) {
+  if (!gainNode || currentIdx === null) return;
+  isFading = true;
+  const fadeSecs = 0.8;
+  gainNode.gain.cancelScheduledValues(audioCtx.currentTime);
+  gainNode.gain.setValueAtTime(gainNode.gain.value, audioCtx.currentTime);
+  gainNode.gain.linearRampToValueAtTime(0, audioCtx.currentTime + fadeSecs);
+
+  const src = currentSrc, fi = currentIdx;
+  setTimeout(() => { try { src.stop(); } catch(e){} }, fadeSecs * 1000 + 100);
+
+  setTrackUI(fi, 'fading');
+  npSport.textContent = 'Fading Out'; npSport.className = 'fading'; npDot.className = 'fading';
+  logAction('FADE', allTracks[fi]);
+
+  const cleanup = () => { setTrackUI(fi, 'idle'); isFading = false; };
+  if (clearCurrent) {
+    setTimeout(() => { cleanup(); hideNP(); stopTimer(); currentIdx = null; }, fadeSecs * 1000 + 200);
+    currentIdx = null; currentSrc = null; gainNode = null;
+  } else {
+    setTimeout(cleanup, fadeSecs * 1000 + 200);
+  }
+}
+
+function trackEnded(idx) {
+  setTrackUI(idx, 'idle'); hideNP(); stopTimer();
+  currentIdx = null; currentSrc = null; gainNode = null;
+}
+
+function stopAll(log) {
+  if (currentSrc) { try { currentSrc.stop(); } catch(e){} }
+  if (log && currentIdx !== null) logAction('FADE', allTracks[currentIdx]);
+  currentSrc = null; gainNode = null;
+  const prev = currentIdx; currentIdx = null;
+  stopTimer(); hideNP();
+  if (prev !== null) setTrackUI(prev, 'idle');
+}
+
+// ── UI HELPERS ────────────────────────────────────────────────────────────
+function setTrackUI(idx, state) {
+  const t = allTracks[idx]; if (!t?.element) return;
+  t.element.classList.remove('playing','fading');
+  const ico = t.element.querySelector('.t-icon');
+  if (state === 'playing') { t.element.classList.add('playing'); if(ico) ico.textContent='■'; }
+  else if (state === 'fading') { t.element.classList.add('fading'); if(ico) ico.textContent='↓'; }
+  else { if(ico) ico.textContent='▶'; }
+}
+
+function updateBadge(idx) {
+  const t = allTracks[idx]; if (!t.badgeEl) return;
+  const n = t.plays;
+  t.badgeEl.textContent = `${n} play${n!==1?'s':''}`;
+  t.badgeEl.className = `t-badge${n>0?' has-plays':''}`;
+}
+
+function showNP(t) {
+  nowPlaying.classList.add('active');
+  npTitle.textContent = t.name;
+  npSport.textContent = `${t.sport} · ${t.category}`;
+  npSport.className = ''; npDot.className = '';
+  npDuration.textContent = t.buffer ? `/ ${fmt(t.buffer.duration)}` : '/ —';
+}
+function hideNP() { nowPlaying.classList.remove('active'); npElapsed.textContent='0:00'; npBar.style.width='0%'; }
+
+function startTimer(idx) {
+  stopTimer();
+  timerInt = setInterval(() => {
+    if (currentIdx !== idx) { stopTimer(); return; }
+    const e = audioCtx.currentTime - playStart;
+    const d = allTracks[idx]?.buffer?.duration || 0;
+    npElapsed.textContent = fmt(e);
+    npBar.style.width = d ? `${Math.min(100,(e/d)*100)}%` : '0%';
+  }, 500);
+}
+function stopTimer() { clearInterval(timerInt); timerInt = null; }
+function fmt(s) {
+  if (!isFinite(s)||isNaN(s)) return '0:00';
+  return `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+}
+
+// ── LOG ───────────────────────────────────────────────────────────────────
+function logAction(action, t) {
+  const now = new Date();
+  const time = now.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:true});
+  playLog.push({ time, action, track: t.name, sport: t.sport, category: t.category, raw: now });
+  refreshLog();
+}
+
+function refreshLog() {
+  if (!playLog.length) { logList.innerHTML='<div class="log-empty">No plays logged yet.</div>'; return; }
+  logList.innerHTML = [...playLog].reverse().map(e => `
+    <div class="log-entry ${e.action==='PLAY'?'play':'fade'}">
+      <span class="log-time">${e.time}</span>
+      <span class="log-act">${e.action}</span>
+      <span class="log-trk">${esc(e.track)}</span>
+      <span class="log-sport-tag">${esc(e.sport.split(' ')[0])}</span>
+    </div>`).join('');
+}
+
+// ── TEMPLATE UPLOAD ───────────────────────────────────────────────────────
+// Map sport → which template file to use
+const TEMPLATE_MAP = {
+  'Football':       'football',
+  'Basketball':     'cbb',
+  'Olympic Sports': 'olympic',
+  'Diamond Sports': 'cbb',   // fallback — diamond sports use CBB-style template
+};
+let templateFiles = {}; // { 'football': File, 'cbb': File, 'olympic': File }
+
+// Inject template upload UI after export btn
+(function injectTemplateUI() {
+  const actions = document.querySelector('#header > div:last-child');
+  const inp = document.createElement('input');
+  inp.type = 'file'; inp.multiple = true; inp.accept = '.xlsx';
+  inp.style.display = 'none'; inp.id = 'template-input';
+  document.body.appendChild(inp);
+
+  const btn = document.createElement('button');
+  btn.className = 'hbtn'; btn.id = 'template-btn';
+  btn.style.cssText = 'background:#1a1a2e;color:#7878cc;border:1px solid #333;';
+  btn.textContent = '📋 Load Templates';
+  btn.onclick = () => inp.click();
+  actions.insertBefore(btn, document.getElementById('export-btn'));
+
+  inp.onchange = (e) => {
+    const files = Array.from(e.target.files).filter(f => f.name.endsWith('.xlsx'));
+    files.forEach(f => {
+      const nl = f.name.toLowerCase();
+      if (nl.includes('football'))   templateFiles['football'] = f;
+      if (nl.includes('cbb') || nl.includes('basketball')) templateFiles['cbb'] = f;
+      if (nl.includes('olympic'))    templateFiles['olympic']  = f;
+    });
+    const loaded = Object.keys(templateFiles).length;
+    btn.textContent = `📋 Templates (${loaded})`;
+    btn.style.color = loaded > 0 ? '#6fbf6f' : '#7878cc';
+    showToast(`${loaded} cue sheet template${loaded!==1?'s':''} loaded.`);
+    inp.value = '';
+  };
+})();
+
+// ── EXPORT ────────────────────────────────────────────────────────────────
+async function exportXLSX() {
+  if (!allTracks.length) return;
+  const hasPlays = allTracks.some(t => t.plays > 0);
+  if (!hasPlays) { showToast('No plays recorded yet.'); return; }
+
+  const templatesLoaded = Object.keys(templateFiles).length;
+
+  if (templatesLoaded > 0) {
+    await exportIntoTemplates();
+  } else {
+    exportSummaryOnly();
+  }
+}
+
+// Export into actual ESPN cue sheet templates
+async function exportIntoTemplates() {
+  showToast('Building cue sheets…');
+
+  // Build play count lookup: name (lowercase) → count
+  const playCounts = {};
+  allTracks.forEach(t => {
+    if (t.plays > 0) playCounts[t.name.trim().toLowerCase()] = t.plays;
+  });
+
+  // Process each loaded template
+  for (const [templateKey, file] of Object.entries(templateFiles)) {
+    try {
+      const ab = await file.arrayBuffer();
+      const wb = XLSX.read(ab, { type: 'array', cellStyles: true });
+
+      // Fill "Number Of Uses" (col C = index 2) in Theme-Promo and Support sheets
+      for (const shname of ['ESPN Theme-Promo', 'Support']) {
+        if (!wb.SheetNames.includes(shname)) continue;
+        const ws = wb.Sheets[shname];
+        const range = XLSX.utils.decode_range(ws['!ref'] || 'A1:F1000');
+
+        for (let r = range.s.r; r <= range.e.r; r++) {
+          const cellA = ws[XLSX.utils.encode_cell({r, c:0})]; // Composition Title
+          const cellB = ws[XLSX.utils.encode_cell({r, c:1})]; // TH/BKG
+          if (!cellA || !cellB) continue;
+
+          const name  = String(cellA.v || '').trim();
+          const thbkg = String(cellB.v || '').trim();
+          if (!name || !['TH','BKG','BKG '].includes(thbkg)) continue;
+
+          const count = playCounts[name.toLowerCase()];
+          if (count !== undefined) {
+            const cellRef = XLSX.utils.encode_cell({r, c:2});
+            ws[cellRef] = { t:'n', v: count };
+          }
+        }
+      }
+
+      // Write file
+      const dateStr = new Date().toISOString().slice(0,10);
+      const outName = `ESPN_CueSheet_${templateKey}_${dateStr}.xlsx`;
+      XLSX.writeFile(wb, outName);
+      await new Promise(r => setTimeout(r, 400)); // stagger downloads
+    } catch(e) {
+      showToast(`Error processing ${templateKey}: ${e.message}`);
+      console.error(e);
+    }
+  }
+
+  // Always also export the full summary + log
+  exportSummaryOnly(true);
+  showToast('All cue sheets exported!');
+}
+
+// Fallback: export a standalone summary workbook
+function exportSummaryOnly(silent = false) {
+  const wb = XLSX.utils.book_new();
+
+  // Summary by sport/category
+  const summary = [
+    ['ESPN Audio Tracker — Play Count Summary'],
+    [`Exported: ${new Date().toLocaleString()}`],
+    [],
+    ['Sport','Category','Composition Title','Number Of Uses']
+  ];
+  SPORTS.forEach(sport => {
+    CATS.forEach(cat => {
+      const group = allTracks.filter(t => t.sport===sport && t.category===cat && t.plays>0);
+      group.forEach(t => summary.push([sport, cat, t.name, t.plays]));
+    });
+  });
+  summary.push([]);
+  summary.push(['','','TOTAL PLAYS', allTracks.reduce((s,t)=>s+t.plays,0)]);
+  const ws1 = XLSX.utils.aoa_to_sheet(summary);
+  ws1['!cols'] = [{wch:18},{wch:10},{wch:48},{wch:16}];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Play Count Summary');
+
+  // Full playback log
+  const log = [
+    ['ESPN Audio Tracker — Playback Log'],
+    [`Exported: ${new Date().toLocaleString()}`],
+    [],
+    ['Timestamp','Action','Composition Title','Sport','Category']
+  ];
+  playLog.forEach(e => log.push([e.time, e.action, e.track, e.sport, e.category]));
+  const ws2 = XLSX.utils.aoa_to_sheet(log);
+  ws2['!cols'] = [{wch:14},{wch:8},{wch:48},{wch:18},{wch:10}];
+  XLSX.utils.book_append_sheet(wb, ws2, 'Playback Log');
+
+  const dateStr = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, `ESPN_AudioTracker_${dateStr}.xlsx`);
+  if (!silent) showToast('Exported summary spreadsheet.');
+}
+
+// ── RESET ─────────────────────────────────────────────────────────────────
+function resetLog() {
+  if (!confirm('Reset all play counts and clear the log?')) return;
+  stopAll(false);
+  playLog = [];
+  allTracks.forEach((_,i) => { allTracks[i].plays = 0; updateBadge(i); });
+  refreshLog();
+  showToast('Log cleared.');
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  toast.textContent = msg; toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+}
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+</body>
+</html>
