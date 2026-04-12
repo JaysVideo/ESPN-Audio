@@ -9,14 +9,30 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
   :root{--red:#CC0000;--dark-red:#990000;--black:#0A0A0A;--dark:#111;--panel:#1A1A1A;--border:#2A2A2A;--mid:#333;--text:#F0F0F0;--muted:#888;--accent:#FF6B00;--green:#4a9a4a;}
-  body.light{--black:#F0F0F0;--dark:#E0E0E0;--panel:#FFFFFF;--border:#CCCCCC;--mid:#BBBBBB;--text:#111111;--muted:#666666;--accent:#CC5500;--green:#1a6a2a;}
-  body.light #target-bar{background:#e8e8e8;}
-  body.light .q-item{background:#f5f5f5;}
-  body.light .m-track:hover{background:#eeeeee;}
-  body.light #drop-zone{background:#fafafa;}
-  body.light #drop-zone:hover{background:#fff0f0;}
+  body.light{--black:#F2F2F2;--dark:#E0E0E0;--panel:#FFFFFF;--border:#C0C0C0;--mid:#A0A0A0;--text:#0d0d0d;--muted:#444444;--accent:#CC5500;--green:#1a6a2a;}
+  body.light #header{background:#E0E0E0;}
+  body.light #config-panel{background:#EBEBEB;}
+  body.light .cfg-input{background:#FFFFFF;border-color:#B0B0B0;color:#0d0d0d;}
+  body.light #target-bar{background:#E8E8E8;}
+  body.light .target-select{background:#FFFFFF;border-color:#B0B0B0;color:#0d0d0d;}
+  body.light #drop-zone{background:#FAFAFA;border-color:#C0C0C0;}
+  body.light #drop-zone:hover{background:#fff0f0;border-color:var(--red);}
+  body.light .q-item{background:#F5F5F5;border-color:#CCCCCC;}
+  body.light .q-item .q-filename{color:#666;}
+  body.light .q-item .q-trackname{color:#0d0d0d;}
+  body.light #right-panel{background:#FAFAFA;}
+  body.light #manifest-list .m-track-name{color:#0d0d0d;}
+  body.light .m-track:hover{background:#EEEEEE;}
+  body.light .m-group-label{border-bottom-color:#CCCCCC;color:#444;}
+  body.light #manifest-header{background:#F0F0F0;}
+  body.light #manifest-filters{background:#F0F0F0;}
+  body.light .mf-btn{color:#555;border-color:#CCCCCC;}
+  body.light .mf-btn.active{background:#555;border-color:#555;color:#fff;}
+  body.light #app{background:#F2F2F2;}
+  body.light #queue-list{background:#F2F2F2;}
+  body.light #left-panel{background:#F2F2F2;}
   #theme-btn{display:flex;align-items:center;gap:5px;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:600;letter-spacing:1px;padding:5px 10px;border-radius:20px;border:2px solid #555;background:var(--panel);color:var(--text);cursor:pointer;transition:all .15s;}
-  body.light #theme-btn{border-color:#aaa;background:#fff;}
+  body.light #theme-btn{border-color:#999;background:#fff;color:#0d0d0d;}
   #theme-btn:hover{border-color:var(--red);}
   #theme-icon{font-size:13px;}
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -256,6 +272,15 @@ function parseFilename(filename) {
     s = cutMatch[2];
   }
 
+  // Handle UPM library format in s: "UPM KTV72 11 Black Gasoline Instrumental Ayoub..."
+  const upmMatch = s.match(/^UPM\s+\w+\s+\d+\s+(.+)/i);
+  if (upmMatch) {
+    let title = upmMatch[1];
+    title = title.replace(/\s+\d{6,}\s*$/, '');         // strip ISRC
+    title = title.replace(/\s+instrumental.*$/i, '');    // strip "Instrumental Composer..."
+    return { name: title.trim(), cutCode };
+  }
+
   // Fix duplicate name: "Throne_Bounce_2_-_Throne_Bounce_2_JP" → take second half
   const dupMatch = s.match(/^(.+?)[\s_]+-[\s_]+(.+)/);
   if (dupMatch) {
@@ -279,7 +304,6 @@ function parseFilename(filename) {
     name = parts[0] + ' ' + parts.slice(1).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
   } else {
     name = name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
-    // Re-capitalize known acronyms
     name = name.replace(/\bJp\b/g,'JP').replace(/\bEdm\b/g,'EDM').replace(/\bId\b/g,'ID');
   }
 
