@@ -1,10 +1,5155 @@
 {
-  "updated": "2026-01-01",
+  "updated": "2026-04-12",
   "tracks": [
+    {
+      "name": "A Billy",
+      "cutCode": "POP011",
+      "path": "basketball/support/A_Billy.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Alright",
+      "cutCode": "KOK2212",
+      "path": "basketball/support/Alright.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Black Out The Sun Stolar",
+      "cutCode": "KT329",
+      "path": "basketball/support/Black_Out_The_Sun_Stolar.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Boom Bap Cadilac",
+      "cutCode": "HIPHOP047",
+      "path": "basketball/support/Boom_Bap_Cadilac.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Bronx 6",
+      "cutCode": "HIPHOP048",
+      "path": "basketball/support/Bronx_6.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Camp Lo",
+      "cutCode": "HIPHOP048",
+      "path": "basketball/support/Camp_Lo.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Dance Pop",
+      "cutCode": "JP",
+      "path": "basketball/support/Dance_Pop.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Drums Better Rhyme",
+      "cutCode": "DRAMA039",
+      "path": "basketball/support/Drums_Better_Rhyme.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Encore Status",
+      "cutCode": "HIPHOP038",
+      "path": "basketball/support/Encore_Status.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Fat Pockets",
+      "cutCode": "CM81",
+      "path": "basketball/support/Fat_Pockets.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Fine By Me",
+      "cutCode": "PCTZ0004",
+      "path": "basketball/support/Fine_By_Me.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Fire And Ice",
+      "cutCode": "ROCK070",
+      "path": "basketball/support/Fire_And_Ice.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Foxes",
+      "cutCode": "POP013",
+      "path": "basketball/support/Foxes.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Go Go Go",
+      "cutCode": "SXSW0002",
+      "path": "basketball/support/Go_Go_Go.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Goin Up",
+      "cutCode": "PCTZ0004",
+      "path": "basketball/support/Goin_Up.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Got To Keep Fighting",
+      "cutCode": "HIPHOP053",
+      "path": "basketball/support/Got_To_Keep_Fighting.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "HIPHOP046 32 - Never Nervous",
+      "cutCode": "",
+      "path": "basketball/support/HIPHOP046_32_-_Never_Nervous.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "HIPHOP046 42 - Real In The Field",
+      "cutCode": "",
+      "path": "basketball/support/HIPHOP046_42_-_Real_In_The_Field.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "I'M Not Coming Back Instrumental",
+      "cutCode": "MSTR306",
+      "path": "basketball/support/IM_Not_Coming_Back_Instrumental.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "James 001-JP",
+      "cutCode": "JP",
+      "path": "basketball/support/James_001-JP.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Kings Queen-JP",
+      "cutCode": "JP",
+      "path": "basketball/support/Kings_Queen-JP.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Lift You Up",
+      "cutCode": "JM0186",
+      "path": "basketball/support/Lift_You_Up.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Major Quest",
+      "cutCode": "CM103",
+      "path": "basketball/support/Major_Quest.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Oh Brother",
+      "cutCode": "KT329",
+      "path": "basketball/support/Oh_Brother.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Overtime-Instr-JP",
+      "cutCode": "JP",
+      "path": "basketball/support/Overtime-Instr-JP.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Ride With Me",
+      "cutCode": "GM066",
+      "path": "basketball/support/Ride_With_Me.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Rip Slip",
+      "cutCode": "HIPHOP048",
+      "path": "basketball/support/Rip_Slip.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Risk It All Instrumental",
+      "cutCode": "MSTR306",
+      "path": "basketball/support/Risk_It_All_Instrumental.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Rock The Block",
+      "cutCode": "HIPHOP038",
+      "path": "basketball/support/Rock_The_Block.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Roll Da Dice",
+      "cutCode": "HIPHOP038",
+      "path": "basketball/support/Roll_Da_Dice.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Ruff Tuff Boys",
+      "cutCode": "KOK2293",
+      "path": "basketball/support/Ruff_Tuff_Boys.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Savages",
+      "cutCode": "HIPHOP053",
+      "path": "basketball/support/Savages.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Shredder",
+      "cutCode": "DRAMA035",
+      "path": "basketball/support/Shredder.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Stay On The Line",
+      "cutCode": "KOK2212",
+      "path": "basketball/support/Stay_On_The_Line.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "That'S A Homerun",
+      "cutCode": "HIPHOP053",
+      "path": "basketball/support/ThatS_A_Homerun.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "The Wrecking",
+      "cutCode": "DRAMA035",
+      "path": "basketball/support/The_Wrecking.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Throne Bounce 2 - Throne Bounce 2",
+      "cutCode": "",
+      "path": "basketball/support/Throne_Bounce_2_-_Throne_Bounce_2.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Tick Tockica",
+      "cutCode": "ROCK047",
+      "path": "basketball/support/Tick_Tockica.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "To The Top And Back No Vox",
+      "cutCode": "HIPHOP038",
+      "path": "basketball/support/To_The_Top_And_Back_No_Vox.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "To The Top And Back W Vox",
+      "cutCode": "HIPHOP038",
+      "path": "basketball/support/To_The_Top_And_Back_W_Vox.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Want It All",
+      "cutCode": "KT329",
+      "path": "basketball/support/Want_It_All.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Where It All Began",
+      "cutCode": "VL143",
+      "path": "basketball/support/Where_It_All_Began.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "Yes We Can",
+      "cutCode": "HIPHOP053",
+      "path": "basketball/support/Yes_We_Can.mp3",
+      "sport": "Basketball",
+      "category": "Support"
+    },
+    {
+      "name": "ELIAS007 01",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_01.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 02",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_02.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 03",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_03.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 04",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_04.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 05",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_05.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 06",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_06.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 07",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_07.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 08",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_08.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 09",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_09.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 10",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_10.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 100",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_100.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 101",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_101.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 102",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_102.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 103",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_103.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 104",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_104.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 105",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_105.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 106",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_106.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 107",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_107.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 108",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_108.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 109",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_109.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 11",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_11.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 110",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_110.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 111",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_111.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 112",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_112.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 113",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_113.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 114",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_114.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 115",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_115.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 116",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_116.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 117",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_117.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 118",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_118.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 119",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_119.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 12",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_12.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 120",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_120.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 121",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_121.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 122",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_122.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 13",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_13.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 14",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_14.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 15",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_15.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 16",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_16.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 17",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_17.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 18",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_18.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 19",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_19.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 20",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_20.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 21",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_21.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 22",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_22.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 23",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_23.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 24",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_24.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 25",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_25.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 26",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_26.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 27",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_27.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 28",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_28.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 29",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_29.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 30",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_30.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 31",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_31.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 32",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_32.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 33",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_33.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 34",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_34.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 35",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_35.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 36",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_36.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 37",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_37.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 38",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_38.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 39",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_39.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 40",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_40.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 41",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_41.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 42",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_42.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 43",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_43.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 44",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_44.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 45",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_45.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 46",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_46.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 47",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_47.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 48",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_48.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 49",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_49.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 50",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_50.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 51",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_51.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 52",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_52.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 53",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_53.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 54",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_54.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 55",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_55.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 56",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_56.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 57",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_57.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 58",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_58.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 59",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_59.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 60",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_60.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 61",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_61.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 62",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_62.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 63",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_63.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 64",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_64.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 65",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_65.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 66",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_66.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 67",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_67.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 68",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_68.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 69",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_69.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 70",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_70.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 71",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_71.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 72",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_72.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 73",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_73.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 74",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_74.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 75",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_75.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 76",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_76.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 77",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_77.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 78",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_78.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 79",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_79.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 80",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_80.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 81",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_81.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 82",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_82.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 83",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_83.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 84",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_84.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 85",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_85.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 86",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_86.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 87",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_87.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 88",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_88.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 89",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_89.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 90",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_90.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 91",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_91.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 92",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_92.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 93",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_93.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 94",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_94.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 95",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_95.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 96",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_96.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 97",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_97.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 98",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_98.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS007 99",
+      "cutCode": "",
+      "path": "basketball/theme/ELIAS007_99.mp3",
+      "sport": "Basketball",
+      "category": "Theme"
+    },
     {
       "name": "Example Theme Track",
       "path": "diamond-sports/theme/example-theme.mp3",
       "sport": "Diamond Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "Amphibious Zoo Battle Cry - Cinematic Hip Hop AZ113 001 This Is A Battle Cry",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Battle_Cry_-_Cinematic_Hip_Hop_AZ113_001_This_Is_A_Battle_Cry.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Champions SKY036 007 Champion'S League",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Champions_SKY036_007_ChampionS_League.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Demolition SKY001 Demolition SKY001 004 Ground And Pound",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Demolition_SKY001_Demolition_SKY001_004_Ground_And_Pound.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Dubstep 1 AZ044 Dubstep 1 AZ044 018 White Out",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Dubstep_1_AZ044_Dubstep_1_AZ044_018_White_Out.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Rock Anthems - Gift Horse AOL003 Rock Anthems - Gift Horse AOL003 017 Invisible Enemy",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Rock_Anthems_-_Gift_Horse_AOL003_Rock_Anthems_-_Gift_Horse_AOL003_017_Invisible_Enemy.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Swagger Trap AZ091 Swagger Trap AZ091 017 Pump Up",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Swagger_Trap_AZ091_Swagger_Trap_AZ091_017_Pump_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Amphibious Zoo Swagger Trap AZ091 Swagger Trap AZ091 019 Fight For The Fight",
+      "cutCode": "",
+      "path": "football/support/Amphibious_Zoo_Swagger_Trap_AZ091_Swagger_Trap_AZ091_019_Fight_For_The_Fight.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM A Hint Of Christmas 2 BRU BR 0690 005 Decks In Christmas Halls",
+      "cutCode": "",
+      "path": "football/support/APM_A_Hint_Of_Christmas_2_BRU_BR_0690_005_Decks_In_Christmas_Halls.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM A Jazzy Vinyl Christmas HARD HARD 0096 001 Jingle Bells - Vinyl Panning",
+      "cutCode": "",
+      "path": "football/support/APM_A_Jazzy_Vinyl_Christmas_HARD_HARD_0096_001_Jingle_Bells_-_Vinyl_Panning.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Action Sports Trailers FTW FTW 0022 021 Bring The Pain (Full Mix)",
+      "cutCode": "",
+      "path": "football/support/APM_Action_Sports_Trailers_FTW_FTW_0022_021_Bring_The_Pain_Full_Mix.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ALPHA Cinematic Hip Hop LQC INSC 0001 001 Girl You Got It",
+      "cutCode": "",
+      "path": "football/support/APM_ALPHA_Cinematic_Hip_Hop_LQC_INSC_0001_001_Girl_You_Got_It.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ALPHA Cinematic Hip Hop LQC INSC 0001 016 Hyperthought",
+      "cutCode": "",
+      "path": "football/support/APM_ALPHA_Cinematic_Hip_Hop_LQC_INSC_0001_016_Hyperthought.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Alt. Country (Brr 71) BRU BR 0407 018 Whiskey And Rye",
+      "cutCode": "",
+      "path": "football/support/APM_Alt._Country_Brr_71_BRU_BR_0407_018_Whiskey_And_Rye.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Alternative Rock BRU BR 0433 012 Beyond Our Walls",
+      "cutCode": "",
+      "path": "football/support/APM_Alternative_Rock_BRU_BR_0433_012_Beyond_Our_Walls.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM American Marching Bands (Brr 70) BRU BR 0390 004 Washington Post March",
+      "cutCode": "",
+      "path": "football/support/APM_American_Marching_Bands_Brr_70_BRU_BR_0390_004_Washington_Post_March.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM American Marching Bands (Brr 70) BRU BR 0390 013 Yankee Doodle",
+      "cutCode": "",
+      "path": "football/support/APM_American_Marching_Bands_Brr_70_BRU_BR_0390_013_Yankee_Doodle.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM American Marching Bands (Brr 70) BRU BR 0390 050 Washington Post March 30",
+      "cutCode": "",
+      "path": "football/support/APM_American_Marching_Bands_Brr_70_BRU_BR_0390_050_Washington_Post_March_30.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Animal House TCS TCS 0090 025 Rock N Dogs",
+      "cutCode": "",
+      "path": "football/support/APM_Animal_House_TCS_TCS_0090_025_Rock_N_Dogs.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM AREA CODES ATLANTA RLF RLF 0001 001 Flipped The Script (A)",
+      "cutCode": "",
+      "path": "football/support/APM_AREA_CODES_ATLANTA_RLF_RLF_0001_001_Flipped_The_Script_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Banda & Tex-Mex SON SCD 0243 008 Chaparrita A",
+      "cutCode": "",
+      "path": "football/support/APM_Banda_Tex-Mex_SON_SCD_0243_008_Chaparrita_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Bed Good Vol. 4 TV Favourites DED DED 0198 001 Get Moving (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Bed_Good_Vol._4_TV_Favourites_DED_DED_0198_001_Get_Moving_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BIG HEAVY HORN RIFFS II BRU BR 0610 005 Stadium Call",
+      "cutCode": "",
+      "path": "football/support/APM_BIG_HEAVY_HORN_RIFFS_II_BRU_BR_0610_005_Stadium_Call.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BLING BLING HIP HOP KOS KOS 0497 001 Bling Bling Hip Hop",
+      "cutCode": "",
+      "path": "football/support/APM_BLING_BLING_HIP_HOP_KOS_KOS_0497_001_Bling_Bling_Hip_Hop.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BLING BLING HIP HOP KOS KOS 0497 009 Explicit",
+      "cutCode": "",
+      "path": "football/support/APM_BLING_BLING_HIP_HOP_KOS_KOS_0497_009_Explicit.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Blues 'N' Boogie SEL SEL 5141 006 Big Block Boogie",
+      "cutCode": "",
+      "path": "football/support/APM_Blues_N_Boogie_SEL_SEL_5141_006_Big_Block_Boogie.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BLUES ROCK JAM SON SCDV 0458 017 Texas Rambler A",
+      "cutCode": "",
+      "path": "football/support/APM_BLUES_ROCK_JAM_SON_SCDV_0458_017_Texas_Rambler_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Boogn' Roll MYMA JUST 0173 010 Back In New Orleans",
+      "cutCode": "",
+      "path": "football/support/APM_Boogn_Roll_MYMA_JUST_0173_010_Back_In_New_Orleans.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BURN SERIES BIG ROCK BRU BR 0575 012 True Victory",
+      "cutCode": "",
+      "path": "football/support/APM_BURN_SERIES_BIG_ROCK_BRU_BR_0575_012_True_Victory.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BURN SERIES GARAGE ROCK BRU BR 0585 009 Take It",
+      "cutCode": "",
+      "path": "football/support/APM_BURN_SERIES_GARAGE_ROCK_BRU_BR_0585_009_Take_It.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM BURN SERIES GARAGE ROCK BRU BR 0585 014 Hey Hey Woo Woo",
+      "cutCode": "",
+      "path": "football/support/APM_BURN_SERIES_GARAGE_ROCK_BRU_BR_0585_014_Hey_Hey_Woo_Woo.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CALIFORNIA INDIE JCM JM 0151 003 Poolside (A)",
+      "cutCode": "",
+      "path": "football/support/APM_CALIFORNIA_INDIE_JCM_JM_0151_003_Poolside_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CALIFORNIA INDIE JCM JM 0151 007 Coast 2 Coast (A)",
+      "cutCode": "",
+      "path": "football/support/APM_CALIFORNIA_INDIE_JCM_JM_0151_007_Coast_2_Coast_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CALIFORNIA INDIE JCM JM 0151 010 Endless Summer (A)",
+      "cutCode": "",
+      "path": "football/support/APM_CALIFORNIA_INDIE_JCM_JM_0151_010_Endless_Summer_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CARIBBEAN CONNEXION CEZ CEV 3043 011 Coconuts",
+      "cutCode": "",
+      "path": "football/support/APM_CARIBBEAN_CONNEXION_CEZ_CEV_3043_011_Coconuts.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CHART DANCE TRL TRL 0001 005 Miami Heat (A)",
+      "cutCode": "",
+      "path": "football/support/APM_CHART_DANCE_TRL_TRL_0001_005_Miami_Heat_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Christmas Jumpers JMP JMP 0096 004 Too Cool For Yule (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Christmas_Jumpers_JMP_JMP_0096_004_Too_Cool_For_Yule_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CHRISTMAS MIRACLES KING KING 0156 053 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/APM_CHRISTMAS_MIRACLES_KING_KING_0156_053_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Christmas String Quartet 2FM 2FM 0059 001 Jingle Bells",
+      "cutCode": "",
+      "path": "football/support/APM_Christmas_String_Quartet_2FM_2FM_0059_001_Jingle_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM CINEMATICS - Dark Heroes END END 0101 006 For The Heroes",
+      "cutCode": "",
+      "path": "football/support/APM_CINEMATICS_-_Dark_Heroes_END_END_0101_006_For_The_Heroes.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM COMMERCIALS NON STOP 39 - Promos & Trailers 8 SON CNS 0039 061 The Shower 60",
+      "cutCode": "",
+      "path": "football/support/APM_COMMERCIALS_NON_STOP_39_-_Promos_Trailers_8_SON_CNS_0039_061_The_Shower_60.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Competitor AXS AXS 2498 011 Catalyst",
+      "cutCode": "",
+      "path": "football/support/APM_Competitor_AXS_AXS_2498_011_Catalyst.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Daytime TV - Electric Groove KOS KOM 2090 033 Sunday Night Funk",
+      "cutCode": "",
+      "path": "football/support/APM_Daytime_TV_-_Electric_Groove_KOS_KOM_2090_033_Sunday_Night_Funk.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Dixie Is Back In Town SEL SEL 5040 017 When The Saints Go Marching In",
+      "cutCode": "",
+      "path": "football/support/APM_Dixie_Is_Back_In_Town_SEL_SEL_5040_017_When_The_Saints_Go_Marching_In.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Dixieland SON SCD 0235 012 Down By The Riverside A",
+      "cutCode": "",
+      "path": "football/support/APM_Dixieland_SON_SCD_0235_012_Down_By_The_Riverside_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM DRAMATIC CINEMA KPM KPM 0784 007 A Promise To Return",
+      "cutCode": "",
+      "path": "football/support/APM_DRAMATIC_CINEMA_KPM_KPM_0784_007_A_Promise_To_Return.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Driving Rock SOHO SOHO 0271 029 Rocky Road",
+      "cutCode": "",
+      "path": "football/support/APM_Driving_Rock_SOHO_SOHO_0271_029_Rocky_Road.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM EDM CLUB SON SCDV 1088 009 Groovin' 80s A",
+      "cutCode": "",
+      "path": "football/support/APM_EDM_CLUB_SON_SCDV_1088_009_Groovin_80s_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ELECTRIC BLUES - UNDERSCORES SON SCD 0136 017 New Orleans Swing",
+      "cutCode": "",
+      "path": "football/support/APM_ELECTRIC_BLUES_-_UNDERSCORES_SON_SCD_0136_017_New_Orleans_Swing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM EPIC 80S SYNTH LEM LEM 0225 010 When The Night Falls",
+      "cutCode": "",
+      "path": "football/support/APM_EPIC_80S_SYNTH_LEM_LEM_0225_010_When_The_Night_Falls.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM EXTREME EDGE & ATTITUDE NIGHT NIGHT 0116 004 Rocks And Pops",
+      "cutCode": "",
+      "path": "football/support/APM_EXTREME_EDGE_ATTITUDE_NIGHT_NIGHT_0116_004_Rocks_And_Pops.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Future Funk JCM JM 0205 001 California Soul (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Future_Funk_JCM_JM_0205_001_California_Soul_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Get Dirty 4 IFM IFM 0160 006 The Element Of One",
+      "cutCode": "",
+      "path": "football/support/APM_Get_Dirty_4_IFM_IFM_0160_006_The_Element_Of_One.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM GRINDHOUSE CEZ CEZ 4305 001 Zombie Nation",
+      "cutCode": "",
+      "path": "football/support/APM_GRINDHOUSE_CEZ_CEZ_4305_001_Zombie_Nation.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM GUITAR GROOVES 2 SCOR SCORE 0103 001 New Orleans March (A)",
+      "cutCode": "",
+      "path": "football/support/APM_GUITAR_GROOVES_2_SCOR_SCORE_0103_001_New_Orleans_March_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Halloween Themes Vol. 2 BIB TBX 0045 009 It'S Behind You",
+      "cutCode": "",
+      "path": "football/support/APM_Halloween_Themes_Vol._2_BIB_TBX_0045_009_ItS_Behind_You.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM HAPPY POP AXS AXS 2424 002 Anthemic Happy Pop (Alt)",
+      "cutCode": "",
+      "path": "football/support/APM_HAPPY_POP_AXS_AXS_2424_002_Anthemic_Happy_Pop_Alt.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Hip Hop Motivation MH MH 0200 009 I Won'T Stop (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Hip_Hop_Motivation_MH_MH_0200_009_I_WonT_Stop_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM HIP POP BEATS DED DED 0149 010 Timbo (A)",
+      "cutCode": "",
+      "path": "football/support/APM_HIP_POP_BEATS_DED_DED_0149_010_Timbo_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Hit The Open Road CEZ CEZ 4374 009 California On My Mind",
+      "cutCode": "",
+      "path": "football/support/APM_Hit_The_Open_Road_CEZ_CEZ_4374_009_California_On_My_Mind.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Holiday Entertainment SON SCD 0461 014 At The Graveyard",
+      "cutCode": "",
+      "path": "football/support/APM_Holiday_Entertainment_SON_SCD_0461_014_At_The_Graveyard.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM HOLIDAY TRIO -- LENNIE MOORE END END 0111 006 Up On The Housetop (A)",
+      "cutCode": "",
+      "path": "football/support/APM_HOLIDAY_TRIO_--_LENNIE_MOORE_END_END_0111_006_Up_On_The_Housetop_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM HORROR CLASSICS (BRJ 56 2) BRU BR 0372~2 009 Dark Tower",
+      "cutCode": "",
+      "path": "football/support/APM_HORROR_CLASSICS_BRJ_56_2_BRU_BR_03722_009_Dark_Tower.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Hybrid Sports KOS KOS 0675 001 Across The Stadium",
+      "cutCode": "",
+      "path": "football/support/APM_Hybrid_Sports_KOS_KOS_0675_001_Across_The_Stadium.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM HYPER ACTION - ADRENALIN JUNKIES SON SCD 0726 021 We Are Winners A",
+      "cutCode": "",
+      "path": "football/support/APM_HYPER_ACTION_-_ADRENALIN_JUNKIES_SON_SCD_0726_021_We_Are_Winners_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM IMAGE BUILDERS SON SCDV 0353 021 Market Watch A",
+      "cutCode": "",
+      "path": "football/support/APM_IMAGE_BUILDERS_SON_SCDV_0353_021_Market_Watch_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM IN 60 SECONDS KPM KPM 0722 015 Monster Meat",
+      "cutCode": "",
+      "path": "football/support/APM_IN_60_SECONDS_KPM_KPM_0722_015_Monster_Meat.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM In The Christmas Swing BRU BR 0430 002 Christmas With The One That I Love",
+      "cutCode": "",
+      "path": "football/support/APM_In_The_Christmas_Swing_BRU_BR_0430_002_Christmas_With_The_One_That_I_Love.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM JUNKYARD BLUES KING KING 0076 009 Chopping And Changing",
+      "cutCode": "",
+      "path": "football/support/APM_JUNKYARD_BLUES_KING_KING_0076_009_Chopping_And_Changing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM KIDS CLUB KPM KPM 0734 010 Halloween Funk",
+      "cutCode": "",
+      "path": "football/support/APM_KIDS_CLUB_KPM_KPM_0734_010_Halloween_Funk.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM KIDS' HORROR KPM KPM 0855 025 Skeleton Waltz A",
+      "cutCode": "",
+      "path": "football/support/APM_KIDS_HORROR_KPM_KPM_0855_025_Skeleton_Waltz_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM LA COMPILATION 10 MYMA JUST 0156 009 Night Runner",
+      "cutCode": "",
+      "path": "football/support/APM_LA_COMPILATION_10_MYMA_JUST_0156_009_Night_Runner.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM LATIN ELECTRO CEZ CEZ 4270 003 Latin Clubbing",
+      "cutCode": "",
+      "path": "football/support/APM_LATIN_ELECTRO_CEZ_CEZ_4270_003_Latin_Clubbing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Little House Of Horrors JCM JM 0213 001 Fright Ride (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Little_House_Of_Horrors_JCM_JM_0213_001_Fright_Ride_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM LUMOS NRF NRF 0008 001 Celestial Ascension - Main",
+      "cutCode": "",
+      "path": "football/support/APM_LUMOS_NRF_NRF_0008_001_Celestial_Ascension_-_Main.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM LUMOS NRF NRF 0008 021 Flight To The Stratosphere - Main",
+      "cutCode": "",
+      "path": "football/support/APM_LUMOS_NRF_NRF_0008_021_Flight_To_The_Stratosphere_-_Main.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM MAD BANGERZ LQC INSD 0100 003 Twerk Low (A)",
+      "cutCode": "",
+      "path": "football/support/APM_MAD_BANGERZ_LQC_INSD_0100_003_Twerk_Low_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Marching Bands USA SON SCD 0343 006 From The Halls Of Montezuma",
+      "cutCode": "",
+      "path": "football/support/APM_Marching_Bands_USA_SON_SCD_0343_006_From_The_Halls_Of_Montezuma.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Merry Metal Xmas CEZ CEZ 4378 002 Merry Metal Christmas",
+      "cutCode": "",
+      "path": "football/support/APM_Merry_Metal_Xmas_CEZ_CEZ_4378_002_Merry_Metal_Christmas.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM MUSIC FOR PROMOS - DRAMATIC KPM KPM 0763 001 Armageddon A",
+      "cutCode": "",
+      "path": "football/support/APM_MUSIC_FOR_PROMOS_-_DRAMATIC_KPM_KPM_0763_001_Armageddon_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM MUSIC FOR SUMMER KPM KPM 0743 007 Surfin' Summer (A)",
+      "cutCode": "",
+      "path": "football/support/APM_MUSIC_FOR_SUMMER_KPM_KPM_0743_007_Surfin_Summer_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Music Of The 20S, 30S And 40S KPM KPM 0091 002 Handy Blues",
+      "cutCode": "",
+      "path": "football/support/APM_Music_Of_The_20S_30S_And_40S_KPM_KPM_0091_002_Handy_Blues.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM NFL DECADES THE AWESOME '80S NFL NFL 0082 001 Electro Zone",
+      "cutCode": "",
+      "path": "football/support/APM_NFL_DECADES_THE_AWESOME_80S_NFL_NFL_0082_001_Electro_Zone.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Orchestral Hip Hop RHZ RLZ 0008 006 Battle Of Drumline Trap",
+      "cutCode": "",
+      "path": "football/support/APM_Orchestral_Hip_Hop_RHZ_RLZ_0008_006_Battle_Of_Drumline_Trap.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM PLANET ROCK KPM KPM 0908 004 Skinny Fit (A)",
+      "cutCode": "",
+      "path": "football/support/APM_PLANET_ROCK_KPM_KPM_0908_004_Skinny_Fit_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM PLANET ROCK KPM KPM 0908 011 Burst (A)",
+      "cutCode": "",
+      "path": "football/support/APM_PLANET_ROCK_KPM_KPM_0908_011_Burst_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM POP ELECTRO DANCE BIB BIB 0001 002 Indie Trousers",
+      "cutCode": "",
+      "path": "football/support/APM_POP_ELECTRO_DANCE_BIB_BIB_0001_002_Indie_Trousers.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM POP STRING ORCHESTRA KOS KOS 0145 001 Pop String Orchestra",
+      "cutCode": "",
+      "path": "football/support/APM_POP_STRING_ORCHESTRA_KOS_KOS_0145_001_Pop_String_Orchestra.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM PRIDE AND HONOUR KPM KPM 2030 001 The Homecoming (A)",
+      "cutCode": "",
+      "path": "football/support/APM_PRIDE_AND_HONOUR_KPM_KPM_2030_001_The_Homecoming_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM RACE TO THE FINISH 2 NFL NFL 0067 023 The Perfect Race (A)",
+      "cutCode": "",
+      "path": "football/support/APM_RACE_TO_THE_FINISH_2_NFL_NFL_0067_023_The_Perfect_Race_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Radio Toolkit 2 AXS AXS 2526 034 The Price Is Right",
+      "cutCode": "",
+      "path": "football/support/APM_Radio_Toolkit_2_AXS_AXS_2526_034_The_Price_Is_Right.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM RAF BRASS & WIND BANDS 3 KPM KPM 0651 017 The Defenders",
+      "cutCode": "",
+      "path": "football/support/APM_RAF_BRASS_WIND_BANDS_3_KPM_KPM_0651_017_The_Defenders.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM REAL VOICE OF AMERICA MUZ MUZ 0068 013 Louisiana Swamp Rock",
+      "cutCode": "",
+      "path": "football/support/APM_REAL_VOICE_OF_AMERICA_MUZ_MUZ_0068_013_Louisiana_Swamp_Rock.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ROAD TRIPPIN JMP JMP 0070 002 Tear Me Outta Texas (A)",
+      "cutCode": "",
+      "path": "football/support/APM_ROAD_TRIPPIN_JMP_JMP_0070_002_Tear_Me_Outta_Texas_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ROCK & BLUES JAM SON SCD 0666 003 New Orleans Funk A",
+      "cutCode": "",
+      "path": "football/support/APM_ROCK_BLUES_JAM_SON_SCD_0666_003_New_Orleans_Funk_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ROCK & POP MIX AND REMIX SON SCD 0754 001 Road To Texas",
+      "cutCode": "",
+      "path": "football/support/APM_ROCK_POP_MIX_AND_REMIX_SON_SCD_0754_001_Road_To_Texas.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Rockmania SON SCD 0299 009 Cosmic A",
+      "cutCode": "",
+      "path": "football/support/APM_Rockmania_SON_SCD_0299_009_Cosmic_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Saturday Shakedown 2 BRU BR 0682 003 That'S My Jam",
+      "cutCode": "",
+      "path": "football/support/APM_Saturday_Shakedown_2_BRU_BR_0682_003_ThatS_My_Jam.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SEA, SUN & SAND SON SCD 0859 012 Miami Nights A",
+      "cutCode": "",
+      "path": "football/support/APM_SEA_SUN_SAND_SON_SCD_0859_012_Miami_Nights_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Shot Clock POPM POPM 0045 068 Galvanize - Main",
+      "cutCode": "",
+      "path": "football/support/APM_Shot_Clock_POPM_POPM_0045_068_Galvanize_-_Main.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SHOWBIZ PLUS 7 - ACTION & TENSION SON SCDV 0322 043 Action Interlude A",
+      "cutCode": "",
+      "path": "football/support/APM_SHOWBIZ_PLUS_7_-_ACTION_TENSION_SON_SCDV_0322_043_Action_Interlude_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SMOOTH AND ACID JAZZ 3 AXS AXS 2287 037 Brand New Orleans",
+      "cutCode": "",
+      "path": "football/support/APM_SMOOTH_AND_ACID_JAZZ_3_AXS_AXS_2287_037_Brand_New_Orleans.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SOUNDZ EKASI SON AFRO 0017 015 No Limits",
+      "cutCode": "",
+      "path": "football/support/APM_SOUNDZ_EKASI_SON_AFRO_0017_015_No_Limits.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SPEED GENERATOR SON ROCK 0105 006 To Be Alive B",
+      "cutCode": "",
+      "path": "football/support/APM_SPEED_GENERATOR_SON_ROCK_0105_006_To_Be_Alive_B.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Spooky & Scary SCOR SCORE 0140 013 Count Vampula (A)",
+      "cutCode": "",
+      "path": "football/support/APM_Spooky_Scary_SCOR_SCORE_0140_013_Count_Vampula_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Sports Booster Hybrid #1 AXS AXS 2544 011 Locker Room Talk",
+      "cutCode": "",
+      "path": "football/support/APM_Sports_Booster_Hybrid_1_AXS_AXS_2544_011_Locker_Room_Talk.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM STADIUM BEATS LQC INSD 0122 001 Throwdown",
+      "cutCode": "",
+      "path": "football/support/APM_STADIUM_BEATS_LQC_INSD_0122_001_Throwdown.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SUPERHEROES KOS KOS 0643 016 Hero Returns",
+      "cutCode": "",
+      "path": "football/support/APM_SUPERHEROES_KOS_KOS_0643_016_Hero_Returns.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SURF & SLIDE VACATION DST DST 0100 001 Surf Dogs",
+      "cutCode": "",
+      "path": "football/support/APM_SURF_SLIDE_VACATION_DST_DST_0100_001_Surf_Dogs.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SURF & SLIDE VACATION DST DST 0100 002 Enjoying The Sun",
+      "cutCode": "",
+      "path": "football/support/APM_SURF_SLIDE_VACATION_DST_DST_0100_002_Enjoying_The_Sun.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SURF IT! DST DST 0099 003 Slotted",
+      "cutCode": "",
+      "path": "football/support/APM_SURF_IT_DST_DST_0099_003_Slotted.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Surf Vinyl HARD HARD 0079 008 My Heart'S In California",
+      "cutCode": "",
+      "path": "football/support/APM_Surf_Vinyl_HARD_HARD_0079_008_My_HeartS_In_California.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SURF WAVE CEZ CEZ 4276 003 California Surf Spots",
+      "cutCode": "",
+      "path": "football/support/APM_SURF_WAVE_CEZ_CEZ_4276_003_California_Surf_Spots.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Swag Rock #1 AXS AXS 2548 001 Chilly Rivers",
+      "cutCode": "",
+      "path": "football/support/APM_Swag_Rock_1_AXS_AXS_2548_001_Chilly_Rivers.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Swag Rock #1 AXS AXS 2548 007 Motor Oil",
+      "cutCode": "",
+      "path": "football/support/APM_Swag_Rock_1_AXS_AXS_2548_007_Motor_Oil.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM SYNC CUES 1 SON SCDV 0398 027 News Countdown A",
+      "cutCode": "",
+      "path": "football/support/APM_SYNC_CUES_1_SON_SCDV_0398_027_News_Countdown_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM THAT'S WHAT'S UP 3 RNM RNM 0046 038 The Waiting Game",
+      "cutCode": "",
+      "path": "football/support/APM_THATS_WHATS_UP_3_RNM_RNM_0046_038_The_Waiting_Game.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM THE ACTION MACHINE KPM KPM 0657 001 To The Death (A)",
+      "cutCode": "",
+      "path": "football/support/APM_THE_ACTION_MACHINE_KPM_KPM_0657_001_To_The_Death_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM THE BEST & WORST OF BRITAIN BRU BR 0534 067 New Orleans Nights",
+      "cutCode": "",
+      "path": "football/support/APM_THE_BEST_WORST_OF_BRITAIN_BRU_BR_0534_067_New_Orleans_Nights.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM THE CHRISTMAS COLLECTION VOL. 3 NIGHT NIGHTSE 0003 037 Joy To The World Punk Rock",
+      "cutCode": "",
+      "path": "football/support/APM_THE_CHRISTMAS_COLLECTION_VOL._3_NIGHT_NIGHTSE_0003_037_Joy_To_The_World_Punk_Rock.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM THE ETHNIC SAMPLER 4 SON SAS 0107 041 When The Saints Go Marching In",
+      "cutCode": "",
+      "path": "football/support/APM_THE_ETHNIC_SAMPLER_4_SON_SAS_0107_041_When_The_Saints_Go_Marching_In.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Top Dog SPOTON SPOTON 0045 002 All Stars",
+      "cutCode": "",
+      "path": "football/support/APM_Top_Dog_SPOTON_SPOTON_0045_002_All_Stars.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM Tribute To The 60s 1 (Brh 59) BRU BR 0179 017 Movin' Along",
+      "cutCode": "",
+      "path": "football/support/APM_Tribute_To_The_60s_1_Brh_59_BRU_BR_0179_017_Movin_Along.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM ULTRA COLD WAVE ATTITUDE AXS AXS 2107 016 Growing Up In California",
+      "cutCode": "",
+      "path": "football/support/APM_ULTRA_COLD_WAVE_ATTITUDE_AXS_AXS_2107_016_Growing_Up_In_California.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM UPLIFTING EDM CBM CBM 0041 005 Inspiring Glow",
+      "cutCode": "",
+      "path": "football/support/APM_UPLIFTING_EDM_CBM_CBM_0041_005_Inspiring_Glow.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM UPLIFTING EPIC INDIE BRU BR 0607 001 All Rains Gold",
+      "cutCode": "",
+      "path": "football/support/APM_UPLIFTING_EPIC_INDIE_BRU_BR_0607_001_All_Rains_Gold.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM US Rock GTP GTP 0187 007 Make It Better",
+      "cutCode": "",
+      "path": "football/support/APM_US_Rock_GTP_GTP_0187_007_Make_It_Better.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WE ARE LEGENDARY - CRUSHING ANTHEMIC RAP-ROCK NIGHT NVS 0112 001 Champions",
+      "cutCode": "",
+      "path": "football/support/APM_WE_ARE_LEGENDARY_-_CRUSHING_ANTHEMIC_RAP-ROCK_NIGHT_NVS_0112_001_Champions.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WE ARE LEGENDARY - CRUSHING ANTHEMIC RAP-ROCK NIGHT NVS 0112 020 Set It Off",
+      "cutCode": "",
+      "path": "football/support/APM_WE_ARE_LEGENDARY_-_CRUSHING_ANTHEMIC_RAP-ROCK_NIGHT_NVS_0112_020_Set_It_Off.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM West Coast Hip Hop RHZ RLZ 0006 046 Back In The West Coast",
+      "cutCode": "",
+      "path": "football/support/APM_West_Coast_Hip_Hop_RHZ_RLZ_0006_046_Back_In_The_West_Coast.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WEST COAST SWAG RHZ RHZ 0010 009 Find Me On The West",
+      "cutCode": "",
+      "path": "football/support/APM_WEST_COAST_SWAG_RHZ_RHZ_0010_009_Find_Me_On_The_West.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WEST COAST SWAG RHZ RHZ 0010 017 Westside Streets",
+      "cutCode": "",
+      "path": "football/support/APM_WEST_COAST_SWAG_RHZ_RHZ_0010_017_Westside_Streets.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WEST COAST SWAG RHZ RHZ 0010 041 A Beautiful Day In California",
+      "cutCode": "",
+      "path": "football/support/APM_WEST_COAST_SWAG_RHZ_RHZ_0010_041_A_Beautiful_Day_In_California.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WESTERN SWING CEZ CEZ 4356 012 Down Mexico Way",
+      "cutCode": "",
+      "path": "football/support/APM_WESTERN_SWING_CEZ_CEZ_4356_012_Down_Mexico_Way.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "APM WINTER JOURNEYS BIB TBX 0012 005 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/APM_WINTER_JOURNEYS_BIB_TBX_0012_005_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Cartoon Classics SYNC 0223 004 Something Wicked",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Cartoon_Classics_SYNC_0223_004_Something_Wicked.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Crime Noir SYNC 0264 012 Beyond Barriers",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Crime_Noir_SYNC_0264_012_Beyond_Barriers.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Dangerous Times SYNC 0262 003 Out Of The Darkness",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Dangerous_Times_SYNC_0262_003_Out_Of_The_Darkness.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Heartwarming And Gentle SYNC 0248 003 Pixie Dust",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Heartwarming_And_Gentle_SYNC_0248_003_Pixie_Dust.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Historical Stories SYNC 0231 011 Flee The Scene",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Historical_Stories_SYNC_0231_011_Flee_The_Scene.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Indie Positivity SYNC 0412 019 Leave It Be",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Indie_Positivity_SYNC_0412_019_Leave_It_Be.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Kids' Party SYNC 0316 012 Attack From Mars",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Kids_Party_SYNC_0316_012_Attack_From_Mars.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Louisiana Gumbo DWCD 0506 027 Too Low Levee Blues",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Louisiana_Gumbo_DWCD_0506_027_Too_Low_Levee_Blues.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Louisiana Gumbo DWCD 0506 028 Ward 9 Shake",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Louisiana_Gumbo_DWCD_0506_028_Ward_9_Shake.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Power Rock DWCD 0753 016 Rewinder",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Power_Rock_DWCD_0753_016_Rewinder.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Power Rock DWCD 0753 027 Come Out Fighting",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Power_Rock_DWCD_0753_027_Come_Out_Fighting.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Pure Positivity SYNC 0219 001 A New Start",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Pure_Positivity_SYNC_0219_001_A_New_Start.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Rocked! SYNC 0399 012 Chasing Time",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Rocked_SYNC_0399_012_Chasing_Time.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Swamp And Blues Rock DWCD 0602 003 Anvil Rock",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Swamp_And_Blues_Rock_DWCD_0602_003_Anvil_Rock.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Top 1920s And 1930s DWCD 0037 011 New Orleans Special",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Top_1920s_And_1930s_DWCD_0037_011_New_Orleans_Special.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Dewolfe Music Uplifting Beats SYNC 0421 001 Our Night",
+      "cutCode": "",
+      "path": "football/support/Dewolfe_Music_Uplifting_Beats_SYNC_0421_001_Our_Night.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks A Scary Halloween A Very Dark Halloween-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_A_Scary_Halloween_A_Very_Dark_Halloween-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Acid Rock Rise Up To The Task-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Acid_Rock_Rise_Up_To_The_Task-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Big Band & Jazz Do The Charleston-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Big_Band_Jazz_Do_The_Charleston-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Electronica Tracks Miami Romance-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Electronica_Tracks_Miami_Romance-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Ethereal Motion Halloween Music Walking Zombies-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Ethereal_Motion_Halloween_Music_Walking_Zombies-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Factory Fromage Joy To The World 002-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Factory_Fromage_Joy_To_The_World_002-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Fanfares The Front Line-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Fanfares_The_Front_Line-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Funky Halloween Spooky Urban-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Funky_Halloween_Spooky_Urban-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Funky Poppy R&B Crosstown Crisko-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Funky_Poppy_RB_Crosstown_Crisko-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Group Sounds B Sides These Days-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Group_Sounds_B_Sides_These_Days-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Heavy Sports Rock Tougher Than Steel 001-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Heavy_Sports_Rock_Tougher_Than_Steel_001-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Hip Hop 1 Miami 3-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Hip_Hop_1_Miami_3-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Hip Hop Underscore Who Knows Me-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Hip_Hop_Underscore_Who_Knows_Me-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Horror Halloween Is Back With A Vengeance-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Horror_Halloween_Is_Back_With_A_Vengeance-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Jaxxon Studios Lights Out-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Jaxxon_Studios_Lights_Out-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Jingle Punks 2016 True American-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Jingle_Punks_2016_True_American-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Kiss RnB Presh Frince-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Kiss_RnB_Presh_Frince-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Lipstick Reality Nov 2014 Party On A Sunday-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Lipstick_Reality_Nov_2014_Party_On_A_Sunday-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Modern R&B Miami Obsessed-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Modern_RB_Miami_Obsessed-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Pop 2016 That Sweet Retro-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Pop_2016_That_Sweet_Retro-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks PT 15 Christmas Carol Of The Bells Instr-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_PT_15_Christmas_Carol_Of_The_Bells_Instr-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Que Pasa South Beach 60",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Que_Pasa_South_Beach_60.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Self Titled Halloween-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Self_Titled_Halloween-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Touchdown Tunes Last One Standing-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Touchdown_Tunes_Last_One_Standing-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Jingle Punks Wild American Yonder Americana Bossa-JP",
+      "cutCode": "",
+      "path": "football/support/Jingle_Punks_Wild_American_Yonder_Americana_Bossa-JP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music BIG BEAT V.12 LATIN BIG BEATS BIGBEAT-012 007 SOPLANDO",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_BIG_BEAT_V.12_LATIN_BIG_BEATS_BIGBEAT-012_007_SOPLANDO.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music BIG BEAT V.12 LATIN BIG BEATS BIGBEAT-012 009 CORAZONCITO",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_BIG_BEAT_V.12_LATIN_BIG_BEATS_BIGBEAT-012_009_CORAZONCITO.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.06 COUNTRY ROCK COUNTRY-006 006 THE NASHVILLE STOMP",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.06_COUNTRY_ROCK_COUNTRY-006_006_THE_NASHVILLE_STOMP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.08 COUNTRY PRIDE AND GLORY COUNTRY-008 015 STADIUM LIGHTS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.08_COUNTRY_PRIDE_AND_GLORY_COUNTRY-008_015_STADIUM_LIGHTS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.09 ALT COUNTRY COUNTRY-009 002 BOUNCING OFF THE WALLS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.09_ALT_COUNTRY_COUNTRY-009_002_BOUNCING_OFF_THE_WALLS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.09 ALT COUNTRY COUNTRY-009 007 SOLID GOLD",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.09_ALT_COUNTRY_COUNTRY-009_007_SOLID_GOLD.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 001 BEYOND AMERICAN",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_001_BEYOND_AMERICAN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 010 DEPLORABLE'S BACKPACK",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_010_DEPLORABLES_BACKPACK.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 016 TOBACCO SPIT ATTACK",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_016_TOBACCO_SPIT_ATTACK.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 019 LOVE OF BOOTS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_019_LOVE_OF_BOOTS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 022 BELTS AND BUCKLES",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_022_BELTS_AND_BUCKLES.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 025 DENIM DOLLAR STORE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_025_DENIM_DOLLAR_STORE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music COUNTRY V.11 GOOD TIME COUNTRY COUNTRY-011 028 ORANGE WHISKEY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_COUNTRY_V.11_GOOD_TIME_COUNTRY_COUNTRY-011_028_ORANGE_WHISKEY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music DRAMA V.06 PLAYGROUND DRAMA-006 007 SHOWDOWN",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_DRAMA_V.06_PLAYGROUND_DRAMA-006_007_SHOWDOWN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music DRAMA V.08 GLORY DRAMA-008 014 FIGHT CLUB INSTRUMENTAL MIX",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_DRAMA_V.08_GLORY_DRAMA-008_014_FIGHT_CLUB_INSTRUMENTAL_MIX.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music DRAMA V.28 CINEMA SOUNDS DRAMA-028 001 A WORLD OF WIZARDS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_DRAMA_V.28_CINEMA_SOUNDS_DRAMA-028_001_A_WORLD_OF_WIZARDS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music DRAMA V.52 EDGY TRAILER DRAMA-052 019 THE FIGHT IS ON",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_DRAMA_V.52_EDGY_TRAILER_DRAMA-052_019_THE_FIGHT_IS_ON.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music DRAMA V.52 EDGY TRAILER DRAMA-052 028 CHAMPION",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_DRAMA_V.52_EDGY_TRAILER_DRAMA-052_028_CHAMPION.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ELECTRONICA V.09 AMERICANA EDM ELECTRONICA-009 006 TENNESSEE FUNK",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ELECTRONICA_V.09_AMERICANA_EDM_ELECTRONICA-009_006_TENNESSEE_FUNK.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ELECTRONICA V.11 TROPICAL POP CUES ELECTRONICA-011 001 DELTA",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ELECTRONICA_V.11_TROPICAL_POP_CUES_ELECTRONICA-011_001_DELTA.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ELECTRONICA V.15 BREAKBEAT BEDS ELECTRONICA-015 015 GOOD TROUBLE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ELECTRONICA_V.15_BREAKBEAT_BEDS_ELECTRONICA-015_015_GOOD_TROUBLE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music FUNK V.05 FUNK GROOVY BASS FUNK-005 002 BORN GREAT",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_FUNK_V.05_FUNK_GROOVY_BASS_FUNK-005_002_BORN_GREAT.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music FUNK V.05 FUNK GROOVY BASS FUNK-005 010 GRAHAM CRACKER",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_FUNK_V.05_FUNK_GROOVY_BASS_FUNK-005_010_GRAHAM_CRACKER.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.21 NEO HIP HOP HIPHOP-021 003 IS A SPONSOR",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.21_NEO_HIP_HOP_HIPHOP-021_003_IS_A_SPONSOR.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.26 HIP HOP MOODS HIPHOP-026 008 LOOKING BACK",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.26_HIP_HOP_MOODS_HIPHOP-026_008_LOOKING_BACK.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.27 BOLD SYNTH HIP HOP HIPHOP-027 009 ON TOP OF THE WORLD",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.27_BOLD_SYNTH_HIP_HOP_HIPHOP-027_009_ON_TOP_OF_THE_WORLD.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.28 HIP HOP ROCK HIPHOP-028 003 GRIMY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.28_HIP_HOP_ROCK_HIPHOP-028_003_GRIMY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.45 DIRTY SOUTH DRAMA HIPHOP-045 003 CRUNK WHIP",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.45_DIRTY_SOUTH_DRAMA_HIPHOP-045_003_CRUNK_WHIP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.45 DIRTY SOUTH DRAMA HIPHOP-045 004 GOT EM",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.45_DIRTY_SOUTH_DRAMA_HIPHOP-045_004_GOT_EM.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.45 DIRTY SOUTH DRAMA HIPHOP-045 005 JEEZY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.45_DIRTY_SOUTH_DRAMA_HIPHOP-045_005_JEEZY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.45 DIRTY SOUTH DRAMA HIPHOP-045 013 TRAPPA JON",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.45_DIRTY_SOUTH_DRAMA_HIPHOP-045_013_TRAPPA_JON.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.58 FUN 90'S HIP HOP HIPHOP-058 010 SB BLAZE 90S",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.58_FUN_90S_HIP_HOP_HIPHOP-058_010_SB_BLAZE_90S.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.58 FUN 90'S HIP HOP HIPHOP-058 025 BRONX PLAYA",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.58_FUN_90S_HIP_HOP_HIPHOP-058_025_BRONX_PLAYA.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.59 MOTIVATIONAL HIP HOP HIPHOP-059 010 ANTHEMIC DIRT",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.59_MOTIVATIONAL_HIP_HOP_HIPHOP-059_010_ANTHEMIC_DIRT.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.65 POP HIP HOP WITH VOCALS HIPHOP-065 005 RISE ABOVE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.65_POP_HIP_HOP_WITH_VOCALS_HIPHOP-065_005_RISE_ABOVE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.65 POP HIP HOP WITH VOCALS HIPHOP-065 033 HIGHER",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.65_POP_HIP_HOP_WITH_VOCALS_HIPHOP-065_033_HIGHER.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.66 ROCK EMO TRAP HIPHOP-066 013 COMEBACK",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.66_ROCK_EMO_TRAP_HIPHOP-066_013_COMEBACK.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HIP HOP V.79 MOTIVATE INSPIRE W VOCALS HIPHOP-079 036 LAY IT ON THE LINE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HIP_HOP_V.79_MOTIVATE_INSPIRE_W_VOCALS_HIPHOP-079_036_LAY_IT_ON_THE_LINE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music HOOKS BEATS AND BRIDGES V.01 2010'S HIP HOP & TRAP HOOKS-001 010 FAST LANE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_HOOKS_BEATS_AND_BRIDGES_V.01_2010S_HIP_HOP_TRAP_HOOKS-001_010_FAST_LANE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music OUTDOORS V.04 ARAMTRAX V.04 ARAM-004 010 RAP2 IT",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_OUTDOORS_V.04_ARAMTRAX_V.04_ARAM-004_010_RAP2_IT.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.11 POP AND HIP HOP BEATS CUES POP-011 002 A BILLY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.11_POP_AND_HIP_HOP_BEATS_CUES_POP-011_002_A_BILLY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.11 POP AND HIP HOP BEATS CUES POP-011 007 BRASS KNUCKLES",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.11_POP_AND_HIP_HOP_BEATS_CUES_POP-011_007_BRASS_KNUCKLES.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.13 IMPACTFUL POP POP-013 001 CABIERRO",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.13_IMPACTFUL_POP_POP-013_001_CABIERRO.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.13 IMPACTFUL POP POP-013 003 FOXES",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.13_IMPACTFUL_POP_POP-013_003_FOXES.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.13 IMPACTFUL POP POP-013 005 BOULEVARD HEAT",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.13_IMPACTFUL_POP_POP-013_005_BOULEVARD_HEAT.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.13 IMPACTFUL POP POP-013 009 LEGENDARY HEARTS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.13_IMPACTFUL_POP_POP-013_009_LEGENDARY_HEARTS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.14 CINEMATIC POP CUES POP-014 005 MAKIN' IT HAPPEN",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.14_CINEMATIC_POP_CUES_POP-014_005_MAKIN_IT_HAPPEN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music POP V.23 DISCO POP POP-023 007 DISCOVERED",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_POP_V.23_DISCO_POP_POP-023_007_DISCOVERED.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.12 GRITTY ROCK ROCK-012 006 MANNY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.12_GRITTY_ROCK_ROCK-012_006_MANNY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.21 70'S COME TO LIFE ROCK-021 001 ABOVE AVERAGE WHITE BOY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.21_70S_COME_TO_LIFE_ROCK-021_001_ABOVE_AVERAGE_WHITE_BOY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.21 70'S COME TO LIFE ROCK-021 002 BELOW AVERAGE WHITE BOY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.21_70S_COME_TO_LIFE_ROCK-021_002_BELOW_AVERAGE_WHITE_BOY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.30 X ATTITUDE ROCK-030 008 HORSEPOWER",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.30_X_ATTITUDE_ROCK-030_008_HORSEPOWER.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.30 X ATTITUDE ROCK-030 009 LAVA LAMP",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.30_X_ATTITUDE_ROCK-030_009_LAVA_LAMP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.41 INDIE HARD ROCK ROCK-041 006 ARIAL SHARONNA",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.41_INDIE_HARD_ROCK_ROCK-041_006_ARIAL_SHARONNA.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.46 PUNK METAL ROCK-046 007 WHO CARES ABOUT THE QUEEN",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.46_PUNK_METAL_ROCK-046_007_WHO_CARES_ABOUT_THE_QUEEN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.67 SOUTHERN AMERICANA ROCK ROCK-067 003 HARD SOUTH",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.67_SOUTHERN_AMERICANA_ROCK_ROCK-067_003_HARD_SOUTH.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.68 EPIC INDIE ROCK ROCK-068 012 THE TIME IS ALREADY HERE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.68_EPIC_INDIE_ROCK_ROCK-068_012_THE_TIME_IS_ALREADY_HERE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.93 STADIUM ROCK ROCK-093 001 POWER PLAY",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.93_STADIUM_ROCK_ROCK-093_001_POWER_PLAY.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.93 STADIUM ROCK ROCK-093 016 FIRE & ICE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.93_STADIUM_ROCK_ROCK-093_016_FIRE_ICE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.94 POWER POP ROCK WITH VOX ROCK-094 001 RISE UP",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.94_POWER_POP_ROCK_WITH_VOX_ROCK-094_001_RISE_UP.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.94 POWER POP ROCK WITH VOX ROCK-094 005 THE THRONE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.94_POWER_POP_ROCK_WITH_VOX_ROCK-094_005_THE_THRONE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V.95 ELECTRO PUNK ROCK-095 025 ORBITER",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V.95_ELECTRO_PUNK_ROCK-095_025_ORBITER.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V804 SWAGGER ROCK CUES ROCK-084 001 TWO TIMER",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V804_SWAGGER_ROCK_CUES_ROCK-084_001_TWO_TIMER.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V806 GLAM METAL AND METAL ROCK-086 001 BOOG E",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V806_GLAM_METAL_AND_METAL_ROCK-086_001_BOOG_E.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V806 GLAM METAL AND METAL ROCK-086 009 CHAINS DOWN",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V806_GLAM_METAL_AND_METAL_ROCK-086_009_CHAINS_DOWN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music ROCK V808 ANTHEMIC FOLK ROCK-088 001 APOLOGIES",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_ROCK_V808_ANTHEMIC_FOLK_ROCK-088_001_APOLOGIES.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music VARIOUS BEATS V.13 NFL BIG SOUNDS VARIOUS-013 001 FEARLESS FIRE",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_VARIOUS_BEATS_V.13_NFL_BIG_SOUNDS_VARIOUS-013_001_FEARLESS_FIRE.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music WORLD V.02 LATIN VIBES WORLD-001 001 SALSA",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_WORLD_V.02_LATIN_VIBES_WORLD-001_001_SALSA.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music WORLD V.02 LATIN VIBES WORLD-001 002 CAF┬┐ TACUBA",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_WORLD_V.02_LATIN_VIBES_WORLD-001_002_CAF_TACUBA.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Scoreboard Music WORLD V.31 SALSA WORLD-031 001 APRETA'OS",
+      "cutCode": "",
+      "path": "football/support/Scoreboard_Music_WORLD_V.31_SALSA_WORLD-031_001_APRETAOS.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music 80s Country FM MSTR313 038 Nothing But Trouble",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_80s_Country_FM_MSTR313_038_Nothing_But_Trouble.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music A Magical, Wonderful Christmas HM115 010 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_A_Magical_Wonderful_Christmas_HM115_010_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Action-Adventure RCF011 001 Brave Soul",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Action-Adventure_RCF011_001_Brave_Soul.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Action-Adventure RCF011 003 Tough As Nails",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Action-Adventure_RCF011_003_Tough_As_Nails.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music All Kinds Of Happy DF23 005 Daydreamer",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_All_Kinds_Of_Happy_DF23_005_Daydreamer.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music All Trucked Up EDGE106 002 Mud Run",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_All_Trucked_Up_EDGE106_002_Mud_Run.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music An Everyday Universe SA029 001 The World In A Single Drop",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_An_Everyday_Universe_SA029_001_The_World_In_A_Single_Drop.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Audio Allsorts Zone500 008 Trick Or Treat",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Audio_Allsorts_Zone500_008_Trick_Or_Treat.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Avenger VM016 003 New Moon Rising",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Avenger_VM016_003_New_Moon_Rising.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Bad-Ass Swamp Rock Vol. 1 SB059 018 Swamp Thing",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Bad-Ass_Swamp_Rock_Vol._1_SB059_018_Swamp_Thing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Beat Orchestra NM308 021 Can'T Give Up",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Beat_Orchestra_NM308_021_CanT_Give_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Country Blitz MSTR271 038 Taking Back My Heart",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Country_Blitz_MSTR271_038_Taking_Back_My_Heart.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Country Blitz MSTR271 053 Seven Day Weekend",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Country_Blitz_MSTR271_053_Seven_Day_Weekend.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Country Blitz MSTR271 069 The Party Song",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Country_Blitz_MSTR271_069_The_Party_Song.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Sports Machine EVO198 008 Superior Platinum",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Sports_Machine_EVO198_008_Superior_Platinum.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Big Sports Machine EVO198 011 Southwest Quarterbacks",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Big_Sports_Machine_EVO198_011_Southwest_Quarterbacks.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Blue Tone PEDF114 004 Pay The Piper",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Blue_Tone_PEDF114_004_Pay_The_Piper.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Blues On Fire MSTR303 058 Fight For What'S Yours",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Blues_On_Fire_MSTR303_058_Fight_For_WhatS_Yours.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Boom Bap CM103 001 Astronomy",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Boom_Bap_CM103_001_Astronomy.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Boom Bap CM103 002 Keep Going",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Boom_Bap_CM103_002_Keep_Going.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Bustin' Grooves ATMOS085 002 Corker",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Bustin_Grooves_ATMOS085_002_Corker.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Bustin' Grooves ATMOS085 008 Eurodream",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Bustin_Grooves_ATMOS085_008_Eurodream.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 001 Tough Luck",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_001_Tough_Luck.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 006 Getting Worse",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_006_Getting_Worse.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 017 Fear No More",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_017_Fear_No_More.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 018 Oh My God",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_018_Oh_My_God.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 020 Heavy Lifting",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_020_Heavy_Lifting.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Challenge RCF002 023 Duck And Cover",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Challenge_RCF002_023_Duck_And_Cover.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Champion Beats CAP114 007 Down The Stretch",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Champion_Beats_CAP114_007_Down_The_Stretch.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Chart Sounds Vol.1 FCD426 031 The WORLD",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Chart_Sounds_Vol.1_FCD426_031_The_WORLD.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Christmas Allsorts Zone524 007 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Christmas_Allsorts_Zone524_007_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Classy Vintage FRX028 004 Bourbon Street Blues",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Classy_Vintage_FRX028_004_Bourbon_Street_Blues.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Club Hits FCLB10 005 Miami Beach",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Club_Hits_FCLB10_005_Miami_Beach.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Contemporary Beats CM118 024 Miraculous",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Contemporary_Beats_CM118_024_Miraculous.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Contemporary Beats CM118 055 It'S On",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Contemporary_Beats_CM118_055_ItS_On.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Country FC-S2 022 Late Night Longnecks",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Country_FC-S2_022_Late_Night_Longnecks.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Country Heroes And Outlaws MSTR290 013 All The Proof You Need",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Country_Heroes_And_Outlaws_MSTR290_013_All_The_Proof_You_Need.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Country Pop Promos OMCOU004L 007 Tractor Smoke",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Country_Pop_Promos_OMCOU004L_007_Tractor_Smoke.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Country Rock, Vol. 2 FC-A25 001 Greased Lightning",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Country_Rock_Vol._2_FC-A25_001_Greased_Lightning.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Dance 1 MSTR023 028 Body Boxing",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Dance_1_MSTR023_028_Body_Boxing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Desperado Soul VL151 004 Car Show",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Desperado_Soul_VL151_004_Car_Show.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Disco Studio PEDF103 004 Time To Time",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Disco_Studio_PEDF103_004_Time_To_Time.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music DISCOVERY - Backpackers KTV043 006 A Friend In New Orleans",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_DISCOVERY_-_Backpackers_KTV043_006_A_Friend_In_New_Orleans.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Disturbia - Volume B KT315 004 Come Alive",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Disturbia_-_Volume_B_KT315_004_Come_Alive.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Dominicana KL007 014 Bievenido A Miami",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Dominicana_KL007_014_Bievenido_A_Miami.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Double Drama 2 KOK2153 001 Halloween",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Double_Drama_2_KOK2153_001_Halloween.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Drum-Led Cool MH161 023 Newphoria",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Drum-Led_Cool_MH161_023_Newphoria.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Drunkin' Punkin' OM232 010 Weird And Wild",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Drunkin_Punkin_OM232_010_Weird_And_Wild.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Earth UTS029 001 United",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Earth_UTS029_001_United.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Eclectic Selection NTP090 135 Innovator",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Eclectic_Selection_NTP090_135_Innovator.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Electro Surf GAL040 004 The Black Wave",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Electro_Surf_GAL040_004_The_Black_Wave.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Evil Sideshow OM156 046 Run Far Away",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Evil_Sideshow_OM156_046_Run_Far_Away.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Evil Sideshow OM156 061 Awaken The Darkness",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Evil_Sideshow_OM156_061_Awaken_The_Darkness.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Excessive Audio 1 Crime-Culture-Chaos DF15 027 Keep On Living",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Excessive_Audio_1_Crime-Culture-Chaos_DF15_027_Keep_On_Living.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Extravagant Women 3 GAL199 009 Halloween Superheroine",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Extravagant_Women_3_GAL199_009_Halloween_Superheroine.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Extreme ATMOS64 039 Gripper",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Extreme_ATMOS64_039_Gripper.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Film Scores (Industrial) NM248 008 Another Man Down",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Film_Scores_Industrial_NM248_008_Another_Man_Down.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Fright Fest ATMOS286 006 Vampire Nights",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Fright_Fest_ATMOS286_006_Vampire_Nights.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Fun Rock City DF29 013 Psycho Surf Squad",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Fun_Rock_City_DF29_013_Psycho_Surf_Squad.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Fun Rock City DF29 025 Inner Desert Blues",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Fun_Rock_City_DF29_025_Inner_Desert_Blues.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Fun Rock City DF29 026 High Jinx",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Fun_Rock_City_DF29_026_High_Jinx.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Fun Rock City DF29 027 Pep Sounds",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Fun_Rock_City_DF29_027_Pep_Sounds.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Funk Masters MSTR307 048 Alright Alright",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Funk_Masters_MSTR307_048_Alright_Alright.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music FX In The Mix - Redux OM139 009 Haunted Hill",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_FX_In_The_Mix_-_Redux_OM139_009_Haunted_Hill.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Galerie For TV - Gentleman Detective GAL176 007 Murder At The Opera",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Galerie_For_TV_-_Gentleman_Detective_GAL176_007_Murder_At_The_Opera.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Garage Rock MSTR266 063 Beating Backwards",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Garage_Rock_MSTR266_063_Beating_Backwards.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Gritty America MH189 007 Night Roller",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Gritty_America_MH189_007_Night_Roller.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hardcore Hustle ZTS033 003 Hardcore Orchestra",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hardcore_Hustle_ZTS033_003_Hardcore_Orchestra.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Here'S Christmas 2 MAT237 015 Christmas Cheer",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_HereS_Christmas_2_MAT237_015_Christmas_Cheer.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Heroes KT200 010 Go For Victory",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Heroes_KT200_010_Go_For_Victory.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Heroes KT200 018 Courageous",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Heroes_KT200_018_Courageous.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music High Performance VL089Q 003 Elite Status",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_High_Performance_VL089Q_003_Elite_Status.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip Hop Downtempo FCLB23 009 Destination West Coast",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip_Hop_Downtempo_FCLB23_009_Destination_West_Coast.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip Hop Downtempo FCLB23 013 Slide Out",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip_Hop_Downtempo_FCLB23_013_Slide_Out.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip Hop Orchestra OM230 006 Bling Shaker",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip_Hop_Orchestra_OM230_006_Bling_Shaker.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip Trip 3 World Beat EVO050Q 005 Manana",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip_Trip_3_World_Beat_EVO050Q_005_Manana.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip-Hop Rock KT151 005 Urban Warrior",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip-Hop_Rock_KT151_005_Urban_Warrior.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hip-Hop Symphony No. 1 KT253 021 Rags To Rings",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hip-Hop_Symphony_No._1_KT253_021_Rags_To_Rings.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Holiday Classics (Specialty) NM070 006 Nutcracker Montage",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Holiday_Classics_Specialty_NM070_006_Nutcracker_Montage.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Holiday HITS001 005 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Holiday_HITS001_005_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Hot Rod Rock ZTS024 005 Hot Rod Shuffle",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Hot_Rod_Rock_ZTS024_005_Hot_Rod_Shuffle.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music In The Pocket KT328 005 I'M Scared",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_In_The_Pocket_KT328_005_IM_Scared.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Indie Soul KT303 012 The Show",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Indie_Soul_KT303_012_The_Show.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Inspire 2 EVO207 005 Hit The Ground Running",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Inspire_2_EVO207_005_Hit_The_Ground_Running.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Intravenous Rock VTMA01 002 Terminal Velocity",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Intravenous_Rock_VTMA01_002_Terminal_Velocity.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Jim Brickman - Christmas Piano KT264 010 Hark The Herald Angels Sing",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Jim_Brickman_-_Christmas_Piano_KT264_010_Hark_The_Herald_Angels_Sing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Jim Brickman - Freedom Rings Solo Piano KT320 001 America The Beautiful",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Jim_Brickman_-_Freedom_Rings_Solo_Piano_KT320_001_America_The_Beautiful.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Killer Rocks KT147 008 Dear Diary",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Killer_Rocks_KT147_008_Dear_Diary.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Late Night Show SA031 002 And The Winner IsΓÇª",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Late_Night_Show_SA031_002_And_The_Winner_Is.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Late Night Show SA031 003 Welcome To Our Show",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Late_Night_Show_SA031_003_Welcome_To_Our_Show.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Late Night Show SA031 006 Platinum",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Late_Night_Show_SA031_006_Platinum.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Latin Spirit MHS44 018 Latin Fever",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Latin_Spirit_MHS44_018_Latin_Fever.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Legacy KT329 118 Half-Life",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Legacy_KT329_118_Half-Life.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Master Sports 2 MSTR309 059 Let It Rock",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Master_Sports_2_MSTR309_059_Let_It_Rock.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Master Sports MSTR299 038 We All In",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Master_Sports_MSTR299_038_We_All_In.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Miami And Other U.S. Latin Styles KL024 004 Shake It",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Miami_And_Other_U.S._Latin_Styles_KL024_004_Shake_It.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Miami And Other U.S. Latin Styles KL024 038 South Beach Cool",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Miami_And_Other_U.S._Latin_Styles_KL024_038_South_Beach_Cool.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Miami And Other U.S. Latin Styles KL024 050 Sensacion",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Miami_And_Other_U.S._Latin_Styles_KL024_050_Sensacion.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Modern Rock Tracks HM082Q 067 Hold Your Breath",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Modern_Rock_Tracks_HM082Q_067_Hold_Your_Breath.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Momentum RCF012 009 Get Back Safe",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Momentum_RCF012_009_Get_Back_Safe.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Momentum RCF012 019 Carriage Race",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Momentum_RCF012_019_Carriage_Race.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Momentum RCF012 024 Streets Of Chance",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Momentum_RCF012_024_Streets_Of_Chance.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Momentum RCF012 035 Escaped",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Momentum_RCF012_035_Escaped.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music More Retro Rhythms PKT205 002 Soul Cycle",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_More_Retro_Rhythms_PKT205_002_Soul_Cycle.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music My Big Fat Wedding Album HM129 029 Reception Line Dance",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_My_Big_Fat_Wedding_Album_HM129_029_Reception_Line_Dance.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Myth Historical And Dark Fantasy Trailers HYPR039 005 Firestorm",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Myth_Historical_And_Dark_Fantasy_Trailers_HYPR039_005_Firestorm.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music N'Awlins HM110 005 Beignet Cakewalk",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_NAwlins_HM110_005_Beignet_Cakewalk.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music N'Awlins HM110 008 Fast Feets Don'T Fail",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_NAwlins_HM110_008_Fast_Feets_DonT_Fail.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music New Orleans KT222 006 Party In The Treme",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_New_Orleans_KT222_006_Party_In_The_Treme.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Nomination RCF001 014 All The Way",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Nomination_RCF001_014_All_The_Way.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Open Road USA KOK2371 001 Trucks And Chromes",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Open_Road_USA_KOK2371_001_Trucks_And_Chromes.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Pedigree Cuts - Greatest Hits PEDF073 010 Rise Up",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Pedigree_Cuts_-_Greatest_Hits_PEDF073_010_Rise_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Performance Workout ATMOS326 012 Cold Sweat",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Performance_Workout_ATMOS326_012_Cold_Sweat.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Playbook CM094 001 The Juke",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Playbook_CM094_001_The_Juke.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Playful Promos 2 (Medium Tempo) NM165 002 Backwater Honky Tonk",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Playful_Promos_2_Medium_Tempo_NM165_002_Backwater_Honky_Tonk.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Political Politics AM070 007 Our Town",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Political_Politics_AM070_007_Our_Town.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Pop 1 MSTR253 057 Nothing'S Gonna Stop Us",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Pop_1_MSTR253_057_NothingS_Gonna_Stop_Us.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Pop Country KT236 017 Another Wild Night",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Pop_Country_KT236_017_Another_Wild_Night.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Pop Goes The Electro PEDF076 001 Reflex Action",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Pop_Goes_The_Electro_PEDF076_001_Reflex_Action.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Pop Instrumentals 1 HM019 007 Que Suave",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Pop_Instrumentals_1_HM019_007_Que_Suave.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Portraits Of Protagonists KT296 019 Vampire Slayer",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Portraits_Of_Protagonists_KT296_019_Vampire_Slayer.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Positive Light Rock Vol. 1 SB079 003 Play For Freedom",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Positive_Light_Rock_Vol._1_SB079_003_Play_For_Freedom.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Positive Light Rock Vol. 1 SB079 005 Float Away",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Positive_Light_Rock_Vol._1_SB079_005_Float_Away.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Positive Light Rock Vol. 1 SB079 011 Where The Wind Blows",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Positive_Light_Rock_Vol._1_SB079_011_Where_The_Wind_Blows.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Post-Apocalypse Heroes Rise KT278 029 One Destiny",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Post-Apocalypse_Heroes_Rise_KT278_029_One_Destiny.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Power Politics AM074 013 From The Heartland",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Power_Politics_AM074_013_From_The_Heartland.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Powerful Journeys ATMOS253 023 Dawn After Battle",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Powerful_Journeys_ATMOS253_023_Dawn_After_Battle.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music R&Beats CM107 034 Cool It Off",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_RBeats_CM107_034_Cool_It_Off.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rap Bangers FRONT102 007 Reach",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rap_Bangers_FRONT102_007_Reach.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rap To Riches SLAM071 002 Her Name",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rap_To_Riches_SLAM071_002_Her_Name.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rat Rod Rock SLAM082 012 Chopped And Channeled",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rat_Rod_Rock_SLAM082_012_Chopped_And_Channeled.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Raw, Raw, Rock SLAM027 005 Wayne County Stomp",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Raw_Raw_Rock_SLAM027_005_Wayne_County_Stomp.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Raw, Raw, Rock SLAM027 006 Grease Monkey",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Raw_Raw_Rock_SLAM027_006_Grease_Monkey.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Reality Games EVO188 005 Alpha Clash",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Reality_Games_EVO188_005_Alpha_Clash.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Reality Games EVO188 014 The Grand Finale",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Reality_Games_EVO188_014_The_Grand_Finale.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Retribution VM029 003 Judgement Days",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Retribution_VM029_003_Judgement_Days.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Retro Rhythms PKT092 008 Brand New Button Down",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Retro_Rhythms_PKT092_008_Brand_New_Button_Down.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rise Of The Champion EVO288 010 Uncaged",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rise_Of_The_Champion_EVO288_010_Uncaged.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rock 6 NYB53 002 White Hair",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rock_6_NYB53_002_White_Hair.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rock Out ATMOS093 018 Gatecrash",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rock_Out_ATMOS093_018_Gatecrash.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rock The Country OMCOU001L 015 Crazy 'Bout You",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rock_The_Country_OMCOU001L_015_Crazy_Bout_You.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rock-Medium Tempo RCF008 032 Rock Slide",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rock-Medium_Tempo_RCF008_032_Rock_Slide.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rockin' Blue NM324 002 Stomp It Out",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rockin_Blue_NM324_002_Stomp_It_Out.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rustic Revival VL214 004 College Football Down South",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rustic_Revival_VL214_004_College_Football_Down_South.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Rustic Revival VL214 012 Look Out Below",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Rustic_Revival_VL214_012_Look_Out_Below.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Satan'S Toolbox HM105 061 Garden Of Evil",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_SatanS_Toolbox_HM105_061_Garden_Of_Evil.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Scary Comedy GAL141 002 Attic Promenade",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Scary_Comedy_GAL141_002_Attic_Promenade.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Scary Comedy GAL141 006 Ghost Corridor Race",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Scary_Comedy_GAL141_006_Ghost_Corridor_Race.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Scary Comedy GAL141 015 Mad Clown World",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Scary_Comedy_GAL141_015_Mad_Clown_World.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Scary Comedy GAL141 018 Attic Promenade",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Scary_Comedy_GAL141_018_Attic_Promenade.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Season'S Greetings GM165 002 Wish You A Jazzy Xmas",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_SeasonS_Greetings_GM165_002_Wish_You_A_Jazzy_Xmas.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Season'S Greetings GM165 003 The World Of Joy",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_SeasonS_Greetings_GM165_003_The_World_Of_Joy.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Soular Groovin' - Ambient R&B And Funky EDM VL188 003 Cantina Bar Soul Mob",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Soular_Groovin_-_Ambient_RB_And_Funky_EDM_VL188_003_Cantina_Bar_Soul_Mob.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Sports Hi-Energy 5 EDGE79 014 Snow Blind",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Sports_Hi-Energy_5_EDGE79_014_Snow_Blind.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Street Scores VL080Q 014 Break 'Em Off Girl",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Street_Scores_VL080Q_014_Break_Em_Off_Girl.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Surf Rock City PEDF088 021 Wave Stack",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Surf_Rock_City_PEDF088_021_Wave_Stack.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Swingin' Into Christmas BBCPM107 012 Deck The Halls",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Swingin_Into_Christmas_BBCPM107_012_Deck_The_Halls.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Swingin' Into Christmas BBCPM107 020 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Swingin_Into_Christmas_BBCPM107_020_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Synth Pop NTP273 036 Silver Factory",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Synth_Pop_NTP273_036_Silver_Factory.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music The Franchise Gameday COHH29 002 Miami Bass",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_The_Franchise_Gameday_COHH29_002_Miami_Bass.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music The Franchise V1 Offensive Strike COHH27 003 TwerkAholic",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_The_Franchise_V1_Offensive_Strike_COHH27_003_TwerkAholic.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music The Movies HM034 026 Let Me Introduce To You",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_The_Movies_HM034_026_Let_Me_Introduce_To_You.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music The Vote GM188 013 Feel The Win",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_The_Vote_GM188_013_Feel_The_Win.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Traditional Christmas NM300 004 Up On The Housetop",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Traditional_Christmas_NM300_004_Up_On_The_Housetop.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap Or Treat KT362 001 Turn Dead For What",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_Or_Treat_KT362_001_Turn_Dead_For_What.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap Or Treat KT362 002 Werewolves In Paris",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_Or_Treat_KT362_002_Werewolves_In_Paris.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap Or Treat KT362 005 Bad And Spooky",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_Or_Treat_KT362_005_Bad_And_Spooky.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap Or Treat KT362 012 Mo' Candy Mo' Problems",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_Or_Treat_KT362_012_Mo_Candy_Mo_Problems.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap The Halls CM126 002 Jingle All The Way Up",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_The_Halls_CM126_002_Jingle_All_The_Way_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap The Halls CM126 005 Spark The Herald",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_The_Halls_CM126_005_Spark_The_Herald.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Trap, Crunk And Twerk SA023 002 Hangover",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Trap_Crunk_And_Twerk_SA023_002_Hangover.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music TV Essentials - Fantasy & Magical KOK2522 029 Fantasia World",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_TV_Essentials_-_Fantasy_Magical_KOK2522_029_Fantasia_World.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Twisted Kids ATMOS237 009 Spooky Child",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Twisted_Kids_ATMOS237_009_Spooky_Child.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Upbeat Country SBR240 031 Day Drinking",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Upbeat_Country_SBR240_031_Day_Drinking.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Upbeat Country SBR240 041 Country Party",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Upbeat_Country_SBR240_041_Country_Party.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Urgently DF22 009 Down To The Wire",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Urgently_DF22_009_Down_To_The_Wire.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Velocity U - 2nd Semester VL140 014 Break It All Down",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Velocity_U_-_2nd_Semester_VL140_014_Break_It_All_Down.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Vocal Ad Campaigns 2 MSTR289 013 Can I Dance",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Vocal_Ad_Campaigns_2_MSTR289_013_Can_I_Dance.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Vocal Ad Campaigns 2 MSTR289 025 Stay Up All Night",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Vocal_Ad_Campaigns_2_MSTR289_025_Stay_Up_All_Night.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Well-Known Tunes 2 FCD266 003 WHEN THE SAINTS GO MARCHING IN",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Well-Known_Tunes_2_FCD266_003_WHEN_THE_SAINTS_GO_MARCHING_IN.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Whatever It Takes KT361 006 Power Forward",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Whatever_It_Takes_KT361_006_Power_Forward.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Whatever It Takes KT361 016 Hold The Line",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Whatever_It_Takes_KT361_016_Hold_The_Line.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Whiskey & Beer VL209 010 Tough Trucks And Good Dogs",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Whiskey_Beer_VL209_010_Tough_Trucks_And_Good_Dogs.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Wide Open Spaces KOK2236 011 Glory Day",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Wide_Open_Spaces_KOK2236_011_Glory_Day.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music XS Clubber'S Guide 01 MXS014 015 South Beach",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_XS_ClubberS_Guide_01_MXS014_015_South_Beach.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music XXL Trap Drops EVO269 023 Turnt Up",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_XXL_Trap_Drops_EVO269_023_Turnt_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Y'Alternative 2 SLAM054 005 Neon Lightning",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_YAlternative_2_SLAM054_005_Neon_Lightning.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Universal Production Music Zombie Rock VL132 005 Without A Net",
+      "cutCode": "",
+      "path": "football/support/Universal_Production_Music_Zombie_Rock_VL132_005_Without_A_Net.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music 1986 PP086 010 I Kissed A Lie",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_1986_PP086_010_I_Kissed_A_Lie.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Country 1 NSPSCOU01 001 Austin By Morning",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Country_1_NSPSCOU01_001_Austin_By_Morning.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Country 1 NSPSCOU01 012 Fiddle Ma Diddle",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Country_1_NSPSCOU01_012_Fiddle_Ma_Diddle.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Country 1 NSPSCOU01 016 Front Porch Swing",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Country_1_NSPSCOU01_016_Front_Porch_Swing.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music NOSTALGIC CHRISTMAS CAR352B 024 Wonderful Christmas Time",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_NOSTALGIC_CHRISTMAS_CAR352B_024_Wonderful_Christmas_Time.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Pop Vibes TRX117 008 Desert Lake",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Pop_Vibes_TRX117_008_Desert_Lake.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Roadhouse Stomp TLM032 001 Speed Up",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Roadhouse_Stomp_TLM032_001_Speed_Up.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Sports Hip Hop ATR005 008 Two Minute Warning",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Sports_Hip_Hop_ATR005_008_Two_Minute_Warning.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Sports Hip Hop ATR005 018 Finesse",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Sports_Hip_Hop_ATR005_018_Finesse.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Street Heat AA153 003 Tha Ballers Theme",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Street_Heat_AA153_003_Tha_Ballers_Theme.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Street Heat AA153 010 Tried And Tru",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Street_Heat_AA153_010_Tried_And_Tru.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "Warner Chappell Production Music Yuletide Spirit Vol. 5 SFL1198 049 Carol Of The Bells",
+      "cutCode": "",
+      "path": "football/support/Warner_Chappell_Production_Music_Yuletide_Spirit_Vol._5_SFL1198_049_Carol_Of_The_Bells.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group 100% Hip Hop WOM 152 In The Hood",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_100_Hip_Hop_WOM_152_In_The_Hood.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group 24 Hour News WOM 354 006 A-List Entertainment (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_24_Hour_News_WOM_354_006_A-List_Entertainment_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Alternative Christmas 2 WOM 259 Best Time Of The Year",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Alternative_Christmas_2_WOM_259_Best_Time_Of_The_Year.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Alternative Christmas 2 WOM 259 Christmas Party Punks",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Alternative_Christmas_2_WOM_259_Christmas_Party_Punks.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Christmas Nostalgia WOMG 026 Dashing Through The Snow",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Christmas_Nostalgia_WOMG_026_Dashing_Through_The_Snow.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Classic Disco WOM 183 Miami Fever (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Classic_Disco_WOM_183_Miami_Fever_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Drum Line TSH 222 Full On (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Drum_Line_TSH_222_Full_On_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Entertainment TV WOMG 032 Rock This Show",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Entertainment_TV_WOMG_032_Rock_This_Show.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Hip Hop WOM 050 Somebody Someday (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Hip_Hop_WOM_050_Somebody_Someday_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Holiday Celebration WOMG 025 Christmas Cracker (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Holiday_Celebration_WOMG_025_Christmas_Cracker_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Kids Tv 2 Dr Drains (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Kids_Tv_2_Dr_Drains_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Kooky & Cool WOM 157 Jambo Mambo (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Kooky_Cool_WOM_157_Jambo_Mambo_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group One Liners 2 TSH 084 Ghostwatchers",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_One_Liners_2_TSH_084_Ghostwatchers.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Urban Strings & Beats WOM 342 Champions (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Urban_Strings_Beats_WOM_342_Champions_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "West One Music Group Urban Strings & Beats WOM 342 Man Of Fire (A)",
+      "cutCode": "",
+      "path": "football/support/West_One_Music_Group_Urban_Strings_Beats_WOM_342_Man_Of_Fire_A.mp3",
+      "sport": "Football",
+      "category": "Support"
+    },
+    {
+      "name": "2020 CFB -60 COUNTRY BUMP",
+      "cutCode": "",
+      "path": "football/theme/2020_CFB_-60_COUNTRY_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2020 CFB -60 DRAMATIC BUMP",
+      "cutCode": "",
+      "path": "football/theme/2020_CFB_-60_DRAMATIC_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2020 CFB -60 DRUMLINE BUMP",
+      "cutCode": "",
+      "path": "football/theme/2020_CFB_-60_DRUMLINE_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2020 CFB -60 HIP HOP BUMP",
+      "cutCode": "",
+      "path": "football/theme/2020_CFB_-60_HIP_HOP_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2020 CFB -60 ROCK BUMP",
+      "cutCode": "",
+      "path": "football/theme/2020_CFB_-60_ROCK_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 -60 HIP HOP BUMP",
+      "cutCode": "",
+      "path": "football/theme/2025_-60_HIP_HOP_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 -60 LAID BACK SOUTHERN HIP HOP BUMP",
+      "cutCode": "",
+      "path": "football/theme/2025_-60_LAID_BACK_SOUTHERN_HIP_HOP_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 -60 ROCK BUMP",
+      "cutCode": "",
+      "path": "football/theme/2025_-60_ROCK_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 -60 STOMP CLAP BUMP",
+      "cutCode": "",
+      "path": "football/theme/2025_-60_STOMP_CLAP_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -05 OPEN HALLMARK",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-05_OPEN_HALLMARK.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -15 PROMO",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-15_PROMO.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -16 OPEN HALLMARK LOOPABLE BED",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-16_OPEN_HALLMARK_LOOPABLE_BED.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -18 OPEN HALLMARK WITH VAMP",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-18_OPEN_HALLMARK_WITH_VAMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -20 OPEN HALLMARK",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-20_OPEN_HALLMARK.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -30 PROMO",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-30_PROMO.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -45 BILLBOARD",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-45_BILLBOARD.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -45 BUMP",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-45_BUMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -45 BUMP ALT. 1",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-45_BUMP_ALT._1.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -45 BUMP ALT. 2",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-45_BUMP_ALT._2.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -45 VAMP",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-45_VAMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -50 REJOIN WITH VAMP",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-50_REJOIN_WITH_VAMP.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -60 TEASE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-60_TEASE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -60 UNDERSCORE TEASE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-60_UNDERSCORE_TEASE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -65 ... UNDERSCORE SEQUENCE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-65_..._UNDERSCORE_SEQUENCE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -65 OPEN HALLMARK SEQUENCE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-65_OPEN_HALLMARK_SEQUENCE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT -75 CLOSE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_-75_CLOSE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "2025 CFB EVENT FULL LENGTH MAIN TITLE",
+      "cutCode": "",
+      "path": "football/theme/2025_CFB_EVENT_FULL_LENGTH_MAIN_TITLE.mp3",
+      "sport": "Football",
+      "category": "Theme"
+    },
+    {
+      "name": "01 UPM KTV72 11 Black Gasoline Instrumental Ayoub Janjou 1380517",
+      "cutCode": "",
+      "path": "olympic-sports/support/01_UPM_KTV72_11_Black_Gasoline_Instrumental_Ayoub_Janjou_1380517.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "02 UPM NM343 6 From The Smoke Instrumental Steele 1064011",
+      "cutCode": "",
+      "path": "olympic-sports/support/02_UPM_NM343_6_From_The_Smoke_Instrumental_Steele_1064011.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "03 UPM SB59 1 Backwoods Brawler Instrumental Ferrari Mosher Sands 1378963",
+      "cutCode": "",
+      "path": "olympic-sports/support/03_UPM_SB59_1_Backwoods_Brawler_Instrumental_Ferrari_Mosher_Sands_1378963.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "04 UPM SLAM98 16 Better Not Forget Instrumental Hitchens 1311645",
+      "cutCode": "",
+      "path": "olympic-sports/support/04_UPM_SLAM98_16_Better_Not_Forget_Instrumental_Hitchens_1311645.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "05 UPM WAX11 72 Let S Go Instrumental Barry Laurel Street Gagel 1365254",
+      "cutCode": "",
+      "path": "olympic-sports/support/05_UPM_WAX11_72_Let_S_Go_Instrumental_Barry_Laurel_Street_Gagel_1365254.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "06 Wolves - ROCK092 016",
+      "cutCode": "",
+      "path": "olympic-sports/support/06_Wolves_-_ROCK092_016.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "07 Beaumont - ROCK092 013",
+      "cutCode": "",
+      "path": "olympic-sports/support/07_Beaumont_-_ROCK092_013.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "08 Chapter Two - ROCK090 001",
+      "cutCode": "",
+      "path": "olympic-sports/support/08_Chapter_Two_-_ROCK090_001.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "09 Grand Isle - ROCK092 043",
+      "cutCode": "",
+      "path": "olympic-sports/support/09_Grand_Isle_-_ROCK092_043.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "10 In Lights - ROCK092 037",
+      "cutCode": "",
+      "path": "olympic-sports/support/10_In_Lights_-_ROCK092_037.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "11 Instant Replay - ROCK090 032",
+      "cutCode": "",
+      "path": "olympic-sports/support/11_Instant_Replay_-_ROCK090_032.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "12 Pedros Garage - ROCK092 022",
+      "cutCode": "",
+      "path": "olympic-sports/support/12_Pedros_Garage_-_ROCK092_022.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "13 Querelle - ROCK092 004",
+      "cutCode": "",
+      "path": "olympic-sports/support/13_Querelle_-_ROCK092_004.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "14 Thieves - ROCK092 007",
+      "cutCode": "",
+      "path": "olympic-sports/support/14_Thieves_-_ROCK092_007.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "15 UPM KL037 8 Champion Parade Instrumental Hitchens 1139303",
+      "cutCode": "",
+      "path": "olympic-sports/support/15_UPM_KL037_8_Champion_Parade_Instrumental_Hitchens_1139303.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "16 UPM KTV48 10 Ink Masters Instrumental Bruce Salmon 1175693",
+      "cutCode": "",
+      "path": "olympic-sports/support/16_UPM_KTV48_10_Ink_Masters_Instrumental_Bruce_Salmon_1175693.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "17 Build Up - POP011 04",
+      "cutCode": "",
+      "path": "olympic-sports/support/17_Build_Up_-_POP011_04.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "18 Can'T Hold Me Down (Instrumental) - POP017 017",
+      "cutCode": "",
+      "path": "olympic-sports/support/18_CanT_Hold_Me_Down_Instrumental_-_POP017_017.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "19 Fly High, Fly Beautiful - POP012 08",
+      "cutCode": "",
+      "path": "olympic-sports/support/19_Fly_High_Fly_Beautiful_-_POP012_08.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "20 Get In The Pocket - POP016 16",
+      "cutCode": "",
+      "path": "olympic-sports/support/20_Get_In_The_Pocket_-_POP016_16.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "21 Jubilent Meadow - POP011 06",
+      "cutCode": "",
+      "path": "olympic-sports/support/21_Jubilent_Meadow_-_POP011_06.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "22 Lifted (Instrumental) - POP017 012",
+      "cutCode": "",
+      "path": "olympic-sports/support/22_Lifted_Instrumental_-_POP017_012.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "23 Stand Up, Stand Out - POP012 04",
+      "cutCode": "",
+      "path": "olympic-sports/support/23_Stand_Up_Stand_Out_-_POP012_04.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "24 UPM EDGE95 3 Todayz Main Track Goldman 457479",
+      "cutCode": "",
+      "path": "olympic-sports/support/24_UPM_EDGE95_3_Todayz_Main_Track_Goldman_457479.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "25 FC MSTR301 33 Girlz Night Out Instrumental Ferrari Moron 1023906",
+      "cutCode": "",
+      "path": "olympic-sports/support/25_FC_MSTR301_33_Girlz_Night_Out_Instrumental_Ferrari_Moron_1023906.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "26 HIGHER INSTRUMENTAL POP017 022.Wav ESPN OWNED",
+      "cutCode": "",
+      "path": "olympic-sports/support/26_HIGHER_INSTRUMENTAL_POP017_022.Wav_ESPN_OWNED.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "27 Just Roll With Me POP013 08.Wav ESPN",
+      "cutCode": "",
+      "path": "olympic-sports/support/27_Just_Roll_With_Me_POP013_08.Wav_ESPN.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "28 ATS 013 Trk002 LIVE MY LIFE (A) Robert W. Lamond (PRS) And Then Some",
+      "cutCode": "",
+      "path": "olympic-sports/support/28_ATS_013_Trk002_LIVE_MY_LIFE_A_Robert_W._Lamond_PRS_And_Then_Some.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "29 ATS 013 Trk006 ME AND YOU (A) Robert W. Lamond (PRS) And Then Some",
+      "cutCode": "",
+      "path": "olympic-sports/support/29_ATS_013_Trk006_ME_AND_YOU_A_Robert_W._Lamond_PRS_And_Then_Some.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "30 ATS 015 Trk001 PARTY HARD (A) Robert W. Lamond (PRS) And Then Some",
+      "cutCode": "",
+      "path": "olympic-sports/support/30_ATS_015_Trk001_PARTY_HARD_A_Robert_W._Lamond_PRS_And_Then_Some.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "31 ATS 015 Trk004 TOGETHER AGAIN (A) Jonathan B. Buchanan (PRS) And Then Some",
+      "cutCode": "",
+      "path": "olympic-sports/support/31_ATS_015_Trk004_TOGETHER_AGAIN_A_Jonathan_B._Buchanan_PRS_And_Then_Some.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "32 FC MSTR309 44 Phoenix From The Ashes Instrumental Ferrari Hamilton 1125902",
+      "cutCode": "",
+      "path": "olympic-sports/support/32_FC_MSTR309_44_Phoenix_From_The_Ashes_Instrumental_Ferrari_Hamilton_1125902.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "33 FC VL 152 8 War Machines Main Track Perrenot Williams 849481",
+      "cutCode": "",
+      "path": "olympic-sports/support/33_FC_VL_152_8_War_Machines_Main_Track_Perrenot_Williams_849481.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "34 FC VL 180 1 Goons Grinders And Goalies Instrumental Kelley Williams 1006948",
+      "cutCode": "",
+      "path": "olympic-sports/support/34_FC_VL_180_1_Goons_Grinders_And_Goalies_Instrumental_Kelley_Williams_1006948.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "35 FC VL186 2 Beast Battalion Instrumental Kelley Williams 1142829",
+      "cutCode": "",
+      "path": "olympic-sports/support/35_FC_VL186_2_Beast_Battalion_Instrumental_Kelley_Williams_1142829.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "36 4 125 - ELECTRONICA004 01",
+      "cutCode": "",
+      "path": "olympic-sports/support/36_4_125_-_ELECTRONICA004_01.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "37 Des Moines - ELECTRONICA004 03",
+      "cutCode": "",
+      "path": "olympic-sports/support/37_Des_Moines_-_ELECTRONICA004_03.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "38 Dub Rock - ELECTRONICA004 05",
+      "cutCode": "",
+      "path": "olympic-sports/support/38_Dub_Rock_-_ELECTRONICA004_05.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "39 FC DF26 3 Tough Get Going Instrumental Lemelle 958746",
+      "cutCode": "",
+      "path": "olympic-sports/support/39_FC_DF26_3_Tough_Get_Going_Instrumental_Lemelle_958746.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "40 FC MSTR299 13 Time To Take Control Instrumental Ferrari Hamilton 1013392",
+      "cutCode": "",
+      "path": "olympic-sports/support/40_FC_MSTR299_13_Time_To_Take_Control_Instrumental_Ferrari_Hamilton_1013392.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "41 FC MSTR322 2 A Hero Will Rise Instrumental Feldstein Ferrari Morrison 1390422",
+      "cutCode": "",
+      "path": "olympic-sports/support/41_FC_MSTR322_2_A_Hero_Will_Rise_Instrumental_Feldstein_Ferrari_Morrison_1390422.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "42 FC OM166 11 On The Grid Main Track Hunter Jr Slott 672744",
+      "cutCode": "",
+      "path": "olympic-sports/support/42_FC_OM166_11_On_The_Grid_Main_Track_Hunter_Jr_Slott_672744.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "43 Heroes Calling A SON SCDV 0256 00101.Wav APM",
+      "cutCode": "",
+      "path": "olympic-sports/support/43_Heroes_Calling_A_SON_SCDV_0256_00101.Wav_APM.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "44 Run To Glory Fp4301 Run To Glory.Wav Flash-Point",
+      "cutCode": "",
+      "path": "olympic-sports/support/44_Run_To_Glory_Fp4301_Run_To_Glory.Wav_Flash-Point.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "45 Ultimate Triumph SFL1068 01 Ultimate Triumph.Wav 615 Platinum Series",
+      "cutCode": "",
+      "path": "olympic-sports/support/45_Ultimate_Triumph_SFL1068_01_Ultimate_Triumph.Wav_615_Platinum_Series.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "46 Celebration SS032 008 Celebration FullMix.Wav Scoring Stage",
+      "cutCode": "",
+      "path": "olympic-sports/support/46_Celebration_SS032_008_Celebration_FullMix.Wav_Scoring_Stage.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "47 FC GAL146 9 Champions Forever Main Track Allagnat Boutault 935818",
+      "cutCode": "",
+      "path": "olympic-sports/support/47_FC_GAL146_9_Champions_Forever_Main_Track_Allagnat_Boutault_935818.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "48 FC MSTR287 38 Show Me The Fire Instrumental Feldstein Ferrari 944722",
+      "cutCode": "",
+      "path": "olympic-sports/support/48_FC_MSTR287_38_Show_Me_The_Fire_Instrumental_Feldstein_Ferrari_944722.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "49 FC GM71 12 Mosh Pit Instrumental David Teller 260071",
+      "cutCode": "",
+      "path": "olympic-sports/support/49_FC_GM71_12_Mosh_Pit_Instrumental_David_Teller_260071.mp3",
+      "sport": "Olympic Sports",
+      "category": "Support"
+    },
+    {
+      "name": "ELIAS008 001",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_001.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 002",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_002.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 003",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_003.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 004",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_004.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 005",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_005.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 006",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_006.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 007",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_007.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 008",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_008.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 009",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_009.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 010",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_010.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 011",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_011.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 012",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_012.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 013",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_013.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 014",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_014.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 015",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_015.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 016",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_016.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 017",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_017.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 018",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_018.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 019",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_019.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 020",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_020.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 021",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_021.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 022",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_022.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 023",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_023.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 024",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_024.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 025",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_025.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 026",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_026.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 027",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_027.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 028",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_028.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 029",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_029.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 030",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_030.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 031",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_031.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 032",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_032.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 033",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_033.mp3",
+      "sport": "Olympic Sports",
+      "category": "Theme"
+    },
+    {
+      "name": "ELIAS008 034",
+      "cutCode": "",
+      "path": "olympic-sports/theme/ELIAS008_034.mp3",
+      "sport": "Olympic Sports",
       "category": "Theme"
     }
   ]
