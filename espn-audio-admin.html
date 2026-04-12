@@ -4,170 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ESPN Audio Admin</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lamejs/1.2.0/lame.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
   :root {
-    --red:#CC0000; --dark-red:#990000; --black:#0A0A0A; --dark:#111;
-    --panel:#1A1A1A; --border:#2A2A2A; --mid:#333; --text:#F0F0F0; --muted:#888;
-    --accent:#FF6B00; --green:#4a9a4a; --green-bg:#0d1a0d;
+    --red:#CC0000;--dark-red:#990000;--black:#0A0A0A;--dark:#111;
+    --panel:#1A1A1A;--border:#2A2A2A;--mid:#333;--text:#F0F0F0;--muted:#888;
+    --accent:#FF6B00;--green:#4a9a4a;
   }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { background:var(--black); color:var(--text); font-family:'IBM Plex Sans',sans-serif; min-height:100vh; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--black);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;}
 
-  /* HEADER */
-  #header {
-    background:var(--dark); border-bottom:3px solid var(--red);
-    padding:12px 24px; display:flex; align-items:center; gap:14px;
-  }
-  #espn-logo { font-family:'Bebas Neue',sans-serif; font-size:30px; color:var(--red); letter-spacing:2px; }
-  #header-title { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:3px; color:var(--muted); flex:1; }
-  #admin-badge {
-    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
-    letter-spacing:2px; padding:4px 10px; background:#1a1200; border:1px solid #4a3a00;
-    color:var(--accent); border-radius:2px; text-transform:uppercase;
-  }
+  #header{background:var(--dark);border-bottom:3px solid var(--red);padding:12px 24px;display:flex;align-items:center;gap:14px;flex-shrink:0;}
+  #espn-logo{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--red);letter-spacing:2px;}
+  #header-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:var(--muted);flex:1;}
+  #admin-badge{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:2px;padding:4px 10px;background:#1a1200;border:1px solid #4a3a00;color:var(--accent);border-radius:2px;text-transform:uppercase;}
 
-  /* CONFIG PANEL */
-  #config-panel {
-    background:var(--panel); border-bottom:1px solid var(--border);
-    padding:18px 24px; display:flex; gap:16px; align-items:flex-end; flex-wrap:wrap;
-  }
-  .cfg-group { display:flex; flex-direction:column; gap:5px; }
-  .cfg-label {
-    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
-    letter-spacing:2px; color:var(--muted); text-transform:uppercase;
-  }
-  .cfg-input {
-    font-family:'IBM Plex Mono',monospace; font-size:12px;
-    background:#0d0d0d; border:1px solid var(--border); color:var(--text);
-    padding:8px 12px; border-radius:3px; outline:none; width:220px;
-  }
-  .cfg-input:focus { border-color:var(--red); }
-  .cfg-input.wide { width:320px; }
-  #connect-btn {
-    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:600;
-    letter-spacing:1px; padding:9px 20px; background:var(--red); color:#fff;
-    border:none; border-radius:3px; cursor:pointer; text-transform:uppercase;
-    transition:background .15s; align-self:flex-end;
-  }
-  #connect-btn:hover { background:var(--dark-red); }
-  #connect-status {
-    font-family:'IBM Plex Mono',monospace; font-size:10px;
-    align-self:flex-end; padding-bottom:2px;
-  }
-  #connect-status.ok { color:var(--green); }
-  #connect-status.err { color:var(--red); }
+  #config-panel{background:var(--panel);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap;flex-shrink:0;}
+  .cfg-group{display:flex;flex-direction:column;gap:4px;}
+  .cfg-label{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+  .cfg-input{font-family:'IBM Plex Mono',monospace;font-size:12px;background:#0d0d0d;border:1px solid var(--border);color:var(--text);padding:7px 11px;border-radius:3px;outline:none;width:200px;}
+  .cfg-input.wide{width:300px;}
+  .cfg-input:focus{border-color:var(--red);}
+  #connect-btn{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:1px;padding:8px 18px;background:var(--red);color:#fff;border:none;border-radius:3px;cursor:pointer;text-transform:uppercase;align-self:flex-end;}
+  #connect-btn:hover{background:var(--dark-red);}
+  #connect-status{font-family:'IBM Plex Mono',monospace;font-size:10px;align-self:flex-end;padding-bottom:2px;}
+  #connect-status.ok{color:var(--green);}
+  #connect-status.err{color:var(--red);}
 
-  /* MAIN LAYOUT */
-  #app { display:flex; height:calc(100vh - 120px); }
+  #app{display:flex;flex:1;overflow:hidden;}
 
-  /* LEFT: DROP + QUEUE */
-  #left-panel { width:380px; border-right:1px solid var(--border); display:flex; flex-direction:column; flex-shrink:0; }
+  #left-panel{width:430px;border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;}
 
-  #drop-zone {
-    border:2px dashed var(--border); border-radius:6px; margin:16px;
-    padding:32px 20px; text-align:center; cursor:pointer; transition:all .2s;
-    background:var(--panel);
-  }
-  #drop-zone.dragover { border-color:var(--red); background:#1A0808; }
-  .drop-icon { font-size:36px; opacity:.4; margin-bottom:10px; }
-  .drop-text { font-size:13px; color:var(--muted); line-height:1.6; }
-  .drop-text strong { color:var(--text); }
-  #file-pick { display:none; }
+  #drop-zone{border:2px dashed var(--border);border-radius:6px;margin:14px;padding:22px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--panel);flex-shrink:0;}
+  #drop-zone:hover,#drop-zone.dragover{border-color:var(--red);background:#1A0808;}
+  .drop-icon{font-size:30px;opacity:.4;margin-bottom:8px;}
+  .drop-text{font-size:12px;color:var(--muted);line-height:1.7;}
+  .drop-text strong{color:var(--text);display:block;font-size:13px;}
+  .drop-hint{font-size:10px;color:#555;margin-top:5px;font-family:'IBM Plex Mono',monospace;}
+  #folder-input{display:none;}
 
-  #queue-header {
-    padding:0 16px 10px; display:flex; align-items:center; justify-content:space-between;
-  }
-  #queue-label { font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:2px; color:var(--muted); }
-  #queue-actions { display:flex; gap:8px; }
-  .q-btn {
-    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
-    letter-spacing:1px; padding:5px 12px; border:1px solid var(--border);
-    background:none; color:var(--muted); border-radius:3px; cursor:pointer;
-    transition:all .15s; text-transform:uppercase;
-  }
-  .q-btn:hover { color:var(--text); border-color:var(--mid); }
-  .q-btn.primary { background:var(--red); border-color:var(--red); color:#fff; }
-  .q-btn.primary:hover { background:var(--dark-red); }
+  #queue-header{padding:0 14px 8px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
+  #queue-label{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--muted);}
+  #queue-meta{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-top:2px;}
+  #queue-actions{display:flex;gap:6px;}
+  .q-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:5px 11px;border:1px solid var(--border);background:none;color:var(--muted);border-radius:3px;cursor:pointer;transition:all .15s;text-transform:uppercase;}
+  .q-btn:hover{color:var(--text);border-color:var(--mid);}
+  .q-btn.primary{background:var(--red);border-color:var(--red);color:#fff;}
+  .q-btn.primary:hover{background:var(--dark-red);}
+  .q-btn:disabled{opacity:.35;cursor:not-allowed;}
 
-  #queue-list { flex:1; overflow-y:auto; padding:0 16px 16px; display:flex; flex-direction:column; gap:6px; }
-  .queue-empty { font-family:'IBM Plex Mono',monospace; font-size:11px; color:#444; padding:20px 0; text-align:center; }
+  #progress-wrap{margin:0 14px 10px;display:none;}
+  #progress-wrap.vis{display:block;}
+  #progress-bar-bg{background:var(--border);border-radius:3px;height:5px;overflow:hidden;}
+  #progress-bar-fill{height:100%;background:var(--red);width:0%;transition:width .3s;}
+  #progress-label{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--muted);margin-top:4px;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-  .q-item {
-    background:var(--dark); border:1px solid var(--border); border-radius:4px;
-    padding:10px 12px; display:flex; flex-direction:column; gap:8px;
-  }
-  .q-item.done { border-color:#2a4a2a; background:#0d1a0d; opacity:.7; }
-  .q-item.err  { border-color:#4a1a1a; background:#1a0808; }
-  .q-item-top  { display:flex; align-items:center; gap:8px; }
-  .q-filename  { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .q-remove    { font-size:14px; color:var(--muted); cursor:pointer; flex-shrink:0; line-height:1; }
-  .q-remove:hover { color:var(--red); }
-  .q-selects   { display:flex; gap:6px; }
-  .q-select {
-    font-family:'IBM Plex Mono',monospace; font-size:10px;
-    background:#0d0d0d; border:1px solid var(--border); color:var(--text);
-    padding:5px 8px; border-radius:3px; flex:1; outline:none; cursor:pointer;
-  }
-  .q-select:focus { border-color:var(--red); }
-  .q-status { font-family:'IBM Plex Mono',monospace; font-size:9px; letter-spacing:1px; text-transform:uppercase; }
-  .q-status.uploading { color:var(--accent); }
-  .q-status.done      { color:var(--green); }
-  .q-status.err       { color:var(--red); }
+  #queue-list{flex:1;overflow-y:auto;padding:0 14px 14px;display:flex;flex-direction:column;gap:4px;}
+  .queue-empty{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#444;padding:20px 0;text-align:center;}
 
-  /* RIGHT: MANIFEST VIEWER */
-  #right-panel { flex:1; display:flex; flex-direction:column; overflow:hidden; }
-  #manifest-header {
-    padding:16px 20px 10px; display:flex; align-items:center; justify-content:space-between;
-    border-bottom:1px solid var(--border);
-  }
-  #manifest-label { font-family:'Bebas Neue',sans-serif; font-size:15px; letter-spacing:2px; color:var(--muted); }
-  #manifest-stats { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--muted); }
-  #refresh-btn {
-    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
-    letter-spacing:1px; padding:5px 12px; border:1px solid var(--border);
-    background:none; color:var(--muted); border-radius:3px; cursor:pointer;
-    transition:all .15s; text-transform:uppercase;
-  }
-  #refresh-btn:hover { color:var(--text); }
+  .q-item{background:var(--dark);border:1px solid var(--border);border-radius:4px;padding:9px 11px;display:flex;flex-direction:column;gap:6px;}
+  .q-item.done{border-color:#2a4a2a;background:#0a140a;}
+  .q-item.error{border-color:#4a1a1a;background:#140808;}
+  .q-item.converting,.q-item.uploading{border-color:#3a3000;background:#1a1800;}
+  .q-item-top{display:flex;align-items:flex-start;gap:8px;}
+  .q-names{flex:1;min-width:0;}
+  .q-filename{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .q-trackname{font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:600;color:var(--text);margin-top:2px;}
+  .q-cutcode{font-family:'IBM Plex Mono',monospace;font-size:9px;color:var(--accent);margin-top:1px;}
+  .q-remove{font-size:13px;color:var(--muted);cursor:pointer;flex-shrink:0;line-height:1.2;}
+  .q-remove:hover{color:var(--red);}
+  .q-selects{display:flex;gap:5px;}
+  .q-select{font-family:'IBM Plex Mono',monospace;font-size:10px;background:#0d0d0d;border:1px solid var(--border);color:var(--text);padding:4px 7px;border-radius:3px;flex:1;outline:none;cursor:pointer;}
+  .q-select:focus{border-color:var(--red);}
+  .q-status{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;}
+  .q-status.converting{color:#cc9900;}
+  .q-status.uploading{color:var(--accent);}
+  .q-status.done{color:var(--green);}
+  .q-status.error{color:var(--red);}
 
-  #manifest-filters { padding:10px 20px; display:flex; gap:8px; flex-wrap:wrap; border-bottom:1px solid var(--border); }
-  .mf-btn {
-    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:600;
-    letter-spacing:1px; padding:4px 12px; border-radius:20px; cursor:pointer;
-    text-transform:uppercase; transition:all .15s; border:1px solid var(--border);
-    background:none; color:var(--muted);
-  }
-  .mf-btn.active { background:var(--mid); border-color:var(--mid); color:var(--text); }
+  #right-panel{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+  #manifest-header{padding:14px 20px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);flex-shrink:0;}
+  #manifest-label{font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;color:var(--muted);}
+  #manifest-stats{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted);}
+  .m-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:5px 11px;border:1px solid var(--border);background:none;color:var(--muted);border-radius:3px;cursor:pointer;transition:all .15s;text-transform:uppercase;}
+  .m-btn:hover{color:var(--text);}
+  #manifest-filters{padding:10px 20px;display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--border);flex-shrink:0;}
+  .mf-btn{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:600;letter-spacing:1px;padding:4px 11px;border-radius:20px;cursor:pointer;text-transform:uppercase;transition:all .15s;border:1px solid var(--border);background:none;color:var(--muted);}
+  .mf-btn.active{background:var(--mid);border-color:var(--mid);color:var(--text);}
+  #manifest-list{flex:1;overflow-y:auto;padding:10px 20px;}
+  .m-group{margin-bottom:14px;}
+  .m-group-label{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;color:var(--muted);margin-bottom:5px;border-bottom:1px solid var(--border);padding-bottom:3px;display:flex;justify-content:space-between;}
+  .m-track{display:flex;align-items:center;gap:8px;padding:4px 6px;border-radius:3px;transition:background .1s;}
+  .m-track:hover{background:var(--panel);}
+  .m-track-name{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text);flex:1;}
+  .m-track-code{font-size:9px;color:var(--accent);font-family:'IBM Plex Mono',monospace;flex-shrink:0;}
+  .m-del{font-size:11px;color:#333;cursor:pointer;transition:color .1s;flex-shrink:0;}
+  .m-del:hover{color:var(--red);}
+  .manifest-empty{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#444;padding:30px;text-align:center;}
 
-  #manifest-list { flex:1; overflow-y:auto; padding:10px 20px; }
-  .m-group { margin-bottom:16px; }
-  .m-group-label {
-    font-family:'Bebas Neue',sans-serif; font-size:13px; letter-spacing:2px;
-    color:var(--muted); margin-bottom:6px; border-bottom:1px solid var(--border); padding-bottom:4px;
-  }
-  .m-track {
-    display:flex; align-items:center; gap:10px; padding:5px 8px;
-    border-radius:3px; transition:background .1s;
-  }
-  .m-track:hover { background:var(--panel); }
-  .m-track-name { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text); flex:1; }
-  .m-track-path { font-size:10px; color:#444; font-family:'IBM Plex Mono',monospace; }
-  .m-del { font-size:12px; color:#333; cursor:pointer; transition:color .1s; }
-  .m-del:hover { color:var(--red); }
-  .manifest-empty { font-family:'IBM Plex Mono',monospace; font-size:11px; color:#444; padding:30px; text-align:center; }
-
-  ::-webkit-scrollbar { width:4px; }
-  ::-webkit-scrollbar-track { background:transparent; }
-  ::-webkit-scrollbar-thumb { background:var(--mid); border-radius:2px; }
-
-  #toast {
-    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(80px);
-    background:#222; border:1px solid var(--mid); border-radius:6px; padding:9px 18px;
-    font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--text);
-    transition:transform .3s cubic-bezier(.34,1.56,.64,1); z-index:999; white-space:nowrap;
-  }
-  #toast.show { transform:translateX(-50%) translateY(0); }
+  ::-webkit-scrollbar{width:4px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--mid);border-radius:2px;}
+  #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:#222;border:1px solid var(--mid);border-radius:6px;padding:8px 16px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--text);transition:transform .3s cubic-bezier(.34,1.56,.64,1);z-index:999;white-space:nowrap;}
+  #toast.show{transform:translateX(-50%) translateY(0);}
 </style>
 </head>
 <body>
@@ -178,19 +118,18 @@
   <div id="admin-badge">Admin Tool</div>
 </div>
 
-<!-- CONFIG -->
 <div id="config-panel">
   <div class="cfg-group">
     <div class="cfg-label">GitHub Username</div>
-    <input class="cfg-input" id="cfg-user" placeholder="JaysVideo" value="JaysVideo">
+    <input class="cfg-input" id="cfg-user" value="JaysVideo">
   </div>
   <div class="cfg-group">
-    <div class="cfg-label">Repository Name</div>
-    <input class="cfg-input" id="cfg-repo" placeholder="ESPN-Audio" value="ESPN-Audio">
+    <div class="cfg-label">Repository</div>
+    <input class="cfg-input" id="cfg-repo" value="ESPN-Audio">
   </div>
   <div class="cfg-group">
     <div class="cfg-label">Branch</div>
-    <input class="cfg-input" id="cfg-branch" placeholder="main" value="main" style="width:100px">
+    <input class="cfg-input" id="cfg-branch" value="main" style="width:80px">
   </div>
   <div class="cfg-group">
     <div class="cfg-label">Personal Access Token</div>
@@ -201,380 +140,421 @@
 </div>
 
 <div id="app">
-  <!-- LEFT -->
   <div id="left-panel">
     <div id="drop-zone">
-      <div class="drop-icon">🎵</div>
+      <div class="drop-icon">📁</div>
       <div class="drop-text">
-        <strong>Drag & drop audio files here</strong><br>
-        or click to browse<br>
-        <span style="font-size:11px;color:#555">MP3 · WAV · AAC · OGG · FLAC</span>
+        <strong>Select Automation Folder</strong>
+        Click to browse — select the entire Automation folder<br>or any sport subfolder
       </div>
-      <input type="file" id="file-pick" multiple accept="audio/*">
+      <div class="drop-hint">WAVs auto-converted to MP3 · Auto-sorted by folder name</div>
+      <input type="file" id="folder-input" webkitdirectory multiple>
     </div>
 
     <div id="queue-header">
-      <div id="queue-label">Upload Queue</div>
-      <div id="queue-actions">
-        <button class="q-btn" id="clear-queue-btn">Clear</button>
-        <button class="q-btn primary" id="upload-all-btn">Upload All</button>
+      <div>
+        <div id="queue-label">Upload Queue</div>
+        <div id="queue-meta"></div>
       </div>
+      <div id="queue-actions">
+        <button class="q-btn" id="clear-btn">Clear</button>
+        <button class="q-btn primary" id="upload-btn" disabled>Upload All</button>
+      </div>
+    </div>
+
+    <div id="progress-wrap">
+      <div id="progress-bar-bg"><div id="progress-bar-fill"></div></div>
+      <div id="progress-label"></div>
     </div>
 
     <div id="queue-list">
-      <div class="queue-empty">Drop files above to queue them for upload.</div>
+      <div class="queue-empty">Select the Automation folder above to load all tracks.</div>
     </div>
   </div>
 
-  <!-- RIGHT -->
   <div id="right-panel">
     <div id="manifest-header">
-      <div id="manifest-label">Current Track Manifest</div>
-      <div style="display:flex;align-items:center;gap:12px;">
+      <div id="manifest-label">Track Manifest</div>
+      <div style="display:flex;align-items:center;gap:10px;">
         <div id="manifest-stats">—</div>
-        <button id="refresh-btn">↻ Refresh</button>
+        <button class="m-btn" id="refresh-btn">↻ Refresh</button>
       </div>
     </div>
     <div id="manifest-filters"></div>
-    <div id="manifest-list"><div class="manifest-empty">Connect to GitHub to view the track manifest.</div></div>
+    <div id="manifest-list"><div class="manifest-empty">Connect to GitHub to view the manifest.</div></div>
   </div>
 </div>
 
 <div id="toast"></div>
 
 <script>
-const SPORTS = ['Olympic Sports','Football','Basketball','Diamond Sports'];
+// ── FOLDER → SPORT/CATEGORY MAP ───────────────────────────────────────────
+const FOLDER_MAP = {
+  'cbb support music':           {sport:'Basketball',    category:'Support', ghFolder:'basketball/support'},
+  'cbb theme music':             {sport:'Basketball',    category:'Theme',   ghFolder:'basketball/theme'},
+  'cfb event support':           {sport:'Football',      category:'Support', ghFolder:'football/support'},
+  'cfb event theme':             {sport:'Football',      category:'Theme',   ghFolder:'football/theme'},
+  'olympic sport support music': {sport:'Olympic Sports',category:'Support', ghFolder:'olympic-sports/support'},
+  'olympic sport theme music':   {sport:'Olympic Sports',category:'Theme',   ghFolder:'olympic-sports/theme'},
+  'diamond sport support':       {sport:'Diamond Sports',category:'Support', ghFolder:'diamond-sports/support'},
+  'diamond sport theme':         {sport:'Diamond Sports',category:'Theme',   ghFolder:'diamond-sports/theme'},
+};
+const SPORTS = ['Basketball','Football','Olympic Sports','Diamond Sports'];
 const CATS   = ['Theme','Support'];
 
-let ghUser = '', ghRepo = '', ghBranch = 'main', ghToken = '';
-let connected = false;
-let manifest = { tracks: [] };
-let queue = []; // { file, sport, category, status, id }
-let manifestFilter = 'All';
+// ── FILENAME PARSER ───────────────────────────────────────────────────────
+// "01_-_ROCK070_-_Fire_And_Ice.wav" → {name:"Fire And Ice", cutCode:"ROCK070"}
+function parseFilename(filename) {
+  let s = filename.replace(/\.[^.]+$/, '');
+  let cutCode = '';
 
-// ── CONFIG ────────────────────────────────────────────────────────────────
+  // Strip leading track number: "01_-_" or "01 - "
+  s = s.replace(/^\d{1,3}[\s_]*[-][\s_]*/, '');
+
+  // Extract cut code: uppercase letters + numbers (e.g. ROCK070, HIPHOP038, KTV-072, JP)
+  const cutMatch = s.match(/^([A-Z][A-Z0-9]{1,}-?[A-Z0-9]*)[\s_]+-[\s_]+(.+)/);
+  if (cutMatch) {
+    cutCode = cutMatch[1];
+    s = cutMatch[2];
+  }
+
+  // Convert underscores to spaces, clean up
+  let name = s.replace(/_/g,' ').replace(/\s{2,}/g,' ').trim();
+
+  // Title case each word
+  name = name.replace(/\b\w/g, c => c.toUpperCase());
+
+  return {name, cutCode};
+}
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let ghUser='JaysVideo', ghRepo='ESPN-Audio', ghBranch='main', ghToken='';
+let connected=false, uploading=false;
+let manifest={tracks:[]};
+let queue=[];
+let manifestFilter='All';
+
+// ── DOM ───────────────────────────────────────────────────────────────────
+const folderInput   = document.getElementById('folder-input');
+const dropZone      = document.getElementById('drop-zone');
+const queueList     = document.getElementById('queue-list');
+const queueMeta     = document.getElementById('queue-meta');
+const uploadBtn     = document.getElementById('upload-btn');
+const clearBtn      = document.getElementById('clear-btn');
+const progressWrap  = document.getElementById('progress-wrap');
+const progressFill  = document.getElementById('progress-bar-fill');
+const progressLabel = document.getElementById('progress-label');
+
 document.getElementById('connect-btn').onclick = connectGitHub;
 document.getElementById('refresh-btn').onclick = loadManifest;
-document.getElementById('upload-all-btn').onclick = uploadAll;
-document.getElementById('clear-queue-btn').onclick = clearQueue;
+uploadBtn.onclick = uploadAll;
+clearBtn.onclick  = clearQueue;
+dropZone.addEventListener('click', () => folderInput.click());
+folderInput.addEventListener('change', e => processFiles(Array.from(e.target.files)));
 
+// ── CONNECT ───────────────────────────────────────────────────────────────
 async function connectGitHub() {
   ghUser   = document.getElementById('cfg-user').value.trim();
   ghRepo   = document.getElementById('cfg-repo').value.trim();
-  ghBranch = document.getElementById('cfg-branch').value.trim() || 'main';
+  ghBranch = document.getElementById('cfg-branch').value.trim()||'main';
   ghToken  = document.getElementById('cfg-token').value.trim();
-  if (!ghUser || !ghRepo || !ghToken) { setStatus('Fill in all fields.', false); return; }
-
-  setStatus('Connecting…', null);
+  if (!ghUser||!ghRepo||!ghToken){setStatus('Fill in all fields.',false);return;}
+  setStatus('Connecting…',null);
   try {
-    const res = await ghAPI(`/repos/${ghUser}/${ghRepo}`);
-    if (!res.ok) throw new Error(`${res.status}`);
-    connected = true;
-    setStatus(`✓ Connected to ${ghUser}/${ghRepo}`, true);
-    showToast('Connected! Loading manifest…');
+    const r = await ghAPI(`/repos/${ghUser}/${ghRepo}`);
+    if (!r.ok) throw new Error(r.status);
+    connected=true;
+    setStatus(`✓ Connected to ${ghUser}/${ghRepo}`,true);
+    uploadBtn.disabled = queue.filter(q=>q.status==='pending').length===0;
     await loadManifest();
-  } catch(e) {
-    connected = false;
-    setStatus(`✗ Failed: ${e.message}`, false);
-  }
+  } catch(e){connected=false;setStatus(`✗ ${e.message}`,false);}
+}
+function setStatus(msg,ok){
+  const el=document.getElementById('connect-status');
+  el.textContent=msg; el.className=ok===true?'ok':ok===false?'err':'';
 }
 
-function setStatus(msg, ok) {
-  const el = document.getElementById('connect-status');
-  el.textContent = msg;
-  el.className = 'connect-status' + (ok === true ? ' ok' : ok === false ? ' err' : '');
-}
-
-// ── MANIFEST ──────────────────────────────────────────────────────────────
-async function loadManifest() {
-  if (!connected) { showToast('Connect to GitHub first.'); return; }
-  try {
-    const res = await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);
-    if (res.status === 404) {
-      manifest = { tracks: [] };
-      renderManifest();
-      showToast('No tracks.json yet — it will be created on first upload.');
-      return;
-    }
-    const data = await res.json();
-    const json = JSON.parse(atob(data.content.replace(/\n/g,'')));
-    manifest = json;
-    renderManifest();
-    document.getElementById('manifest-stats').textContent =
-      `${manifest.tracks.length} track${manifest.tracks.length!==1?'s':''}`;
-  } catch(e) {
-    showToast('Could not load manifest: ' + e.message);
-  }
-}
-
-function renderManifest() {
-  // Filters
-  const filters = ['All', ...SPORTS];
-  document.getElementById('manifest-filters').innerHTML = filters.map(f =>
-    `<button class="mf-btn${manifestFilter===f?' active':''}" data-f="${esc(f)}">${esc(f)}</button>`
-  ).join('');
-  document.querySelectorAll('.mf-btn').forEach(b =>
-    b.addEventListener('click', () => { manifestFilter = b.dataset.f; renderManifest(); })
-  );
-
-  const visible = manifestFilter === 'All'
-    ? manifest.tracks
-    : manifest.tracks.filter(t => t.sport === manifestFilter);
-
-  const el = document.getElementById('manifest-list');
-  if (!visible.length) {
-    el.innerHTML = '<div class="manifest-empty">No tracks in manifest yet.</div>';
-    return;
-  }
-
-  // Group by sport > category
-  const groups = {};
-  visible.forEach(t => {
-    const key = `${t.sport} · ${t.category}`;
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(t);
-  });
-
-  el.innerHTML = Object.entries(groups).map(([key, tracks]) => `
-    <div class="m-group">
-      <div class="m-group-label">${esc(key)}</div>
-      ${tracks.map(t => `
-        <div class="m-track">
-          <span class="m-track-name">${esc(t.name)}</span>
-          <span class="m-track-path">${esc(t.path)}</span>
-          <span class="m-del" data-path="${esc(t.path)}" title="Remove from manifest">✕</span>
-        </div>`).join('')}
-    </div>`).join('');
-
-  el.querySelectorAll('.m-del').forEach(btn =>
-    btn.addEventListener('click', () => removeTrack(btn.dataset.path))
-  );
-}
-
-async function removeTrack(path) {
-  if (!confirm(`Remove "${path}" from manifest?`)) return;
-  manifest.tracks = manifest.tracks.filter(t => t.path !== path);
-  await saveManifest();
-  renderManifest();
-  document.getElementById('manifest-stats').textContent =
-    `${manifest.tracks.length} track${manifest.tracks.length!==1?'s':''}`;
-  showToast('Track removed from manifest.');
-}
-
-// ── DROP ZONE ─────────────────────────────────────────────────────────────
-const dropZone  = document.getElementById('drop-zone');
-const filePick  = document.getElementById('file-pick');
-const queueList = document.getElementById('queue-list');
-
-dropZone.addEventListener('click', () => filePick.click());
-dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-dropZone.addEventListener('drop', e => {
-  e.preventDefault(); dropZone.classList.remove('dragover');
-  addFiles(Array.from(e.dataTransfer.files));
-});
-filePick.addEventListener('change', e => { addFiles(Array.from(e.target.files)); filePick.value=''; });
-
-function addFiles(files) {
+// ── PROCESS FILES ─────────────────────────────────────────────────────────
+function processFiles(files) {
   const audio = files.filter(f => /\.(mp3|wav|ogg|aac|m4a|flac)$/i.test(f.name));
-  if (!audio.length) { showToast('No audio files found.'); return; }
+  if (!audio.length){showToast('No audio files found.');return;}
+
   audio.forEach(f => {
-    const id = Date.now() + Math.random();
-    // Smart defaults from filename patterns
-    let sport = 'Diamond Sports', cat = 'Theme';
-    const nl = f.name.toLowerCase();
-    if (nl.includes('football') || nl.includes('_fb_')) sport = 'Football';
-    else if (nl.includes('basketball') || nl.includes('_bball')) sport = 'Basketball';
-    else if (nl.includes('olympic')) sport = 'Olympic Sports';
-    if (nl.includes('support')) cat = 'Support';
-    queue.push({ file: f, sport, category: cat, status: 'pending', id });
+    const pathParts = (f.webkitRelativePath||f.name).split('/');
+
+    // Find folder mapping by scanning path from deepest to shallowest
+    let mapping = null;
+    for (let i = pathParts.length-2; i >= 0; i--) {
+      const fl = pathParts[i].toLowerCase().trim();
+      if (FOLDER_MAP[fl]){mapping=FOLDER_MAP[fl];break;}
+    }
+    // Fuzzy fallback: look for keywords in folder name
+    if (!mapping) {
+      for (let i = pathParts.length-2; i >= 0; i--) {
+        const fl = pathParts[i].toLowerCase();
+        if      (fl.includes('cbb')&&fl.includes('support'))      mapping=FOLDER_MAP['cbb support music'];
+        else if (fl.includes('cbb')&&fl.includes('theme'))        mapping=FOLDER_MAP['cbb theme music'];
+        else if ((fl.includes('cfb')||fl.includes('football'))&&fl.includes('support')) mapping=FOLDER_MAP['cfb event support'];
+        else if ((fl.includes('cfb')||fl.includes('football'))&&fl.includes('theme'))   mapping=FOLDER_MAP['cfb event theme'];
+        else if (fl.includes('olympic')&&fl.includes('support'))  mapping=FOLDER_MAP['olympic sport support music'];
+        else if (fl.includes('olympic')&&fl.includes('theme'))    mapping=FOLDER_MAP['olympic sport theme music'];
+        if (mapping) break;
+      }
+    }
+    if (!mapping) mapping={sport:'Diamond Sports',category:'Theme',ghFolder:'diamond-sports/theme'};
+
+    const {name, cutCode} = parseFilename(f.name);
+    queue.push({id:Date.now()+Math.random(), file:f, name, cutCode, sport:mapping.sport, category:mapping.category, ghFolder:mapping.ghFolder, status:'pending', error:''});
   });
+
+  folderInput.value='';
   renderQueue();
+  showToast(`${audio.length} track${audio.length!==1?'s':''} queued.`);
+  if (connected) uploadBtn.disabled=false;
 }
 
+// ── RENDER QUEUE ──────────────────────────────────────────────────────────
 function renderQueue() {
-  if (!queue.length) {
-    queueList.innerHTML = '<div class="queue-empty">Drop files above to queue them for upload.</div>';
+  const pending = queue.filter(q=>q.status==='pending').length;
+  const done    = queue.filter(q=>q.status==='done').length;
+  queueMeta.textContent = queue.length ? `${queue.length} files · ${done} done · ${pending} pending` : '';
+  uploadBtn.disabled = !connected || pending===0 || uploading;
+
+  if (!queue.length){
+    queueList.innerHTML='<div class="queue-empty">Select the Automation folder above to load all tracks.</div>';
     return;
   }
-  queueList.innerHTML = queue.map(q => `
-    <div class="q-item${q.status==='done'?' done':q.status==='err'?' err':''}" id="qi-${q.id}">
+  queueList.innerHTML='';
+  queue.forEach(q => {
+    const d=document.createElement('div');
+    d.className=`q-item${q.status==='done'?' done':q.status==='error'?' error':(q.status==='converting'||q.status==='uploading')?' converting':''}`;
+    d.id=`qi-${q.id}`;
+    const editable=q.status==='pending';
+    d.innerHTML=`
       <div class="q-item-top">
-        <span class="q-filename" title="${esc(q.file.name)}">${esc(q.file.name)}</span>
-        ${q.status==='pending'?`<span class="q-remove" data-id="${q.id}">✕</span>`:''}
+        <div class="q-names">
+          <div class="q-filename">${esc(q.file.name)}</div>
+          <div class="q-trackname">${esc(q.name)}</div>
+          ${q.cutCode?`<div class="q-cutcode">CUT: ${esc(q.cutCode)}</div>`:''}
+        </div>
+        ${editable?`<span class="q-remove" data-id="${q.id}">✕</span>`:''}
       </div>
       <div class="q-selects">
-        <select class="q-select" data-id="${q.id}" data-field="sport" ${q.status!=='pending'?'disabled':''}>
+        <select class="q-select" data-id="${q.id}" data-field="sport" ${!editable?'disabled':''}>
           ${SPORTS.map(s=>`<option value="${esc(s)}"${s===q.sport?' selected':''}>${esc(s)}</option>`).join('')}
         </select>
-        <select class="q-select" data-id="${q.id}" data-field="category" ${q.status!=='pending'?'disabled':''}>
+        <select class="q-select" data-id="${q.id}" data-field="category" ${!editable?'disabled':''}>
           ${CATS.map(c=>`<option value="${c}"${c===q.category?' selected':''}>${c}</option>`).join('')}
         </select>
       </div>
-      ${q.status!=='pending'?`<div class="q-status ${q.status}">${
-        q.status==='uploading'?'Uploading…':q.status==='done'?'✓ Uploaded':('✗ ' + (q.error||'Error'))
-      }</div>`:''}
-    </div>`).join('');
-
-  queueList.querySelectorAll('.q-remove').forEach(btn =>
-    btn.addEventListener('click', () => {
-      queue = queue.filter(q => String(q.id) !== btn.dataset.id);
-      renderQueue();
-    })
-  );
-  queueList.querySelectorAll('.q-select').forEach(sel =>
-    sel.addEventListener('change', () => {
-      const item = queue.find(q => String(q.id) === sel.dataset.id);
-      if (item) item[sel.dataset.field] = sel.value;
-    })
-  );
+      ${q.status!=='pending'?`<div class="q-status ${q.status}">${statusText(q)}</div>`:''}`;
+    d.querySelectorAll('.q-remove').forEach(b=>b.addEventListener('click',()=>{queue=queue.filter(i=>String(i.id)!==b.dataset.id);renderQueue();}));
+    d.querySelectorAll('.q-select').forEach(sel=>sel.addEventListener('change',()=>{
+      const item=queue.find(i=>String(i.id)===sel.dataset.id);
+      if(item){
+        item[sel.dataset.field]=sel.value;
+        item.ghFolder=`${item.sport.toLowerCase().replace(/\s+/g,'-')}/${item.category.toLowerCase()}`;
+      }
+    }));
+    queueList.appendChild(d);
+  });
 }
 
-function clearQueue() {
-  queue = queue.filter(q => q.status === 'pending');
-  if (queue.length === 0) queue = [];
+function statusText(q){
+  if(q.status==='converting') return '⟳ Converting WAV → MP3…';
+  if(q.status==='uploading')  return '↑ Uploading…';
+  if(q.status==='done')       return '✓ Uploaded';
+  return '✗ '+(q.error||'Error');
+}
+
+function updateQI(q){
+  const el=document.getElementById(`qi-${q.id}`); if(!el)return;
+  el.className=`q-item${q.status==='done'?' done':q.status==='error'?' error':(q.status==='converting'||q.status==='uploading')?' converting':''}`;
+  let st=el.querySelector('.q-status');
+  if(!st){st=document.createElement('div');el.appendChild(st);}
+  st.className=`q-status ${q.status}`;
+  st.textContent=statusText(q);
+  el.querySelectorAll('.q-select').forEach(s=>s.disabled=q.status!=='pending');
+  const rem=el.querySelector('.q-remove');
+  if(rem&&q.status!=='pending') rem.remove();
+}
+
+function clearQueue(){
+  queue=queue.filter(q=>q.status!=='pending');
+  if(queue.every(q=>q.status==='done')) queue=[];
   renderQueue();
 }
 
-// ── UPLOAD ────────────────────────────────────────────────────────────────
+// ── WAV → MP3 ─────────────────────────────────────────────────────────────
+const audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+
+async function convertToMp3(file) {
+  const ab = await file.arrayBuffer();
+  const buf = await audioCtx.decodeAudioData(ab);
+  const ch  = Math.min(buf.numberOfChannels, 2);
+  const sr  = buf.sampleRate;
+  const enc = new lamejs.Mp3Encoder(ch, sr, 192);
+  const mp3 = [];
+  const blk = 1152;
+  const L   = buf.getChannelData(0);
+  const R   = ch>1 ? buf.getChannelData(1) : L;
+
+  for(let i=0;i<L.length;i+=blk){
+    const l=f32to16(L.slice(i,i+blk));
+    const r=f32to16(R.slice(i,i+blk));
+    const c=ch>1?enc.encodeBuffer(l,r):enc.encodeBuffer(l);
+    if(c.length>0) mp3.push(c);
+  }
+  const fin=enc.flush();
+  if(fin.length>0) mp3.push(fin);
+  return new Blob(mp3,{type:'audio/mpeg'});
+}
+
+function f32to16(f32){
+  const out=new Int16Array(f32.length);
+  for(let i=0;i<f32.length;i++){
+    const s=Math.max(-1,Math.min(1,f32[i]));
+    out[i]=s<0?s*0x8000:s*0x7FFF;
+  }
+  return out;
+}
+
+// ── UPLOAD ALL ────────────────────────────────────────────────────────────
 async function uploadAll() {
-  if (!connected) { showToast('Connect to GitHub first.'); return; }
-  const pending = queue.filter(q => q.status === 'pending');
-  if (!pending.length) { showToast('No files in queue.'); return; }
+  if(!connected){showToast('Connect to GitHub first.');return;}
+  const pending=queue.filter(q=>q.status==='pending');
+  if(!pending.length){showToast('No files pending.');return;}
 
-  for (const item of pending) {
-    item.status = 'uploading';
-    updateQueueItem(item);
-    try {
-      await uploadFile(item);
-      item.status = 'done';
-    } catch(e) {
-      item.status = 'err';
-      item.error = e.message;
+  uploading=true; uploadBtn.disabled=true;
+  progressWrap.classList.add('vis');
+  let done=0; const total=pending.length;
+
+  for(const item of pending){
+    setProgress(done,total,item.name);
+    try{
+      let uploadFile=item.file;
+      let ext=item.file.name.split('.').pop().toLowerCase();
+      if(ext==='wav'){
+        item.status='converting'; updateQI(item);
+        const blob=await convertToMp3(item.file);
+        uploadFile=new File([blob],item.file.name.replace(/\.wav$/i,'.mp3'),{type:'audio/mpeg'});
+        ext='mp3';
+      }
+      item.status='uploading'; updateQI(item);
+      await pushFile(item,uploadFile,ext);
+      item.status='done';
+    } catch(e){
+      item.status='error'; item.error=e.message;
+      console.error(e);
     }
-    updateQueueItem(item);
+    updateQI(item); done++;
+    setProgress(done,total,done===total?'Complete!':'');
   }
 
-  // Save updated manifest
-  await saveManifest();
-  await loadManifest();
-  showToast('Upload complete!');
+  try{await saveManifest(); await loadManifest();}
+  catch(e){showToast('Manifest save failed: '+e.message);}
+
+  uploading=false; renderQueue();
+  const uploaded=queue.filter(q=>q.status==='done').length;
+  showToast(`Done! ${done} tracks uploaded.`);
 }
 
-async function uploadFile(item) {
-  const sportFolder = item.sport.toLowerCase().replace(/\s+/g, '-');
-  const catFolder   = item.category.toLowerCase();
-  const safeName    = item.file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-  const path        = `${sportFolder}/${catFolder}/${safeName}`;
-  const trackName   = item.file.name.replace(/\.[^.]+$/, '');
-
-  // Read file as base64
-  const b64 = await fileToBase64(item.file);
-
-  // Check if file exists (to get SHA for update)
-  let sha = null;
-  const check = await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/${path}`);
-  if (check.ok) { const d = await check.json(); sha = d.sha; }
-
-  // Upload file
-  const body = {
-    message: `Add ${path}`,
-    content: b64,
-    branch: ghBranch
-  };
-  if (sha) { body.sha = sha; body.message = `Update ${path}`; }
-
-  const res = await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/${path}`, 'PUT', body);
-  if (!res.ok) { const e = await res.json(); throw new Error(e.message || res.status); }
-
-  // Add to manifest (avoid duplicates)
-  const existing = manifest.tracks.findIndex(t => t.path === path);
-  const entry = { name: trackName, path, sport: item.sport, category: item.category };
-  if (existing >= 0) manifest.tracks[existing] = entry;
-  else manifest.tracks.push(entry);
-
-  // Sort manifest
-  manifest.tracks.sort((a, b) =>
-    a.sport.localeCompare(b.sport) || a.category.localeCompare(b.category) || a.name.localeCompare(b.name)
-  );
+async function pushFile(item, file, ext) {
+  const safeName=item.name.replace(/[^a-zA-Z0-9 ._-]/g,'').replace(/\s+/g,'_')+'.'+ext;
+  const path=`${item.ghFolder}/${safeName}`;
+  const b64=await toBase64(file);
+  let sha=null;
+  try{const c=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/${path}`);if(c.ok){const d=await c.json();sha=d.sha;}}catch(e){}
+  const body={message:`Add ${path}`,content:b64,branch:ghBranch};
+  if(sha){body.sha=sha;body.message=`Update ${path}`;}
+  const r=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/${path}`,'PUT',body);
+  if(!r.ok){const e=await r.json();throw new Error(e.message||r.status);}
+  const entry={name:item.name,cutCode:item.cutCode,path,sport:item.sport,category:item.category};
+  const idx=manifest.tracks.findIndex(t=>t.path===path);
+  if(idx>=0) manifest.tracks[idx]=entry; else manifest.tracks.push(entry);
+  manifest.tracks.sort((a,b)=>a.sport.localeCompare(b.sport)||a.category.localeCompare(b.category)||a.name.localeCompare(b.name));
 }
 
-async function saveManifest() {
-  const content = btoa(JSON.stringify(manifest, null, 2));
-  let sha = null;
-  const check = await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);
-  if (check.ok) { const d = await check.json(); sha = d.sha; }
-
-  const body = {
-    message: `Update tracks.json (${manifest.tracks.length} tracks)`,
-    content,
-    branch: ghBranch
-  };
-  if (sha) body.sha = sha;
-
-  const res = await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`, 'PUT', body);
-  if (!res.ok) { const e = await res.json(); throw new Error('Manifest save failed: ' + (e.message||res.status)); }
+async function saveManifest(){
+  manifest.updated=new Date().toISOString().slice(0,10);
+  const content=btoa(unescape(encodeURIComponent(JSON.stringify(manifest,null,2))));
+  let sha=null;
+  try{const c=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);if(c.ok){const d=await c.json();sha=d.sha;}}catch(e){}
+  const body={message:`Update tracks.json (${manifest.tracks.length} tracks)`,content,branch:ghBranch};
+  if(sha) body.sha=sha;
+  const r=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`,'PUT',body);
+  if(!r.ok){const e=await r.json();throw new Error(e.message||r.status);}
 }
 
-function updateQueueItem(item) {
-  const el = document.getElementById(`qi-${item.id}`);
-  if (!el) { renderQueue(); return; }
-  el.className = `q-item${item.status==='done'?' done':item.status==='err'?' err':''}`;
-  let statusEl = el.querySelector('.q-status');
-  if (!statusEl && item.status !== 'pending') {
-    statusEl = document.createElement('div');
-    statusEl.className = 'q-status';
-    el.appendChild(statusEl);
-  }
-  if (statusEl) {
-    statusEl.className = `q-status ${item.status}`;
-    statusEl.textContent =
-      item.status==='uploading' ? 'Uploading…' :
-      item.status==='done'      ? '✓ Uploaded' :
-      ('✗ ' + (item.error || 'Error'));
-  }
-  // Disable selects
-  el.querySelectorAll('.q-select').forEach(s => s.disabled = item.status !== 'pending');
-  // Remove ✕ button
-  const rem = el.querySelector('.q-remove');
-  if (rem && item.status !== 'pending') rem.remove();
+function setProgress(done,total,label){
+  progressFill.style.width=total?`${Math.round((done/total)*100)}%`:'0%';
+  progressLabel.textContent=`${done}/${total}${label?' — '+label:''}`;
+}
+
+// ── MANIFEST ──────────────────────────────────────────────────────────────
+async function loadManifest(){
+  if(!connected) return;
+  try{
+    const r=await ghAPI(`/repos/${ghUser}/${ghRepo}/contents/tracks.json`);
+    if(r.status===404){manifest={tracks:[]};renderManifest();return;}
+    const d=await r.json();
+    manifest=JSON.parse(decodeURIComponent(escape(atob(d.content.replace(/\n/g,'')))));
+    renderManifest();
+    document.getElementById('manifest-stats').textContent=`${manifest.tracks.length} tracks`;
+  }catch(e){showToast('Manifest error: '+e.message);}
+}
+
+function renderManifest(){
+  const filters=['All',...SPORTS];
+  document.getElementById('manifest-filters').innerHTML=filters.map(f=>
+    `<button class="mf-btn${manifestFilter===f?' active':''}" data-f="${esc(f)}">${esc(f)}</button>`
+  ).join('');
+  document.querySelectorAll('.mf-btn').forEach(b=>b.addEventListener('click',()=>{manifestFilter=b.dataset.f;renderManifest();}));
+  const visible=manifestFilter==='All'?manifest.tracks:manifest.tracks.filter(t=>t.sport===manifestFilter);
+  const el=document.getElementById('manifest-list');
+  if(!visible.length){el.innerHTML='<div class="manifest-empty">No tracks yet.</div>';return;}
+  const groups={};
+  visible.forEach(t=>{const k=`${t.sport} · ${t.category}`;if(!groups[k])groups[k]=[];groups[k].push(t);});
+  el.innerHTML=Object.entries(groups).map(([key,tracks])=>`
+    <div class="m-group">
+      <div class="m-group-label"><span>${esc(key)}</span><span style="color:#555">${tracks.length}</span></div>
+      ${tracks.map(t=>`
+        <div class="m-track">
+          <span class="m-track-name">${esc(t.name)}</span>
+          ${t.cutCode?`<span class="m-track-code">${esc(t.cutCode)}</span>`:''}
+          <span class="m-del" data-path="${esc(t.path)}">✕</span>
+        </div>`).join('')}
+    </div>`).join('');
+  el.querySelectorAll('.m-del').forEach(b=>b.addEventListener('click',()=>removeTrack(b.dataset.path)));
+}
+
+async function removeTrack(path){
+  if(!confirm(`Remove "${path}" from manifest?`)) return;
+  manifest.tracks=manifest.tracks.filter(t=>t.path!==path);
+  await saveManifest(); renderManifest();
+  document.getElementById('manifest-stats').textContent=`${manifest.tracks.length} tracks`;
+  showToast('Removed.');
 }
 
 // ── GITHUB API ────────────────────────────────────────────────────────────
-function ghAPI(path, method='GET', body=null) {
-  const opts = {
+function ghAPI(path,method='GET',body=null){
+  return fetch(`https://api.github.com${path}`,{
     method,
-    headers: {
-      'Authorization': `Bearer ${ghToken}`,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-      ...(body ? { 'Content-Type': 'application/json' } : {})
-    },
-    ...(body ? { body: JSON.stringify(body) } : {})
-  };
-  return fetch(`https://api.github.com${path}`, opts);
-}
-
-function fileToBase64(file) {
-  return new Promise((res, rej) => {
-    const r = new FileReader();
-    r.onload = () => res(r.result.split(',')[1]);
-    r.onerror = () => rej(new Error('File read failed'));
-    r.readAsDataURL(file);
+    headers:{'Authorization':`Bearer ${ghToken}`,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},
+    ...(body?{body:JSON.stringify(body)}:{})
   });
+}
+async function toBase64(blob){
+  return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=()=>rej(new Error('Read failed'));r.readAsDataURL(blob);});
 }
 
 // ── TOAST ─────────────────────────────────────────────────────────────────
 let toastTimer;
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
 }
-function esc(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 </script>
 </body>
 </html>
