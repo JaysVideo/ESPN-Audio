@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>ESPN Audio Tracker</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23CC0000'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='18' font-weight='900' fill='white' text-anchor='middle'>E</text></svg>">
+<title>Audio Tracker</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23CC0000'/><text x='16' y='23' font-family='Arial Black,sans-serif' font-size='14' font-weight='900' fill='white' text-anchor='middle'>AT</text></svg>">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
 
@@ -55,8 +55,7 @@ body.light #sticky-top{box-shadow:0 2px 8px rgba(0,0,0,.15);}
 
 /* ── HEADER ── */
 #header{background:var(--surface);border-bottom:3px solid var(--red);padding:8px 14px;display:flex;align-items:center;gap:8px;flex-wrap:nowrap;}
-#espn-logo{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--red);letter-spacing:2px;flex-shrink:0;}
-#header-title{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--muted);flex-shrink:0;}
+#app-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--red);letter-spacing:3px;flex-shrink:0;}
 #header-right{display:flex;gap:6px;align-items:center;margin-left:auto;flex-wrap:wrap;justify-content:flex-end;}
 
 /* ── THEME TOGGLE — always visible pill ── */
@@ -379,8 +378,7 @@ body.light .help-tip{background:#f5f5f5;}
 <!-- STICKY TOP -->
 <div id="sticky-top">
 <div id="header">
-  <div id="espn-logo">ESPN</div>
-  <div id="header-title">Audio Tracker</div>
+  <div id="app-logo">AUDIO TRACKER</div>
   <div id="header-right">
     <!-- Theme toggle — always visible -->
     <button id="help-btn" title="How to use this tool">?</button>
@@ -423,7 +421,7 @@ body.light .help-tip{background:#f5f5f5;}
 <div id="empty-state">
   <div class="empty-icon">🎵</div>
   <h2>No Tracks Loaded</h2>
-  <p>Tap Load Tracks to stream the ESPN library.</p>
+  <p>Tap Load Tracks to stream the music library.</p>
   <button id="empty-load-btn">▶ Load Tracks</button>
 </div>
 
@@ -454,7 +452,7 @@ body.light .help-tip{background:#f5f5f5;}
     <!-- GAME BROWSER -->
     <div id="game-browser">
       <div id="game-browser-title">
-        <span>📡 TODAY'S ESPN GAMES</span>
+        <span>📡 TODAY'S GAMES</span>
         <button id="game-browser-refresh">↻ Refresh</button>
       </div>
       <div id="game-list">
@@ -562,7 +560,7 @@ body.light .help-tip{background:#f5f5f5;}
   <div id="help-card">
     <div id="help-card-header">
       <div>
-        <div id="help-card-title">ESPN Audio Tracker — How To Use</div>
+        <div id="help-card-title">Audio Tracker — How To Use</div>
         <div id="help-card-sub">Playback tool + automatic music cue sheet completion</div>
       </div>
       <button id="help-close">✕</button>
@@ -573,8 +571,8 @@ body.light .help-tip{background:#f5f5f5;}
         <div class="help-section-title">Before the Show</div>
         <div class="help-steps">
           <div class="help-step"><div class="help-step-num">1</div><div class="help-step-text"><strong>Enter Event Info</strong> — tap <span class="mono">📋 Event Info</span> and fill in the show name, matchup, air date, network, producer, and all other fields. This information will automatically populate the header of your exported cue sheet — you won't have to type it manually in Excel.</div></div>
-          <div class="help-step"><div class="help-step-num">2</div><div class="help-step-text"><strong>Load Tracks</strong> — tap <span class="mono">▶ Load Tracks</span> to stream the full ESPN music library. The tool will load all sports: Olympic Sports, Football, Basketball, and Diamond Sports, with Theme and Support subcategories.</div></div>
-          <div class="help-step"><div class="help-step-num">3</div><div class="help-step-text"><strong>Load Cue Sheet Templates (optional but recommended)</strong> — tap <span class="mono">📄 Templates</span> and load your ESPN Excel template files (.xlsx). When you export at the end of the show, play counts will be written directly into the <em>Number Of Uses</em> column of the actual ESPN template — ready to submit to <span class="mono">music.cue.sheets@espn.com</span>.</div></div>
+          <div class="help-step"><div class="help-step-num">2</div><div class="help-step-text"><strong>Load Tracks</strong> — tap <span class="mono">▶ Load Tracks</span> to stream the full music library. The tool will load all sports: Olympic Sports, Football, Basketball, and Diamond Sports, with Theme and Support subcategories.</div></div>
+          <div class="help-step"><div class="help-step-num">3</div><div class="help-step-text"><strong>Load Cue Sheet Templates (optional but recommended)</strong> — tap <span class="mono">📄 Templates</span> and load your Excel cue sheet template files (.xlsx). When you export at the end of the show, play counts will be written directly into the <em>Number Of Uses</em> column of the actual cue sheet template — ready to submit to <span class="mono">music.cue.sheets@espn.com</span>.</div></div>
           <div class="help-step"><div class="help-step-num">4</div><div class="help-step-text"><strong>Choose your mode</strong> — use <span class="mono">Production</span> for on-air work where plays are counted, or <span class="mono">Audition</span> to preview tracks off-air without logging them.</div></div>
         </div>
       </div>
@@ -645,69 +643,670 @@ const OLYMPIC_THEME_NAMES=[":60 Dramatic Tease",":07 Short Open",":10 Hallmark O
 const CFB_THEME_NAMES=["Main Theme Tease","Main Theme underscore Tease","Open","Vamp","Open with Vamp","Open Sequence","Open Underscore Sequence","Rejoin w Vamp","Bump","Sting","Bump Alt 1","Sting Alt 1","Bump Alt 2","Sting Alt 2","Promo","Billboard","Close","Full Length Main Title","Laid Back Southern Hip Hop Bump","Laid Back Southern Hip Hop Sting","Hip Hop Bump","Hip Hop Sting","Rock Bump","Rock Sting","Stomp Clap Bump","Stomp Clap Sting","2020 Hip Hop Bump","2020 Hip Hop Sting","2020 Country Bump","2020 Country Sting","2020 Drumline Bump","2020 Drumline Sting","2020 Dramatic Bump","2020 Dramatic Sting","2020 Rock Bump","2020 Rock Sting"];
 const CBB_THEME_NAMES=["ESPN on ABC ID",":03 - 05 Rejoin/Id",":60 Open Bed",":03 Open Bed (Front End)",":57 Open Bed (Back End)",":07 - :10  Short Open","Open Bed with Short Open","Vamp :60","Short Open with Vamp","Short Open Sequence",":12 Long Open (or to fit video)","Open Bed with Long Open","Long Open with Vamp","Long Open Sequence","Bump :45","Bump :30","Bump :20","Bump :15","Bump :10","Bump :08","Bump :05","Billboard :30","Promo :30","Promo :15","Close :60","Close :30","Alt. 1 Bump :45 (Hip Hop Rhythm)","Alt. 1 Bump :30","Alt. 1 Bump :20","Alt. 1 Bump :15","Alt. 1 Bump :10","Alt. 1 Bump :08","Alt. 1 Bump :05","Alt. 2 Bump :45 (Pop Orch)","Alt. 2 Bump :30","Alt. 2 Bump :20","Alt. 2 Bump :15","Alt. 2 Bump :10","Alt. 2 Bump :08","Alt. 2 Bump :05","Alt. 3 Bump :45 (Pop Orch Rhythm)","Alt. 3 Bump :30","Alt. 3 Bump :20","Alt. 3 Bump :15","Alt. 3 Bump :10","Alt. 3 Bump :08","Alt. 3 Bump :05","Alt. 4 Bump :45 (Pop)","Alt. 4 Bump :30","Alt. 4 Bump :20","Alt. 4 Bump :15","Alt. 4 Bump :10","Alt. 4 Bump :08","Alt. 4 Bump :05","Alt. 5 Bump :45 (Indie Rock)","Alt. 5 Bump :30","Alt. 5 Bump :20","Alt. 5 Bump :15","Alt. 5 Bump :10","Alt. 5 Bump :08","Alt. 5 Bump :05","Alt. 6 Bump :45 (Indie Rock Rhythm)","Alt. 6 Bump :30","Alt. 6 Bump :20","Alt. 6 Bump :15","Alt. 6 Bump :10","Alt. 6 Bump :08","Alt. 6 Bump :05","Alt. 7 Bump :45 (Electro Dance)","Alt. 7 Bump :30","Alt. 7 Bump :20","Alt. 7 Bump :15","Alt. 7 Bump :10","Alt. 7 Bump :08","Alt. 7 Bump :05","Alt. 8 Bump :45  (Electro Rhythm)","Alt. 8 Bump :30","Alt. 8 Bump :20","Alt. 8 Bump :15","Alt. 8 Bump :10","Alt. 8 Bump :08","Alt. 8 Bump :05","Alt. 9 Bump :45  (Southern Rock)","Alt. 9 Bump :30","Alt. 9 Bump :20","Alt. 9 Bump :15","Alt. 9 Bump :10","Alt. 9 Bump :08","Alt. 9 Bump :05","Alt. 10 Bump :45  (Southern Rhythm)","Alt. 10 Bump :30","Alt. 10 Bump :20","Alt. 10 Bump :15","Alt. 10 Bump :10","Alt. 10 Bump :08","Alt. 10 Bump :05",":60 Open Bed (Pop Orch)",":03 Open Bed (Front End) (Pop Orch)",":57 Open Bed (Back End) (Pop Orch)",":07 - :10  Short Open (Pop Orch)","Open Bed with Short Open (Pop Orch)","Vamp :60 (Pop Orch)","Short Open with Vamp (Pop Orch)","Short Open Sequence (Pop Orch)",":12 Long Open (Pop Orch)","Open Bed with Long Open (Pop Orch)","Long Open with Vamp (Pop Orch)","Long Open Sequence (Pop Orch)","Billboard 30 (Pop Orch)","Promo :30 (Pop Orch)","Promo :15 (Pop Orch)","Close :60 (Pop Orch)","Close :30 (Pop Orch)","Sounder 1","Sounder 2","Sounder 3","Sounder 4","Sounder 5","Sounder 6","Sounder 7","Sounder 8","Sounder 9","Sounder 10",":05 Event Theme Tag",":04 Event Theme Hallmark",":45 Event Theme Vamp",":50 Event Theme Open w/Vamp",":60 Event Theme Donut Bump",":45 Event Theme Donut Bump",":30 Event Theme Donut Bump",":20 Event Theme Donut Bump",":15 Event Theme Donut Bump",":10 Event Theme Donut Bump",":04 Event Theme Sting",":60 Event Theme Donut Bump Alt. 1",":45 Event Theme Donut Bump Alt. 1",":30 Event Theme Donut Bump Alt. 1",":20 Event Theme Donut Bump Alt. 1",":15 Event Theme Donut Bump Alt. 1",":10 Event Theme Donut Bump Alt. 1",":04 Event Theme Sting Alt. 1",":60 Event Theme Donut Bump Alt. 2",":45 Event Theme Donut Bump Alt. 2",":30 Event Theme Donut Bump Alt. 2",":20 Event Theme Donut Bump Alt. 2",":15 Event Theme Donut Bump Alt. 2",":10 Event Theme Donut Bump Alt. 2",":04 Event Theme Sting Alt. 2",":60 Event Theme Close",":30 Event Theme Close",":60 Tease",":60 Rock 2019 Donut Bump",":45 Rock 2019 Bump",":30 Rock 2019 Bump",":20 Rock 2019 Bump",":15 Rock 2019 Bump",":10 Rock 2019 Bump",":05 Rock 2019 Sting",":60 EDM 2019 Donut Bump",":45 EDM 2019 Bump",":30 EDM 2019 Bump",":20 EDM 2019 Bump",":15 EDM 2019 Bump",":10 EDM 2019 Bump",":05 EDM 2019 Sting",":60 Indie Rock 2019 Donut Bump",":45 Indie Rock 2019 Bump",":30 Indie Rock 2019 Bump",":20 Indie Rock 2019 Bump",":15 Indie Rock 2019 Bump",":10 Indie Rock 2019 Bump",":05 Indie Rock 2019 Sting",":60 Hip Hop 2019 Donut Bump",":45 Hip Hop 2019 Bump",":30 Hip Hop 2019 Bump",":20 Hip Hop 2019 Bump",":15 Hip Hop 2019 Bump",":10 Hip Hop 2019 Bump",":05 Hip Hop 2019 Sting",":60 Country 2019 Donut Bump",":45 Country 2019 Bump",":30 Country 2019 Bump",":20 Country 2019 Bump",":15 Country 2019 Bump",":10 Country 2019 Bump",":05 Country 2019 Sting",":60 Rock Bump",":45 Rock Bump",":30 Rock Bump",":20 Rock Bump",":15 Rock Bump",":10 Rock Bump",":60 Groovy Blues Bump",":45 Groovy Blues Bump",":30 Groovy Blues Bump",":20 Groovy Blues Bump",":15 Groovy Blues Bump",":10 Groovy Blues Bump",":10 Groovy Blues Bump Alt",":60 Atmospheric Guitar Bump",":45 Atmospheric Guitar Bump",":30 Atmospheric Guitar Bump",":20 Atmospheric Guitar Bump",":15 Atmospheric Guitar Bump",":10 Atmospheric Guitar Bump",":60 Inspirational Orchestral Bump",":45 Inspirational Orchestral Bump",":30 Inspirational Orchestral Bump",":20 Inspirational Orchestral Bump",":15 Inspirational Orchestral Bump",":10 Inspirational Orchestral Bump",":60 Reflective Bump",":45 Reflective Bump",":30 Reflective Bump",":20 Reflective Bump",":15 Reflective Bump",":10 Reflective Bump",":05 Football / Championships Theme Tag",":15 Football / Championships Theme Hallmark",":45 Football / Championships Theme Vamp",":60 Football / Championships Theme Donut Bump/Promo",":45 Football / Championships Theme Donut Bump",":30 Football / Championships Theme Donut Bump",":20 Football / Championships Theme Bump",":15 Football / Championships Theme Bump",":10 Football / Championships Theme Bump",":45 Football / Championships Theme Billboard",":60 Football / Championships Theme Close",":60 Football / Championships Theme Close Alt",":60 Football / Championships Theme Donut Bump Alt. 1",":45 Football / Championships Theme Donut Bump Alt. 1",":30 Football / Championships Theme Donut Bump Alt. 1",":20 Football / Championships Theme Bump Alt. 1",":15 Football / Championships Theme Bump Alt. 1",":10 Football / Championships Theme Bump Alt. 1",":07 Football / Championships Theme Sting Alt. 1",":60 Dramatic Tease",":60 Rock Bump",":45 Rock Bump",":30 Rock Bump",":20 Rock Bump",":15 Rock Bump",":10 Rock Bump",":05 Rock Sting",":60 EDM Bump",":45 EDM Bump",":30 EDM Bump",":20 EDM Bump",":15 EDM Bump",":10 EDM Bump",":05 EDM Sting",":60 Indie Rock Bump",":45 Indie Rock Bump",":30 Indie Rock Bump",":20 Indie Rock Bump",":15 Indie Rock Bump",":10 Indie Rock Bump",":05 - 07 Indie Rock Sting",":60 Hip Hop/Urban Bump",":45 Hip Hop/Urban Bump",":30 Hip Hop/Urban Bump",":20 Hip Hop/Urban Bump",":15 Hip Hop/Urban Bump",":10 Hip Hop/Urban Bump",":05 Hip Hop/Urban Sting",":05 Hip Hop/Urban Sting Alt.",":60 Nostalgic/Obit Bump",":45 Nostalgic/Obit Bump",":30 Nostalgic/Obit Bump",":20 Nostalgic/Obit Bump",":15 Nostalgic/Obit Bump",":10 Nostalgic/Obit Bump",":07 Nostalgic/Obit Sting",":08 (OR FIT TO VIDEO) Open",":90 Vamp","Open With Vamp",":60 Bump / Promo",":45 Bump",":30 Bump",":20 Bump",":15 Bump",":10 Bump",":05 Sting",":03 Sting","Full Version","CBB Remote Promo","CBB Gameday Promo","ESPNU College Basketball","ACC: Football/Basketball/Championship","SEC Network: SEC Event","Football: College Football Saturday","Football: College Football Studio","Football: College Football Playoff"];
 
-// ── SUPPORT TRACK NAME MAPS ───────────────────────────────────────────────
-const OLYMPIC_SUPPORT_NAMES=["Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Unstoppable","Inspirations"];
-const CFB_SUPPORT_NAMES=["Anvil Rock","Speed Up","Day Drinking Instrumental","Country Party Instrumental","Look Out Below Instrumental","College Football Down South Instrumental","Locker Room Talk","Chilly Rivers","Motor Oil","Chasing Time","Come Out Fighting","Leave It Be","Rewinder","Two Timer","Boog E","Chains Down","Apologies","The Throne Instrumental","Orbiter","Rocky Road","All Stars","Bring The Pain","Full On (A)","Girl You Got It","Hyperthought","Down The Stretch Instrumental","Indie Trousers","Tennessee Funk","I Kissed A Lie Instrumental","Groovin 80's","Tha Ballers Theme Full","Tried and Tru Full","Fire & Ice","Rise Up Instrumental"];
-const CBB_SUPPORT_NAMES=["Fire And Ice","Rock The Block","Encore Status","Tick Tockica","Where It All Began","Throne Bounce 2 JP","Overtime Inst JP","Ruff Tuff Boys","Kings Queen-JP","James 001-JP","Ride With Me","Major Quest","Fat Pockets","Never Nervous","Real In The Field","Boom Bap Cadilac","Bronx 6","Camp Lo","Rip Slip","Alright","Stay On The Line","Oh Brother","Black Out The Sun Solar","Want It All","Drums Better Rhyme","Roll Da Dice","Shredder","The Wrecking","To The Top And Back No Vocal","To The Top And Back w Vocal","Got To Keep Fighting Instrumental","Savages","That's a Homerun","Yes We Can","Foxes","A Billy","Dance Pop","Risk It All Instrumental"];
+const CUE_MAP={
+"1:52 open sequence":{"n":"1:52 Open Sequence","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+"2020 country bump":{"n":"2020 Country Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 country sting":{"n":"2020 Country Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 dramatic bump":{"n":"2020 Dramatic Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 dramatic sting":{"n":"2020 Dramatic Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 drumline bump":{"n":"2020 Drumline Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 drumline sting":{"n":"2020 Drumline Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 hip hop bump":{"n":"2020 Hip Hop Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 hip hop sting":{"n":"2020 Hip Hop Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 rock bump":{"n":"2020 Rock Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"2020 rock sting":{"n":"2020 Rock Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"4 125":{"n":"4 125","t":"BKG","c":"ELECTRONICA-004","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+":03 - 05 rejoin/id":{"n":":03 - 05 Rejoin/Id","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":03 open bed (front end)":{"n":":03 Open Bed (Front End)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":03 open bed (front end) (pop orch)":{"n":":03 Open Bed (Front End) (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":03 sting":{"n":":03 Sting","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":04 event theme hallmark":{"n":":04 Event Theme Hallmark","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":04 event theme sting":{"n":":04 Event Theme Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":04 event theme sting alt. 1":{"n":":04 Event Theme Sting    Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":04 event theme sting alt. 2":{"n":":04 Event Theme Sting    Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 - 07 indie rock sting":{"n":":05 - 07 Indie Rock Sting","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 country 2019 sting":{"n":":05 Country 2019 Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 edm 2019 sting":{"n":":05 EDM 2019 Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 edm sting":{"n":":05 EDM Sting","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 event theme tag":{"n":":05 Event Theme Tag","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 football / championships theme tag":{"n":":05 Football / Championships Theme Tag","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 hip hop 2019 sting":{"n":":05 Hip Hop 2019 Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 hip hop/urban sting":{"n":":05 Hip Hop/Urban Sting","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 hip hop/urban sting alt.":{"n":":05 Hip Hop/Urban Sting Alt.","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 indie rock 2019 sting":{"n":":05 Indie Rock 2019 Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 rock 2019 sting":{"n":":05 Rock 2019 Sting","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":05 rock sting":{"n":":05 Rock Sting","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":05 sting":{"n":":05 Sting","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":05 sting alt. 1":{"n":":05 Sting Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":05 sting alt. 2":{"n":":05 Sting Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":07 - :10 short open":{"n":":07 - :10  Short Open","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":07 - :10 short open (pop orch)":{"n":":07 - :10  Short Open (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":07 football / championships theme sting alt. 1":{"n":":07  Football / Championships Theme Sting Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":07 nostalgic/obit sting":{"n":":07 Nostalgic/Obit Sting","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":07 short open":{"n":":07 Short Open","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":07 sting":{"n":":07 Sting","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":07 sting alt. 1":{"n":":07 Sting Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":07 sting alt. 2":{"n":":07 Sting Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":08 (or fit to video) open":{"n":":08 (OR FIT TO VIDEO) Open","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":10 atmospheric guitar bump":{"n":":10 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 bump":{"n":":10 Bump","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":10 bump alt. 1":{"n":":10 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":10 bump alt. 2":{"n":":10 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":10 country 2019 bump":{"n":":10 Country 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 edm 2019 bump":{"n":":10 EDM 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 edm bump":{"n":":10 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 event theme donut bump":{"n":":10 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 event theme donut bump alt. 1":{"n":":10 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 event theme donut bump alt. 2":{"n":":10 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 football / championships theme bump":{"n":":10  Football / Championships Theme Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 football / championships theme bump alt. 1":{"n":":10  Football / Championships Theme Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 groovy blues bump":{"n":":10 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 groovy blues bump alt":{"n":":10 Groovy Blues Bump Alt","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 hallmark open":{"n":":10 Hallmark Open","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":10 hip hop 2019 bump":{"n":":10 Hip Hop 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 hip hop/urban bump":{"n":":10 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 indie rock 2019 bump":{"n":":10 Indie Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 indie rock bump":{"n":":10 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 inspirational orchestral bump":{"n":":10 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 nostalgic/obit bump":{"n":":10 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":10 reflective bump":{"n":":10 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 rock 2019 bump":{"n":":10 Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":10 rock bump":{"n":":10 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":12 long open (or to fit video)":{"n":":12 Long Open (or to fit video)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":12 long open (pop orch)":{"n":":12 Long Open (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":15 atmospheric guitar bump":{"n":":15 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 bump":{"n":":15 Bump","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":15 bump alt. 1":{"n":":15 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":15 bump alt. 2":{"n":":15 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":15 country 2019 bump":{"n":":15 Country 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 edm 2019 bump":{"n":":15 EDM 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 edm bump":{"n":":15 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 event theme donut bump":{"n":":15 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 event theme donut bump alt. 1":{"n":":15 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 event theme donut bump alt. 2":{"n":":15 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 football / championships theme bump":{"n":":15  Football / Championships Theme Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 football / championships theme bump alt. 1":{"n":":15  Football / Championships Theme Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 football / championships theme hallmark (or to fit video)":{"n":":15  Football / Championships Theme Hallmark (or to fit video)","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 groovy blues bump":{"n":":15 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 hip hop 2019 bump":{"n":":15 Hip Hop 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 hip hop/urban bump":{"n":":15 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 indie rock 2019 bump":{"n":":15 Indie Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 indie rock bump":{"n":":15 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 inspirational orchestral bump":{"n":":15 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 nostalgic/obit bump":{"n":":15 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":15 reflective bump":{"n":":15 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 rock 2019 bump":{"n":":15 Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":15 rock bump":{"n":":15 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 atmospheric guitar bump":{"n":":20 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 bump":{"n":":20 Bump","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":20 bump alt. 1":{"n":":20 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":20 bump alt. 2":{"n":":20 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":20 country 2019 bump":{"n":":20 Country 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 edm 2019 bump":{"n":":20 EDM 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 edm bump":{"n":":20 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 event theme donut bump":{"n":":20 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 event theme donut bump alt. 1":{"n":":20 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 event theme donut bump alt. 2":{"n":":20 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 football / championships theme bump":{"n":":20  Football / Championships Theme Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 football / championships theme bump alt. 1":{"n":":20  Football / Championships Theme Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 groovy blues bump":{"n":":20 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 hip hop 2019 bump":{"n":":20 Hip Hop 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 hip hop/urban bump":{"n":":20 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 indie rock 2019 bump":{"n":":20 Indie Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 indie rock bump":{"n":":20 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 inspirational orchestral bump":{"n":":20 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 nostalgic/obit bump":{"n":":20 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":20 reflective bump":{"n":":20 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 rock 2019 bump":{"n":":20 Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":20 rock bump":{"n":":20 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 atmospheric guitar bump":{"n":":30 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 bump":{"n":":30 Bump","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":30 bump alt. 1":{"n":":30 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":30 bump alt. 2":{"n":":30 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":30 close":{"n":":30 Close","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":30 country 2019 bump":{"n":":30 Country 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 edm 2019 bump":{"n":":30 EDM 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 edm bump":{"n":":30 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 event theme close":{"n":":30 Event Theme Close","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 event theme donut bump":{"n":":30 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 event theme donut bump alt. 1":{"n":":30 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 event theme donut bump alt. 2":{"n":":30 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 football / championships theme donut bump":{"n":":30  Football / Championships Theme Donut Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 football / championships theme donut bump alt. 1":{"n":":30  Football / Championships Theme Donut Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 groovy blues bump":{"n":":30 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 hip hop 2019 bump":{"n":":30 Hip Hop 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 hip hop/urban bump":{"n":":30 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 indie rock 2019 bump":{"n":":30 Indie Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 indie rock bump":{"n":":30 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 inspirational orchestral bump":{"n":":30 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 nostalgic/obit bump":{"n":":30 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":30 reflective bump":{"n":":30 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 rock 2019 bump":{"n":":30 Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":30 rock bump":{"n":":30 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":35 rejoin":{"n":":35 Rejoin","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":45 atmospheric guitar bump":{"n":":45 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 billboard":{"n":":45 Billboard","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":45 bump":{"n":":45 Bump","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":45 bump alt. 1":{"n":":45 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":45 bump alt. 2":{"n":":45 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":45 country 2019 bump":{"n":":45 Country 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 edm 2019 bump":{"n":":45 EDM 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 edm bump":{"n":":45 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 event theme donut bump":{"n":":45 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 event theme donut bump alt. 1":{"n":":45 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 event theme donut bump alt. 2":{"n":":45 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 event theme vamp":{"n":":45 Event Theme Vamp","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 football / championships theme billboard":{"n":":45  Football / Championships Theme Billboard","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 football / championships theme donut bump":{"n":":45  Football / Championships Theme Donut Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 football / championships theme donut bump alt. 1":{"n":":45  Football / Championships Theme Donut Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 football / championships theme vamp":{"n":":45  Football / Championships Theme Vamp","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 groovy blues bump":{"n":":45 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 hip hop 2019 bump":{"n":":45 Hip Hop 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 hip hop/urban bump":{"n":":45 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 indie rock 2019 bump":{"n":":45 Indie Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 indie rock bump":{"n":":45 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 inspirational orchestral bump":{"n":":45 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 nostalgic/obit bump":{"n":":45 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 reflective bump":{"n":":45 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 rock 2019 bump":{"n":":45 Rock 2019 Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":45 rock bump":{"n":":45 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":45 vamp":{"n":":45 Vamp","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":50 event theme open w/vamp":{"n":":50 Event Theme Open w/Vamp","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":57 open bed (back end)":{"n":":57 Open Bed (Back End)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":57 open bed (back end) (pop orch)":{"n":":57 Open Bed (Back End) (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":60 atmospheric guitar bump":{"n":":60 Atmospheric Guitar Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 billboard":{"n":":60 Billboard","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":60 bump / promo":{"n":":60 Bump / Promo","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+":60 bump alt. 1":{"n":":60 Bump Alt. 1","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":60 bump alt. 2":{"n":":60 Bump Alt. 2","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":60 bump/promo":{"n":":60 Bump/Promo","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":60 close":{"n":":60 Close","t":"TH","c":"ELIAS-008","s":"2020 Olympic Sport Theme","sp":"Olympic Sports","cat":"Theme"},
+":60 country 2019 donut bump":{"n":":60 Country 2019 Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 dramatic tease":{"n":":60 Dramatic Tease","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 edm 2019 donut bump":{"n":":60 EDM 2019 Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 edm bump":{"n":":60 EDM Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 event theme close":{"n":":60 Event Theme Close","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 event theme donut bump":{"n":":60 Event Theme Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 event theme donut bump alt. 1":{"n":":60 Event Theme Donut Bump  Alt. 1","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 event theme donut bump alt. 2":{"n":":60 Event Theme Donut Bump Alt. 2","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 football / championships theme close":{"n":":60  Football / Championships Theme Close","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 football / championships theme close alt":{"n":":60  Football / Championships Theme Close Alt","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 football / championships theme donut bump alt. 1":{"n":":60  Football / Championships Theme Donut Bump Alt. 1","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 football / championships theme donut bump/promo":{"n":":60  Football / Championships Theme Donut Bump/Promo","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 groovy blues bump":{"n":":60 Groovy Blues Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 hip hop 2019 donut bump":{"n":":60 Hip Hop 2019 Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 hip hop/urban bump":{"n":":60 Hip Hop/Urban Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 indie rock 2019 donut bump":{"n":":60 Indie Rock 2019 Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 indie rock bump":{"n":":60 Indie Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 inspirational orchestral bump":{"n":":60 Inspirational Orchestral Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 nostalgic/obit bump":{"n":":60 Nostalgic/Obit Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 open bed":{"n":":60 Open Bed","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":60 open bed (pop orch)":{"n":":60 Open Bed (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+":60 reflective bump":{"n":":60 Reflective Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 rock 2019 donut bump":{"n":":60 Rock 2019 Donut Bump","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":60 rock bump":{"n":":60 Rock Bump","t":"TH","c":"ACC-003","s":"ACC Basketball Theme","sp":"Basketball","cat":"Theme"},
+":60 tease":{"n":":60 Tease","t":"TH","c":"SEC-013","s":"SEC Event Theme","sp":"Basketball","cat":"Theme"},
+":90 vamp":{"n":":90 Vamp","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+"a billy":{"n":"A Billy","t":"BKG","c":"Pop-011","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"a hero will rise - instrumental":{"n":"A Hero Will Rise - Instrumental","t":"BKG","c":"MSTR-322","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"a little pick me up":{"n":"a little pick me up","t":"BKG","c":"vl133","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"a rush of colours":{"n":"A Rush Of Colours","t":"BKG","c":"JW-2287","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"acc: football/basketball/championship":{"n":"ACC: Football/Basketball/Championship","t":"BKG","c":"ACC-003","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"all stars":{"n":"All Stars","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"aloha everybody":{"n":"Aloha Everybody","t":"BKG","c":"GMS-008","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"alright":{"n":"Alright","t":"BKG","c":"KOK-2212","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"alt. 1 bump :05":{"n":"Alt. 1 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :08":{"n":"Alt. 1 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :10":{"n":"Alt. 1 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :15":{"n":"Alt. 1 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :20":{"n":"Alt. 1 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :30":{"n":"Alt. 1 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 1 bump :45 (hip hop rhythm)":{"n":"Alt. 1 Bump :45 (Hip Hop Rhythm)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :05":{"n":"Alt. 10 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :08":{"n":"Alt. 10 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :10":{"n":"Alt. 10 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :15":{"n":"Alt. 10 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :20":{"n":"Alt. 10 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :30":{"n":"Alt. 10 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 10 bump :45 (southern rhythm)":{"n":"Alt. 10 Bump :45  (Southern Rhythm)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :05":{"n":"Alt. 2 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :08":{"n":"Alt. 2 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :10":{"n":"Alt. 2 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :15":{"n":"Alt. 2 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :20":{"n":"Alt. 2 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :30":{"n":"Alt. 2 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 2 bump :45 (pop orch)":{"n":"Alt. 2 Bump :45 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :05":{"n":"Alt. 3 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :08":{"n":"Alt. 3 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :10":{"n":"Alt. 3 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :15":{"n":"Alt. 3 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :20":{"n":"Alt. 3 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :30":{"n":"Alt. 3 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 3 bump :45 (pop orch rhythm)":{"n":"Alt. 3 Bump :45 (Pop Orch Rhythm)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :05":{"n":"Alt. 4 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :08":{"n":"Alt. 4 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :10":{"n":"Alt. 4 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :15":{"n":"Alt. 4 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :20":{"n":"Alt. 4 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :30":{"n":"Alt. 4 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 4 bump :45 (pop)":{"n":"Alt. 4 Bump :45 (Pop)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :05":{"n":"Alt. 5 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :08":{"n":"Alt. 5 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :10":{"n":"Alt. 5 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :15":{"n":"Alt. 5 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :20":{"n":"Alt. 5 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :30":{"n":"Alt. 5 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 5 bump :45 (indie rock)":{"n":"Alt. 5 Bump :45 (Indie Rock)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :05":{"n":"Alt. 6 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :08":{"n":"Alt. 6 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :10":{"n":"Alt. 6 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :15":{"n":"Alt. 6 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :20":{"n":"Alt. 6 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :30":{"n":"Alt. 6 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 6 bump :45 (indie rock rhythm)":{"n":"Alt. 6 Bump :45 (Indie Rock Rhythm)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :05":{"n":"Alt. 7 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :08":{"n":"Alt. 7 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :10":{"n":"Alt. 7 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :15":{"n":"Alt. 7 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :20":{"n":"Alt. 7 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :30":{"n":"Alt. 7 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 7 bump :45 (electro dance)":{"n":"Alt. 7 Bump :45 (Electro Dance)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :05":{"n":"Alt. 8 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :08":{"n":"Alt. 8 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :10":{"n":"Alt. 8 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :15":{"n":"Alt. 8 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :20":{"n":"Alt. 8 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :30":{"n":"Alt. 8 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 8 bump :45 (electro rhythm)":{"n":"Alt. 8 Bump :45  (Electro Rhythm)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :05":{"n":"Alt. 9 Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :08":{"n":"Alt. 9 Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :10":{"n":"Alt. 9 Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :15":{"n":"Alt. 9 Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :20":{"n":"Alt. 9 Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :30":{"n":"Alt. 9 Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"alt. 9 bump :45 (southern rock)":{"n":"Alt. 9 Bump :45  (Southern Rock)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"anthemic dirt":{"n":"Anthemic Dirt","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"anthemic happy pop alt":{"n":"Anthemic Happy Pop Alt","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"anvil rock":{"n":"Anvil Rock","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"apologies":{"n":"Apologies","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"armageddon":{"n":"Armageddon","t":"BKG","c":"POP-009","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"backwoods brawler":{"n":"Backwoods Brawler","t":"BKG","c":"SB-059","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"bails of boogie":{"n":"bails of boogie","t":"BKG","c":"vl83q","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"beast battalion":{"n":"Beast Battalion","t":"BKG","c":"VL-186","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"beaumont":{"n":"Beaumont","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"better not forget":{"n":"Better Not Forget","t":"BKG","c":"SLAM-098","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"billboard":{"n":"Billboard","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"billboard 30 (pop orch)":{"n":"Billboard 30 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"billboard :30":{"n":"Billboard :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"biscuits and jam":{"n":"biscuits and jam","t":"BKG","c":"country006","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"black gasoline":{"n":"Black Gasoline","t":"BKG","c":"KTV-072","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"black out the sun solar":{"n":"Black Out The Sun Solar","t":"BKG","c":"KT-329","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"bobby car race":{"n":"Bobby Car Race","t":"BKG","c":"UBM-2201","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"boog e":{"n":"Boog E","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"boom bap cadilac":{"n":"Boom Bap Cadilac","t":"BKG","c":"HipHop-047","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"boulevard heat":{"n":"Boulevard Heat","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"bouncing off the walls":{"n":"Bouncing off the Walls","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"bring it on":{"n":"Bring It On","t":"BKG","c":"FRONT-105","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"bring the funk - vocal lead":{"n":"Bring The Funk - Vocal Lead","t":"BKG","c":"ATMOS-430","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"bring the pain":{"n":"Bring The Pain","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"bronx 6":{"n":"Bronx 6","t":"BKG","c":"HipHop-048","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"bronx block party":{"n":"Bronx Block Party","t":"BKG","c":"BR-0670","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"bronx playa":{"n":"Bronx Playa","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"build up":{"n":"Build Up","t":"BKG","c":"POP-011","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"bump":{"n":"Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"bump :05":{"n":"Bump :05","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :08":{"n":"Bump :08","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :10":{"n":"Bump :10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :15":{"n":"Bump :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :20":{"n":"Bump :20","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :30":{"n":"Bump :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump :45":{"n":"Bump :45","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"bump alt 1":{"n":"Bump Alt 1","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"bump alt 2":{"n":"Bump Alt 2","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"cabierro":{"n":"Cabierro","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"cali cruiser":{"n":"Cali Cruiser","t":"BKG","c":"POP-009","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"came up on a check instrumental":{"n":"Came Up On A Check Instrumental","t":"BKG","c":"FRONT-108","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"camp lo":{"n":"Camp Lo","t":"BKG","c":"HipHop-048","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"can you feel it?":{"n":"Can You Feel It?","t":"BKG","c":"POP-012","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"can't hold me down - instrumental":{"n":"Can't Hold Me Down - Instrumental","t":"BKG","c":"POP-017","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"carolina":{"n":"Carolina","t":"BKG","c":"GMS-008","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"carolina wind":{"n":"carolina wind","t":"BKG","c":"country006","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"cbb gameday promo":{"n":"CBB Gameday Promo","t":"BKG","c":"ELIAS-007","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"cbb remote promo":{"n":"CBB Remote Promo","t":"BKG","c":"ELIAS-007","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"celebration":{"n":"Celebration","t":"BKG","c":"SS-032","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"chains down":{"n":"Chains Down","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"champion":{"n":"Champion","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"champion parade":{"n":"Champion Parade","t":"BKG","c":"KL-037","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"champions forever":{"n":"Champions Forever","t":"BKG","c":"GAL-146","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"chapter two":{"n":"Chapter Two","t":"BKG","c":"ROCK-090","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"chasing time":{"n":"Chasing Time","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"chilly rivers":{"n":"Chilly Rivers","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"close":{"n":"Close","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"close :30":{"n":"Close :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"close :30 (pop orch)":{"n":"Close :30 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"close :60":{"n":"Close :60","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"close :60 (pop orch)":{"n":"Close :60 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"college football down south instrumental":{"n":"College Football Down South Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"colour of summer - instrumental":{"n":"Colour of Summer - Instrumental","t":"BKG","c":"TRU-144","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"come out fighting":{"n":"Come Out Fighting","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"comeback":{"n":"Comeback","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"country fried disco":{"n":"country fried disco","t":"BKG","c":"vl133","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"country party instrumental":{"n":"Country Party Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"court skills":{"n":"Court Skills","t":"BKG","c":"HIPHOP-056","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"crazy ways":{"n":"Crazy Ways","t":"BKG","c":"BR-0670","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"dance pop":{"n":"Dance Pop","t":"BKG","c":"JP","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"day drinking instrumental":{"n":"Day Drinking Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"delta":{"n":"Delta","t":"BKG","c":"ELECTRONICA-011","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"des moines":{"n":"Des Moines","t":"BKG","c":"ELECTRONICA-004","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"discovered":{"n":"Discovered","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"don’t give up the fight":{"n":"don’t give up the fight","t":"BKG","c":"country008","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"down the stretch instrumental":{"n":"Down The Stretch Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"dreams don't work":{"n":"Dreams Don't Work","t":"BKG","c":"WOM-508","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"driving euphoria":{"n":"Driving Euphoria","t":"BKG","c":"KPM-0967","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"drums better rhyme":{"n":"Drums Better Rhyme","t":"BKG","c":"Drama-039","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"dub rock":{"n":"Dub Rock","t":"BKG","c":"ELECTRONICA-004","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"e.l.":{"n":"e.l.","t":"BKG","c":"country004","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"earn your glory":{"n":"Earn Your Glory","t":"BKG","c":"KOS-0672","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"encore status":{"n":"Encore Status","t":"BKG","c":"Hip Hop-038","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"espn on abc id":{"n":"ESPN on ABC ID","t":"TH","c":"gip-026","s":"**ESPN on ABC Animation**","sp":"Basketball","cat":"Theme"},
+"espnu college basketball":{"n":"ESPNU College Basketball","t":"BKG","c":"ELIAS-007","s":"Promo B","sp":"Basketball","cat":"Theme"},
+"falling so hard":{"n":"falling so hard","t":"BKG","c":"kt236","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"far north austin":{"n":"far north austin","t":"BKG","c":"evo142","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"fat pockets":{"n":"Fat Pockets","t":"BKG","c":"CM-81","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"fine by me":{"n":"Fine By Me","t":"BKG","c":"PCTZ-0004","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"finesse (no vox)":{"n":"Finesse (No Vox)","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"fire & ice":{"n":"Fire & Ice","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"fire and ice":{"n":"Fire And Ice","t":"BKG","c":"Rock-070","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"flat bed cheerleader":{"n":"flat bed cheerleader","t":"BKG","c":"country003","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"fly high, fly beautiful":{"n":"Fly High, Fly Beautiful","t":"BKG","c":"POP-012","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"football: college football playoff":{"n":"Football: College Football Playoff","t":"BKG","c":"Yessian-001","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"football: college football saturday":{"n":"Football: College Football Saturday","t":"BKG","c":"YESSIAN-003","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"football: college football studio":{"n":"Football: College Football Studio","t":"BKG","c":"YESSIAN-002","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"four more rounds":{"n":"Four More Rounds","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"foxes":{"n":"Foxes","t":"BKG","c":"Pop-013","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"from the smoke":{"n":"From The Smoke","t":"BKG","c":"NM-343","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"full length main title":{"n":"Full Length Main Title","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"full on (a)":{"n":"Full On (A)","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"full version":{"n":"Full Version","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+"galvanize":{"n":"Galvanize","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"get in the pocket":{"n":"Get In The Pocket","t":"BKG","c":"POP-016","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"get out the way - vocal lead":{"n":"Get Out The Way - Vocal Lead","t":"BKG","c":"CM-136","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"get to know ya":{"n":"get to know ya","t":"BKG","c":"country006","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"girl you got it":{"n":"Girl You Got It","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"girlz night out - instrumental":{"n":"Girlz Night Out - Instrumental","t":"BKG","c":"MSTR-301","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"go go go":{"n":"Go Go Go","t":"BKG","c":"SXSW-0002","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"goin up":{"n":"Goin Up","t":"BKG","c":"PCTZ-0004","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"golden swagger":{"n":"Golden Swagger","t":"BKG","c":"BR-0566","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"good trouble instrumental":{"n":"Good Trouble Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"goons grinders and goalies":{"n":"Goons Grinders and Goalies","t":"BKG","c":"VL-180","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"got to keep fighting instrumental":{"n":"Got To Keep Fighting Instrumental","t":"BKG","c":"HipHop-053","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"grand isle":{"n":"Grand Isle","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"grind":{"n":"Grind","t":"BKG","c":"ROCK-089","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"groovin 80's":{"n":"Groovin 80's","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"guitar stomp":{"n":"Guitar Stomp","t":"BKG","c":"POP-009","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"guitars and wine":{"n":"guitars and wine","t":"BKG","c":"cm079","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"hammer tucked":{"n":"Hammer Tucked","t":"BKG","c":"COHH-30","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"happy game":{"n":"Happy Game","t":"BKG","c":"KOS-0305","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"heroes calling":{"n":"Heroes Calling","t":"BKG","c":"SCDV-0256","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"hi-lo":{"n":"Hi-Lo","t":"BKG","c":"ROCK-089","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"higher - instrumental":{"n":"Higher - Instrumental","t":"BKG","c":"POP-017","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"higher instrumental":{"n":"Higher Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"hip five":{"n":"Hip Five","t":"BKG","c":"ATMOS-379","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"hip hop bump":{"n":"Hip Hop Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"hip hop hollywood":{"n":"Hip Hop Hollywood","t":"BKG","c":"CBM-0061","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"hip hop sting":{"n":"Hip Hop Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"home turf":{"n":"home turf","t":"BKG","c":"vl133","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"hyperthought":{"n":"Hyperthought","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"i kissed a lie instrumental":{"n":"I Kissed A Lie Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"i'm not coming back instrumental":{"n":"I'm Not Coming Back Instrumental","t":"BKG","c":"MSTR-306","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"i've seen changes":{"n":"I've seen changes","t":"BKG","c":"evo142","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"in lights":{"n":"In Lights","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"indie trousers":{"n":"Indie Trousers","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"ink masters":{"n":"Ink Masters","t":"BKG","c":"KTV-048","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"inspirations":{"n":"Inspirations","t":"BKG","c":"RSM-189","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"instant replay":{"n":"Instant Replay","t":"BKG","c":"ROCK-090","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"island sun":{"n":"Island Sun","t":"BKG","c":"JUST-0156","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"james 001-jp":{"n":"James 001-JP","t":"BKG","c":"JP","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"jubilent meadow":{"n":"Jubilent Meadow","t":"BKG","c":"POP-011","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"just roll with me":{"n":"Just Roll With Me","t":"BKG","c":"POP-013","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"kid 2":{"n":"kid 2","t":"BKG","c":"country004","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"kings queen-jp":{"n":"Kings Queen-JP","t":"BKG","c":"JP","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"laid back southern hip hop bump":{"n":"Laid Back Southern Hip Hop Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"laid back southern hip hop sting":{"n":"Laid Back Southern Hip Hop Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"leave it be":{"n":"Leave It Be","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"legendary hearts":{"n":"Legendary Hearts","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"let's go":{"n":"Let's Go","t":"BKG","c":"WAX-011","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"lift you up":{"n":"Lift You Up","t":"BKG","c":"JM-0186","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"lifted - instrumental":{"n":"Lifted - Instrumental","t":"BKG","c":"POP-017","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"lions and lambs - instrumental":{"n":"Lions and Lambs - Instrumental","t":"BKG","c":"KT-299","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"live my life":{"n":"Live My Life","t":"BKG","c":"ATS-013","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"locker room talk":{"n":"Locker Room Talk","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"long open sequence":{"n":"Long Open Sequence","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"long open sequence (pop orch)":{"n":"Long Open Sequence (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"long open with vamp":{"n":"Long Open with Vamp","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"long open with vamp (pop orch)":{"n":"Long Open with Vamp (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"look out below instrumental":{"n":"Look Out Below Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"main theme tease":{"n":"Main Theme Tease","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"main theme underscore tease":{"n":"Main Theme underscore Tease","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"major quest":{"n":"Major Quest","t":"BKG","c":"CM-103","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"maui baby":{"n":"Maui Baby","t":"BKG","c":"KOS-0235","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"me and you":{"n":"Me And You","t":"BKG","c":"ATS-013","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"mosh pit - instrumental":{"n":"Mosh Pit - Instrumental","t":"BKG","c":"GM-71","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"motor oil":{"n":"Motor Oil","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"mr. dj":{"n":"Mr. DJ","t":"BKG","c":"POP-008","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"nel 1":{"n":"nel 1","t":"BKG","c":"country004","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"never nervous":{"n":"Never Nervous","t":"BKG","c":"HipHop-046","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"new beginnings":{"n":"New Beginnings","t":"BKG","c":"BTV-0181","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"night runner":{"n":"Night Runner","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"oh brother":{"n":"Oh Brother","t":"BKG","c":"KT-329","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"on the grind":{"n":"On The Grind","t":"BKG","c":"OM-166","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"one from the maui":{"n":"One From the Maui","t":"BKG","c":"KOS-0235","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"open":{"n":"Open","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"open bed with long open":{"n":"Open Bed with Long Open","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"open bed with long open (pop orch)":{"n":"Open Bed with Long Open (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"open bed with short open":{"n":"Open Bed with Short Open","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"open bed with short open (pop orch)":{"n":"Open Bed with Short Open (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"open sequence":{"n":"Open Sequence","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"open underscore sequence":{"n":"Open Underscore Sequence","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"open w/ cheer":{"n":"Open w/ Cheer","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"open with vamp":{"n":"Open With Vamp","t":"TH","c":"AMERICAN-001","s":"2020 American on ESPN+ Theme","sp":"Basketball","cat":"Theme"},
+"orbiter":{"n":"Orbiter","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"our night":{"n":"Our Night","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"overtime inst jp":{"n":"Overtime Inst JP","t":"BKG","c":"JP","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"oye":{"n":"Oye","t":"BKG","c":"ELECTRONICA-011","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"party hard":{"n":"Party Hard","t":"BKG","c":"ATS-015","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"pedros garage":{"n":"Pedros Garage","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"pg-13":{"n":"PG-13","t":"BKG","c":"POP-008","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"phoenix from the ashes":{"n":"Phoenix From The Ashes","t":"BKG","c":"MSTR-309","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"pop story - instrumental":{"n":"Pop Story - Instrumental","t":"BKG","c":"GM-193","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"porch":{"n":"porch","t":"BKG","c":"country004","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"port arkansas":{"n":"port arkansas","t":"BKG","c":"evo142","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"power play":{"n":"Power Play","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"promo":{"n":"Promo","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"promo :15":{"n":"Promo :15","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"promo :15 (pop orch)":{"n":"Promo :15 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"promo :30":{"n":"Promo :30","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"promo :30 (pop orch)":{"n":"Promo :30 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"put your hands up":{"n":"Put Your Hands Up","t":"BKG","c":"BR-0670","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"querelle":{"n":"Querelle","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"real in the field":{"n":"Real In The Field","t":"BKG","c":"HipHop-046","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"rejoin w vamp":{"n":"Rejoin w Vamp","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"rewinder":{"n":"Rewinder","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"ride with me":{"n":"Ride With Me","t":"BKG","c":"GM-066","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"rip slip":{"n":"Rip Slip","t":"BKG","c":"HipHop-048","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"rise above instrumental":{"n":"Rise Above Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"rise up instrumental":{"n":"Rise Up Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"risk it all":{"n":"Risk it All","t":"BKG","c":"MSTR-306","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"rock bump":{"n":"Rock Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"rock sting":{"n":"Rock Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"rock the block":{"n":"Rock The Block","t":"BKG","c":"Hip Hop-038","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"rocky road":{"n":"Rocky Road","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"roll da dice":{"n":"Roll Da Dice","t":"BKG","c":"Hip Hop-038","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"ruff tuff boys":{"n":"Ruff Tuff Boys","t":"BKG","c":"KOK-2293","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"run to glory":{"n":"Run to Glory","t":"BKG","c":"FP-4301","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"saturday sunset":{"n":"Saturday Sunset","t":"BKG","c":"PMY-0068","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"savages instrumental":{"n":"Savages Instrumental","t":"BKG","c":"HipHop-053","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"sb blaze 90s":{"n":"SB Blaze 90s","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"sec network: sec event":{"n":"SEC Network: SEC Event","t":"BKG","c":"SEC-013","s":"Promo A","sp":"Basketball","cat":"Theme"},
+"she moves fast":{"n":"she moves fast","t":"BKG","c":"vl96l","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"short open sequence":{"n":"Short Open Sequence","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"short open sequence (pop orch)":{"n":"Short Open Sequence (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"short open with vamp":{"n":"Short Open with Vamp","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"short open with vamp (pop orch)":{"n":"Short Open with Vamp (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"show me the fire - instrumental":{"n":"Show Me The Fire - Instrumental","t":"BKG","c":"MSTR-287","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"shredder":{"n":"Shredder","t":"BKG","c":"Drama-035","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"shrimp po boy":{"n":"shrimp po boy","t":"BKG","c":"evo170","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"sidekick":{"n":"sidekick","t":"BKG","c":"evo170","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"silver factory":{"n":"Silver Factory","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"solid gold":{"n":"Solid Gold","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"somewhere south":{"n":"somewhere south","t":"BKG","c":"country006","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"sounder 1":{"n":"Sounder 1","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 10":{"n":"Sounder 10","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 2":{"n":"Sounder 2","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 3":{"n":"Sounder 3","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 4":{"n":"Sounder 4","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 5":{"n":"Sounder 5","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 6":{"n":"Sounder 6","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 7":{"n":"Sounder 7","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 8":{"n":"Sounder 8","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sounder 9":{"n":"Sounder 9","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"sourthern sensation":{"n":"sourthern sensation","t":"BKG","c":"kt254","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"southern spirit":{"n":"southern spirit","t":"BKG","c":"evo157","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"speed up":{"n":"Speed Up","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"spring starts tonight - instrumental":{"n":"Spring Starts Tonight - Instrumental","t":"BKG","c":"GTP-096","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"stand up, stand out":{"n":"Stand Up, Stand Out","t":"BKG","c":"POP-012","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"stay on the line":{"n":"Stay On The Line","t":"BKG","c":"KOK-2212","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"steel toed attitude":{"n":"steel toed attitude","t":"BKG","c":"vl96l","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"sting":{"n":"Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"sting alt 1":{"n":"Sting Alt 1","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"sting alt 2":{"n":"Sting Alt 2","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"stomp clap bump":{"n":"Stomp Clap Bump","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"stomp clap sting":{"n":"Stomp Clap Sting","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"swamp booty":{"n":"swamp booty","t":"BKG","c":"vl73q","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"tailspin":{"n":"Tailspin","t":"BKG","c":"INSD-0068","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"ten gallon phat":{"n":"ten gallon phat","t":"BKG","c":"vl106","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"tennessee funk":{"n":"Tennessee Funk","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"tha ballers theme full":{"n":"Tha Ballers Theme Full","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"that's a big 10-4":{"n":"that's a big 10-4","t":"BKG","c":"vl106","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"that's a homerun instrumental":{"n":"That's a Homerun Instrumental","t":"BKG","c":"HipHop-053","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"the children of tomorrow":{"n":"the children of tomorrow","t":"BKG","c":"country005","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"the fight is on":{"n":"The Fight Is On","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"the throne instrumental":{"n":"The Throne Instrumental","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"the wrecking":{"n":"The Wrecking","t":"BKG","c":"Drama-035","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"thieves":{"n":"Thieves","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"throne bounce 2 jp":{"n":"Throne Bounce 2 JP","t":"BKG","c":"JP","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"throwdown":{"n":"Throwdown","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"tick tockica":{"n":"Tick Tockica","t":"BKG","c":"Rock-047","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"time to take control - instrumental":{"n":"Time To Take Control - Instrumental","t":"BKG","c":"MSTR-299","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"to the top and back no vocal":{"n":"To The Top And Back No Vocal","t":"BKG","c":"Hip Hop-038","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"to the top and back w vocal":{"n":"To The Top And Back w Vocal","t":"BKG","c":"Hip Hop-038","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"today we shine":{"n":"Today We Shine","t":"BKG","c":"POP-013","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"todayz":{"n":"Todayz","t":"BKG","c":"EDGE-095","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"together again":{"n":"Together Again","t":"BKG","c":"ATS-015","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"tough get going - instrumental":{"n":"Tough Get Going - Instrumental","t":"BKG","c":"DF-26","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"tried and tru full":{"n":"Tried and Tru Full","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"two minute warning (no vox)":{"n":"Two Minute Warning (No Vox)","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"two timer":{"n":"Two Timer","t":"BKG","c":"","s":"2024 CFB Support Package","sp":"Football","cat":"Support"},
+"ultimate triumph":{"n":"Ultimate Triumph","t":"BKG","c":"SFL-1068","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"under the sunset":{"n":"Under the Sunset","t":"BKG","c":"GMS-008","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"unstoppable":{"n":"Unstoppable","t":"BKG","c":"POP-012","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"vamp":{"n":"Vamp","t":"TH","c":"YESSIAN-009","s":"2025 College Football Studio Theme","sp":"Football","cat":"Theme"},
+"vamp :60":{"n":"Vamp :60","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"vamp :60 (pop orch)":{"n":"Vamp :60 (Pop Orch)","t":"TH","c":"ELIAS-007","s":"CBB Studio & Remote Theme","sp":"Basketball","cat":"Theme"},
+"vini vini vana vana":{"n":"Vini Vini Vana Vana","t":"BKG","c":"SAS-0138","s":"Maui, Hawaii Support","sp":"Basketball","cat":"Support"},
+"want it all":{"n":"Want It All","t":"BKG","c":"KT-329","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"war machines":{"n":"War Machines","t":"BKG","c":"VL-152","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"we number one (champ week cut)":{"n":"We Number One (CHAMP WEEK cut)","t":"BKG","c":"FTW-0001","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"we trappin - instrumental":{"n":"We Trappin - Instrumental","t":"BKG","c":"CM-131","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"when the man comes down":{"n":"when the man comes down","t":"BKG","c":"hm101","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"where it all began":{"n":"Where It All Began","t":"BKG","c":"VL-143","s":"CBB Remote Support","sp":"Basketball","cat":"Support"},
+"where it's at":{"n":"where it's at","t":"BKG","c":"evo142","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"wiry fella":{"n":"wiry fella","t":"BKG","c":"vl133","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"without you":{"n":"without you","t":"BKG","c":"country005","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"wolves":{"n":"Wolves","t":"BKG","c":"ROCK-092","s":"2020 NCAA Support Package","sp":"Basketball","cat":"Support"},
+"won't back down":{"n":"won't back down","t":"BKG","c":"kt236","s":"SECN General Support","sp":"Basketball","cat":"Support"},
+"yes we can instrumental":{"n":"Yes We Can Instrumental","t":"BKG","c":"HipHop-053","s":"CBB Remote Support","sp":"Basketball","cat":"Support"}
+};
 
-// ── LIBRARY NAME CLEANER ──────────────────────────────────────────────────
+// ── NAME RESOLUTION ───────────────────────────────────────────────────────
+// CUE_MAP is the ground truth — normalize stored name → look up display name + metadata
+
+function normKey(s){ return s.toLowerCase().replace(/\s+/g,' ').trim(); }
+
 function fixContractions(s) {
-  // Restore apostrophes mangled by title-casing: "Let S Go" → "Let's Go"
-  const sWords=['let','it','that','what','there','here','he','she','they','we','you','who'];
-  const tWords=['don','can','won','isn','aren','wasn','weren','hasn','haven','hadn','wouldn','couldn','shouldn','didn','doesn','ain'];
-  s = s.replace(/\b(\w+) S(?= |\b)/g,(m,w)=>sWords.includes(w.toLowerCase())?w+"'s":m);
-  s = s.replace(/\b(\w+) T(?= |\b)/g,(m,w)=>tWords.includes(w.toLowerCase())?w+"'t":m);
+  const sW=['let','it','that','what','there','here','he','she','they','we','you','who'];
+  const tW=['don','can','won','isn','aren','wasn','weren','hasn','haven','hadn','wouldn','couldn','shouldn','didn','doesn','ain'];
+  s=s.replace(/\b(\w+) S(?= |$)/g,(m,w)=>sW.includes(w.toLowerCase())?w+"'s":m);
+  s=s.replace(/\b(\w+) T(?= |$)/g,(m,w)=>tW.includes(w.toLowerCase())?w+"'t":m);
   return s.replace(/\bI M\b/g,"I'm").replace(/\bI Ve\b/g,"I've").replace(/\bI Ll\b/g,"I'll");
 }
 
-function cleanLibraryName(name) {
-  let s = (name||'').trim();
-  // Pattern 1: "01 LIBRARY CUT## ## Title [Composer] [ISRC]"
-  let m = s.match(/^\d+\s+[A-Z][A-Z\s]{0,25}\s+[A-Z0-9\-]{3,12}\s+\d+\s+(.+)/);
-  if(m){ let t=m[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,''); return fixContractions(t.trim()); }
-  // Pattern 2: "LibraryName CUT### Title" — requires a THIRD part after cut code
-  m = s.match(/^([A-Z][A-Za-z\s]{1,25})\s+([A-Z]{2,5}\d{3,6}(?:-\d+)?)\s+(.+)/);
-  if(m){
-    const title=m[3].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'').trim();
-    if(title) return fixContractions(title);
-  }
-  // Pattern 3: known prefix without cut code
+function stripLibraryPrefix(raw) {
+  let s=(raw||'').trim();
+  // "01 LIBRARY CUT## ## Title [Composer] [ISRC]"
+  let m=s.match(/^\d+\s+[A-Z][A-Z\s]{0,25}\s+[A-Z0-9\-]{3,12}\s+\d+\s+(.+)/);
+  if(m){let t=m[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'');return fixContractions(t.trim());}
+  // "LibraryName CUT### Title"
+  m=s.match(/^([A-Z][A-Za-z\s]{1,25})\s+([A-Z]{2,5}\d{3,6}(?:-\d+)?)\s+(.+)/);
+  if(m){const t=m[3].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'').trim();if(t)return fixContractions(t);}
+  // Known prefixes
   for(const p of ['Scoreboard Sounds','Universal Production Music','Universal Production','APM Music','Firstcom','Network Music']){
-    if(s.match(new RegExp('^'+p,'i'))){ const t=s.slice(p.length).replace(/^[\s_\-:]+/,''); if(t) return fixContractions(t); }
+    if(s.match(new RegExp('^'+p,'i'))){const t=s.slice(p.length).replace(/^[\s_\-:]+/,'');if(t)return fixContractions(t);}
   }
   return fixContractions(s);
 }
 
-function resolveProperName(track){
-  const path=track.path||'', raw=track.name||'';
+// Resolve a track's stored name → {displayName, cueMeta}
+// cueMeta = {thbkg, cut, source} from the cue sheet, or null if not found
+function resolveTrack(track) {
+  const path = track.path||'', raw = track.name||'';
 
-  // 1. Bare 1-3 digit number OR "ELIAS007 016" style sequential
-  const seqM = raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)[\s_](\d{1,3})$/i);
+  // Step 1: sequential ELIAS/YESSIAN or bare number — map by position + path
+  const seqM = raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)\s(\d{1,3})$/i);
   const bareM = !seqM && raw.match(/^0*(\d{1,3})$/);
   const n = seqM ? parseInt(seqM[2],10)-1 : bareM ? parseInt(bareM[1],10)-1 : -1;
 
   if(n >= 0){
-    const isOlympic = path.includes('olympic-sports')||path.includes('diamond-sports');
-    const isCFB     = path.includes('football');
-    const isCBB     = path.includes('basketball');
-    if(isOlympic && path.includes('theme')   && OLYMPIC_THEME_NAMES[n])   return OLYMPIC_THEME_NAMES[n];
-    if(isCFB     && path.includes('theme')   && CFB_THEME_NAMES[n])       return CFB_THEME_NAMES[n];
-    if(isCBB     && path.includes('theme')   && CBB_THEME_NAMES[n])       return CBB_THEME_NAMES[n];
-    if(isOlympic && path.includes('support') && OLYMPIC_SUPPORT_NAMES[n]) return OLYMPIC_SUPPORT_NAMES[n];
-    if(isCFB     && path.includes('support') && CFB_SUPPORT_NAMES[n])     return CFB_SUPPORT_NAMES[n];
-    if(isCBB     && path.includes('support') && CBB_SUPPORT_NAMES[n])     return CBB_SUPPORT_NAMES[n];
+    const isOly=path.includes('olympic-sports')||path.includes('diamond-sports');
+    const isCFB=path.includes('football');
+    const isCBB=path.includes('basketball');
+    const isTheme=path.includes('theme');
+    const isSupport=path.includes('support');
+
+    // Look up in the arrays then cross-ref to CUE_MAP for metadata
+    let resolvedName=null;
+    if(isOly&&isTheme)  resolvedName=OLYMPIC_THEME_NAMES[n];
+    if(isCFB&&isTheme)  resolvedName=CFB_THEME_NAMES[n];
+    if(isCBB&&isTheme)  resolvedName=CBB_THEME_NAMES[n];
+    if(isOly&&isSupport)resolvedName=OLYMPIC_SUPPORT_NAMES[n];
+    if(isCFB&&isSupport)resolvedName=CFB_SUPPORT_NAMES[n];
+    if(isCBB&&isSupport)resolvedName=CBB_SUPPORT_NAMES[n];
+
+    if(resolvedName){
+      const meta=CUE_MAP[normKey(resolvedName)]||null;
+      return {displayName: resolvedName, cueMeta: meta};
+    }
   }
 
-  // 2. UPM library format: "01 UPM KTV72 11 Black Gasoline Instrumental..."
-  const upmM = raw.match(/^\d+\s+UPM\s+\w+\s+\d+\s+(.+)/i);
-  if(upmM){
-    let t = upmM[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'');
-    return fixContractions(t.trim());
-  }
+  // Step 2: UPM format
+  const upmM=raw.match(/^\d+\s+UPM\s+\w+\s+\d+\s+(.+)/i);
+  let candidate = upmM
+    ? fixContractions(upmM[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'').trim())
+    : stripLibraryPrefix(raw);
 
-  return cleanLibraryName(raw);
+  // Step 3: look up candidate in CUE_MAP — if found, use canonical name
+  const meta = CUE_MAP[normKey(candidate)]||null;
+  const displayName = meta ? meta.n : candidate;
+  return {displayName, cueMeta: meta};
 }
 
+// Legacy wrapper used throughout
+function resolveProperName(track){ return resolveTrack(track).displayName; }
+
+// Sequential support name arrays (still needed for position-based resolution)
+const OLYMPIC_SUPPORT_NAMES=["Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Unstoppable","Inspirations"];
+const CFB_SUPPORT_NAMES=["Anvil Rock","Speed Up","Day Drinking Instrumental","Country Party Instrumental","Look Out Below Instrumental","College Football Down South Instrumental","Locker Room Talk","Chilly Rivers","Motor Oil","Chasing Time","Come Out Fighting","Leave It Be","Rewinder","Two Timer","Boog E","Chains Down","Apologies","The Throne Instrumental","Orbiter","Rocky Road","All Stars","Bring The Pain","Full On (A)","Girl You Got It","Hyperthought","Down The Stretch Instrumental","Indie Trousers","Tennessee Funk","I Kissed A Lie Instrumental","Groovin 80's","Tha Ballers Theme Full","Tried and Tru Full","Fire & Ice","Rise Up Instrumental"];
+const CBB_SUPPORT_NAMES=["Fire And Ice","Rock The Block","Encore Status","Tick Tockica","Where It All Began","Throne Bounce 2 JP","Overtime Inst JP","Ruff Tuff Boys","Kings Queen-JP","James 001-JP","Ride With Me","Major Quest","Fat Pockets","Never Nervous","Real In The Field","Boom Bap Cadilac","Bronx 6","Camp Lo","Rip Slip","Alright","Stay On The Line","Oh Brother","Black Out The Sun Solar","Want It All","Drums Better Rhyme","Roll Da Dice","Shredder","The Wrecking","To The Top And Back No Vocal","To The Top And Back w Vocal","Got To Keep Fighting Instrumental","Savages","That's a Homerun","Yes We Can","Foxes","A Billy","Dance Pop","Risk It All Instrumental"];
 // ── AUDIO ─────────────────────────────────────────────────────────────────
 const audioCtx=new(window.AudioContext||window.webkitAudioContext)();
 
@@ -941,7 +1540,7 @@ async function fetchTodaysGames(force=false) {
 function renderGames(games) {
   const list = document.getElementById('game-list');
   if(!games.length) {
-    list.innerHTML = '<div id="game-list-empty">No ESPN games found for today.</div>';
+    list.innerHTML = '<div id="game-list-empty">No games found for today.</div>';
     return;
   }
   list.innerHTML = games.map((g,i) => `
@@ -1083,11 +1682,13 @@ async function loadFromGitHub(){
     const res=await fetch(TRACKS_JSON+'?t='+Date.now());
     if(!res.ok) throw new Error(res.status);
     const manifest=await res.json();
-    const tracks=manifest.tracks.map(t=>({
-      name:resolveProperName(t),url:`${GITHUB_RAW}/${t.path}`,
-      sport:t.sport,category:t.category,plays:0,beenPlayed:false,
+    const tracks=manifest.tracks.map(t=>{ const resolved=resolveTrack(t); return ({
+      name:resolved.displayName,url:`${GITHUB_RAW}/${t.path}`,
+      sport:t.sport,category:t.category,
+      cut:resolved.cueMeta?.c||'',thbkg:resolved.cueMeta?.t||'',source:resolved.cueMeta?.s||'',
+      plays:0,beenPlayed:false,lastPlayed:null,
       buffer:null,element:null,badgeEl:null
-    }));
+    });});
     // Diamond Sports Theme = Olympic Sports Theme (shared files)
     tracks.filter(t=>t.sport==='Olympic Sports'&&t.category==='Theme').forEach(t=>{
       tracks.push({...t,sport:'Diamond Sports',category:'Theme',plays:0,beenPlayed:false,buffer:null,element:null,badgeEl:null});
@@ -1265,14 +1866,23 @@ function renderTracks(){
 
     // Touch play
     let touchStartY=0,touchMoved=false;
-    btn.addEventListener('touchstart',e=>{touchStartY=e.touches[0].clientY;touchMoved=false;},{passive:true});
-    btn.addEventListener('touchmove',e=>{if(Math.abs(e.touches[0].clientY-touchStartY)>10)touchMoved=true;},{passive:true});
-    btn.addEventListener('touchend',e=>{if(!touchMoved){e.preventDefault();handlePress(idx);}},{passive:false});
-    btn.addEventListener('click',e=>{
-      if(e.target.classList.contains('t-fav'))return; // handled separately
-      if(!e.isTrusted||e.pointerType==='touch')return;
-      handlePress(idx);
+    // Universal pointer handler — works on mouse, touch (iOS/Android), and Windows touch screens
+    let ptStartY=0, ptMoved=false, ptId=null;
+    btn.addEventListener('pointerdown',e=>{
+      if(e.target.classList.contains('t-fav')) return;
+      ptStartY=e.clientY; ptMoved=false; ptId=e.pointerId;
+      btn.setPointerCapture(e.pointerId);
     });
+    btn.addEventListener('pointermove',e=>{
+      if(e.pointerId!==ptId) return;
+      if(Math.abs(e.clientY-ptStartY)>12) ptMoved=true;
+    });
+    btn.addEventListener('pointerup',e=>{
+      if(e.pointerId!==ptId) return;
+      ptId=null;
+      if(!ptMoved) handlePress(idx);
+    });
+    btn.addEventListener('pointercancel',()=>{ptId=null;});
 
     // Favorite star
     btn.querySelector('.t-fav').addEventListener('click',e=>{
@@ -1545,7 +2155,7 @@ async function exportIntoTemplates(){
           if(count!==undefined)ws[XLSX.utils.encode_cell({r,c:2})]={t:'n',v:count};
         }
       }
-      XLSX.writeFile(wb,`ESPN_CueSheet_${key}_${new Date().toISOString().slice(0,10)}.xlsx`);
+      XLSX.writeFile(wb,`CueSheet_${key}_${new Date().toISOString().slice(0,10)}.xlsx`);
       await new Promise(r=>setTimeout(r,400));
     }catch(e){showToast('Error: '+e.message);}
   }
@@ -1557,7 +2167,7 @@ function exportSummaryOnly(silent=false){
   const wb=XLSX.utils.book_new();
   const ei=eventInfo;
   const summary=[
-    ['ESPN Audio Tracker — Music Cue Sheet'],
+    ['Audio Tracker — Music Cue Sheet'],
     [`Show: ${ei.show||'—'}   Matchup: ${ei.matchup||'—'}   Date: ${ei.date||'—'}   Network: ${ei.network}`],
     [`Producer: ${ei.producer||'—'}   Duration: ${ei.duration||'—'}`],
     [],
@@ -1576,7 +2186,7 @@ function exportSummaryOnly(silent=false){
   const ws2=XLSX.utils.aoa_to_sheet(log);
   ws2['!cols']=[{wch:14},{wch:8},{wch:48},{wch:18},{wch:18}];
   XLSX.utils.book_append_sheet(wb,ws2,'Playback Log');
-  XLSX.writeFile(wb,`ESPN_AudioTracker_${new Date().toISOString().slice(0,10)}.xlsx`);
+  XLSX.writeFile(wb,`AudioTracker_${new Date().toISOString().slice(0,10)}.xlsx`);
   if(!silent)showToast('Exported!');
 }
 
