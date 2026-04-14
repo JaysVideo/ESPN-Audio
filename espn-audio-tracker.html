@@ -1527,6 +1527,90 @@ const CUE_MAP={
 "float above":{"n":"Float Above","t":"BKG","c":"ROCK-043","s":"Scoreboard Music Rock V.43 Indie Pop","sp":"Diamond Sports","cat":"Support"}
 };
 
+
+// ── SUPPORT TRACK NAME MAPS ───────────────────────────────────────────────
+const OLYMPIC_SUPPORT_NAMES=["Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Unstoppable","Inspirations"];
+const CFB_SUPPORT_NAMES=["Anvil Rock","Speed Up","Day Drinking Instrumental","Country Party Instrumental","Look Out Below Instrumental","College Football Down South Instrumental","Locker Room Talk","Chilly Rivers","Motor Oil","Chasing Time","Come Out Fighting","Leave It Be","Rewinder","Two Timer","Boog E","Chains Down","Apologies","The Throne Instrumental","Orbiter","Rocky Road","All Stars","Bring The Pain","Full On (A)","Girl You Got It","Hyperthought","Down The Stretch Instrumental","Indie Trousers","Tennessee Funk","I Kissed A Lie Instrumental","Groovin 80's","Tha Ballers Theme Full","Tried and Tru Full","Fire & Ice","Rise Up Instrumental"];
+const CBB_SUPPORT_NAMES=["Fire And Ice","Rock The Block","Encore Status","Tick Tockica","Where It All Began","Throne Bounce 2 JP","Overtime Inst JP","Ruff Tuff Boys","Kings Queen-JP","James 001-JP","Ride With Me","Major Quest","Fat Pockets","Never Nervous","Real In The Field","Boom Bap Cadilac","Bronx 6","Camp Lo","Rip Slip","Alright","Stay On The Line","Oh Brother","Black Out The Sun Solar","Want It All","Drums Better Rhyme","Roll Da Dice","Shredder","The Wrecking","To The Top And Back No Vocal","To The Top And Back w Vocal","Got To Keep Fighting Instrumental","Savages","That's a Homerun","Yes We Can","Foxes","A Billy","Dance Pop","Risk It All Instrumental"];
+
+// ── NAME RESOLUTION ────────────────────────────────────────────────────────
+function normKey(s){ return (s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
+
+function fixContractions(s) {
+  const sW=['let','it','that','what','there','here','he','she','they','we','you','who'];
+  const tW=['don','can','won','isn','aren','wasn','weren','hasn','haven','hadn','wouldn','couldn','shouldn','didn','doesn','ain'];
+  s=s.replace(/(\w+) S(?= |$)/g,(m,w)=>sW.includes(w.toLowerCase())?w+"'s":m);
+  s=s.replace(/(\w+) T(?= |$)/g,(m,w)=>tW.includes(w.toLowerCase())?w+"'t":m);
+  return s.replace(/I M/g,"I'm").replace(/I Ve/g,"I've").replace(/I Ll/g,"I'll");
+}
+
+function stripLibraryPrefix(raw) {
+  let s=(raw||'').trim();
+  // Pattern 0 (highest priority): "Library Collection CutCode NNN Track Name"
+  const m0=s.match(/(?:[\w.\-]+)\s+(\d{2,4})\s+(.+)$/);
+  if(m0){const c=m0[2].trim();if(c.length>1&&!/^[A-Z]{2,6}\d/.test(c))return fixContractions(c);}
+  // Pattern 1: "01 LIBRARY CUT## ## Title"
+  let m=s.match(/^\d+\s+[A-Z][A-Z\s]{0,25}\s+[A-Z0-9\-]{3,12}\s+\d+\s+(.+)/);
+  if(m){let t=m[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'');return fixContractions(t.trim());}
+  // Pattern 2: "LibraryName CUT### Title"
+  m=s.match(/^([A-Z][A-Za-z\s]{1,25})\s+([A-Z]{2,5}\d{3,6}(?:-\d+)?)\s+(.+)/);
+  if(m){const t=m[3].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'').trim();if(t)return fixContractions(t);}
+  // Pattern 3: known library prefixes
+  for(const p of ['Scoreboard Sounds','Universal Production Music','Universal Production','APM Music','Firstcom','Network Music']){
+    if(s.match(new RegExp('^'+p,'i'))){const t=s.slice(p.length).replace(/^[\s_\-:]+/,'');if(t)return fixContractions(t);}
+  }
+  return fixContractions(s.replace(/\s*-jp\s*$/i,'').trim());
+}
+
+function resolveTrack(track) {
+  const path=track.path||'', raw=track.name||'';
+  // Step 1: sequential ELIAS/YESSIAN number or bare number
+  const seqM=raw.match(/^([A-Z][A-Za-z0-9]+[-]?[A-Z0-9]*)\s(\d{1,3})$/i);
+  const bareM=!seqM&&raw.match(/^0*(\d{1,3})$/);
+  const n=seqM?parseInt(seqM[2],10)-1:bareM?parseInt(bareM[1],10)-1:-1;
+  if(n>=0){
+    const isOly=path.includes('olympic-sports')||path.includes('diamond-sports');
+    const isCFB=path.includes('football');
+    const isCBB=path.includes('basketball');
+    const isTheme=path.includes('theme');
+    const isSupport=path.includes('support');
+    let resolvedName=null;
+    if(isOly&&isTheme)  resolvedName=OLYMPIC_THEME_NAMES[n];
+    if(isCFB&&isTheme)  resolvedName=CFB_THEME_NAMES[n];
+    if(isCBB&&isTheme)  resolvedName=CBB_THEME_NAMES[n];
+    if(isOly&&isSupport)resolvedName=OLYMPIC_SUPPORT_NAMES[n];
+    if(isCFB&&isSupport)resolvedName=CFB_SUPPORT_NAMES[n];
+    if(isCBB&&isSupport)resolvedName=CBB_SUPPORT_NAMES[n];
+    if(resolvedName){
+      const meta=CUE_MAP[normKey(resolvedName)]||null;
+      return {displayName:resolvedName,cueMeta:meta};
+    }
+  }
+  // Step 2: UPM format
+  const upmM=raw.match(/^\d+\s+UPM\s+\w+\s+\d+\s+(.+)/i);
+  let candidate=upmM
+    ?fixContractions(upmM[1].replace(/\s+\d{6,}\s*$/,'').replace(/\s+instrumental.*$/i,'').trim())
+    :stripLibraryPrefix(raw);
+  const meta=CUE_MAP[normKey(candidate)]||null;
+  return {displayName:meta?meta.n:candidate,cueMeta:meta};
+}
+
+function resolveProperName(track){ return resolveTrack(track).displayName; }
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────
+const audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let allTracks=[],currentIdx=null,currentSrc=null,gainNode=null,playStart=null;
+let timerInt=null,isFading=false,thresholdHit=false;
+let playLog=[],activeSport=SPORTS[0],activeCat=CATS[0],activeDiamondCat='Theme';
+let lastPlayedInterval=null;
+let appMode='prod',templateFiles={};
+let favorites=new Set();
+let eventInfo={show:'',sport:'',matchup:'',date:'',network:'ESPN',producer:'',duration:'',gender:'',denoting:'College',email:'',phone:'',ad:'',packager:''};
+let gamesCache=null,gamesCacheDate=null;
+let activeCSSheet=null,activeCSKey=null;
+
 // ── DOM ───────────────────────────────────────────────────────────────────
 const mainEl=document.getElementById('main');
 const trackGrid=document.getElementById('track-grid');
