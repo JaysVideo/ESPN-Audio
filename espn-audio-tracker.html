@@ -399,6 +399,41 @@ body.light .cs-thbkg.th{background:#ffe8e8;color:#cc0000;}
 .cs-td-dur,.cs-td-cut,.cs-td-source{font-size:10px;color:var(--muted);}
 .cs-empty-sheet{padding:30px;text-align:center;color:var(--muted);font-size:12px;}
 
+
+/* ── SAVE/LOAD SHOW MODAL ── */
+#show-modal{display:none;position:fixed;inset:0;background:var(--modal-bg);z-index:600;align-items:center;justify-content:center;padding:16px;}
+#show-modal.open{display:flex;}
+#show-card{background:var(--panel);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:8px;width:100%;max-width:480px;overflow:hidden;}
+#show-card-header{background:var(--surface);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);}
+#show-card-title{font-family:'Montserrat Alternates',sans-serif;font-size:16px;letter-spacing:2px;font-weight:800;color:var(--text);}
+#show-close{font-size:18px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;padding:4px 8px;}
+#show-close:hover{color:var(--red);}
+#show-card-body{padding:20px;}
+.show-section{margin-bottom:20px;}
+.show-section-title{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.show-filename-wrap{display:flex;gap:8px;align-items:center;}
+#show-filename{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;flex:1;padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:4px;color:var(--text);outline:none;}
+#show-filename:focus{border-color:var(--red);}
+body.light #show-filename{background:#fff;}
+.show-action-btn{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;padding:8px 16px;border-radius:4px;cursor:pointer;text-transform:uppercase;border:none;white-space:nowrap;}
+#show-save-confirm{background:var(--red);color:#fff;}
+#show-save-confirm:hover{background:var(--dark-red);}
+.show-divider{border:none;border-top:1px solid var(--border);margin:0 0 20px;}
+#show-file-input{display:none;}
+.show-drop-zone{border:2px dashed var(--border);border-radius:6px;padding:24px;text-align:center;cursor:pointer;transition:border-color .15s;}
+.show-drop-zone:hover,.show-drop-zone.drag-over{border-color:var(--red);}
+.show-drop-icon{font-size:28px;margin-bottom:8px;}
+.show-drop-title{font-size:12px;font-weight:600;color:var(--text);margin-bottom:4px;}
+.show-drop-sub{font-size:10px;color:var(--muted);}
+.show-recent-list{display:flex;flex-direction:column;gap:6px;max-height:140px;overflow-y:auto;}
+.show-recent-item{display:flex;align-items:center;gap:10px;padding:8px 10px;background:var(--surface);border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .15s;}
+.show-recent-item:hover{border-color:var(--red);}
+.show-recent-name{font-size:11px;font-weight:600;color:var(--text);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.show-recent-meta{font-size:9px;color:var(--muted);text-align:right;flex-shrink:0;}
+.show-recent-del{font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;padding:2px 4px;line-height:1;}
+.show-recent-del:hover{color:var(--red);}
+.show-no-recent{font-size:11px;color:var(--muted);text-align:center;padding:12px;}
+
 /* ── HELP MODAL ── */
 #help-modal{display:none;position:fixed;inset:0;background:var(--modal-bg);z-index:600;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
 #help-modal.open{display:flex;}
@@ -470,6 +505,8 @@ body.light .help-tip{background:#f5f5f5;}
     <button class="hbtn" id="template-btn" style="display:none">📄 Templates</button>
     <button class="hbtn" id="cuesheet-btn">📑 Cue Sheet</button>
     <button class="hbtn" id="export-btn" style="display:none">⬇ Export</button>
+    <button class="hbtn" id="save-btn" style="display:none" title="Save show state, play counts &amp; event info">💾 Save</button>
+    <button class="hbtn" id="load-btn-show" title="Load a previously saved show">📂 Load Show</button>
   </div>
 </div>
 <div id="mode-banner" class="prod" id="mode-banner">
@@ -648,6 +685,48 @@ body.light .help-tip{background:#f5f5f5;}
     <div id="cs-info-block"></div>
     <div id="cs-table-wrap">
       <div class="cs-empty-sheet">Load tracks to see the live cue sheet.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SAVE/LOAD SHOW MODAL -->
+<div id="show-modal">
+  <div id="show-card">
+    <div id="show-card-header">
+      <div id="show-card-title">💾 Show File</div>
+      <button id="show-close">✕</button>
+    </div>
+    <div id="show-card-body">
+
+      <!-- SAVE section -->
+      <div class="show-section">
+        <div class="show-section-title">Save Current Show</div>
+        <div class="show-filename-wrap">
+          <input type="text" id="show-filename" placeholder="e.g. Nebraska vs Colorado 04-14" spellcheck="false">
+          <button class="show-action-btn" id="show-save-confirm">💾 Save</button>
+        </div>
+      </div>
+
+      <hr class="show-divider">
+
+      <!-- LOAD section -->
+      <div class="show-section">
+        <div class="show-section-title">Load Show</div>
+        <input type="file" id="show-file-input" accept=".audioshow,.json">
+        <div class="show-drop-zone" id="show-drop-zone">
+          <div class="show-drop-icon">📂</div>
+          <div class="show-drop-title">Drop a .audioshow file here</div>
+          <div class="show-drop-sub">or click to browse</div>
+        </div>
+      </div>
+
+      <!-- RECENT section -->
+      <div class="show-section" id="show-recent-section">
+        <div class="show-section-title">Recent Shows</div>
+        <div class="show-recent-list" id="show-recent-list"></div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1837,6 +1916,7 @@ function setMode(m){
   npDot.classList.toggle('aud',m==='aud');
   npSub.classList.toggle('aud',m==='aud');
   showToast(m==='prod'?'🔴 Production Mode':'◎ Audition Mode');
+  pushStateToWS?.();
 }
 
 // ── EVENT INFO MODAL ──────────────────────────────────────────────────────
@@ -2186,8 +2266,20 @@ function initTracks(tracks){
   mainEl.classList.add('vis');
   exportBtn.style.display='inline-block';
   templateBtn.style.display='inline-block';
+  document.getElementById('save-btn').style.display='inline-block';
   activeSport=SPORTS[0]; activeCat='Theme';
   buildSportTabs(); buildCatTabs(); renderTracks(); refreshLog();
+  // Apply any pending show stats loaded before tracks were ready
+  if(window._pendingShowStats){
+    window._pendingShowStats.forEach(saved => {
+      if(!saved.plays) return;
+      const t = allTracks.find(x => x.name===saved.name && x.sport===saved.sport && x.category===saved.category);
+      if(t){ t.plays=saved.plays; t.lastPlayed=saved.lastPlayed; }
+    });
+    window._pendingShowStats = null;
+    renderTracks();
+  }
+  pushStateToWS?.();
 }
 
 // ── TABS ──────────────────────────────────────────────────────────────────
@@ -2510,6 +2602,7 @@ function commitPlay(idx){
   } else {
     if(!t.beenPlayed){t.beenPlayed=true;updateBadge(idx);logAction('AUD',t);resetBtn.style.display='inline-block';}
   }
+  pushStateToWS?.();
 }
 
 function startTimer(idx){
@@ -2828,6 +2921,360 @@ function getVisibleTracks(){
 let toastTimer;
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800);}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+
+// ── SAVE / LOAD SHOW ──────────────────────────────────────────────────────
+const showModal     = document.getElementById('show-modal');
+const showClose     = document.getElementById('show-close');
+const showFilename  = document.getElementById('show-filename');
+const showSaveBtn   = document.getElementById('show-save-confirm');
+const showDropZone  = document.getElementById('show-drop-zone');
+const showFileInput = document.getElementById('show-file-input');
+const showRecentList= document.getElementById('show-recent-list');
+const RECENT_KEY    = 'espn-recent-shows';
+const MAX_RECENT    = 8;
+
+document.getElementById('save-btn').onclick      = openShowModal;
+document.getElementById('load-btn-show').onclick = openShowModal;
+showClose.onclick = () => showModal.classList.remove('open');
+showModal.onclick = e => { if(e.target===showModal) showModal.classList.remove('open'); };
+
+function openShowModal() {
+  // Pre-fill filename from event info
+  const matchup = eventInfo.matchup || eventInfo.show || '';
+  const date = eventInfo.date ? ' ' + eventInfo.date : '';
+  showFilename.value = matchup ? (matchup + date).replace(/[\/:*?"<>|]/g,'').trim() : '';
+  renderRecentShows();
+  showModal.classList.add('open');
+  setTimeout(() => showFilename.focus(), 100);
+}
+
+// ── SAVE ──────────────────────────────────────────────────────────────────
+showSaveBtn.onclick = doSave;
+showFilename.addEventListener('keydown', e => { if(e.key==='Enter') doSave(); });
+
+function buildShowData() {
+  return {
+    version: 2,
+    savedAt: new Date().toISOString(),
+    appVersion: '1.0',
+    eventInfo: {...eventInfo},
+    mode: appMode,
+    activeSport,
+    activeCat,
+    favorites: [...favorites],
+    playLog: playLog.slice(-500), // last 500 entries max
+    trackStats: allTracks.map(t => ({
+      name: t.name,
+      sport: t.sport,
+      category: t.category,
+      plays: t.plays,
+      lastPlayed: t.lastPlayed || null,
+    })),
+  };
+}
+
+function doSave() {
+  const name = showFilename.value.trim() || 'show-' + new Date().toISOString().slice(0,10);
+  const data = buildShowData();
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], {type: 'application/json'});
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), {
+    href: url, download: name + '.audioshow'
+  });
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  // Save to recent list
+  addToRecent({name, savedAt: data.savedAt, sport: eventInfo.sport || activeSport,
+    trackCount: allTracks.length, playCount: playLog.length});
+
+  showModal.classList.remove('open');
+  showToast('💾 Show saved: ' + name + '.audioshow');
+}
+
+// ── LOAD ──────────────────────────────────────────────────────────────────
+showDropZone.onclick = () => showFileInput.click();
+showDropZone.addEventListener('dragover', e => {
+  e.preventDefault(); showDropZone.classList.add('drag-over');
+});
+showDropZone.addEventListener('dragleave', () => showDropZone.classList.remove('drag-over'));
+showDropZone.addEventListener('drop', e => {
+  e.preventDefault(); showDropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if(file) readShowFile(file);
+});
+showFileInput.onchange = e => { if(e.target.files[0]) readShowFile(e.target.files[0]); };
+
+function readShowFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      applyShowData(JSON.parse(e.target.result), file.name);
+    } catch(err) {
+      showToast('❌ Invalid show file');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function applyShowData(data, filename) {
+  if(!data || !data.version) { showToast('❌ Invalid show file'); return; }
+
+  // Restore event info
+  if(data.eventInfo) {
+    Object.assign(eventInfo, data.eventInfo);
+    const ei = eventInfo;
+    const hasInfo = ei.show || ei.matchup;
+    const btn = document.getElementById('event-btn');
+    if(btn) {
+      btn.className = 'hbtn' + (hasInfo ? ' has-event' : '');
+      btn.textContent = hasInfo ? ('📋 ' + (ei.matchup||ei.show)) : '📋 Event Info';
+    }
+  }
+
+  // Restore mode
+  if(data.mode) setMode(data.mode);
+
+  // Restore play counts onto allTracks
+  if(data.trackStats && allTracks.length > 0) {
+    data.trackStats.forEach(saved => {
+      if(!saved.plays) return;
+      const t = allTracks.find(x =>
+        x.name === saved.name &&
+        x.sport === saved.sport &&
+        x.category === saved.category
+      );
+      if(t) {
+        t.plays = saved.plays;
+        t.lastPlayed = saved.lastPlayed;
+        if(t.badgeEl) updateBadge(allTracks.indexOf(t));
+      }
+    });
+  } else if(data.trackStats && allTracks.length === 0) {
+    // Tracks not loaded yet — store pending stats to apply after load
+    window._pendingShowStats = data.trackStats;
+  }
+
+  // Restore play log (append without duplicating)
+  if(data.playLog && data.playLog.length) {
+    const existingIds = new Set(playLog.map(e => e.t + e.n));
+    data.playLog.forEach(entry => {
+      if(!existingIds.has(entry.t + entry.n)) playLog.push(entry);
+    });
+    refreshLog();
+  }
+
+  // Restore favorites
+  if(data.favorites) {
+    favorites.clear();
+    data.favorites.forEach(i => favorites.add(i));
+    renderSetlist();
+  }
+
+  // Add to recent
+  const name = (filename||'').replace(/\.audioshow$/i,'').replace(/\.json$/i,'');
+  addToRecent({
+    name: name || data.eventInfo?.matchup || 'Untitled',
+    savedAt: data.savedAt,
+    sport: data.eventInfo?.sport || '',
+    trackCount: data.trackStats?.length || 0,
+    playCount: data.playLog?.length || 0,
+    rawData: data,
+  });
+
+  renderTracks();
+  if(document.getElementById('cs-modal')?.classList.contains('open')) {
+    renderCSInfoBlock?.(); renderCSTable?.();
+  }
+
+  showModal.classList.remove('open');
+  showToast('📂 Show loaded' + (name ? ': ' + name : ''));
+}
+
+// ── RECENT SHOWS (localStorage) ───────────────────────────────────────────
+function getRecent() {
+  try { return JSON.parse(localStorage.getItem(RECENT_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+function saveRecent(list) {
+  try { localStorage.setItem(RECENT_KEY, JSON.stringify(list.slice(0, MAX_RECENT))); }
+  catch(e) {}
+}
+function addToRecent(item) {
+  const list = getRecent().filter(r => r.name !== item.name);
+  list.unshift(item);
+  saveRecent(list);
+}
+
+function renderRecentShows() {
+  const list = getRecent();
+  const el = showRecentList;
+  const section = document.getElementById('show-recent-section');
+  if(!list.length) {
+    el.innerHTML = '<div class="show-no-recent">No recent shows</div>';
+    return;
+  }
+  el.innerHTML = list.map((r, i) => {
+    const when = r.savedAt ? new Date(r.savedAt).toLocaleDateString('en-US',
+      {month:'short', day:'numeric', year:'numeric'}) : '';
+    const meta = [r.sport, when].filter(Boolean).join(' · ');
+    return `<div class="show-recent-item" data-idx="${i}">
+      <div style="flex:1;min-width:0;">
+        <div class="show-recent-name">${esc(r.name)}</div>
+        <div class="show-recent-meta">${esc(meta)}</div>
+      </div>
+      ${r.rawData ? '<button class="show-action-btn" style="font-size:9px;padding:4px 10px;background:var(--red);color:#fff;border:none;border-radius:3px;" data-restore="'+i+'">Load</button>' : ''}
+      <button class="show-recent-del" data-del="${i}" title="Remove">✕</button>
+    </div>`;
+  }).join('');
+
+  el.querySelectorAll('[data-restore]').forEach(btn => {
+    btn.onclick = e => {
+      e.stopPropagation();
+      const item = list[+btn.dataset.restore];
+      if(item?.rawData) applyShowData(item.rawData, item.name);
+    };
+  });
+  el.querySelectorAll('[data-del]').forEach(btn => {
+    btn.onclick = e => {
+      e.stopPropagation();
+      const updated = getRecent();
+      updated.splice(+btn.dataset.del, 1);
+      saveRecent(updated);
+      renderRecentShows();
+    };
+  });
+}
+
+// Apply pending track stats after tracks load
+const _origInitTracks = initTracks;
+// (handled inline in initTracks below via _pendingShowStats check)
+
+// ── WEBSOCKET API (Stream Deck / Bitfocus Companion) ──────────────────────
+// Exposes a WebSocket server proxy via a lightweight relay approach.
+// Since browsers can't host a WS server, we use a small relay page technique:
+// The tracker CONNECTS to a local relay (if available) rather than hosting one.
+// 
+// For full Stream Deck support, run the companion relay:
+//   npx espn-audio-relay   (installs a tiny Node.js WebSocket relay)
+//
+// Without the relay, keyboard shortcuts handle all playback control.
+// The wsState object is always kept current for any future integration.
+
+const WS_RELAY_URL = 'ws://localhost:8765';
+let wsRelaySocket = null;
+let wsRelayConnected = false;
+let wsReconnectTimer = null;
+
+const wsState = {
+  playing: false,
+  trackName: '',
+  trackIdx: null,
+  sport: '',
+  category: '',
+  mode: 'prod',
+  playCount: 0,
+  totalTracks: 0,
+  favorites: [],
+};
+
+function wsConnect() {
+  try {
+    wsRelaySocket = new WebSocket(WS_RELAY_URL);
+    wsRelaySocket.onopen = () => {
+      wsRelayConnected = true;
+      updateWSIndicator(true);
+      wsPush(); // send current state on connect
+      console.log('[WS] Connected to relay on', WS_RELAY_URL);
+    };
+    wsRelaySocket.onmessage = (e) => {
+      try {
+        const msg = JSON.parse(e.data);
+        handleWSCommand(msg);
+      } catch(err) {}
+    };
+    wsRelaySocket.onclose = () => {
+      wsRelayConnected = false;
+      updateWSIndicator(false);
+      // Retry every 5 seconds
+      clearTimeout(wsReconnectTimer);
+      wsReconnectTimer = setTimeout(wsConnect, 5000);
+    };
+    wsRelaySocket.onerror = () => {
+      wsRelaySocket.close();
+    };
+  } catch(e) {}
+}
+
+function handleWSCommand(msg) {
+  if(!msg?.cmd) return;
+  switch(msg.cmd) {
+    case 'play':
+      if(msg.idx != null && allTracks[msg.idx]) handlePress(msg.idx);
+      break;
+    case 'fade':    fadeOut?.();  break;
+    case 'next':    document.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowRight',bubbles:true})); break;
+    case 'prev':    document.dispatchEvent(new KeyboardEvent('keydown',{key:'ArrowLeft',bubbles:true})); break;
+    case 'stop':    stopAll?.(true); break;
+    case 'mode':    if(msg.mode) setMode(msg.mode); break;
+    case 'sport':   { const b = document.querySelector(`.sport-tab[data-s="${msg.sport}"]`); if(b) b.click(); } break;
+    case 'cat':     { const b = document.querySelector(`.cat-tab[data-c="${msg.cat}"]`); if(b) b.click(); } break;
+    case 'save':    doSave(); break;
+    case 'get-state': wsPush(); break;
+  }
+}
+
+function wsPush() {
+  if(!wsRelayConnected || !wsRelaySocket) return;
+  // Build visible track list for Stream Deck button labeling
+  const visibleTracks = getVisibleTracks?.() || [];
+  const msg = JSON.stringify({
+    event: 'state',
+    ...wsState,
+    visibleTracks: visibleTracks.slice(0,32).map((t,i) => ({
+      idx: allTracks.indexOf(t),
+      name: t.name,
+      plays: t.plays,
+      isPlaying: allTracks.indexOf(t) === currentIdx,
+    })),
+  });
+  try { wsRelaySocket.send(msg); } catch(e) {}
+}
+
+function updateWSIndicator(connected) {
+  // Show a subtle WS status indicator in the header
+  let ind = document.getElementById('ws-indicator');
+  if(!ind) {
+    ind = document.createElement('div');
+    ind.id = 'ws-indicator';
+    ind.style.cssText = 'font-size:8px;font-weight:700;letter-spacing:1px;padding:3px 7px;border-radius:3px;text-transform:uppercase;font-family:Montserrat,sans-serif;flex-shrink:0;';
+    const header = document.querySelector('.header-right');
+    if(header) header.insertBefore(ind, header.firstChild);
+  }
+  ind.textContent = connected ? '⬤ SD' : '○ SD';
+  ind.style.color = connected ? '#44ff88' : '#555';
+  ind.title = connected ? 'Stream Deck connected' : 'Stream Deck: not connected (relay not running)';
+}
+
+function pushStateToWS() {
+  wsState.playing = currentIdx !== null;
+  wsState.trackName = currentIdx !== null ? (allTracks[currentIdx]?.name || '') : '';
+  wsState.trackIdx = currentIdx;
+  wsState.sport = activeSport;
+  wsState.category = activeCat;
+  wsState.mode = appMode;
+  wsState.playCount = playLog.length;
+  wsState.totalTracks = allTracks.length;
+  wsState.favorites = [...favorites];
+  wsPush();
+}
+
+// Start WS connection attempt (silently fails if relay not running)
+setTimeout(wsConnect, 1500);
 
 buildSportTabs();buildCatTabs();
 </script>
