@@ -1485,19 +1485,20 @@ function resolveTrack(track) {
 
 function resolveProperName(track){ return resolveTrack(track).displayName; }
 
+
 // ── AUDIO ─────────────────────────────────────────────────────────────────
-const audioCtx=new(window.AudioContext||window.webkitAudioContext)();
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 // ── STATE ─────────────────────────────────────────────────────────────────
-let allTracks=[],currentIdx=null,currentSrc=null,gainNode=null,playStart=null;
-let timerInt=null,isFading=false,thresholdHit=false;
-let playLog=[],activeSport=SPORTS[0],activeCat=CATS[0],activeDiamondCat='Theme';
-let lastPlayedInterval=null;
-let appMode='prod',templateFiles={};
-let favorites=new Set();
-let eventInfo={show:'',sport:'',matchup:'',date:'',network:'ESPN',producer:'',duration:'',gender:'',denoting:'College',email:'',phone:'',ad:'',packager:''};
-let gamesCache=null,gamesCacheDate=null;
-let activeCSSheet=null,activeCSKey=null;
+let allTracks = [], currentIdx = null, currentSrc = null, gainNode = null, playStart = null;
+let timerInt = null, isFading = false, thresholdHit = false;
+let playLog = [], activeSport = SPORTS[0], activeCat = CATS[0], activeDiamondCat = 'Theme';
+let lastPlayedInterval = null;
+let appMode = 'prod', templateFiles = {};
+let favorites = new Set();
+let eventInfo = {show:'',sport:'',matchup:'',date:'',network:'ESPN+',producer:'',
+  duration:'',gender:'',denoting:'College',email:'',phone:'',ad:'',packager:''};
+
 
 // ── DOM ───────────────────────────────────────────────────────────────────
 const mainEl=document.getElementById('main');
