@@ -182,6 +182,29 @@ body.light .local-drop-zone{background:#fafafa;}
 .local-drop-btn:hover{opacity:.85;}
 
 /* ── TRACK BUTTON ── */
+/* ── TRACK SECTION HEADERS ── */
+.track-section-header{
+  grid-column:1/-1;
+  display:flex;align-items:center;gap:8px;
+  padding:8px 2px 4px;
+  margin-top:4px;
+  border-bottom:2px solid var(--border);
+}
+.track-section-header:first-child{margin-top:0;padding-top:2px;}
+.track-section-label{
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;font-weight:800;letter-spacing:2px;
+  text-transform:uppercase;color:var(--red);
+  flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.track-section-count{
+  font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;
+  color:var(--muted);background:var(--surface);
+  border:1px solid var(--border);border-radius:10px;padding:1px 7px;flex-shrink:0;
+}
+body.light .track-section-label{color:var(--red);}
+
+
 .track-btn{
   background:var(--panel);border:1px solid var(--border);border-radius:6px;
   padding:12px 10px 10px;cursor:pointer;text-align:left;
@@ -1417,9 +1440,9 @@ const CUE_MAP={
 
 
 // ── SUPPORT TRACK NAME MAPS ───────────────────────────────────────────────
-const OLYMPIC_SUPPORT_NAMES=["Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Black Gasoline","From The Smoke","Backwoods Brawler","Better Not Forget","Let's Go","Wolves","Beaumont","Chapter Two","Grand Isle","In Lights","Instant Replay","Pedros Garage","Querelle","Thieves","Champion Parade","Ink Masters","Build Up","Can't Hold Me Down - Instrumental","Fly High, Fly Beautiful","Get In The Pocket","Jubilent Meadow","Lifted","Stand Up, Stand Out","Todayz","Girlz Night Out","Higher","Just Roll With Me","Live My Life","Me And You","Party Hard","Together Again","Phoenix From The Ashes","Unstoppable","Inspirations"];
-const CFB_SUPPORT_NAMES=["Anvil Rock","Speed Up","Day Drinking Instrumental","Country Party Instrumental","Look Out Below Instrumental","College Football Down South Instrumental","Locker Room Talk","Chilly Rivers","Motor Oil","Chasing Time","Come Out Fighting","Leave It Be","Rewinder","Two Timer","Boog E","Chains Down","Apologies","The Throne Instrumental","Orbiter","Rocky Road","All Stars","Bring The Pain","Full On (A)","Girl You Got It","Hyperthought","Down The Stretch Instrumental","Indie Trousers","Tennessee Funk","I Kissed A Lie Instrumental","Groovin 80's","Tha Ballers Theme Full","Tried and Tru Full","Fire & Ice","Rise Up Instrumental"];
-const CBB_SUPPORT_NAMES=["Fire And Ice","Rock The Block","Encore Status","Tick Tockica","Where It All Began","Throne Bounce 2 JP","Overtime Inst JP","Ruff Tuff Boys","Kings Queen-JP","James 001-JP","Ride With Me","Major Quest","Fat Pockets","Never Nervous","Real In The Field","Boom Bap Cadilac","Bronx 6","Camp Lo","Rip Slip","Alright","Stay On The Line","Oh Brother","Black Out The Sun Solar","Want It All","Drums Better Rhyme","Roll Da Dice","Shredder","The Wrecking","To The Top And Back No Vocal","To The Top And Back w Vocal","Got To Keep Fighting Instrumental","Savages","That's a Homerun","Yes We Can","Foxes","A Billy","Dance Pop","Risk It All Instrumental"];
+const OLYMPIC_SUPPORT_NAMES=["Black Gasoline", "From The Smoke", "Backwoods Brawler", "Better Not Forget", "Let's Go", "Wolves", "Beaumont", "Chapter Two", "Grand Isle", "In Lights", "Instant Replay", "Pedros Garage", "Querelle", "Thieves", "Champion Parade", "Ink Masters", "Build Up", "Can't Hold Me Down - Instrumental", "Fly High, Fly Beautiful", "Get In The Pocket", "Jubilent Meadow", "Lifted - Instrumental", "Stand Up, Stand Out", "Todayz", "Girlz Night Out - Instrumental", "Higher - Instrumental", "Just Roll With Me", "Live My Life", "Me And You", "Party Hard", "Together Again", "Phoenix From The Ashes", "War Machines", "Goons Grinders and Goalies", "Beast Battalion", "4 125", "Des Moines", "Dub Rock", "Tough Get Going - Instrumental", "Time To Take Control - Instrumental", "A Hero Will Rise - Instrumental", "On The Grind", "Heroes Calling", "Run to Glory", "Ultimate Triumph", "Celebration", "Champions Forever", "Show Me The Fire - Instrumental", "Mosh Pit - Instrumental", "Grind", "Hi-Lo", "Driving Euphoria", "Tailspin", "We Trappin - Instrumental", "Spring Starts Tonight - Instrumental", "Lions and Lambs - Instrumental", "Armageddon", "Cali Cruiser", "Guitar Stomp", "Colour of Summer - Instrumental", "Mr. DJ", "Oye", "PG-13", "Today We Shine", "Delta", "Pop Story - Instrumental", "A Rush Of Colours", "New Beginnings", "Saturday Sunset", "Can You Feel It?", "Unstoppable", "Inspirations"];
+const CFB_SUPPORT_NAMES=["Anvil Rock", "Speed Up", "Day Drinking Instrumental", "Country Party Instrumental", "Look Out Below Instrumental", "College Football Down South Instrumental", "Locker Room Talk", "Chilly Rivers", "Motor Oil", "Chasing Time", "Come Out Fighting", "Leave It Be", "Rewinder", "Two Timer", "Boog E", "Chains Down", "Apologies", "The Throne Instrumental", "Orbiter", "Rocky Road", "All Stars", "Bring The Pain", "Full On (A)", "Girl You Got It", "Hyperthought", "Down The Stretch Instrumental", "Indie Trousers", "Tennessee Funk", "I Kissed A Lie Instrumental", "Groovin 80's", "Tha Ballers Theme Full", "Tried and Tru Full", "Two Minute Warning (No Vox)", "Finesse (No Vox)", "SB Blaze 90s", "Bronx Playa", "Anthemic Dirt", "Anthemic Happy Pop Alt", "Delta", "Throwdown", "Night Runner", "Our Night", "Cabierro", "Foxes", "Boulevard Heat", "Legendary Hearts", "Discovered", "Galvanize", "Silver Factory", "Four More Rounds", "Bouncing off the Walls", "Solid Gold", "The Fight Is On", "Champion", "Good Trouble Instrumental", "Rise Above Instrumental", "Higher Instrumental", "Comeback", "Power Play", "Fire & Ice", "Rise Up Instrumental"];
+const CBB_SUPPORT_NAMES=["Fire And Ice", "Rock The Block", "Encore Status", "Tick Tockica", "Where It All Began", "Throne Bounce 2 JP", "Overtime Inst JP", "Ruff Tuff Boys", "Kings Queen-JP", "James 001-JP", "Ride With Me", "Major Quest", "Fat Pockets", "Never Nervous", "Real In The Field", "Boom Bap Cadilac", "Bronx 6", "Camp Lo", "Rip Slip", "Alright", "Stay On The Line", "Oh Brother", "Black Out The Sun Solar", "Want It All", "Drums Better Rhyme", "Roll Da Dice", "Shredder", "The Wrecking", "To The Top And Back No Vocal", "To The Top And Back w Vocal", "Got To Keep Fighting Instrumental", "Savages Instrumental", "That's a Homerun Instrumental", "Yes We Can Instrumental", "Foxes", "A Billy", "Dance Pop", "Risk it All", "I'm Not Coming Back Instrumental", "Fine By Me", "Lift You Up", "Go Go Go", "Goin Up", "Put Your Hands Up", "Bring It On", "Court Skills", "Happy Game", "Earn Your Glory", "Get Out The Way - Vocal Lead", "Golden Swagger", "Bronx Block Party", "Crazy Ways", "Hip Five", "Bring The Funk - Vocal Lead", "Hip Hop Hollywood", "Hammer Tucked", "Came Up On A Check Instrumental", "Dreams Don't Work", "We Number One (CHAMP WEEK cut)", "Black Gasoline", "From The Smoke", "Backwoods Brawler", "Better Not Forget", "Let's Go", "Wolves", "Beaumont", "Chapter Two", "Grand Isle", "In Lights", "Instant Replay", "Pedros Garage", "Querelle", "Thieves", "Champion Parade", "Ink Masters", "Build Up", "Can't Hold Me Down - Instrumental", "Fly High, Fly Beautiful", "Get In The Pocket", "Jubilent Meadow", "Lifted - Instrumental", "Stand Up, Stand Out", "Todayz", "Girlz Night Out - Instrumental", "Higher - Instrumental", "Just Roll With Me", "Live My Life", "Me And You", "Party Hard", "Together Again", "Phoenix From The Ashes", "War Machines", "Goons Grinders and Goalies", "Beast Battalion", "4 125", "Des Moines", "Dub Rock", "Tough Get Going - Instrumental", "Time To Take Control - Instrumental", "A Hero Will Rise - Instrumental", "On The Grind", "Heroes Calling", "Run to Glory", "Ultimate Triumph", "Celebration", "Champions Forever", "Show Me The Fire - Instrumental", "Mosh Pit - Instrumental", "Grind", "Hi-Lo", "Driving Euphoria", "Tailspin", "We Trappin - Instrumental", "Spring Starts Tonight - Instrumental", "Lions and Lambs - Instrumental", "Armageddon", "Cali Cruiser", "Guitar Stomp", "Colour of Summer - Instrumental", "Mr. DJ", "Oye", "PG-13", "Today We Shine", "Delta", "Pop Story - Instrumental", "A Rush Of Colours", "New Beginnings", "Saturday Sunset", "Can You Feel It?", "Unstoppable", "Inspirations", "guitars and wine", "flat bed cheerleader", "e.l.", "kid 2", "nel 1", "porch", "without you", "the children of tomorrow", "biscuits and jam", "carolina wind", "get to know ya", "somewhere south", "don’t give up the fight", "far north austin", "I've seen changes", "where it's at", "port arkansas", "southern spirit", "shrimp po boy", "sidekick", "when the man comes down", "won't back down", "falling so hard", "sourthern sensation", "swamp booty", "bails of boogie", "she moves fast", "steel toed attitude", "ten gallon phat", "that's a big 10-4", "country fried disco", "home turf", "a little pick me up", "wiry fella", "Bobby Car Race", "Under the Sunset", "Carolina", "Aloha Everybody", "Maui Baby", "One From the Maui", "Island Sun", "Vini Vini Vana Vana"];
 
 // ── NAME RESOLUTION ────────────────────────────────────────────────────────
 function normKey(s){ return (s||'').toLowerCase().replace(/\s+/g,' ').trim(); }
@@ -1434,7 +1457,11 @@ function fixContractions(s) {
 
 function stripLibraryPrefix(raw) {
   let s=(raw||'').trim();
-  // Pattern 0 (highest priority): "Library Collection CutCode NNN Track Name"
+  // Pattern 0a: bare "NNN Title" or "NNN_Title" (Diamond Sports manifest format)
+  // e.g. "006 Bustin Out The Sunshine (a)" -> "Bustin Out The Sunshine (a)"
+  const m0a=s.match(/^(\d{3})\s+(.+)$/);
+  if(m0a){const c=m0a[2].trim();if(c.length>1)return fixContractions(c);}
+  // Pattern 0b: "Library Collection CutCode NNN Track Name"
   const m0=s.match(/(?:[\w.\-]+)\s+(\d{2,4})\s+(.+)$/);
   if(m0){const c=m0[2].trim();if(c.length>1&&!/^[A-Z]{2,6}\d/.test(c))return fixContractions(c);}
   // Pattern 1: "01 LIBRARY CUT## ## Title"
@@ -1611,15 +1638,18 @@ function renderCSTable() {
     return;
   }
 
-  // Build play count map from allTracks — use normalized keys for fuzzy matching
+  // Build play count map — index both full name and stripped versions for fuzzy matching
   const playCounts = {};
   allTracks.forEach(t => {
     if(t.plays > 0) {
       const k = normKey(t.name);
       playCounts[k] = (playCounts[k]||0) + t.plays;
-      // Also index without common suffixes for matching flexibility
-      const kStripped = k.replace(/\s*-\s*(instrumental|inst|no vox|full mix|vocal lead|a|b)\s*$/i,'').trim();
-      if(kStripped !== k) playCounts[kStripped] = (playCounts[kStripped]||0) + t.plays;
+      // Strip common suffixes so "Lifted - Instrumental" matches sheet entry "Lifted"
+      const kStrip = k.replace(/\s*[-–]?\s*(instrumental|inst|no vox|full mix|vocal lead|\(a\)|\(b\))\s*$/i,'').trim();
+      if(kStrip !== k) playCounts[kStrip] = (playCounts[kStrip]||0) + t.plays;
+      // Also strip leading track numbers from Diamond Sports: "006 Title" -> "title"  
+      const kNum = k.replace(/^\d{3}\s+/,'').trim();
+      if(kNum !== k) playCounts[kNum] = (playCounts[kNum]||0) + t.plays;
     }
   });
 
@@ -1705,7 +1735,14 @@ function exportCueSheetPDF() {
   for(const [shname, rows] of Object.entries(SHEET_DATA[key] || {})) {
     const playCounts = {};
     allTracks.forEach(t => {
-      if(t.plays > 0) playCounts[normKey(t.name)] = (playCounts[normKey(t.name)]||0) + t.plays;
+      if(t.plays > 0) {
+        const k = normKey(t.name);
+        playCounts[k] = (playCounts[k]||0) + t.plays;
+        const ks = k.replace(/\s*[-–]?\s*(instrumental|inst|no vox|full mix|vocal lead|\(a\)|\(b\))\s*$/i,'').trim();
+        if(ks !== k) playCounts[ks] = (playCounts[ks]||0) + t.plays;
+        const kn = k.replace(/^\d{3}\s+/,'').trim();
+        if(kn !== k) playCounts[kn] = (playCounts[kn]||0) + t.plays;
+      }
     });
     let trows = '';
     rows.forEach(row => {
@@ -2187,6 +2224,38 @@ function buildCatTabs(){
 }
 
 // ── RENDER TRACKS ─────────────────────────────────────────────────────────
+
+// ── PACKAGE SECTION ORDER ─────────────────────────────────────────────────
+// Defines the display grouping and order for track cards within each tab.
+// Key: "Sport|Category", Value: ordered array of source/package labels
+const SECTION_ORDER = {
+  'Football|Theme': [
+    '2025 College Football Event Theme',
+    '2025 College Football Studio Theme',
+    '2019 SEC Event Theme',
+    '2019 ACC Championship Theme',
+    '2020 American on ESPN+ Theme',
+  ],
+  'Football|Support': ['2024 CFB Support Package'],
+  'Basketball|Theme': [
+    'CBB Studio & Remote Theme',
+    'SEC Event Theme',
+    'ACC Basketball Theme',
+    '2020 Big 12 on ESPN+ Theme',
+    '2020 American on ESPN+ Theme',
+  ],
+  'Basketball|Support': [
+    'CBB Remote Support',
+    '2020 NCAA Support Package',
+    'SECN General Support',
+    'Maui, Hawaii Support',
+  ],
+  'Olympic Sports|Theme':   ['2020 Olympic Sport Theme','2020 NCAA Regular & Championship Theme'],
+  'Olympic Sports|Support': ['2020 Olympic Support Package'],
+  'Diamond Sports|Theme':   ['2025 Diamond Sport / Olympic Theme'],
+};
+
+
 function renderTracks(){
   const isLocalCat=LOCAL_CATS.includes(activeCat);
   let visible;
@@ -2195,21 +2264,7 @@ function renderTracks(){
   } else {
     visible=allTracks.filter(t=>t.sport===activeSport&&t.category===activeCat);
   }
-  // For non-Diamond support tabs, filter to only tracks that exist in the cue sheet template
-  // Diamond sports support is manually loaded so no filtering applied
-  if(!isLocalCat && activeCat!=='Theme' && activeSport!=='Diamond Sports'){
-    const templateKey = activeSport==='Football'?'football':activeSport==='Basketball'?'cbb':'olympic';
-    const sheetName = 'Support';
-    const sheetRows = SHEET_DATA[templateKey]?.[sheetName]||[];
-    const validNames = new Set(sheetRows.filter(r=>r.r==='data').map(r=>normKey(r.v[0]||'')));
-    if(validNames.size > 0){
-      visible = visible.filter(t => {
-        const k = normKey(t.name);
-        const ks = k.replace(/\s*-\s*(instrumental|inst|no vox|full mix|vocal lead|a|b)\s*$/i,'').trim();
-        return validNames.has(k) || validNames.has(ks);
-      });
-    }
-  }
+  // Support tracks: show all from manifest for selected sport+category
   const catLbl=activeCat==='Support-Baseball'?'Baseball Support':activeCat==='Support-Softball'?'Softball Support':activeCat;
   document.getElementById('section-label-text').textContent=`${activeSport} — ${catLbl} (${visible.length})`;
 
@@ -2263,12 +2318,48 @@ function renderTracks(){
     return;
   }
 
-  visible.forEach(t=>{
-    const idx=allTracks.indexOf(t);
-    const isPlaying=currentIdx===idx;
-    const isAud=isPlaying&&appMode==='aud';
-    const isFav=favorites.has(idx);
-    const btn=document.createElement('button');
+  // ── Group by source package if SECTION_ORDER is defined ──────────────────
+  const sectionKey = activeSport + '|' + activeCat;
+  const sectionDef = (!isLocalCat && SECTION_ORDER[sectionKey]) ? SECTION_ORDER[sectionKey] : null;
+
+  if(sectionDef && visible.some(t => t.source)) {
+    // Group tracks by source, preserving section order
+    const grouped = new Map();
+    sectionDef.forEach(s => grouped.set(s, []));
+    grouped.set('__other__', []);
+    visible.forEach(t => {
+      const src = (t.source||'').trim();
+      if(src && grouped.has(src)) grouped.get(src).push(t);
+      else grouped.get('__other__').push(t);
+    });
+
+    grouped.forEach((tracks, sectionLabel) => {
+      if(!tracks.length) return;
+      // Section divider
+      const divider = document.createElement('div');
+      divider.className = 'track-section-header';
+      const sectionName = sectionLabel === '__other__' ? 'Other' : sectionLabel;
+      divider.innerHTML = `<span class="track-section-label">${esc(sectionName)}</span><span class="track-section-count">${tracks.length}</span>`;
+      trackGrid.appendChild(divider);
+      // Render cards for this section
+      tracks.forEach(t => renderTrackCard(t, trackGrid));
+    });
+  } else {
+    // No grouping — flat render
+    visible.forEach(t => renderTrackCard(t, trackGrid));
+  }
+
+  // Update last-played timestamps every 30 seconds
+  clearInterval(lastPlayedInterval);
+  lastPlayedInterval = setInterval(()=>updateLastPlayedLabels(visible), 30000);
+}
+
+function renderTrackCard(t, container) {
+  const idx = allTracks.indexOf(t);
+  const isPlaying=currentIdx===idx;
+  const isAud=isPlaying&&appMode==='aud';
+  const isFav=favorites.has(idx);
+  const btn=document.createElement('button');
     btn.className='track-btn'+(isPlaying?(isAud?' playing-aud':' playing'):(t.beenPlayed||t.plays>0)?' been-played':'');
     btn.dataset.idx=idx;
     btn.draggable=true;
@@ -2341,12 +2432,7 @@ function renderTracks(){
     });
 
     t.element=btn; t.badgeEl=btn.querySelector(`#badge-${idx}`);
-    trackGrid.appendChild(btn);
-  });
-
-  // Update last-played timestamps every 30 seconds
-  clearInterval(lastPlayedInterval);
-  lastPlayedInterval=setInterval(()=>updateLastPlayedLabels(visible),30000);
+  container.appendChild(btn);
 }
 
 // ── PLAYBACK ──────────────────────────────────────────────────────────────
